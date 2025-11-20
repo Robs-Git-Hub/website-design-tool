@@ -1,0 +1,309 @@
+# ======================================================================
+# LAYER 1 DIMENSIONS — INSTANCES (v0.1)
+# ======================================================================
+# Canonical definition of the six core axes:
+#   1. tone
+#   2. lightness
+#   3. color_strategy
+#   4. geometry_depth (compound: shape + depth)
+#   5. density
+#   6. decoration
+#
+# IMPORTANT:
+#   - Do NOT add new dimensions casually. The allowed list is defined in
+#     `layer1_dimension_registry.toml` and should only be changed via a
+#     deliberate versioned update.
+# ======================================================================
+
+[meta]
+id = "layer1_dimensions_instances"
+version = "0.1.0"
+description = "Canonical instance definitions for Layer-1 style axes."
+
+# ---------------------------------------------------------------------------
+# DIMENSION 1: TONE / FORMALITY
+# ---------------------------------------------------------------------------
+
+[[dimensions]]
+id = "tone"
+label = "Tone and Formality"
+type = "ordinal"
+description = "Overall emotional tone and formality of the interface."
+scale_explanation = "Runs from playful → neutral → serious → premium. Captures how 'grown up' or formal the UI feels."
+
+  [[dimensions.values]]
+  id = "playful"
+  label = "Playful"
+  position = -2
+  summary = "Light-hearted, fun, often uses bright colors or charming visual details."
+  example_uses = ["kids apps", "consumer social", "creative communities"]
+
+  [[dimensions.values]]
+  id = "friendly"
+  label = "Friendly"
+  position = -1
+  summary = "Approachable and warm without feeling childish."
+  example_uses = ["personal productivity", "wellness apps", "SMB SaaS"]
+
+  [[dimensions.values]]
+  id = "neutral"
+  label = "Neutral"
+  position = 0
+  summary = "Professional and balanced; does not lean strongly playful or formal."
+  example_uses = ["generic SaaS dashboards", "admin tools", "internal tools"]
+
+  [[dimensions.values]]
+  id = "serious"
+  label = "Serious"
+  position = 1
+  summary = "Reserved and focused; trust and clarity prioritized over charm."
+  example_uses = ["analytics tools", "research platforms", "B2B products"]
+
+  [[dimensions.values]]
+  id = "premium"
+  label = "Premium / Authoritative"
+  position = 2
+  summary = "High-status, polished, sometimes luxurious; strong sense of authority."
+  example_uses = ["finance", "consulting", "flagship corporate sites"]
+
+
+# ---------------------------------------------------------------------------
+# DIMENSION 2: LIGHTNESS
+# ---------------------------------------------------------------------------
+
+[[dimensions]]
+id = "lightness"
+label = "Light vs Dark"
+type = "categorical"
+description = "Global brightness of the interface and its dominant background."
+
+  [[dimensions.values]]
+  id = "light"
+  label = "Light"
+  summary = "Light backgrounds with dark text; traditional, high readability."
+  example_uses = ["blogs", "documentation", "default marketing sites"]
+
+  [[dimensions.values]]
+  id = "dark"
+  label = "Dark"
+  summary = "Dark backgrounds with light text; cinematic, modern, often 'techy'."
+  example_uses = ["developer tools", "AI dashboards", "media apps"]
+
+  [[dimensions.values]]
+  id = "hybrid"
+  label = "Hybrid"
+  summary = "Mix of light and dark zones (e.g. dark nav + light content)."
+  example_uses = ["SaaS dashboards", "complex apps with distinct regions"]
+
+  [[dimensions.values]]
+  id = "adaptive"
+  label = "Adaptive / System"
+  summary = "Explicitly follows system or user theme choice."
+  example_uses = ["OS-integrated apps", "modern productivity tools"]
+
+
+# ---------------------------------------------------------------------------
+# DIMENSION 3: COLOR STRATEGY
+# ---------------------------------------------------------------------------
+
+[[dimensions]]
+id = "color_strategy"
+label = "Color Strategy"
+type = "categorical"
+description = "How color is used in the interface: scope, range, and intensity."
+
+  [[dimensions.values]]
+  id = "monochrome"
+  label = "Monochrome"
+  summary = "Single hue (plus neutrals) with minor variations in lightness/saturation."
+  example_uses = ["minimal editorial", "serious dashboards"]
+
+  [[dimensions.values]]
+  id = "neutral_plus_accent"
+  label = "Neutral + Accent"
+  summary = "Mostly grays / off-whites plus one or two accent colors."
+  example_uses = ["SaaS apps", "productivity tools", "Notion-like designs"]
+
+  [[dimensions.values]]
+  id = "duotone"
+  label = "Duotone"
+  summary = "Two main hues used intentionally as a core identity."
+  example_uses = ["brand-driven sites", "simple marketing pages"]
+
+  [[dimensions.values]]
+  id = "brand_multicolor"
+  label = "Brand Multicolor"
+  summary = "Three or more brand colors used regularly across the UI."
+  example_uses = ["consumer brands", "edtech", "campaign sites"]
+
+  [[dimensions.values]]
+  id = "gradient_heavy"
+  label = "Gradient-Heavy"
+  summary = "Gradients used as a primary visual device (backgrounds, fills)."
+  example_uses = ["AI tools", "landing pages", "futuristic-feel startups"]
+
+  [[dimensions.values]]
+  id = "high_chroma"
+  label = "High-Chroma / Saturated"
+  summary = "Bright, intense colors dominate; bold and attention-grabbing."
+  example_uses = ["youth brands", "entertainment", "social media"]
+
+  [[dimensions.values]]
+  id = "low_saturation"
+  label = "Low-Saturation / Muted"
+  summary = "Soft, muted colors; gentle and sophisticated."
+  example_uses = ["wellness", "hygge-inspired", "minimal premium sites"]
+
+
+# ---------------------------------------------------------------------------
+# DIMENSION 4: GEOMETRY & DEPTH (COMPOUND)
+# ---------------------------------------------------------------------------
+
+[[dimensions]]
+id = "geometry_depth"
+label = "Geometry and Depth"
+type = "compound"
+description = "Shape language (edges, curvature) and perceived depth (flat vs 3D)."
+
+  # Subdimension: SHAPE
+  [[dimensions.values]]
+  id = "sharp"
+  label = "Sharp"
+  subdimension = "shape"
+  summary = "Straight lines and right angles; minimal corner rounding."
+  example_uses = ["brutalist interfaces", "enterprise dashboards"]
+
+  [[dimensions.values]]
+  id = "slightly_rounded"
+  label = "Slightly Rounded"
+  subdimension = "shape"
+  summary = "Small corner radii; modern but not bubbly."
+  example_uses = ["most modern SaaS", "system-style UIs"]
+
+  [[dimensions.values]]
+  id = "rounded"
+  label = "Rounded"
+  subdimension = "shape"
+  summary = "Generous corner radii; softer and more approachable."
+  example_uses = ["consumer apps", "mobile-first UIs"]
+
+  [[dimensions.values]]
+  id = "organic"
+  label = "Organic / Irregular"
+  subdimension = "shape"
+  summary = "Blobs, curves, asymmetric shapes; less grid-bound."
+  example_uses = ["creative portfolios", "playful landing pages"]
+
+  # Subdimension: DEPTH
+  [[dimensions.values]]
+  id = "flat"
+  label = "Flat"
+  subdimension = "depth"
+  summary = "No obvious shadows; 2D surfaces; emphasis on color and typography."
+  example_uses = ["minimal UIs", "mobile-first flat apps"]
+
+  [[dimensions.values]]
+  id = "soft_shadow"
+  label = "Soft Shadow / Layered"
+  subdimension = "depth"
+  summary = "Subtle shadows and elevation to separate layers."
+  example_uses = ["material-like UIs", "card-based dashboards"]
+
+  [[dimensions.values]]
+  id = "neumorphic"
+  label = "Neumorphic / Soft Extrusion"
+  subdimension = "depth"
+  summary = "Surfaces appear gently raised or inset within the same material."
+  example_uses = ["experimental control panels", "concept UIs"]
+
+  [[dimensions.values]]
+  id = "glass"
+  label = "Glass / Translucent"
+  subdimension = "depth"
+  summary = "Frosted glass panels with blur and background bleed-through."
+  example_uses = ["AI tools", "futuristic dashboards", "hero sections"]
+
+  [[dimensions.values]]
+  id = "bold_3d"
+  label = "Bold 3D / Skeuomorphic"
+  subdimension = "depth"
+  summary = "Strong 3D forms, textures, or lighting cues."
+  example_uses = ["playful UIs", "themed experiences", "retro interfaces"]
+
+
+# ---------------------------------------------------------------------------
+# DIMENSION 5: DENSITY / COMPLEXITY
+# ---------------------------------------------------------------------------
+
+[[dimensions]]
+id = "density"
+label = "Density and Visual Complexity"
+type = "ordinal"
+description = "How much information and visual detail appears per screen."
+
+  [[dimensions.values]]
+  id = "airy"
+  label = "Airy"
+  position = -1
+  summary = "Lots of whitespace, large margins, low information per screen."
+  example_uses = ["marketing sites", "luxury brands", "onboarding flows"]
+
+  [[dimensions.values]]
+  id = "balanced"
+  label = "Balanced"
+  position = 0
+  summary = "Moderate density; enough content but with clear breathing room."
+  example_uses = ["most SaaS dashboards", "knowledge tools"]
+
+  [[dimensions.values]]
+  id = "dense"
+  label = "Dense"
+  position = 1
+  summary = "Many elements per screen, but still organized and legible."
+  example_uses = ["trading platforms", "analytics tools", "admin consoles"]
+
+  [[dimensions.values]]
+  id = "maximal"
+  label = "Maximal / Busy"
+  position = 2
+  summary = "Intentional visual overload; lots of content, decoration, or both."
+  example_uses = ["experimental sites", "art / music scenes", "some neobrutalist work"]
+
+
+# ---------------------------------------------------------------------------
+# DIMENSION 6: DECORATION / EXPRESSIVENESS
+# ---------------------------------------------------------------------------
+
+[[dimensions]]
+id = "decoration"
+label = "Decoration and Expressiveness"
+type = "ordinal"
+description = "How visually expressive or decorated the interface is, beyond what is strictly necessary for function."
+
+  [[dimensions.values]]
+  id = "plain"
+  label = "Plain / Utilitarian"
+  position = -1
+  summary = "Little to no decorative elements; minimal color and ornament."
+  example_uses = ["internal tools", "proto-UIs", "early-stage admin dashboards"]
+
+  [[dimensions.values]]
+  id = "subtle"
+  label = "Subtle Detail"
+  position = 0
+  summary = "Small accents (icons, gentle illustrations, minor texture) that do not dominate."
+  example_uses = ["mature SaaS", "knowledge tools", "serious consumer apps"]
+
+  [[dimensions.values]]
+  id = "decorative"
+  label = "Decorative"
+  position = 1
+  summary = "Visible illustrative elements, patterns, or motion used as part of the brand expression."
+  example_uses = ["consumer brands", "creative tools", "events/campaigns"]
+
+  [[dimensions.values]]
+  id = "experimental"
+  label = "Experimental / Expressive"
+  position = 2
+  summary = "Strong stylistic choices, unconventional layouts, or heavy visual effects."
+  example_uses = ["portfolio sites", "art projects", "niche startups"]

@@ -1,0 +1,49 @@
+# =============================================================================
+# LAYER 2 — STYLE FAMILIES SCHEMA (v1)
+# =============================================================================
+
+[meta]
+id = "layer2_website_style_family_schema"
+version = "1.0.0"
+description = "Schema definition for Layer-2 UI/graphic style families."
+
+# ---------------------------------------------------------------------------
+# STYLE SCHEMA
+# ---------------------------------------------------------------------------
+# Each style entry should follow this shape.
+# This is a *descriptive* schema (not enforced by TOML, but for humans/agents).
+# ---------------------------------------------------------------------------
+
+[style_schema]
+id = "string"                  # machine id, e.g. "glassmorphism"
+display_name = "string"        # human label, e.g. "Glassmorphism"
+
+# domain: where this style primarily lives
+#   - "ui"                    → primarily an interface / product UI style
+#   - "graphic_but_used_in_ui"→ graphic style applied into UI/marketing/web
+domain = "ui | graphic_but_used_in_ui"
+
+evidence_count = 0             # number of distinct credible sources used
+notes = "string"               # freeform notes / caveats
+
+# Short textual definitions (1–3)
+definitions = ["string"]
+
+# Bullet-like core characteristics of the style
+core_characteristics = ["string"]
+
+# Example sites/products that clearly express this style
+example_references = ["string"]  # e.g. URLs or named references
+
+# Related terms / synonyms (for search + mapping)
+related_terms = ["string"]
+
+# ---------------------------------------------------------------------------
+# Source schema — used inside each style.sources[]
+# ---------------------------------------------------------------------------
+
+[style_schema.source]
+title = "string"
+publication = "string"
+year = 0
+url = "string"

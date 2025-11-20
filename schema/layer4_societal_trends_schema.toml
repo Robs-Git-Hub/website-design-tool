@@ -1,0 +1,130 @@
+# ======================================================================
+# LAYER 4: SOCIETAL / CULTURAL TRENDS SCHEMA (v0.1.1)
+# ======================================================================
+
+[meta]
+id = "layer4_societal_trends_schema"
+version = "0.1.1"
+description = "Schema and taxonomy for Layer-4 societal/cultural trends and archetypes."
+
+# ----------------------------------------------------------------------
+# STATUS — lifecycle of a trend entry
+# ----------------------------------------------------------------------
+
+[status_values]
+core = "Trend is well defined, visually grounded, and safe to use in production."
+candidate = "Trend is under review or newly added; may change or be removed."
+deprecated = "Trend is no longer recommended; kept for backwards compatibility."
+
+# ----------------------------------------------------------------------
+# TREND KINDS — primary categories for Layer-4 entities
+# Each societal_trend must have exactly ONE primary `kind`.
+# ----------------------------------------------------------------------
+
+[[trend_kinds]]
+id = "lifestyle_trend"
+label = "Lifestyle Trend"
+description = "Cultural lifestyle themes that shape visual cues indirectly (e.g. Hygge, Lagom, Minimalist living)."
+examples = ["hygge_2016", "lagom_2017", "minimalist_living"]
+
+[[trend_kinds]]
+id = "subculture"
+label = "Subculture / Aesthetic Community"
+description = "Named aesthetics and subcultures with recognizable visuals and values (e.g. Cottagecore, Dark Academia, Vaporwave)."
+examples = ["cottagecore", "dark_academia", "vaporwave"]
+
+[[trend_kinds]]
+id = "industry_archetype"
+label = "Industry Archetype"
+description = "Typical visual + tonal patterns of particular sectors or brand types (e.g. SaaS startup, NGO policy think tank, D2C wellness brand)."
+examples = ["saas_startup_2018", "ngo_policy_portal", "d2c_wellness"]
+
+[[trend_kinds]]
+id = "era_aesthetic"
+label = "Era Aesthetic"
+description = "Historically grounded aesthetics with widely known visual defaults (e.g. 1920s Jazz Age, 1980s arcade, 1990s Web 1.0)."
+examples = ["jazz_age_1920s", "arcade_1980s", "web1_1990s"]
+
+[[trend_kinds]]
+id = "platform_scene"
+label = "Platform-Specific Scene"
+description = "Typical look-and-feel of content niches within platforms (e.g. TikTok intellectual, LinkedIn corporate influencer, YouTube explainer)."
+examples = ["tiktok_intellectual", "linkedin_corporate", "youtube_explainer"]
+
+[[trend_kinds]]
+id = "movement_or_value"
+label = "Movement / Value Orientation"
+description = "Value-driven movements that influence aesthetics (e.g. Sustainability-first, Privacy-first, Open-source hacker, Wellness/self-care)."
+examples = ["sustainability_first", "privacy_first", "open_source_hacker"]
+
+
+# ----------------------------------------------------------------------
+# TREND SCHEMA — expected fields for each Layer-4 societal trend entry
+# ----------------------------------------------------------------------
+
+[societal_trend_schema]
+id = "string"
+label = "string"
+kind = "string"
+status = "string"
+
+summary = "string"
+peak_years = [0, 0]
+geography = ["string"]
+domains = ["string"]
+sources = ["string"]
+
+example_brands = ["string"]
+example_sites = ["string"]
+
+# How non-designers might describe this vibe in natural language.
+# Example: ["cozy Scandinavian", "warm minimalist", "bookish backdrop"]
+layman_phrases = ["string"]
+
+# Optional freeform notes.
+notes = "string"
+
+# ----------------------------------------------------------------------
+# KEYWORDS — prompt & search vocab (optional, evolving)
+# ----------------------------------------------------------------------
+
+# Curated phrases we want to appear *in prompts* when this trend is invoked.
+# Example for `dark_academia`:
+#   ["dark academia aesthetic", "moody candlelit library", "classical gothic study"]
+prompt_keywords = ["string"]
+
+# Extra phrases used for discovery/search: may include platform tags, hashtags,
+# language variants, etc.
+# Example:
+#   ["#darkacademia", "academic goth vibe", "study tumblr aesthetic"]
+search_keywords = ["string"]
+
+# ----------------------------------------------------------------------
+# AXES BIAS — mapping this trend to Layer-1 axes (unchanged)
+# ----------------------------------------------------------------------
+
+[societal_trend_schema.axes_bias]
+tone = "axis_bias_value"
+lightness = "axis_bias_value"
+color_strategy = "axis_bias_value"
+geometry_depth_shape = "axis_bias_value"
+geometry_depth_depth = "axis_bias_value"
+density = "axis_bias_value"
+decoration = "axis_bias_value"
+
+# ----------------------------------------------------------------------
+# STYLE & LEXICON AFFINITY (unchanged)
+# ----------------------------------------------------------------------
+
+[societal_trend_schema.style_affinity]
+_style_id = "float"
+
+[societal_trend_schema.lexicon_affinity]
+_layer3_term_id = "float"
+
+[societal_trend_schema.tags]
+evergreen = "boolean"
+retro = "boolean"
+niche = "boolean"
+professional = "boolean"
+youth_oriented = "boolean"

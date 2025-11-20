@@ -1,0 +1,99 @@
+# ======================================================================
+# LAYER 1 DIMENSIONS — SCHEMA (v0.1)
+# ======================================================================
+# Purpose:
+#   - Define the *structure* of Layer-1 style axes ("dimensions").
+#   - Keep this schema stable over time; instances are defined elsewhere.
+#   - Enforce a clear pattern for:
+#       - dimension objects
+#       - value objects (per dimension)
+# ======================================================================
+
+[meta]
+id = "layer1_dimensions_schema"
+version = "0.1.0"
+description = "Schema for Layer-1 aesthetic dimensions (axes) used by higher layers."
+notes = "Schema describes shape only; the canonical list of dimensions lives in the registry + instances."
+
+# ----------------------------------------------------------------------
+# ENUM-LIKE FIELDS (for tooling / validation)
+# ----------------------------------------------------------------------
+
+[enums]
+# What kind of dimension this is:
+#   - ordinal: values have an inherent order (e.g. -2..+2)
+#   - categorical: unordered set of buckets
+#   - compound: a dimension that internally has multiple sub-axes
+dimension_type = ["ordinal", "categorical", "compound"]
+
+# For compound dimensions, `values[*].subdimension` should be one of these
+compound_subdimension_keys = ["shape", "depth"]
+
+# ----------------------------------------------------------------------
+# DIMENSION SCHEMA
+# ----------------------------------------------------------------------
+# This describes the fields each dimension object must/should have.
+# In instances, dimensions will appear as [[dimensions]] tables.
+# ----------------------------------------------------------------------
+
+[dimension_schema]
+# Machine-friendly identifier (slug-like).
+# Examples: "tone", "lightness", "color_strategy"
+id = "string"
+
+# Human-readable name for the dimension.
+# Examples: "Tone and Formality"
+label = "string"
+
+# One-line or short-paragraph description of what this dimension measures.
+description = "string"
+
+# One of enums.dimension_type:
+#   - "ordinal"
+#   - "categorical"
+#   - "compound"
+type = "string"
+
+# Optional: additional explanation of how to interpret the scale.
+# Examples: "Runs from playful → neutral → serious → premium."
+scale_explanation = "string"
+
+# Optional freeform notes for maintainers.
+notes = "string"
+
+# ----------------------------------------------------------------------
+# VALUE SCHEMA
+# ----------------------------------------------------------------------
+# Each dimension has one or more "values" (the categories/positions along it).
+# In instances, these appear as nested [[dimensions.values]] tables.
+# ----------------------------------------------------------------------
+
+[value_schema]
+# Machine id for the value (per dimension).
+# Examples: "playful", "serious", "light", "dark"
+id = "string"
+
+# Human-readable label for the value.
+# Examples: "Playful", "Serious"
+label = "string"
+
+# Short summary of what this value means in practice.
+summary = "string"
+
+# For ordinal dimensions:
+#   - integer position (e.g. -2..+2)
+#   - 0 is the neutral/default centre where appropriate
+# For non-ordinal dimensions, this is optional / absent.
+position = "integer"
+
+# Optional hint for typical usage contexts.
+# (These are descriptive, not normative.)
+example_uses = ["string"]
+
+# For compound dimensions only:
+#   - identifies which sub-axis this value belongs to
+#   - should be one of enums.compound_subdimension_keys ("shape" / "depth")
+subdimension = "string"
+
+# Optional: notes / caveats about this specific value.
+notes = "string"
