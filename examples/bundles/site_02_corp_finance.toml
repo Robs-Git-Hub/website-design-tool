@@ -1,0 +1,70 @@
+# ======================================================================
+# WAS BUNDLE: APEX FINANCIAL (Sample)
+# ======================================================================
+# Scenario: A high-trust corporate fintech platform for enterprise banking.
+# Keywords: Trust, Stability, Precision, Swiss Style.
+# ======================================================================
+
+[meta]
+bundle_id = "bundle_apex_finance_v1"
+created_at = "2025-05-20"
+intent_summary = "Institutional fintech dashboard. Needs to convey absolute stability and precision. High contrast, sharp edges, no distractions."
+
+# ----------------------------------------------------------------------
+# LAYER 1: THE PHYSICS
+# ----------------------------------------------------------------------
+
+[layer1_axes]
+tone = "serious"               # Professional, authoritative
+lightness = "light"            # High readability, traditional paper metaphor
+color_strategy = "monochrome"  # Mostly greys/whites + 1 specific brand blue
+density = "dense"              # Data-heavy interface for power users
+decoration = "plain"           # Zero ornament, purely utilitarian
+
+[layer1_axes.geometry_depth]
+shape = "sharp"                # Rectangular, precise, 0px or 2px radius
+depth = "flat"                 # No shadows, boundaries defined by borders/lines
+
+# ----------------------------------------------------------------------
+# LAYER 2: STYLE INFLUENCES
+# ----------------------------------------------------------------------
+
+[layer2_styles]
+swiss_style = 0.9              # The grid is king. Typography is structure.
+minimalism = 0.5               # Only essential data.
+flat_design = 0.4              # No bevels or gradients.
+
+# ----------------------------------------------------------------------
+# LAYER 3: LEXICON
+# ----------------------------------------------------------------------
+
+[layer3_lexicon]
+# Layout & Surface
+layout_pattern = "sidebar_layout"
+background_texture = "grain_texture" # Very subtle/invisible, paper-like
+border_radius = "border_radius_sharp"
+
+# Typography & UI
+typography_style = "geometric_sans_type" # Helvetica/Inter style
+button_style = "filled_button"         # High contrast (Dark Blue on White)
+shadow_style = "none"
+
+# Motion
+motion_style = "none"                  # Instant state changes, no animation
+
+# ----------------------------------------------------------------------
+# GENERATED PROMPTS
+# ----------------------------------------------------------------------
+
+[agent_instructions]
+image_gen_prompt = "Enterprise banking dashboard, Swiss Style. Stark white background, sharp black borders (1px). Dense data grids, Helvetica typography. Navy blue primary accent. No shadows, no gradients, flat design. Mathematical precision."
+
+css_vars_inference = """
+--bg-app: #ffffff
+--bg-panel: #f8f9fa
+--text-primary: #111827
+--border-color: #e5e7eb
+--border-radius-main: 0px
+--accent-primary: #0f172a (Navy)
+--font-family: 'Inter', 'Helvetica Neue', sans-serif
+--shadow-card: none

@@ -1,0 +1,25 @@
+# ======================================================================
+# SOURCES REGISTRY SCHEMA (v0.1)
+# ======================================================================
+# Purpose:
+#   - Define the structure for the central bibliography/citation file.
+#   - Ensure all evidence used in L2/L3/L4 has a traceable origin.
+# ======================================================================
+
+[meta]
+id = "sources_registry_schema"
+version = "0.1.0"
+description = "Schema for the central sources registry."
+
+[source_schema]
+id = "string"              # Unique slug (e.g. "nng_dark_mode_2020")
+title = "string"           # Article or book title
+author = "string"          # Author or Organization name
+publication = "string"     # Publisher (e.g. "Smashing Magazine")
+year = "integer"           # Year of publication
+url = "string"             # Direct link
+type = "string"            # enum: article, book, documentation, video, gallery
+
+[source_schema.tags]
+credibility = "string"     # high, medium, low (manual assessment)
+domain = "string"          # ui, graphic_design, art_history, psychology

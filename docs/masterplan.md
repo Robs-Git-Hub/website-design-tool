@@ -1,8 +1,9 @@
+
 # Website Aesthetic Schema (WAS) — Masterplan
 
-**Version:** 0.1  
+**Version:** 0.2  
 **Authors:** Robert + AI collaborators  
-**Status:** Draft but active  
+**Status:** Active (Entering Phase 02)  
 
 ---
 
@@ -35,103 +36,62 @@ This supports a future where:
 
 # 2. Architecture Overview — The Four-Layer System
 
-Layer 1 — Fundamental axes (universal aesthetic dimensions)
-Layer 2 — Canonical styles (evidence-backed UI/graphic design styles)
-Layer 3 — Lexicon (fine-grained UI descriptors mapped to styles)
-Layer 4 — Societal/Cultural/Industry trends (Hygge, SaaS 2018, Cottagecore, etc.)
+| Layer | Name | Description |
+| :--- | :--- | :--- |
+| **L1** | **Axes** | Universal dimensions (Tone, Density, Geometry). The "Physics." |
+| **L2** | **Styles** | Canonical design schools (Glassmorphism, Swiss Style). The "Canon." |
+| **L3** | **Lexicon** | Granular UI descriptors (Mesh gradient, Pill button). The "Atoms." |
+| **L4** | **Trends** | Societal/Cultural vibes (Dark Academia, SaaS 2024). The "Context." |
 
+### Dependency Graph
 
-### How they relate:
-- **Higher layers constrain lower layers.**
-- **Lower layers enrich higher layers with implementation detail.**
-- Any user preference can be represented as a combination of L1 → L4 elements.
-- Any image generator or coding assistant can consume these same elements in JSON.
-
----
-
-# 3. Planned Deliverables
-
-By completion of all phases, WAS will include:
-
-### **Core Assets**
-- Schemas for Layers 1–4  
-- Curated instance datasets for Layers 1–4  
-- A conversion workflow:
-  - TOML → JSON (for AI prompts)
-  - Optional JSON → TOML (for ingestion)
-
-### **Aesthetic Bundles**
-Reproducible “snapshots” of design settings that AI agents can use:
-
-- image-bundle.json  
-- ux-bundle.json  
-- code-bundle.json  
-
-Bundles act as:
-- Design presets  
-- Prompt templates  
-- Reusable styles across projects  
-
-### **Tooling**
-- Basic validator scripts (LLM or code)  
-- A moodboard generator (image + web search)  
-- Templates for Designer Agent / Research Agent / Coder Agent  
+```mermaid
+graph TD
+    L4[Layer 4: Trends] -->|Defined by| L2[Layer 2: Styles]
+    L4 -->|Uses| L3[Layer 3: Lexicon]
+    L2 -->|Composed of| L3
+    L3 -->|Maps to| L1[Layer 1: Axes]
+    L2 -->|Biases| L1
+    
+    Bundle[Site Bundle JSON] -->|Locks in| L1
+    Bundle -->|References| L2
+    Bundle -->|Selects| L3
+    
+    Bundle -->|Input for| ImageAgent
+    Bundle -->|Input for| CodeAgent
+```
 
 ---
 
-# 4. Phased Roadmap
+# 3. Phased Roadmap
 
-### **Phase 01 — Foundations (Current Phase)**
-Goal: Establish repository structure, schemas, instance files, and planning docs.  
-Outputs:
-- Schemas for L1–L4  
-- Initial instance datasets  
-- Documentation structure (masterplan, phases, tasks)  
-- Repo scaffold complete  
+### ✅ Phase 01 — Foundations (Complete)
+*   **Goal:** Establish repository structure, schemas, registries, and MVP seed data.
+*   **Outputs:**
+    *   Schemas for L1–L4.
+    *   Initial instance datasets (MVP scope).
+    *   Documentation structure (Masterplan, User Stories, Vision).
+    *   Sample Bundles.
 
-### **Phase 02 — Expansion & Curation**
-Goal: Deepen datasets for L2–L4 using research agents; ensure quality, evidence, MECE structure.  
-Outputs:
-- Validated style list (L2)  
-- Full lexicon (L3)  
-- Robust trend dataset (L4)  
-- Cross-layer mapping integrity checks  
+### 🚧 Phase 02 — Tooling & MVP Workflows (Current)
+*   **Goal:** Build the engine to make the data usable. (Prioritized over data expansion).
+*   **Outputs:**
+    *   `toml_to_json` utilities.
+    *   Bundle Validators.
+    *   Agent System Prompts (Orchestrator, Designer, Coder).
+    *   End-to-End "Hello World" demonstration.
 
-### **Phase 03 — Bundle Design & Multi-Agent Framework**
-Goal: Define WAS Bundle format and create prompt templates for:
-- Image generation  
-- Coding assistants  
-- Web search/moodboard agents  
-
-Outputs:
-- bundle_schema.json  
-- three family templates (image/ux/code)  
-- Mapping rules from L1–L4 → bundle fields  
-
-### **Phase 04 — Tooling & Playground**
-Goal: Create interactive workflows:
-- Generate mood boards  
-- Retrieve real web examples  
-- Build aesthetic-selector flows  
-- Test bundles live  
-
-Outputs:
-- Example scripts / agents  
-- “Aesthetic Picker” markdown flow  
-- Demo repo / simple web UI  
-
-### **Phase 05 — Finalisation & Externalisation**
-Goal: Clean, document, and package the WAS for long-term use.  
-Outputs:
-- Documentation site or GitHub pages  
-- Starter bundles  
-- Agent instructions  
-- Tutorial  
-- Version 1.0 release  
+### 🔮 Phase 03 — Dataset Expansion (Post-MVP)
+*   **Goal:** Deep curation of the knowledge graph once the tooling is proven.
+*   **Outputs:**
+    *   Expand Styles (L2) from 15 to 50+.
+    *   Expand Lexicon (L3) from 60 to 200+.
+    *   Import full Research PDF dataset into L4.
+    *   Advanced inheritance logic (Trend -> Style -> Axis).
 
 ---
 
-# 5. Success Criteria
+# 4. Success Criteria
 
 - Humans, designers, coders, and AIs can all understand and use the taxonomy.  
 - Aesthetic bundles produce predictable, reproducible design outputs.  
@@ -140,11 +100,11 @@ Outputs:
 
 ---
 
-# 6. Guiding Principles
+# 5. Guiding Principles
 
 - **Schemas at every layer** for consistency.  
 - **TOML for authoring**, **JSON for runtime agents**.  
 - **Evidence-driven**, not speculative.  
 - **MECE**, clean, structured terminology.  
 - **Multi-agent first**  
-- **Avoid design inertia** — preserve exploration and fresh starts.  
+- **Avoid design inertia** — preserve exploration and fresh starts.

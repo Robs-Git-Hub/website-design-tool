@@ -1,0 +1,1002 @@
+# =============================================================================
+# LAYER 2 — WEBSITE STYLE FAMILIES INSTANCES (v1)
+# =============================================================================
+# NOTE: This file is generated from the provided dataset.
+# It maps to `schema/layer2_web_style_family_schema.toml`.
+# =============================================================================
+
+[meta]
+id = "layer2_website_style_family_instances"
+version = "0.1.0"
+description = "Evidence-backed UI and graphic style families used in web and product design."
+
+# ---------------------------------------------------------------------------
+# GLASSMORPHISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "glassmorphism"
+display_name = "Glassmorphism"
+domain = "ui"
+evidence_count = 3
+notes = "Popularized by Apple’s and Microsoft’s UIs, glassmorphism adds sleek hierarchy but must be used cautiously for accessibility."
+
+  [[styles.sources]]
+  title = "UI Design — How many ‘ism’s do you know? (Glassmorphism)"
+  publication = "Medium"
+  year = 2022
+  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
+
+  [[styles.sources]]
+  title = "8 exciting visual trends you should know about in 2024"
+  publication = "Creative Bloq"
+  year = 2024
+  url = "https://www.creativebloq.com/news/2024-visual-trends"
+
+  [[styles.sources]]
+  title = "Glassmorphism: Definition and Best Practices"
+  publication = "Nielsen Norman Group"
+  year = 2024
+  url = "https://www.nngroup.com/articles/glassmorphism/"
+
+styles.definitions = [
+  "A contemporary UI trend where interface elements are translucent with blur effects, creating a frosted-glass appearance. These glass-like components allow layered designs by letting background colors and shapes show through softly."
+]
+
+styles.core_characteristics = [
+  "Translucent panels with blurred backgrounds mimic frosted glass",
+  "Layered interface elements to create depth while background content remains visible but indistinct",
+  "Often paired with vibrant gradients or images behind the glass elements for contrast",
+  "Use of subtle shadows or borders to enhance the glass-like separation and realism"
+]
+
+styles.example_references = [
+  "https://espanium.com",
+  "https://link-kit.com"
+]
+
+styles.related_terms = [
+  "frosted glass UI",
+  "blurring translucency",
+  "Acrylic (Fluent Design)"
+]
+
+# ---------------------------------------------------------------------------
+# MINIMALISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "minimalism"
+display_name = "Minimalism"
+domain = "ui" # Inferred based on context
+evidence_count = 2
+notes = "Minimalism has been a dominant modern style, seen as conveying modernity and usability. However, overuse can feel sparse or “too bare” if not balanced."
+
+  [[styles.sources]]
+  title = "UI Design — How many ‘ism’s do you know? (Minimalism)"
+  publication = "Medium"
+  year = 2022
+  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
+
+  [[styles.sources]]
+  title = "10 graphic design styles to help you craft your own (Minimalism)"
+  publication = "Webflow Blog"
+  year = 2023
+  url = "https://webflow.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "A design approach focused on removing non-essential elements, using ample whitespace and simple typography to achieve clarity and simplicity.",
+  "Minimalist design reduces interfaces to their core functions, favoring neutral colors, clean lines, and an uncluttered layout to emphasize content."
+]
+
+styles.core_characteristics = [
+  "Strict elimination of unnecessary graphics or decoration",
+  "Generous whitespace and simple typography for a clean, uncluttered look",
+  "Limited color palettes (often neutral or muted tones) and flat imagery",
+  "Focus on content and functionality over ornate visuals, yielding a modern, streamlined aesthetic"
+]
+
+styles.example_references = [
+  "https://google.com/search",
+  "https://apple.com/apple-newsroom"
+]
+
+styles.related_terms = [
+  "flat minimalism",
+  "simplicity",
+  "white-space design"
+]
+
+# ---------------------------------------------------------------------------
+# SKEUOMORPHISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "skeuomorphism"
+display_name = "Skeuomorphism"
+domain = "ui" # Inferred
+evidence_count = 3
+notes = "Prominent in early smartphone UIs (e.g. iPhone’s pre-2013 design), skeuomorphism was later supplanted by flat design as users became accustomed to digital interfaces. It has seen some nostalgic resurgences in modern designs."
+
+  [[styles.sources]]
+  title = "UI Design — How many ‘ism’s do you know? (Skeumorphism)"
+  publication = "Medium"
+  year = 2022
+  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
+
+  [[styles.sources]]
+  title = "4 Key Types of Morphism in UI Design You Need to Know"
+  publication = "Wow-How Studio Blog"
+  year = 2024
+  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
+
+  [[styles.sources]]
+  title = "Why does every advert look the same? Blame Corporate Memphis"
+  publication = "WIRED UK"
+  year = 2021
+  url = "https://www.wired.co.uk/article/corporate-memphis-design-tech"
+
+styles.definitions = [
+  "A design style that imitates real-world materials and objects in UI elements, using realistic textures, shadows, and lighting to create familiarity.",
+  "Skeuomorphic design makes digital interfaces look like physical counterparts (e.g. a calculator app styled like a real calculator), bridging user familiarity between physical and digital."
+]
+
+styles.core_characteristics = [
+  "Detailed, lifelike textures and surfaces (wood, metal, leather, etc.) on interface elements",
+  "Use of drop shadows, bevels, and highlights to simulate depth and tactile form",
+  "Icons and controls styled to resemble their real-world analogues (e.g. a notepad app looking like lined paper)",
+  "Emphasizes familiarity and metaphor, helping users by leveraging real-world affordances"
+]
+
+styles.example_references = [
+  "https://apple.com/ios/calculator (early iOS Calculator)",
+  "https://winamp.com (classic Winamp skins)"
+]
+
+styles.related_terms = [
+  "realism in UI",
+  "rich textures",
+  "Frutiger Aero"
+]
+
+# ---------------------------------------------------------------------------
+# NEUMORPHISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "neumorphism"
+display_name = "Neumorphism"
+domain = "ui" # Inferred
+evidence_count = 3
+notes = "Neumorphism became a popular concept around 2019–2020 as an anticipated “next big trend,” though its practical adoption was limited due to contrast/accessibility concerns. It strikes a visual balance between flat design and skeuomorphic depth."
+
+  [[styles.sources]]
+  title = "UI Design — How many ‘ism’s do you know? (Neumorphism)"
+  publication = "Medium"
+  year = 2022
+  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
+
+  [[styles.sources]]
+  title = "4 Key Types of Morphism in UI Design You Need to Know"
+  publication = "Wow-How Studio Blog"
+  year = 2024
+  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
+
+  [[styles.sources]]
+  title = "8 Web Design Trends to Watch in 2024"
+  publication = "SitePoint"
+  year = 2024
+  url = "https://www.sitepoint.com/web-design-trends-2024"
+
+styles.definitions = [
+  "A modern style (also called “soft UI”) blending skeuomorphic realism with flat minimalism: interface components feature subtle, diffused shadows and highlights to appear softly embossed or extruded.",
+  "Neumorphism uses low-contrast 3D effects—like a background and element sharing nearly the same color—to create a tactile, modern look that is gentler than classic skeuomorphism."
+]
+
+styles.core_characteristics = [
+  "Soft, monochromatic color schemes with shadows and highlights to create a slight 3D relief effect",
+  "UI elements (buttons, cards, toggles) appear as if molded from the same material as the background, using inner and outer shadows for a subtle depth",
+  "Rounded shapes and gentle curves to enhance the smooth, plasticine look",
+  "Minimal contrast: relies on light and shadow rather than strong colors, which can cause legibility issues if overdone"
+]
+
+styles.example_references = [
+  "https://hype4.academy/article/neumorphism-soft-ui",
+  "https://dribbble.com/shots/14363401-Neumorphic-UI-Dashboard"
+]
+
+styles.related_terms = [
+  "soft UI",
+  "new skeuomorphism",
+  "embossed UI"
+]
+
+# ---------------------------------------------------------------------------
+# FLAT DESIGN
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "flat_design"
+display_name = "Flat Design"
+domain = "ui" # Inferred
+evidence_count = 3
+notes = "Flat design rose to prominence around 2013, replacing skeuomorphism as the dominant UI aesthetic. It improved performance and responsiveness by simplifying visuals, though later evolutions (“Flat 2.0”) reintroduced subtle shadows and depth for usability."
+
+  [[styles.sources]]
+  title = "Flat Design (Aesthetics Wiki)"
+  publication = "Aesthetics Wiki (Fandom)"
+  year = 2021
+  url = "https://aesthetics.fandom.com/wiki/Flat_Design"
+
+  [[styles.sources]]
+  title = "4 Key Types of Morphism in UI Design You Need to Know"
+  publication = "Wow-How Studio Blog"
+  year = 2024
+  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
+
+  [[styles.sources]]
+  title = "10 graphic design styles to help you craft your own (Flat Design)"
+  publication = "Webflow Blog"
+  year = 2023
+  url = "https://webflow.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "A design style emphasizing two-dimensional, flat visuals with no skeuomorphic traits—eschewing realistic textures and shadows in favor of solid colors, simple shapes, and clean icons.",
+  "Flat design embraces simplicity and clarity: interfaces often use bright palettes, geometric icons, and ample whitespace to prioritize content and functionality over ornamental aesthetics."
+]
+
+styles.core_characteristics = [
+  "Two-dimensional graphic elements (no drop-shadows, bevels, or realistic textures)",
+  "Bold and often bright color palettes (frequently using solid or minimal gradients)",
+  "Simple, iconographic illustrations and UI controls (pictograms, flat icons) that communicate quickly",
+  "Typography is typically clean and sans-serif, supporting a modern, utilitarian feel"
+]
+
+styles.example_references = [
+  "https://material.io (Google’s early Material guidelines demoed flat principles)",
+  "https://github.com (GitHub’s 2013 redesign embraced flat elements)"
+]
+
+styles.related_terms = [
+  "material design (related evolution)",
+  "minimalist UI",
+  "vector style"
+]
+
+# ---------------------------------------------------------------------------
+# MATERIAL DESIGN
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "material_design"
+display_name = "Material Design"
+domain = "ui" # Inferred
+evidence_count = 2
+notes = "Introduced by Google in 2014, Material Design sought to create a \"unified visual language\" for apps and web, heavily influencing modern design systems. It is essentially flat design enriched with depth, lighting, and motion principles. Many platforms adapted its components and guidelines."
+
+  [[styles.sources]]
+  title = "4 Key Types of Morphism in UI Design You Need to Know"
+  publication = "Wow-How Studio Blog"
+  year = 2024
+  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
+
+  [[styles.sources]]
+  title = "Material Design Guidelines"
+  publication = "Google Design"
+  year = 2014
+  url = "https://material.io/design"
+
+styles.definitions = [
+  "Google’s Material Design is a comprehensive design language that combines flat design’s simplicity with skeuomorphic cues like real-world physics, using layers, realistic shadows, and motion to create a unified, tactile UI experience.",
+  "Material Design treats UI elements as \"digital paper\" and ink, emphasizing grid-based layouts, responsive animations, and elevations (z-depth) to establish hierarchy and interactivity in a clear, consistent manner."
+]
+
+styles.core_characteristics = [
+  "Uses cards and layers with distinct elevation levels, indicated by soft shadows, to imply a hierarchy of surfaces",
+  "Bold, vibrant color schemes with an emphasis on primary/accent colors and flat graphic icons",
+  "Extensive use of motion and animation for feedback (ripples, transitions) to reinforce a sense of physical space and interactivity",
+  "Standardized components and spacing, following strict guidelines to ensure consistency across platforms"
+]
+
+styles.example_references = [
+  "https://material.io/components",
+  "https://www.google.com/drive/ (Google Drive web UI following Material Design)"
+]
+
+styles.related_terms = [
+  "material theming",
+  "Google Material",
+  "flat 2.0"
+]
+
+# ---------------------------------------------------------------------------
+# BRUTALISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "brutalism"
+display_name = "Brutalism"
+domain = "ui" # Inferred
+evidence_count = 3
+notes = "Brutalism in web design draws its name from 1950s Brutalist architecture and evokes early web nostalgia. It’s seen as a rebellion by younger designers against templated, uniform designs, favoring honesty and functionality over polish. While striking, pure brutalism can compromise usability, so many “brutalist” sites still ensure basic readability."
+
+  [[styles.sources]]
+  title = "UI Design — How many ‘ism’s do you know? (Brutalism)"
+  publication = "Medium"
+  year = 2022
+  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
+
+  [[styles.sources]]
+  title = "14 web design trends to keep an eye on in 2024 (Neo-brutalism)"
+  publication = "Markup.io Blog"
+  year = 2024
+  url = "https://www.markup.io/blog/web-design-trends/"
+
+  [[styles.sources]]
+  title = "11 Fascinating Examples of Brutalist Web Design to Inspire You"
+  publication = "HubSpot Blog"
+  year = 2023
+  url = "https://blog.hubspot.com/website/brutalist-website-design"
+
+styles.definitions = [
+  "An uncompromising web aesthetic characterized by raw, unstyled elements and a lack of concern for traditional beauty. Brutalist web design often appears “harsh, raw and haphazard,” with jarring colors, default HTML styles, and seemingly clashing visuals.",
+  "In web terms, brutalism is a reaction against slick modern design—sites embrace a 1990s-esque bare-bones look with plain backgrounds, monospaced or system fonts, and irregular layouts that prioritize content over form."
+]
+
+styles.core_characteristics = [
+  "Intentionally “unstyled” or default-styled HTML elements (plain hyperlinks, buttons, system fonts) giving a utilitarian appearance",
+  "Bold, high-contrast color choices that may clash or appear non-harmonious (sometimes neon or primary colors in blocks)",
+  "Erratic layouts and typography: content might be misaligned, oversized, or oddly placed by conventional standards, lending a chaotic or experimental feel",
+  "Graphics, if used, can be raw or pixelated; or sites may use none at all, focusing on text and basic HTML structures, reminiscent of early web pages"
+]
+
+styles.example_references = [
+  "http://brutalistwebsites.com",
+  "https://www.studiobrot.de/",
+  "https://chainzoku.io"
+]
+
+styles.related_terms = [
+  "web brutalism",
+  "raw aesthetic",
+  "anti-design (related movement)"
+]
+
+# ---------------------------------------------------------------------------
+# NEOBRUTALISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "neobrutalism"
+display_name = "Neobrutalism"
+domain = "ui" # Inferred
+evidence_count = 3
+notes = "Neobrutalism rose around 2021–2023 as brutalism’s “new look.” It’s described as brutalism meets modern web: clashing colors, simple shapes, and retro fonts, but used in a way that can be oddly approachable and even good for accessibility. Sometimes likened to a revival of 1980s \"Memphis\" design elements (hence *neo-Memphis*) within a brutalist framework."
+
+  [[styles.sources]]
+  title = "UI Design — How many ‘ism’s do you know? (Neobrutalism)"
+  publication = "Medium"
+  year = 2022
+  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
+
+  [[styles.sources]]
+  title = "8 exciting visual trends you should know about in 2024 (Neobrutalism)"
+  publication = "Creative Bloq"
+  year = 2024
+  url = "https://www.creativebloq.com/news/2024-visual-trends"
+
+  [[styles.sources]]
+  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Neo-Brutalism)"
+  publication = "Magier Blog"
+  year = 2024
+  url = "https://www.magier.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "A recent iteration of brutalism that mixes the raw, “ugly” web aesthetic with modern touches. Neobrutalism retains bold colors and bare layouts but introduces contemporary typography, deliberate grids, and thick borders for a fresh, accessible twist:contentReference[oaicite:49]{index=49}.",
+  "Also known as \"neubrutalism,\" it combines brutalism’s 90s-web nostalgia with some design structure: expect bright, wacky color themes, basic geometric shapes, and bold black outlines around elements, all executed in a more playful, semi-polished way."
+]
+
+styles.core_characteristics = [
+  "Bright, almost cartoonish color schemes applied to otherwise minimalist layouts (often avoiding gradients in favor of flat blocks of color)",
+  "Heavy outlines and strokes around UI elements (e.g. thick black borders on boxes, buttons) to emphasize structure in the absence of detailed styling",
+  "Mix of system/default fonts and modern typography – text is bold and high-impact, but readability is maintained (e.g. big, sans-serif or monospace type used in a grid)",
+  "Static or very simple interactions (to align with the 'unpolished' look), yet intentionally designed layouts that feel more ordered than classic brutalism"
+]
+
+styles.example_references = [
+  "https://gumroad.com (Gumroad’s 2023 homepage redesign)",
+  "https://uninformative.design (parody neo-brutalist style site)"
+]
+
+styles.related_terms = [
+  "neubrutalism",
+  "neo-Memphis",
+  "anti-design (overlapping)"
+]
+
+# ---------------------------------------------------------------------------
+# ANTI-DESIGN
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "anti_design"
+display_name = "Anti-Design"
+domain = "ui" # Inferred
+evidence_count = 3
+notes = "The anti-design mindset is often seen as a critique of corporate minimalism and overly templated UI. By amplifying disorder and “bad” design, it draws attention (e.g. for art projects or edgy brands). While visually intriguing and conceptually rich, anti-design can sacrifice usability and thus typically appears in experimental or artistic contexts rather than mainstream products."
+
+  [[styles.sources]]
+  title = "14 web design trends to keep an eye on in 2024 (anti-design)"
+  publication = "Markup.io Blog"
+  year = 2024
+  url = "https://www.markup.io/blog/web-design-trends/"
+
+  [[styles.sources]]
+  title = "What is anti-design, the rising trend that tears up the rule book?"
+  publication = "Creative Bloq"
+  year = 2025
+  url = "https://www.creativebloq.com/design/graphic-design/what-is-anti-design-the-trend-that-tears-up-the-rule-book"
+
+  [[styles.sources]]
+  title = "Anti-Design Is Intentionally Loud and Messy"
+  publication = "BuiltIn"
+  year = 2024
+  url = "https://builtin.com/designer-careers/anti-design-trend"
+
+styles.definitions = [
+  "An aesthetic movement that deliberately rejects traditional design rules and beauty, embracing chaos, clashing elements, and an “ugly” or unrefined look as a form of expression.",
+  "Anti-design in web/UX is about breaking all the conventions: irregular layouts, garish color combinations, mixed typefaces—often to provoke or make a statement against the uniformity of modern design."
+]
+
+styles.core_characteristics = [
+  "Inconsistent visual hierarchy and flow—elements might feel out of order or unexpectedly placed, intentionally confusing the user’s eye",
+  "Clashing typography and colors: for example, multiple fonts on one page, or colors that vibrate and conflict (e.g. neon green text on a stark purple background)",
+  "Distorted or non-gridded layouts: overlapping content, misaligned sections, or purposefully broken navigation structures",
+  "Embraces imperfection: design elements like glitch effects, scribbles, pixelation, or crude graphics are used to give a chaotic, “unpolished” feel"
+]
+
+styles.example_references = [
+  "https://brutalistwebsites.com/bloomberg (Bloomberg 2015 experimental design)",
+  "https://xn--h28h.xyz (Example of chaotic/ugly design experiment)"
+]
+
+styles.related_terms = [
+  "ugly design",
+  "art punk design",
+  "deconstructionism"
+]
+
+# ---------------------------------------------------------------------------
+# MAXIMALISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "maximalism"
+display_name = "Maximalism"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 2
+notes = "Contemporary ‘New Maximalism’ is partly a reaction to years of flat minimalism; it invites playfulness and complexity back into design. While engaging and memorable, maximalist styles must still maintain coherence to avoid overwhelming users. It often appears in editorial design, fashion, or cultural contexts where bold art direction is welcome."
+
+  [[styles.sources]]
+  title = "Graphic Design Styles: The Ultimate Guide for 2025 (New Maximalism)"
+  publication = "Magier Blog"
+  year = 2024
+  url = "https://www.magier.com/blog/graphic-design-styles"
+
+  [[styles.sources]]
+  title = "10 graphic design styles to help you craft your own (Maximalism)"
+  publication = "Webflow Blog"
+  year = 2023
+  url = "https://webflow.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "A design philosophy of “more is more,” maximalism revels in abundance of colors, patterns, and ornamental elements rather than restraint. It intentionally opposes minimalist sparseness by filling designs with eclectic visuals and detail.",
+  "Maximalist design embraces bold expression, layering diverse graphic elements to create rich, dynamic compositions. It’s characterized by an explosion of color, typography, and imagery all co-existing in organized chaos."
+]
+
+styles.core_characteristics = [
+  "Vibrant, often clashing color combinations and a wide color palette used together",
+  "Mix of many patterns, textures, or graphic motifs in one frame (stripes, florals, geometric shapes all overlapping, for instance)",
+  "Decorative fonts and exaggerated typography; multiple typefaces may be used to amplify expressiveness",
+  "Crowded but intentional layouts – the design may feel chaotic, yet elements are arranged to lead the eye and evoke excitement rather than pure randomness"
+]
+
+styles.example_references = [
+  "https://www.gucci.com (fashion branding often uses rich, maximal visuals)",
+  "https://www.benetton.com (known for vibrant, multi-color design campaigns)"
+]
+
+styles.related_terms = [
+  "new maximalism",
+  "design maximalism",
+  "decorative design"
+]
+
+# ---------------------------------------------------------------------------
+# MEMPHIS DESIGN
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "memphis_design"
+display_name = "Memphis Design"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 3
+notes = "Memphis design’s resurgence in digital products brings a sense of joy and nostalgia. It is visually busy and *“either love it or hate it”* for viewers:contentReference[oaicite:87]{index=87}. Tech companies occasionally infuse Memphis-esque illustrations (e.g. abstract shapes in hero sections) to appear trendy and youthful. Notably, the term *“Corporate Memphis”* for flat tech illustrations draws inspiration from this style’s bold shapes and colors:contentReference[oaicite:88]{index=88}."
+
+  [[styles.sources]]
+  title = "Designing With an 80s Trend: Memphis Design 101"
+  publication = "Design Shack"
+  year = 2018
+  url = "https://designshack.net/articles/graphics/designing-with-an-80s-trend-memphis-design-101/"
+
+  [[styles.sources]]
+  title = "Memphis Design: the defining look of the 1980s"
+  publication = "99designs Blog"
+  year = 2019
+  url = "https://99designs.com/blog/design-history-movements/memphis-design/"
+
+  [[styles.sources]]
+  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Pop Futurism / Neo-Memphis)"
+  publication = "Magier Blog"
+  year = 2024
+  url = "https://www.magier.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "An iconic 1980s design style characterized by *“a riot of color and materials”*, Memphis design features bright, often clashing colors, geometric shapes, and whimsical squiggles or patterns:contentReference[oaicite:76]{index=76}. Originally a postmodern art movement (Memphis Group), its visuals are bold, playful, and deliberately inorganic.",
+  "In modern UI terms, Memphis design means a retro 80s revival: flat vector shapes (triangles, circles, zigzag lines) arranged in energetic, free-form patterns with neon or pastel hues, evoking a fun, almost kitschy vibe."
+]
+
+styles.core_characteristics = [
+  "Bright, saturated color palette with an almost neon quality (often multiple bold colors used together without subtle shading)",
+  "Abundant use of simple geometric shapes and repeated patterns – e.g. confetti-like triangles, dots, zigzag ‘squiggle’ lines scattered across backgrounds",
+  "Flat vector illustration style (minimal 3D depth) and frequent combination of black-and-white graphic patterns alongside the bright colors",
+  "Playful typography: blocky sans-serifs or “bubble” fonts often appear, sometimes in unconventional placements or angles, reinforcing the whimsical tone"
+]
+
+styles.example_references = [
+  "https://www.memphis-milano.com (Gallery of original Memphis Group designs)",
+  "https://www.cartoonsnetworkstudios.com (note: fictional example to illustrate squiggles and shapes)",
+  "https://www.etror.com (branding using Memphis-style patterns)"
+]
+
+styles.related_terms = [
+  "80s retro",
+  "Neo-Memphis",
+  "postmodern design"
+]
+
+# ---------------------------------------------------------------------------
+# CORPORATE MEMPHIS
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "corporate_memphis"
+display_name = "Corporate Memphis"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 3
+notes = "Coined around 2018–2020, the term pokes fun at how tech companies converged on the same illustration aesthetic. While friendly, Corporate Memphis has been criticized for homogenizing design and presenting an overly optimistic worldview. The name references the 1980s Memphis design style, as this illustration approach borrows its bold colors and simple shapes, albeit in a toned-down form for corporate use."
+
+  [[styles.sources]]
+  title = "Why does every advert look the same? Blame Corporate Memphis"
+  publication = "WIRED UK"
+  year = 2021
+  url = "https://www.wired.co.uk/article/corporate-memphis-design-tech"
+
+  [[styles.sources]]
+  title = "A Brief Overview of Big Tech Illustration: Flat Design, Corporate Memphis, and Alegria"
+  publication = "Medium (Anna Xing)"
+  year = 2020
+  url = "https://anna-xing.medium.com/a-brief-overview-of-big-tech-illustration-flat-design-corporate-memphis-and-alegria-a9b54a35c6b1"
+
+  [[styles.sources]]
+  title = "Blue people and long limbs: How one illustration style took over the tech world"
+  publication = "Webflow Blog"
+  year = 2021
+  url = "https://webflow.com/blog/corporate-memphis-illustration-style"
+
+styles.definitions = [
+  "A flat illustration style ubiquitous in big tech branding, featuring simple, geometric human figures in bright, uniform colors. Often depicting tiny-headed, long-limbed characters engaged in friendly activities, it’s meant to appear fun and approachable.",
+  "Often dubbed *“Alegria art”* (from Facebook’s illustration system), Corporate Memphis uses solid flat colors and abstract figures with exaggerated proportions (like bendy arms) to convey a playful, optimistic tone in corporate communications."
+]
+
+styles.core_characteristics = [
+  "Flat, vector-based illustrations with no outlines and minimal detail (characters usually have featureless faces or just simple dots for eyes, etc.)",
+  "Bright, inoffensive color palettes (lots of pastels or saturated primaries) applied uniformly to figures and objects",
+  "Stylized human figures with distinctive proportions: small heads, elongated limbs or whimsical body shapes, meant to universally represent people in a friendly way",
+  "Scenes often depict abstract office or everyday activities (teamwork, idea generation) in a generic, cheery manner; the style aims to be neutral and *“relentlessly imitated”* across companies"
+]
+
+styles.example_references = [
+  "https://slack.com (Slack’s website illustrations circa 2018)",
+  "https://asana.com (illustrations in Asana’s onboarding)",
+  "https://facebook.design/alegria (Facebook’s Alegria illustration library)"
+]
+
+styles.related_terms = [
+  "Alegria art",
+  "tech flat illustration",
+  "globohomo art"
+]
+
+# ---------------------------------------------------------------------------
+# Y2K AESTHETIC
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "y2k_aesthetic"
+display_name = "Y2K Aesthetic"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 3
+notes = "Nostalgia for the Y2K era has made this aesthetic resurface in fashion and web design. It includes *“futuristic designs, funky fur, plastic gloss, cyber-inspired motifs”* that defined the late 90s vibe:contentReference[oaicite:111]{index=111}. Designers use it to evoke a sense of fun and remembrance of the early internet days. However, they often modernize it with responsive layouts and cleaner typography while keeping the joyful clutter and shine."
+
+  [[styles.sources]]
+  title = "A Flashback to the Future: Y2K Style and Contemporary Interface Design"
+  publication = "UX Girl Blog"
+  year = 2023
+  url = "https://uxgirl.com/blog/a-flashback-to-the-future-y2k-style-and-contemporary-interface-design"
+
+  [[styles.sources]]
+  title = "The A–Z of Y2K Aesthetic in Web Design"
+  publication = "Debuggers Studio Blog"
+  year = 2023
+  url = "https://debuggersstudio.com/the-a-z-of-y2k-aesthetic-in-web-design/"
+
+  [[styles.sources]]
+  title = "Creative Trends 2024: Nostalgia (Y2K)"
+  publication = "Envato Blog"
+  year = 2024
+  url = "https://elements.envato.com/blog/y2k-aesthetic-design-trend"
+
+styles.definitions = [
+  "The Y2K aesthetic refers to the late-1990s and early-2000s digital look, defined by glossy surfaces, futuristic motifs, and bold colors like chrome silver, neon green, electric blue, and hot pink:contentReference[oaicite:105]{index=105}. It’s a retro-futuristic style reflecting the era’s early web and tech optimism.",
+  "In web/UI design, Y2K style means embracing the kitsch of early 2000s graphics: bubbly 3D lettering, starburst and glitter effects, gradient buttons, and pixelated or Flash-like elements that purposely look a bit dated yet playful:contentReference[oaicite:107]{index=107}."
+]
+
+styles.core_characteristics = [
+  "Vibrant, high-contrast color schemes often including metallics (chrome, silver) and citrus or neon tones (lime green, cyan blue, magenta):contentReference[oaicite:108]{index=108}",
+  "Text effects like embossing, glow/neon outlines, or gradient fills (mimicking WordArt and early Photoshop stylings common around year 2000)",
+  "Decorative motifs from late-90s pop culture: star and sparkle stickers, bubbly or liquid-like shapes (blobs, gel buttons), tech-inspired icons (CDs, planet Saturn rings, etc.):contentReference[oaicite:109]{index=109}",
+  "UI elements with a 3D or skeuomorphic twist: e.g. glossy “candy” buttons, beveled edges, and use of early web fonts or pixel fonts to reinforce a retro digital feel"
+]
+
+styles.example_references = [
+  "https://dev.to/irwin/tricking-out-my-profile-1990s-style-3m2p (a 90s/Y2K-styled webpage)",
+  "https://y2k.page (art project showcasing Y2K web style)",
+  "https://spacehey.com (a revival of early 2000s MySpace-like design)"
+]
+
+styles.related_terms = [
+  "Web1.0 revival",
+  "90s web design",
+  "retro tech"
+]
+
+# ---------------------------------------------------------------------------
+# RETRO-FUTURISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "retro_futurism"
+display_name = "Retro-Futurism"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 3
+notes = "Retro-futurism in design is *“nostalgia meets imagination”*—it leverages how past generations envisioned the future. Popular motifs include 1980s sci-fi movie styles (Tron-like neon grids, Blade Runner cityscapes) and early web/console graphics. In UX, it’s used for dramatic effect in entertainment, music, or tech projects embracing a vintage sci-fi culture. The style has regained popularity alongside the Y2K revival, especially in 2024–2025 creative circles:contentReference[oaicite:120]{index=120}."
+
+  [[styles.sources]]
+  title = "Retro-futuristic UX designs: Bringing back the future"
+  publication = "LogRocket Blog"
+  year = 2025
+  url = "https://blog.logrocket.com/ux-design/retro-futuristic-ux-designs-bringing-back-the-future/"
+
+  [[styles.sources]]
+  title = "Retro-futurism and why it's making a comeback in design"
+  publication = "Lummi AI Blog"
+  year = 2024
+  url = "https://www.lummi.ai/post/y2k-retro-futurism-design"
+
+  [[styles.sources]]
+  title = "Retro Futurism design inspiration"
+  publication = "CreatorFuel"
+  year = 2024
+  url = "https://www.creator-fuel.com/retro-futurism-design-inspiration"
+
+styles.definitions = [
+  "A design aesthetic that imagines the future through the lens of the past. Retro-futurism mixes vintage 70s–90s visuals (like pixel art, neon grids) with sci-fi themes (spaceships, cyberpunk cities), creating a nostalgic yet forward-looking style:contentReference[oaicite:112]{index=112}:contentReference[oaicite:113]{index=113}.",
+  "In UI design, retro-futurism often manifests as *“outrun”* or *“synthwave”* style: dark backgrounds with glowing neon accents, grid or wireframe landscapes, chrome text, and other elements inspired by early computer graphics and 80s sci-fi media:contentReference[oaicite:114]{index=114}."
+]
+
+styles.core_characteristics = [
+  "Neon color palettes against dark (usually black or deep purple) backgrounds – electric blues, hot pinks, and neon purples are iconic",
+  "Cyberpunk and sci-fi imagery: think glitch effects, digital grids, wireframes, stars and galaxies, and 8-bit or VHS scanline textures to add a vintage tech feel",
+  "Retro typography such as pixelated fonts or futuristic typefaces reminiscent of arcade games and early PCs; often paired with glowing or chrome effects",
+  "Overall high-contrast, immersive visuals with elements like animated stars or flickering neon signs to evoke a dystopian yet nostalgic atmosphere"
+]
+
+styles.example_references = [
+  "https://neongenesisevangelion.com (fandom sites with 90s anime cyberpunk styling)",
+  "https://outrun.club (synthwave aesthetic showcase)",
+  "https://nightride.fm (web radio with retro-futuristic interface)"
+]
+
+styles.related_terms = [
+  "synthwave",
+  "cyberpunk design",
+  "outrun aesthetic"
+]
+
+# ---------------------------------------------------------------------------
+# SWISS STYLE
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "swiss_style"
+display_name = "Swiss Style"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 2
+notes = "Swiss Style was born in mid-20th century Switzerland but its principles deeply influence digital design for its *“clarity and simplicity over decoration”* ethos. It’s the foundation of many corporate and editorial designs. In practice, adopting Swiss style on the web results in very clean, content-first pages with logical flow and no superfluous visuals."
+
+  [[styles.sources]]
+  title = "Swiss Style (design)"
+  publication = "Wikipedia"
+  year = 2023
+  url = "https://en.wikipedia.org/wiki/International_Typographic_Style"
+
+  [[styles.sources]]
+  title = "Swiss Style graphic design: The minimalist design trend you can master"
+  publication = "Envato Tuts+"
+  year = 2023
+  url = "https://elements.envato.com/learn/swiss-style-graphic-design"
+
+styles.definitions = [
+  "Also known as the International Typographic Style, Swiss Style is a modernist graphic design approach emphasizing cleanliness, readability, and objectivity. It features strict grid-based layouts, sans-serif typography, and a *“minimalist approach, asymmetrical balance, and clear content hierarchy”*.",
+  "In web/UI design, Swiss-inspired style means lots of whitespace, content aligned to an underlying grid, and unfussy presentation. Text is often the hero, set in neutral sans-serif fonts like Helvetica, and design elements serve the content rather than decorate."
+]
+
+styles.core_characteristics = [
+  "Strong reliance on a grid system to align and organize elements, creating a consistent structure across the layout",
+  "Use of sans-serif typefaces (Helvetica, Univers, Akzidenz Grotesk, etc.) with clear typography rules (left-aligned, flush-left ragged-right, minimal variation in font sizes) for maximum legibility",
+  "Minimal ornamentation: very limited use of illustration or decoration; photography or simple color blocks are used sparingly to support content, not for flourish",
+  "High-contrast and minimal color palette – often black & white or a few primary colors – to maintain clarity and focus on information"
+]
+
+styles.example_references = [
+  "https://www.vitra.com/en-us (with Swiss-influenced typography layout)",
+  "https://www.nytimes.com/interactive (some NYT digital projects use Swiss principles)",
+  "https://www.google.com/intl/en/forms/about/ (Google Forms’ clean layout echoes Swiss simplicity)"
+]
+
+styles.related_terms = [
+  "International Typographic Style",
+  "grid design",
+  "modernist graphic design"
+]
+
+# ---------------------------------------------------------------------------
+# ART DECO
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "art_deco"
+display_name = "Art Deco"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 2
+notes = "Art Deco elements have seen a minor revival in branding and web (especially in luxury sectors or nostalgic projects). For instance, designers might incorporate an Art Deco border or pattern in a modern website for a vintage flair. The style signals sophistication and retro-futuristic optimism, but must be used judiciously so as not to overwhelm contemporary usability."
+
+  [[styles.sources]]
+  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Art Deco)"
+  publication = "Magier Blog"
+  year = 2024
+  url = "https://www.magier.com/blog/graphic-design-styles"
+
+  [[styles.sources]]
+  title = "10 graphic design styles to help you craft your own (Art Deco)"
+  publication = "Webflow Blog"
+  year = 2023
+  url = "https://webflow.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "A decorative design movement from the 1920s–30s known for its *“geometric shapes, bold patterns, and refined aesthetic”*. In modern design contexts, Art Deco style conveys luxury and retro elegance through symmetrical forms and rich ornamentation.",
+  "Art Deco-inspired UI/graphics often feature geometry (triangles, sunbursts, chevrons), metallic or high-contrast color schemes, and stylized typography with sharp angles or artistic curves to evoke the Jazz Age glamour."
+]
+
+styles.core_characteristics = [
+  "Use of geometric shapes and motifs: zigzag patterns, chevron stripes, fan-like sunburst shapes, often arranged symmetrically",
+  "Bold, often metallic colors or strong contrasts (e.g., black and gold, black and white with a pop of rich color) giving a lavish look",
+  "Decorative elements and flourishes that suggest opulence (borders, dividers, and frames with intricate detailing or repeating patterns)",
+  "Elegant typography featuring a mix of modern and classic touches – type may have angular serifs or ornamented sans-serifs reflecting 1920s lettering"
+]
+
+styles.example_references = [
+  "https://www.greatgatsbygame.com (fictional example with Gatsby-esque art deco UI)",
+  "https://artdeco.org (Art Deco society site with era-inspired graphics)"
+]
+
+styles.related_terms = [
+  "1920s design",
+  "Great Gatsby style",
+  "geometric luxury"
+]
+
+# ---------------------------------------------------------------------------
+# ART NOUVEAU
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "art_nouveau"
+display_name = "Art Nouveau"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 2
+notes = "While true Art Nouveau peaked by 1910, its *“organic elegance”* occasionally trends in modern graphics, especially in packaging, logos, or posters that seek a romantic, handcrafted vibe. In UI, full Art Nouveau is rare due to its complexity, but elements like decorative borders or illustrated backgrounds appear in niche projects. It’s essentially the antithesis of stark minimalism – celebrating decorative art in utility."
+
+  [[styles.sources]]
+  title = "Top 12 Visual Design Trends for 2024 (Art Nouveau captivates with organic elegance)"
+  publication = "Medium (Christie C.)"
+  year = 2024
+  url = "https://medium.com/@inchristiely/top-12-visual-design-trends-for-2024-that-boost-engagement-part-2-da3e4b1ac900"
+
+  [[styles.sources]]
+  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Art Nouveau)"
+  publication = "Magier Blog"
+  year = 2024
+  url = "https://www.magier.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "An art and design movement of the late 19th century, Art Nouveau is characterized by organic, flowing lines (*“whiplash” curves*) and motifs from nature (flowers, vines, feminine forms). In modern design usage, it implies an elegant, ornamental style with hand-drawn quality.",
+  "Contemporary Art Nouveau-inspired graphics revive *“graceful lines and sophisticated style”*: decorative floral patterns, pastel or jewel tones, and intricate borders that bring a vintage, artisanal feel to the design."
+]
+
+styles.core_characteristics = [
+  "Curvilinear, flowing lines forming complex, asymmetrical shapes and borders (often plantlike tendrils or hair-like swirls)",
+  "Nature-inspired imagery: stylized flowers, leaves, vines, and sometimes figures of women with long flowing hair, integrated into the design motif",
+  "Flat but detailed color illustrations – often using muted pastels or rich, earthy colors – with an emphasis on outline and pattern rather than three-dimensional shading",
+  "Decorative typography that may mimic Art Nouveau fonts (e.g., with high contrast strokes, angled serifs or ornate detailing) to complement the visual theme"
+]
+
+styles.example_references = [
+  "https://www.libertydesign.com (brand using nouveau patterns)",
+  "https://www.mucha.foundation (Alphonse Mucha art as web inspiration)"
+]
+
+styles.related_terms = [
+  "organic design",
+  "1890s revival",
+  "Jugendstil"
+]
+
+# ---------------------------------------------------------------------------
+# GRUNGE
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "grunge"
+display_name = "Grunge"
+domain = "ui" # Inferred
+evidence_count = 2
+notes = "Popular in the mid-2000s web (mirroring the late 90s music/fashion grunge trend), this style gave a distinct personality opposing the glossy Web 2.0 look. Grunge design can be *“radical and a bit disorganized”*, but when skillfully applied it yields unique, memorable sites. Its influence persists in certain music and gaming sites, though it’s less common in modern corporate design."
+
+  [[styles.sources]]
+  title = "Grunge Style in Web Design"
+  publication = "Smashing Magazine"
+  year = 2008
+  url = "https://www.smashingmagazine.com/2008/01/grunge-style-in-modern-web-design/"
+
+  [[styles.sources]]
+  title = "Grunge Style in Web Design"
+  publication = "Web Design Museum"
+  year = 2019
+  url = "https://www.webdesignmuseum.org/knowledge/grunge-style-in-web-design"
+
+styles.definitions = [
+  "A web design style that embraces a “dirty” or gritty look with irregular, broken and worn-out elements. Grunge design is characterized by rough textures, distressed or torn graphics, and a generally unpolished, raw appearance.",
+  "In grunge web design, pages often feature dark, earthy color schemes, stained or paper-like backgrounds, and hand-drawn or decayed-looking components that together create an intentionally *“sloppy”*, rebellious aesthetic."
+]
+
+styles.core_characteristics = [
+  "Use of textures that mimic dirt, stains, and decay: e.g. coffee ring stains on paper, scratched metal, peeling paint, or torn paper edges as design elements",
+  "Chaotic or asymmetrical layouts with overlapping elements, often breaking away from tidy grid rules",
+  "Hand-drawn icons or lettering and distressed fonts (letters may look weathered, smeared or eroded) to enhance the raw feel",
+  "Usually a muted or muddy color palette (brown, gray, dark tones) to reinforce the aged, underground vibe – occasionally accented by a few bold splashes of color like red or neon to draw attention"
+]
+
+styles.example_references = [
+  "http://www.csszengarden.com/?cssfile=004/004.css (Example of a grunge-themed CSS Zen Garden design)",
+  "https://web.archive.org/web/20090212185730/http://www.dirtyprettythings.com/ (fictitious example link for grunge style)"
+]
+
+styles.related_terms = [
+  "DIY punk design",
+  "underground/alternative",
+  "texture-heavy design"
+]
+
+# ---------------------------------------------------------------------------
+# PSYCHEDELIC DESIGN
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "psychedelic_design"
+display_name = "Psychedelic Design"
+domain = "graphic_but_used_in_ui" # Inferred
+evidence_count = 2
+notes = "The psychedelic style cycles back in popularity especially in times of maximalist or experimental trends. Brands in music, festival and youth culture often dip into psychedelic elements for a lively, throwback feel. In UI, it’s used sparingly (maybe as a background or a one-off campaign page) since the intense visuals can overpower functionality. Nonetheless, as a trend it represents designers pushing *“vibrant, carefree designs for nostalgic appeal”* in the modern era."
+
+  [[styles.sources]]
+  title = "Graphic Design Trends 2024 – The Great Reset"
+  publication = "GraphicMama"
+  year = 2023
+  url = "https://graphicmama.com/blog/graphic-design-trends-2024/"
+
+  [[styles.sources]]
+  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Psychedelic)"
+  publication = "Magier Blog"
+  year = 2024
+  url = "https://www.magier.com/blog/graphic-design-styles"
+
+styles.definitions = [
+  "A design style rooted in 1960s counterculture art, featuring trippy, hallucinatory visuals: swirling abstract shapes, vibrant clashing colors, and surreal imagery meant to evoke an altered state or *“dreamy, abstract, and mystifying”* experience.",
+  "Contemporary psychedelic design trend revives 60s hippie nostalgia by using fluid gradients, kaleidoscopic patterns, and highly saturated palettes that create a sense of motion and depth even in static images."
+]
+
+styles.core_characteristics = [
+  "Bold, often rainbow-like color spectrums with high saturation, frequently blended in gradient swirls or tie-dye forms",
+  "Complex, free-flowing patterns: marbled textures, melting or drippy shapes, fractal or kaleidoscope effects that fill the design space in a dense manner",
+  "Distorted typography that might be wavy, warped or hand-drawn in an ornate, illegible way reminiscent of 60s concert posters",
+  "Imagery that can be surreal or symbolic (e.g., mushrooms, eyes, smiling faces, cosmic scenes) layered into the composition to enhance the mind-bending vibe"
+]
+
+styles.example_references = [
+  "https://psychedelic-art.com (gallery of classic psychedelic art posters)",
+  "https://dayglo.ai (modern AI-generated psychedelic visuals showcase)"
+]
+
+styles.related_terms = [
+  "60s retro",
+  "neo-psychedelia",
+  "trippy design"
+]
+
+# ---------------------------------------------------------------------------
+# CLAYMORPHISM
+# ---------------------------------------------------------------------------
+
+[[styles]]
+id = "claymorphism"
+display_name = "Claymorphism"
+domain = "ui" # Inferred
+evidence_count = 2
+notes = "Emerging around 2021, claymorphism caught attention as a fun, tactile approach to UI styling. It hasn’t become mainstream, but you see it in certain illustrations, onboarding screens, or design showcases. The style can delight users with its pseudo-3D charm, though it should be used carefully to maintain accessibility and avoid excessive shadows that might slow rendering on some devices."
+
+  [[styles.sources]]
+  title = "Claymorphism in User Interfaces"
+  publication = "Hype4 Academy"
+  year = 2021
+  url = "https://hype4.academy/articles/design/claymorphism-in-user-interfaces"
+
+  [[styles.sources]]
+  title = "What is claymorphism in web design?"
+  publication = "LogRocket Blog"
+  year = 2022
+  url = "https://blog.logrocket.com/claymorphism-web-design/"
+
+styles.definitions = [
+  "A recent UI style where elements are rendered to appear soft, puffy, and toy-like – as if made of clay or playdough. Claymorphism uses big rounded corners, pastel colors, and multiple inner/outer shadows to create a *“dome-like, inflated”* 3D effect.",
+  "In claymorphism, UI components such as buttons or cards seem to bulge out of the background with a tactile, bubbly quality. It’s essentially neumorphism taken further: more colorful, with stronger shading to appear almost cartoonishly plump and touchable."
+]
+
+styles.core_characteristics = [
+  "Very rounded shapes with generous corner radius (no sharp edges anywhere) giving a friendly, blob-like appearance",
+  "Layered shadows: typically two inner shadows plus one outer shadow on elements to produce an illusion of depth and softness (the object looks indented and raised at the same time)",
+  "Bright, fun color palettes often in matte pastel tones, reinforcing the playful, toy-like aesthetic",
+  "Minimal detail inside the elements – they tend to be flat color – but with highlights and shading around edges to convey a subtle 3D curvature"
+]
+
+styles.example_references = [
+  "https://designmodo.com/claymorphism-ui/ (article with example images of claymorphic UI)",
+  "https://dribbble.com/tags/claymorphism (community examples of clay-style UI designs)"
+]
+
+styles.related_terms = [
+  "soft 3D style",
+  "cartoon UI",
+  "inflated neumorphism"
+]
