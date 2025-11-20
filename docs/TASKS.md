@@ -81,3 +81,25 @@
 * [ ] Write `PHASE_02_POPULATION_AND_MAPPING.md`
 * [ ] Update MASTERPLAN with dependency graph for layers
 
+---
+
+# **PHASE 02 — DATASETS & CURATION**
+
+(Outline only — details to be filled in Phase 02 plan.)
+
+## **Task Group 1: Populate Layer 2 Dataset**
+
+* [ ] Curate evidence-backed styles
+* [ ] Expand style metadata (axes bias, lexicon affinity, examples)
+
+## **Task Group 2: Populate Layer 4 Dataset**
+
+* [ ] Extract trends from research dataset
+* [ ] Write full TOML entries for each trend
+* [ ] Link to L1/L2/L3
+
+## **Task Group 3: Tooling**
+
+* [ ] Build cross-layer lookup utilities (TOML → JSON transformers)
+* [ ] Create generation templates for AI designers/coders
+* [ ] Create validation scripts (schema linting)
