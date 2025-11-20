@@ -1,13 +1,24 @@
-# Tasks
+# TASKS.md — Running Checklist
 
-## Current Tasks
+## PHASE 01 — FOUNDATIONS
 
-<!-- Add current tasks here -->
+### Task Group 1: Repo Setup
+- [ ] Create /schemas and /data directories
+- [ ] Define naming conventions
+- [ ] Add README skeleton
 
-## Completed Tasks
+### Task Group 2: Layer 1 Schema & Instances
+- [ ] Write layer1_axes_schema.toml
+- [ ] Populate layer1_axes_instances.toml
+- [ ] Write validation logic / instructions
 
-<!-- Add completed tasks here -->
+### Task Group 3: Layer 2 Schema & Instances
+- [ ] Extract schema from current JSON
+- [ ] Write layer2_styles_schema.toml
+- [ ] Convert styles dataset to TOML
 
-## Backlog
+...
 
-<!-- Add backlog items here -->
+## PHASE 02 — DATASETS & CURATION
+
+(etc.)
