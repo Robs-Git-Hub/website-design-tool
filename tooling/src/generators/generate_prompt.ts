@@ -232,15 +232,29 @@ function generateLayer3Values(): string {
  * Generate Layer 4 allowed values section
  */
 function generateLayer4Values(): string {
-  const data = readToml(PATHS.layer4_instances);
-  const trends = data.trends as Trend[];
+  try {
+    const data = readToml(PATHS.layer4_instances);
 
-  let output = '### Layer 4: Trend Context\n\n';
-  output += 'Use trend IDs to capture cultural context:\n';
-  output += trends.map(t => `- \`${t.id}\``).join('\n');
-  output += '\n\n';
+    // Check if trends exist in the data
+    if (!data.trends || !Array.isArray(data.trends) || data.trends.length === 0) {
+      console.warn('⚠️  Warning: No trends found in layer4_societal_trends_instances.toml');
+      console.warn('   The file may not be populated yet. Skipping Layer 4.\n');
+      return '### Layer 4: Trend Context\n\n(No trends defined yet)\n\n';
+    }
 
-  return output;
+    const trends = data.trends as Trend[];
+
+    let output = '### Layer 4: Trend Context\n\n';
+    output += 'Use trend IDs to capture cultural context:\n';
+    output += trends.map(t => `- \`${t.id}\``).join('\n');
+    output += '\n\n';
+
+    return output;
+  } catch (error) {
+    console.warn('⚠️  Warning: Could not read layer4_societal_trends_instances.toml');
+    console.warn('   Skipping Layer 4.\n');
+    return '### Layer 4: Trend Context\n\n(File not available)\n\n';
+  }
 }
 
 /**

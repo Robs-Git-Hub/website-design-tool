@@ -5,55 +5,453 @@
 # It preserves the strict v0.2 scope (Visuals only, no layouts)
 # but restores the rich mapping data (axes_bias, style_affinity) from v0.1.
 # ======================================================================
-[meta]id = "layer3_style_lexicon_instances"version = "0.2.1"description = "Visual traits that color the Theme Spec, fully mapped to L1/L2."
-----------------------------------------------------------------------
-VISUAL ATMOSPHERE
-----------------------------------------------------------------------
-[[terms]]id = "golden_hour"label = "Golden Hour"kind = "visual_atmosphere"domain = "graphic"definition = "Warm, low-angle lighting with soft shadows and rich amber tones."[terms.axes_bias]tone = { cozy = 0.8, premium = 0.3 }color_strategy = { monochrome = 0.2 } # Often analogous colors
-[[terms]]id = "glass_and_glow"label = "Glass and Glow"kind = "visual_atmosphere"domain = "ui"definition = "A composite atmosphere combining translucent panels with glowing gradients or neon accents on dark backgrounds."[terms.axes_bias]lightness = { dark = 0.8 }geometry_depth_depth = { layered = 0.8 }decoration = { decorative = 0.7 }[terms.style_affinity]glassmorphism = 0.9retro_futurism = 0.7
-[[terms]]id = "clinical_sterile"label = "Clinical / Sterile"kind = "visual_atmosphere"domain = "ui"definition = "Extremely bright, shadowless, high-white environment conveying hygiene and precision."[terms.axes_bias]tone = { serious = 0.7, clinical = 1.0 }lightness = { light = 1.0 }decoration = { plain = 0.8 }[terms.style_affinity]minimalism = 0.7swiss_style = 0.5
-[[terms]]id = "warm_minimalism"label = "Warm Minimalism"kind = "visual_atmosphere"domain = "ui"definition = "A clean environment softened by cream backgrounds and organic spacing, avoiding harsh stark whites."[terms.axes_bias]tone = { cozy = 0.6, serious = 0.4 }geometry_depth_shape = { rounded = 0.6 }[terms.style_affinity]minimalism = 0.8corporate_memphis = 0.3
-----------------------------------------------------------------------
-PALETTE TRAIT 
-----------------------------------------------------------------------
-[[terms]]id = "duotone_palette"label = "Duotone Palette"kind = "palette_trait"domain = "graphic"definition = "A palette based on two dominant hues, often applied to photography or illustrations to create a strong, branded visual identity."[terms.axes_bias]tone = { premium = 0.4, playful = 0.3 }decoration = { decorative = 0.5 }[terms.style_affinity]retro_futurism = 0.4maximalism = 0.3
-[[terms]]id = "pastel_palette"label = "Pastel Palette"kind = "palette_trait"domain = "graphic"definition = "High-lightness, low-saturation colors creating a gentle, approachable tone."[terms.axes_bias]tone = { friendly = 0.6, playful = 0.4 }decoration = { decorative = 0.3 }[terms.style_affinity]corporate_memphis = 0.6claymorphism = 0.6memphis_design = 0.3
-[[terms]]id = "neon_accents"label = "Neon Accents"kind = "palette_trait"domain = "graphic"definition = "Use of max-saturation colors (cyan, magenta, lime) for highlights against neutral backgrounds."[terms.axes_bias]tone = { playful = 0.5, experimental = 0.3 }decoration = { decorative = 0.6 }[terms.style_affinity]cyberpunk = 1.0dark_mode_saas = 0.8y2k_aesthetic = 0.5
-[[terms]]id = "muted_earth_tones"label = "Muted Earth Tones"kind = "palette_trait"domain = "graphic"definition = "Desaturated browns, greens, and beiges."[terms.axes_bias]tone = { serious = 0.5, cozy = 0.3 }decoration = { subtle = 0.6 }[terms.style_affinity]minimalism = 0.4art_nouveau = 0.2
-----------------------------------------------------------------------
-SURFACE & TEXTURE
-----------------------------------------------------------------------
-[[terms]]id = "mesh_gradient"label = "Mesh Gradient"kind = "surface_texture"domain = "graphic_but_used_in_ui"definition = "Fluid, multi-color gradients used as backgrounds."[terms.axes_bias]tone = { dreamy = 0.5, playful = 0.3 }decoration = { decorative = 0.7 }[terms.style_affinity]glassmorphism = 0.7retro_futurism = 0.4psychedelic_design = 0.4
-[[terms]]id = "grain_texture"label = "Grain / Noise"kind = "surface_texture"domain = "graphic"definition = "Subtle noise overlay to create an analog/paper feel."[terms.axes_bias]decoration = { decorative = 0.8 }tone = { friendly = 0.4, experimental = 0.3 }[terms.style_affinity]grunge = 0.7retro_futurism = 0.3
-[[terms]]id = "glass_panel"label = "Glass Panel"kind = "surface_texture"domain = "ui"definition = "Translucent surfaces with background blur (backdrop-filter)."[terms.axes_bias]geometry_depth_depth = { layered = 0.7 }decoration = { decorative = 0.5 }tone = { techy = 0.5, premium = 0.3 }[terms.style_affinity]glassmorphism = 1.0material_design = 0.3
-----------------------------------------------------------------------
-COMPONENT STYLING
-----------------------------------------------------------------------
-[[terms]]id = "pill_shape"label = "Pill Shape"kind = "component_styling"domain = "ui"definition = "Fully rounded corners (r = 999px) typically for buttons."[terms.axes_bias]geometry_depth_shape = { rounded = 1.0 }tone = { friendly = 0.6 }decoration = { subtle = 0.4 }[terms.style_affinity]minimalism = 0.6material_design = 0.6claymorphism = 0.3
-[[terms]]id = "sharp_corner"label = "Sharp Corner"kind = "component_styling"domain = "ui"definition = "Zero radius corners (r = 0px) for a brutalist or strict look."[terms.axes_bias]geometry_depth_shape = { sharp = 1.0 }tone = { serious = 0.5, clinical = 0.3 }[terms.style_affinity]swiss_style = 0.6brutalism = 0.8flat_design = 0.4
-[[terms]]id = "ghost_chrome"label = "Ghost / Outline"kind = "component_styling"domain = "ui"definition = "Transparent fill with a visible border stroke."[terms.axes_bias]decoration = { subtle = 0.8 }tone = { premium = 0.4, serious = 0.4 }geometry_depth_depth = { flat = 1.0 }[terms.style_affinity]minimalism = 0.8swiss_style = 0.4brutalism = 0.1
-[[terms]]id = "filled_chrome"label = "Filled Chrome"kind = "component_styling"domain = "ui"definition = "Solid, high-contrast background fill for interactive elements."[terms.axes_bias]decoration = { subtle = 0.4 }tone = { serious = 0.4 }[terms.style_affinity]material_design = 0.8flat_design = 0.5
-----------------------------------------------------------------------
-DEPTH TECHNIQUE
-----------------------------------------------------------------------
-[[terms]]id = "hard_shadow"label = "Hard Shadow"kind = "depth_technique"domain = "ui"definition = "High opacity, sharp-edged shadows (no blur) for retro/pop feel."[terms.axes_bias]geometry_depth_depth = { layered = 0.8 }decoration = { decorative = 0.4 }[terms.style_affinity]y2k_aesthetic = 0.4neobrutalism = 0.6
-[[terms]]id = "diffuse_shadow"label = "Diffuse Shadow"kind = "depth_technique"domain = "ui"definition = "Large, low-opacity blur shadows for soft elevation."[terms.axes_bias]geometry_depth_depth = { layered = 0.7 }decoration = { subtle = 0.7 }[terms.style_affinity]material_design = 0.8glassmorphism = 0.3
-[[terms]]id = "inner_shadow"label = "Inner Shadow"kind = "depth_technique"domain = "ui"definition = "Inset shadows creating a pressed or engraved look."[terms.axes_bias]geometry_depth_depth = { soft_embossed = 0.8 }decoration = { subtle = 0.6 }[terms.style_affinity]neumorphism = 1.0claymorphism = 0.5
-----------------------------------------------------------------------
-TYPOGRAPHY MECHANICS
-----------------------------------------------------------------------
-[[terms]]id = "mono_ui"label = "Monospace UI"kind = "typography_mechanics"domain = "ui"definition = "Use of fixed-width fonts for interface elements, not just code."[terms.axes_bias]tone = { techy = 0.7, serious = 0.4 }decoration = { subtle = 0.5 }[terms.style_affinity]retro_futurism = 0.4brutalism = 0.3
-[[terms]]id = "display_serif"label = "Display Serif"kind = "typography_mechanics"domain = "graphic"definition = "High-contrast serif fonts used for headings."[terms.axes_bias]tone = { premium = 0.7, serious = 0.3 }decoration = { decorative = 0.4 }[terms.style_affinity]art_deco = 0.4swiss_style = 0.1minimalism = 0.1
-[[terms]]id = "grotesque_sans"label = "Grotesque Sans"kind = "typography_mechanics"domain = "graphic"definition = "Neo-grotesque sans-serifs (like Helvetica) for neutral clarity."[terms.axes_bias]tone = { techy = 0.5, serious = 0.4 }decoration = { subtle = 0.7 }[terms.style_affinity]swiss_style = 1.0minimalism = 0.6
-[[terms]]id = "variable_font_play"label = "Variable Font Play"kind = "typography_mechanics"domain = "graphic_but_used_in_ui"definition = "Animation or interactive use of variable fonts to morph weight/width."[terms.axes_bias]tone = { experimental = 0.7, playful = 0.4 }decoration = { decorative = 0.7 }[terms.style_affinity]psychedelic_design = 0.4neobrutalism = 0.3
-----------------------------------------------------------------------
-ILLUSTRATION STYLE
-----------------------------------------------------------------------
-[[terms]]id = "isometric_scene"label = "Isometric Scene"kind = "illustration_style"domain = "graphic_but_used_in_ui"definition = "Illustrations drawn in isometric projection, common in SaaS."[terms.axes_bias]decoration = { decorative = 0.5 }tone = { techy = 0.5, serious = 0.3 }[terms.style_affinity]material_design = 0.3corporate_memphis = 0.2
-[[terms]]id = "flat_spot_illustration"label = "Flat Spot Illustration"kind = "illustration_style"domain = "graphic_but_used_in_ui"definition = "Simple, flat-color illustrations used as small scenes."[terms.axes_bias]decoration = { decorative = 0.5 }tone = { friendly = 0.5, playful = 0.3 }[terms.style_affinity]corporate_memphis = 0.7flat_design = 0.5
-[[terms]]id = "3d_blob"label = "3D Blob"kind = "illustration_style"domain = "graphic_but_used_in_ui"definition = "Soft, inflated 3D shapes featuring colorful abstract forms."[terms.axes_bias]tone = { friendly = 0.6, playful = 0.4 }color_strategy = { high_chroma = 0.5, pastel = 0.5 }[terms.style_affinity]claymorphism = 0.6psychedelic_design = 0.3
-----------------------------------------------------------------------
-MOTION MECHANICS
-----------------------------------------------------------------------
-[[terms]]id = "springy_motion"label = "Springy Motion"kind = "motion_mechanics"domain = "ui"definition = "Overshoot and spring easing curves for bouncy transitions."[terms.axes_bias]tone = { playful = 0.5, friendly = 0.3 }decoration = { decorative = 0.4 }[terms.style_affinity]claymorphism = 0.5corporate_memphis = 0.4
-[[terms]]id = "linear_instant"label = "Linear / Instant"kind = "motion_mechanics"domain = "ui"definition = "Zero-duration or very fast linear transitions for high utility."[terms.axes_bias]decoration = { plain = 0.8 }tone = { serious = 0.6, clinical = 0.4 }[terms.style_affinity]brutalism = 0.5swiss_style = 0.4
+
+[meta]
+id = "layer3_style_lexicon_instances"
+version = "0.2.1"
+description = "Visual traits that color the Theme Spec, fully mapped to L1/L2."
+
+# ----------------------------------------------------------------------
+# VISUAL ATMOSPHERE
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "golden_hour"
+label = "Golden Hour"
+kind = "visual_atmosphere"
+domain = "graphic"
+definition = "Warm, low-angle lighting with soft shadows and rich amber tones."
+
+[terms.axes_bias]
+tone = { cozy = 0.8, premium = 0.3 }
+color_strategy = { monochrome = 0.2 } # Often analogous colors
+
+[[terms]]
+id = "glass_and_glow"
+label = "Glass and Glow"
+kind = "visual_atmosphere"
+domain = "ui"
+definition = "A composite atmosphere combining translucent panels with glowing gradients or neon accents on dark backgrounds."
+
+[terms.axes_bias]
+lightness = { dark = 0.8 }
+geometry_depth_depth = { layered = 0.8 }
+decoration = { decorative = 0.7 }
+
+[terms.style_affinity]
+glassmorphism = 0.9
+retro_futurism = 0.7
+
+[[terms]]
+id = "clinical_sterile"
+label = "Clinical / Sterile"
+kind = "visual_atmosphere"
+domain = "ui"
+definition = "Extremely bright, shadowless, high-white environment conveying hygiene and precision."
+
+[terms.axes_bias]
+tone = { serious = 0.7, clinical = 1.0 }
+lightness = { light = 1.0 }
+decoration = { plain = 0.8 }
+
+[terms.style_affinity]
+minimalism = 0.7
+swiss_style = 0.5
+
+[[terms]]
+id = "warm_minimalism"
+label = "Warm Minimalism"
+kind = "visual_atmosphere"
+domain = "ui"
+definition = "A clean environment softened by cream backgrounds and organic spacing, avoiding harsh stark whites."
+
+[terms.axes_bias]
+tone = { cozy = 0.6, serious = 0.4 }
+geometry_depth_shape = { rounded = 0.6 }
+
+[terms.style_affinity]
+minimalism = 0.8
+corporate_memphis = 0.3
+
+# ----------------------------------------------------------------------
+# PALETTE TRAIT
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "duotone_palette"
+label = "Duotone Palette"
+kind = "palette_trait"
+domain = "graphic"
+definition = "A palette based on two dominant hues, often applied to photography or illustrations to create a strong, branded visual identity."
+
+[terms.axes_bias]
+tone = { premium = 0.4, playful = 0.3 }
+decoration = { decorative = 0.5 }
+
+[terms.style_affinity]
+retro_futurism = 0.4
+maximalism = 0.3
+
+[[terms]]
+id = "pastel_palette"
+label = "Pastel Palette"
+kind = "palette_trait"
+domain = "graphic"
+definition = "High-lightness, low-saturation colors creating a gentle, approachable tone."
+
+[terms.axes_bias]
+tone = { friendly = 0.6, playful = 0.4 }
+decoration = { decorative = 0.3 }
+
+[terms.style_affinity]
+corporate_memphis = 0.6
+claymorphism = 0.6
+memphis_design = 0.3
+
+[[terms]]
+id = "neon_accents"
+label = "Neon Accents"
+kind = "palette_trait"
+domain = "graphic"
+definition = "Use of max-saturation colors (cyan, magenta, lime) for highlights against neutral backgrounds."
+
+[terms.axes_bias]
+tone = { playful = 0.5, experimental = 0.3 }
+decoration = { decorative = 0.6 }
+
+[terms.style_affinity]
+cyberpunk = 1.0
+dark_mode_saas = 0.8
+y2k_aesthetic = 0.5
+
+[[terms]]
+id = "muted_earth_tones"
+label = "Muted Earth Tones"
+kind = "palette_trait"
+domain = "graphic"
+definition = "Desaturated browns, greens, and beiges."
+
+[terms.axes_bias]
+tone = { serious = 0.5, cozy = 0.3 }
+decoration = { subtle = 0.6 }
+
+[terms.style_affinity]
+minimalism = 0.4
+art_nouveau = 0.2
+
+# ----------------------------------------------------------------------
+# SURFACE & TEXTURE
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "mesh_gradient"
+label = "Mesh Gradient"
+kind = "surface_texture"
+domain = "graphic_but_used_in_ui"
+definition = "Fluid, multi-color gradients used as backgrounds."
+
+[terms.axes_bias]
+tone = { dreamy = 0.5, playful = 0.3 }
+decoration = { decorative = 0.7 }
+
+[terms.style_affinity]
+glassmorphism = 0.7
+retro_futurism = 0.4
+psychedelic_design = 0.4
+
+[[terms]]
+id = "grain_texture"
+label = "Grain / Noise"
+kind = "surface_texture"
+domain = "graphic"
+definition = "Subtle noise overlay to create an analog/paper feel."
+
+[terms.axes_bias]
+decoration = { decorative = 0.8 }
+tone = { friendly = 0.4, experimental = 0.3 }
+
+[terms.style_affinity]
+grunge = 0.7
+retro_futurism = 0.3
+
+[[terms]]
+id = "glass_panel"
+label = "Glass Panel"
+kind = "surface_texture"
+domain = "ui"
+definition = "Translucent surfaces with background blur (backdrop-filter)."
+
+[terms.axes_bias]
+geometry_depth_depth = { layered = 0.7 }
+decoration = { decorative = 0.5 }
+tone = { techy = 0.5, premium = 0.3 }
+
+[terms.style_affinity]
+glassmorphism = 1.0
+material_design = 0.3
+
+# ----------------------------------------------------------------------
+# COMPONENT STYLING
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "pill_shape"
+label = "Pill Shape"
+kind = "component_styling"
+domain = "ui"
+definition = "Fully rounded corners (r = 999px) typically for buttons."
+
+[terms.axes_bias]
+geometry_depth_shape = { rounded = 1.0 }
+tone = { friendly = 0.6 }
+decoration = { subtle = 0.4 }
+
+[terms.style_affinity]
+minimalism = 0.6
+material_design = 0.6
+claymorphism = 0.3
+
+[[terms]]
+id = "sharp_corner"
+label = "Sharp Corner"
+kind = "component_styling"
+domain = "ui"
+definition = "Zero radius corners (r = 0px) for a brutalist or strict look."
+
+[terms.axes_bias]
+geometry_depth_shape = { sharp = 1.0 }
+tone = { serious = 0.5, clinical = 0.3 }
+
+[terms.style_affinity]
+swiss_style = 0.6
+brutalism = 0.8
+flat_design = 0.4
+
+[[terms]]
+id = "ghost_chrome"
+label = "Ghost / Outline"
+kind = "component_styling"
+domain = "ui"
+definition = "Transparent fill with a visible border stroke."
+
+[terms.axes_bias]
+decoration = { subtle = 0.8 }
+tone = { premium = 0.4, serious = 0.4 }
+geometry_depth_depth = { flat = 1.0 }
+
+[terms.style_affinity]
+minimalism = 0.8
+swiss_style = 0.4
+brutalism = 0.1
+
+[[terms]]
+id = "filled_chrome"
+label = "Filled Chrome"
+kind = "component_styling"
+domain = "ui"
+definition = "Solid, high-contrast background fill for interactive elements."
+
+[terms.axes_bias]
+decoration = { subtle = 0.4 }
+tone = { serious = 0.4 }
+
+[terms.style_affinity]
+material_design = 0.8
+flat_design = 0.5
+
+# ----------------------------------------------------------------------
+# DEPTH TECHNIQUE
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "hard_shadow"
+label = "Hard Shadow"
+kind = "depth_technique"
+domain = "ui"
+definition = "High opacity, sharp-edged shadows (no blur) for retro/pop feel."
+
+[terms.axes_bias]
+geometry_depth_depth = { layered = 0.8 }
+decoration = { decorative = 0.4 }
+
+[terms.style_affinity]
+y2k_aesthetic = 0.4
+neobrutalism = 0.6
+
+[[terms]]
+id = "diffuse_shadow"
+label = "Diffuse Shadow"
+kind = "depth_technique"
+domain = "ui"
+definition = "Large, low-opacity blur shadows for soft elevation."
+
+[terms.axes_bias]
+geometry_depth_depth = { layered = 0.7 }
+decoration = { subtle = 0.7 }
+
+[terms.style_affinity]
+material_design = 0.8
+glassmorphism = 0.3
+
+[[terms]]
+id = "inner_shadow"
+label = "Inner Shadow"
+kind = "depth_technique"
+domain = "ui"
+definition = "Inset shadows creating a pressed or engraved look."
+
+[terms.axes_bias]
+geometry_depth_depth = { soft_embossed = 0.8 }
+decoration = { subtle = 0.6 }
+
+[terms.style_affinity]
+neumorphism = 1.0
+claymorphism = 0.5
+
+# ----------------------------------------------------------------------
+# TYPOGRAPHY MECHANICS
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "mono_ui"
+label = "Monospace UI"
+kind = "typography_mechanics"
+domain = "ui"
+definition = "Use of fixed-width fonts for interface elements, not just code."
+
+[terms.axes_bias]
+tone = { techy = 0.7, serious = 0.4 }
+decoration = { subtle = 0.5 }
+
+[terms.style_affinity]
+retro_futurism = 0.4
+brutalism = 0.3
+
+[[terms]]
+id = "display_serif"
+label = "Display Serif"
+kind = "typography_mechanics"
+domain = "graphic"
+definition = "High-contrast serif fonts used for headings."
+
+[terms.axes_bias]
+tone = { premium = 0.7, serious = 0.3 }
+decoration = { decorative = 0.4 }
+
+[terms.style_affinity]
+art_deco = 0.4
+swiss_style = 0.1
+minimalism = 0.1
+
+[[terms]]
+id = "grotesque_sans"
+label = "Grotesque Sans"
+kind = "typography_mechanics"
+domain = "graphic"
+definition = "Neo-grotesque sans-serifs (like Helvetica) for neutral clarity."
+
+[terms.axes_bias]
+tone = { techy = 0.5, serious = 0.4 }
+decoration = { subtle = 0.7 }
+
+[terms.style_affinity]
+swiss_style = 1.0
+minimalism = 0.6
+
+[[terms]]
+id = "variable_font_play"
+label = "Variable Font Play"
+kind = "typography_mechanics"
+domain = "graphic_but_used_in_ui"
+definition = "Animation or interactive use of variable fonts to morph weight/width."
+
+[terms.axes_bias]
+tone = { experimental = 0.7, playful = 0.4 }
+decoration = { decorative = 0.7 }
+
+[terms.style_affinity]
+psychedelic_design = 0.4
+neobrutalism = 0.3
+
+# ----------------------------------------------------------------------
+# ILLUSTRATION STYLE
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "isometric_scene"
+label = "Isometric Scene"
+kind = "illustration_style"
+domain = "graphic_but_used_in_ui"
+definition = "Illustrations drawn in isometric projection, common in SaaS."
+
+[terms.axes_bias]
+decoration = { decorative = 0.5 }
+tone = { techy = 0.5, serious = 0.3 }
+
+[terms.style_affinity]
+material_design = 0.3
+corporate_memphis = 0.2
+
+[[terms]]
+id = "flat_spot_illustration"
+label = "Flat Spot Illustration"
+kind = "illustration_style"
+domain = "graphic_but_used_in_ui"
+definition = "Simple, flat-color illustrations used as small scenes."
+
+[terms.axes_bias]
+decoration = { decorative = 0.5 }
+tone = { friendly = 0.5, playful = 0.3 }
+
+[terms.style_affinity]
+corporate_memphis = 0.7
+flat_design = 0.5
+
+[[terms]]
+id = "3d_blob"
+label = "3D Blob"
+kind = "illustration_style"
+domain = "graphic_but_used_in_ui"
+definition = "Soft, inflated 3D shapes featuring colorful abstract forms."
+
+[terms.axes_bias]
+tone = { friendly = 0.6, playful = 0.4 }
+color_strategy = { high_chroma = 0.5, pastel = 0.5 }
+
+[terms.style_affinity]
+claymorphism = 0.6
+psychedelic_design = 0.3
+
+# ----------------------------------------------------------------------
+# MOTION MECHANICS
+# ----------------------------------------------------------------------
+
+[[terms]]
+id = "springy_motion"
+label = "Springy Motion"
+kind = "motion_mechanics"
+domain = "ui"
+definition = "Overshoot and spring easing curves for bouncy transitions."
+
+[terms.axes_bias]
+tone = { playful = 0.5, friendly = 0.3 }
+decoration = { decorative = 0.4 }
+
+[terms.style_affinity]
+claymorphism = 0.5
+corporate_memphis = 0.4
+
+[[terms]]
+id = "linear_instant"
+label = "Linear / Instant"
+kind = "motion_mechanics"
+domain = "ui"
+definition = "Zero-duration or very fast linear transitions for high utility."
+
+[terms.axes_bias]
+decoration = { plain = 0.8 }
+tone = { serious = 0.6, clinical = 0.4 }
+
+[terms.style_affinity]
+brutalism = 0.5
+swiss_style = 0.4
