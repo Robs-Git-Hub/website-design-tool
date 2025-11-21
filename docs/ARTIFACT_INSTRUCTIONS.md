@@ -27,7 +27,11 @@ This is a **single-page React artifact** you can paste into **Claude Chat** to t
 
 ```jsx
 import React, { useState } from 'react';
-import { AlertCircle, Sparkles, Copy, ChevronDown, ChevronUp } from 'lucide-react';
+import { AlertCircle, Sparkles, Copy, ChevronDown, ChevronUp, Image } from 'lucide-react';
+
+// VERSION: 1.0.6
+// Last updated: 2025-11-21
+// Changes: Added image upload for screenshot analysis
 
 // Orchestrator System Prompt (condensed for artifact)
 const SYSTEM_PROMPT = `You are the WAS Orchestrator. Translate design ideas into structured WAS Bundles.
@@ -96,30 +100,117 @@ export default function WASOrchestrator() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showPrompt, setShowPrompt] = useState(false);
+  const [debugInfo, setDebugInfo] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Check if it's an image
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload an image file');
+      return;
+    }
+
+    // Convert to base64
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result.split(',')[1]; // Remove data URL prefix
+      setUploadedImage({
+        base64,
+        mediaType: file.type,
+        preview: reader.result
+      });
+      setError(null);
+    };
+    reader.onerror = () => {
+      setError('Failed to read image file');
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const clearImage = () => {
+    setUploadedImage(null);
+  };
 
   const generateBundle = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() && !uploadedImage) return;
 
     setLoading(true);
     setError(null);
     setOutput(null);
+    setDebugInfo(null);
 
     try {
-      const result = await window.claude.complete({
-        system: SYSTEM_PROMPT,
-        prompt: `Design Idea:\n${input}\n\nGenerate a WAS Bundle (JSON only, no markdown):`,
-        temperature: 0.7,
+      // Build the message content
+      const messageContent = [];
+      
+      // Add image if uploaded
+      if (uploadedImage) {
+        messageContent.push({
+          type: "image",
+          source: {
+            type: "base64",
+            media_type: uploadedImage.mediaType,
+            data: uploadedImage.base64
+          }
+        });
+      }
+
+      // Add text prompt
+      const promptText = uploadedImage 
+        ? `Analyze this website screenshot and generate a WAS Bundle that captures its aesthetic.\n\n${input || 'Describe the visual style, color scheme, typography, and overall design approach.'}\n\nGenerate a WAS Bundle (JSON only, no markdown):`
+        : `Design Idea:\n${input}\n\nGenerate a WAS Bundle (JSON only, no markdown):`;
+      
+      messageContent.push({
+        type: "text",
+        text: promptText
       });
 
-      // Extract JSON from response
-      let jsonStr = result.completion.trim();
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 4000,
+          system: SYSTEM_PROMPT,
+          messages: [
+            { 
+              role: "user", 
+              content: messageContent
+            }
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('API Result:', result);
+
+      // Extract text from the response
+      const jsonStr = result.content[0].text.trim();
 
       // Remove markdown code blocks if present
-      jsonStr = jsonStr.replace(/```json\n?/g, '').replace(/```\n?/g, '');
+      const cleanedStr = jsonStr.replace(/```json\n?/g, '').replace(/```\n?/g, '');
 
-      const parsed = JSON.parse(jsonStr);
+      console.log('JSON string to parse:', cleanedStr);
+      
+      // Store debug info
+      setDebugInfo({
+        rawResponse: cleanedStr,
+        responseLength: cleanedStr.length
+      });
+
+      const parsed = JSON.parse(cleanedStr);
       setOutput(parsed);
     } catch (err) {
+      console.error('Error details:', err);
       setError(err.message || 'Failed to generate bundle');
     } finally {
       setLoading(false);
@@ -156,7 +247,7 @@ export default function WASOrchestrator() {
           WAS Orchestrator
         </h1>
         <p style={{ color: '#999', margin: 0 }}>
-          Translate design ideas into Website Aesthetic Schema (WAS) Bundles
+          Translate design ideas or website screenshots into Website Aesthetic Schema (WAS) Bundles
         </p>
       </header>
 
@@ -237,6 +328,99 @@ export default function WASOrchestrator() {
         </div>
       </div>
 
+      {/* Image Upload Section */}
+      <div style={{ marginBottom: '24px' }}>
+        <label style={{
+          display: 'block',
+          marginBottom: '8px',
+          fontSize: '14px',
+          fontWeight: '600'
+        }}>
+          Upload Website Screenshot (Optional)
+        </label>
+        
+        {!uploadedImage ? (
+          <div>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              style={{ display: 'none' }}
+              id="image-upload"
+            />
+            <label
+              htmlFor="image-upload"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 24px',
+                background: '#1a1a1a',
+                border: '1px dashed #666',
+                borderRadius: '8px',
+                color: '#e0e0e0',
+                cursor: 'pointer',
+                fontSize: '14px',
+                transition: 'all 0.2s'
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.borderColor = '#6366f1';
+                e.currentTarget.style.background = '#1f1f2e';
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.borderColor = '#666';
+                e.currentTarget.style.background = '#1a1a1a';
+              }}
+            >
+              <Image size={18} />
+              Choose Screenshot
+            </label>
+            <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
+              Upload a screenshot to analyze its aesthetic
+            </p>
+          </div>
+        ) : (
+          <div style={{
+            padding: '16px',
+            background: '#1a1a1a',
+            border: '1px solid #333',
+            borderRadius: '8px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+              <img
+                src={uploadedImage.preview}
+                alt="Uploaded screenshot"
+                style={{
+                  maxWidth: '200px',
+                  maxHeight: '150px',
+                  borderRadius: '4px',
+                  border: '1px solid #333'
+                }}
+              />
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: '13px', color: '#999', marginBottom: '8px' }}>
+                  Screenshot uploaded ✓
+                </p>
+                <button
+                  onClick={clearImage}
+                  style={{
+                    padding: '6px 12px',
+                    background: '#2a1a1a',
+                    border: '1px solid #ff4444',
+                    borderRadius: '6px',
+                    color: '#ff4444',
+                    cursor: 'pointer',
+                    fontSize: '12px'
+                  }}
+                >
+                  Remove Image
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Input */}
       <div style={{ marginBottom: '24px' }}>
         <label style={{
@@ -245,12 +429,14 @@ export default function WASOrchestrator() {
           fontSize: '14px',
           fontWeight: '600'
         }}>
-          Design Idea
+          Design Idea {uploadedImage && '(Optional - adds context to image)'}
         </label>
         <textarea
           value={input}
           onChange={e => setInput(e.target.value)}
-          placeholder="Describe the aesthetic you want (e.g., 'A dark-mode SaaS dashboard with glass panels and neon accents...')"
+          placeholder={uploadedImage 
+            ? "Add optional context or specific aspects to focus on..." 
+            : "Describe the aesthetic you want (e.g., 'A dark-mode SaaS dashboard with glass panels and neon accents...')"}
           style={{
             width: '100%',
             minHeight: '120px',
@@ -269,7 +455,7 @@ export default function WASOrchestrator() {
       {/* Generate Button */}
       <button
         onClick={generateBundle}
-        disabled={loading || !input.trim()}
+        disabled={loading || (!input.trim() && !uploadedImage)}
         style={{
           padding: '12px 24px',
           background: loading ? '#333' : '#6366f1',
@@ -279,7 +465,7 @@ export default function WASOrchestrator() {
           fontSize: '14px',
           fontWeight: '600',
           cursor: loading ? 'wait' : 'pointer',
-          opacity: !input.trim() ? 0.5 : 1,
+          opacity: (!input.trim() && !uploadedImage) ? 0.5 : 1,
           transition: 'all 0.2s'
         }}
       >
@@ -303,6 +489,61 @@ export default function WASOrchestrator() {
             <strong style={{ color: '#ff4444' }}>Error</strong>
             <p style={{ margin: '4px 0 0', color: '#e0e0e0' }}>{error}</p>
           </div>
+        </div>
+      )}
+
+      {/* Debug Info */}
+      {debugInfo && (
+        <div style={{
+          marginTop: '24px',
+          padding: '16px',
+          background: '#1a1a1a',
+          border: '1px solid #ff9800',
+          borderRadius: '8px'
+        }}>
+          <h4 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '12px', color: '#ff9800' }}>
+            Debug Info
+          </h4>
+          {debugInfo.rawResponse !== undefined && (
+            <>
+              <p style={{ fontSize: '12px', color: '#999', marginBottom: '8px' }}>
+                Response length: {debugInfo.responseLength} characters
+              </p>
+              <pre style={{
+                padding: '12px',
+                background: '#0a0a0a',
+                border: '1px solid #333',
+                borderRadius: '4px',
+                overflow: 'auto',
+                fontSize: '11px',
+                color: '#ff9800',
+                maxHeight: '300px',
+                whiteSpace: 'pre-wrap'
+              }}>
+                {debugInfo.rawResponse || '(empty response)'}
+              </pre>
+            </>
+          )}
+          {debugInfo.result && (
+            <>
+              <p style={{ fontSize: '12px', color: '#999', marginBottom: '8px' }}>
+                Raw API result structure:
+              </p>
+              <pre style={{
+                padding: '12px',
+                background: '#0a0a0a',
+                border: '1px solid #333',
+                borderRadius: '4px',
+                overflow: 'auto',
+                fontSize: '11px',
+                color: '#ff9800',
+                maxHeight: '300px',
+                whiteSpace: 'pre-wrap'
+              }}>
+                {debugInfo.result}
+              </pre>
+            </>
+          )}
         </div>
       )}
 
@@ -371,6 +612,18 @@ export default function WASOrchestrator() {
           </div>
         </div>
       )}
+
+      {/* Version Footer */}
+      <div style={{
+        marginTop: '48px',
+        paddingTop: '24px',
+        borderTop: '1px solid #333',
+        textAlign: 'center',
+        fontSize: '11px',
+        color: '#666'
+      }}>
+        WAS Orchestrator v1.0.6 • Last updated: 2025-11-21
+      </div>
     </div>
   );
 }
