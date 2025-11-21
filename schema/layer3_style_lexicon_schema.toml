@@ -1,169 +1,109 @@
 # ======================================================================
-# LAYER 3 STYLE LEXICON — SCHEMA & KIND LIST (v0.1)
+# LAYER 3: VISUAL STYLE TRAITS — SCHEMA (v0.2.1)
+# ======================================================================
+# Purpose:
+#   - Defines the "Atoms" of the Aesthetic Vibe.
+#   - SCOPE: Describes *Qualities* and *Intents* (High Abstraction).
+#   - EXCLUDED: Layout patterns (moved to blueprint/) or Pure Physics (L1).
+#
+# MAPPINGS (The "Lossless" Connective Tissue):
+#   - Visual traits map to L1 Axes (e.g., "Neon" -> High Chroma).
+#   - Visual traits map to L2 Styles (e.g., "Glass Panel" -> Glassmorphism).
 # ======================================================================
 
 [meta]
 id = "layer3_style_lexicon_schema"
-version = "0.1.1"
-description = "Schema and taxonomy for Layer-3 visual/aesthetic terms used to describe or construct website styles."
+version = "0.2.1"
+description = "Taxonomy for atomic visual traits used to configure the Theme Specification (Skin)."
 
 # ----------------------------------------------------------------------
-# DOMAINS — where the term primarily lives
+# DOMAINS — Who consumes this term?
 # ----------------------------------------------------------------------
 
 [domains]
-# Mostly digital interface concepts (dark mode, card layout, glass panel, etc.)
-ui = "User interface / product UI focused"
-
-# Primarily general graphic/visual design concepts (Swiss Style, Art Deco, etc.)
-graphic = "General graphic design concept"
-
-# Graphic concept that regularly appears in UI/UX contexts (e.g. Memphis, Y2K)
-graphic_but_used_in_ui = "Graphic style frequently used in UI/UX"
+ui = "User interface concepts (consumed by Code Agents/Tailwind)."
+graphic = "Graphic design/Art Direction concepts (consumed by Image Agents/Designers)."
+graphic_but_used_in_ui = "Graphic trends applied to UI (consumed by both)."
 
 # ----------------------------------------------------------------------
-# STATUS — lifecycle of a term in the lexicon
-# ----------------------------------------------------------------------
-
-[status_values]
-core = "Term is stable and should be used in production prompts and mappings."
-candidate = "Term is under review or newly added; may change or be removed."
-deprecated = "Term is no longer recommended; kept for backwards compatibility / mapping."
-
-# ----------------------------------------------------------------------
-# KINDS — primary categories of Layer-3 terms (MECE-ish)
-# Each term must have exactly ONE primary `kind`.
+# KINDS — The Valid Vibe Atoms
 # ----------------------------------------------------------------------
 
 [[kinds]]
-id = "color_strategy"
-label = "Color Strategy"
-description = "Terms describing how color is used overall: range, saturation, palette structure."
-examples = ["monochrome", "pastel", "high-chroma", "duotone", "neutral with accent"]
+id = "palette_trait"
+label = "Palette Trait"
+description = "The mood or dynamic of the color palette (e.g., 'Pastel', 'Neon')."
 
 [[kinds]]
-id = "lightness_strategy"
-label = "Lightness Strategy"
-description = "Terms describing overall light/dark balance or theme behaviour."
-examples = ["dark mode", "light mode", "high-key", "low-key", "hybrid shell"]
+id = "component_styling"
+label = "Component Styling"
+description = "The geometric character of interactive elements (e.g., 'Pill Shape')."
 
 [[kinds]]
-id = "tone_descriptor"
-label = "Tone & Emotional Feel"
-description = "Visual tone / emotional feel terms, as used in design glossaries (not broad cultural metaphors)."
-examples = ["playful", "clinical", "premium", "friendly", "serious"]
+id = "surface_texture"
+label = "Surface & Texture"
+description = "The tactile quality of backgrounds (e.g., 'Glass', 'Grain')."
 
 [[kinds]]
-id = "geometry_depth"
-label = "Geometry & Depth Treatment"
-description = "Terms describing perceived depth, edge treatment, and spatial feel."
-examples = ["flat", "skeuomorphic", "glass-like", "neumorphic", "clay-like"]
+id = "depth_technique"
+label = "Depth Technique"
+description = "The approach to elevation/shadows (e.g., 'Hard Shadow', 'Soft Glow')."
 
 [[kinds]]
-id = "layout_pattern"
-label = "Layout Pattern"
-description = "Common structural patterns for arranging content."
-examples = ["card grid", "masonry grid", "bento grid", "split hero", "sidebar layout"]
+id = "typography_mechanics"
+label = "Typography Mechanics"
+description = "Stylistic categorization of type (e.g., 'Monospace', 'Editorial Serif')."
 
 [[kinds]]
-id = "component_chrome"
-label = "Component Chrome"
-description = "Styling approaches for UI components (buttons, chips, cards)."
-examples = ["pill buttons", "ghost buttons", "chip-style filters", "outline buttons"]
-
-[[kinds]]
-id = "texture_pattern"
-label = "Texture & Surface Pattern"
-description = "Surface treatments and patterns applied over areas or elements."
-examples = ["grain texture", "noise overlay", "mesh gradient", "heavy outlines", "drop shadow"]
-
-[[kinds]]
-id = "motion_style"
-label = "Motion & Interaction Style"
-description = "Terms describing characteristic motion or micro-interaction aesthetics."
-examples = ["micro-interaction-heavy", "parallax scrolling", "scroll-jacking", "springy transitions"]
+id = "motion_mechanics"
+label = "Motion Mechanics"
+description = "Physics personality of transitions (e.g., 'Spring', 'Linear')."
 
 [[kinds]]
 id = "illustration_style"
-label = "Illustration & Icon Style"
-description = "Terms describing the look of illustrations, icons, and imagery."
-examples = ["line art", "isometric", "3D blobs", "mascot illustration", "flat iconography"]
+label = "Illustration Style"
+description = "Artistic direction for imagery (e.g., 'Isometric', 'Line Art')."
 
 [[kinds]]
-id = "typography_style"
-label = "Typography Style"
-description = "Typographic approaches that have strong aesthetic implications."
-examples = ["Swiss style type", "display serif", "monospace UI", "variable type animation"]
-
-[[kinds]]
-id = "meta_construct"
-label = "Meta / Compositional Construct"
-description = "Higher-level constructs that combine several aspects (used sparingly)."
-examples = ["glass and glow", "warm minimal SaaS", "editorial report style"]
+id = "visual_atmosphere"
+label = "Visual Atmosphere"
+description = "The sensory environment and lighting (e.g., 'Golden Hour', 'Sterile')."
 
 # ----------------------------------------------------------------------
-# TERM SCHEMA — expected fields for each Layer-3 lexicon entry
+# TERM SCHEMA
 # ----------------------------------------------------------------------
 
 [term_schema]
 id = "string"
 label = "string"
-kind = "string"
-domain = "string"
-status = "string"
-
+kind = "string"    # Must match one of the [[kinds]] ids above
+domain = "string"  # Must match one of [domains]
 definition = "string"
-sources = ["string"]
 
-# Normalisation / semantic relationships
+# Knowledge Graph Metadata (Restored)
+sources = ["string"]
 synonyms = ["string"]
 antonyms = ["string"]
 
-# Optional freeform notes on usage, caveats, or historical nuance.
-notes = "string"
+# Prompt Engineering Data
+prompt_keywords = ["string"]   
 
 # ----------------------------------------------------------------------
-# KEYWORDS — prompt & search oriented vocab (optional, evolving)
+# MAPPINGS (The Logic Layer)
 # ----------------------------------------------------------------------
 
-# Short phrases an agent should ideally use *in prompts* when it wants this
-# term's visual effect. These are curated, stable-ish, and safe for reuse.
-# Example for `mesh_gradient`:
-#   ["soft mesh gradient background", "blurry multicolor gradient"]
-prompt_keywords = ["string"]
-
-# Extra phrases useful for search / scraping, including informal or noisy
-# variants (slang, common misnamings, longer tail phrases).
-# Example:
-#   ["fluid gradient background", "modern aurora gradient ui", "dribbble mesh gradient"]
-search_keywords = ["string"]
-
-# ----------------------------------------------------------------------
-# AXES BIAS SCHEMA (unchanged)
-# ----------------------------------------------------------------------
-
+# How this Visual Trait biases the L1 Physics.
+# (Restored full set of axes so traits can influence any physical constraint).
 [term_schema.axes_bias]
-tone = "axis_bias_value"
-lightness = "axis_bias_value"
-color_strategy = "axis_bias_value"
-geometry_depth_shape = "axis_bias_value"
-geometry_depth_depth = "axis_bias_value"
-density = "axis_bias_value"
-decoration = "axis_bias_value"
+tone = "axis_bias_value"                  # e.g., playful, serious
+lightness = "axis_bias_value"             # e.g., light, dark (for 'clinical' or 'darkroom')
+color_strategy = "axis_bias_value"        # e.g., high_chroma (for 'neon')
+geometry_depth_shape = "axis_bias_value"  # e.g., rounded
+geometry_depth_depth = "axis_bias_value"  # e.g., flat, layered
+density = "axis_bias_value"               # e.g., dense, airy
+decoration = "axis_bias_value"            # e.g., decorative, plain
 
-# ----------------------------------------------------------------------
-# STYLE AFFINITY SCHEMA (unchanged)
-# ----------------------------------------------------------------------
-
+# How this Visual Trait relates to L2 Styles.
+# (Used for clustering and suggestion).
 [term_schema.style_affinity]
 _style_id = "float"
-
-# ----------------------------------------------------------------------
-# TAGS (unchanged)
-# ----------------------------------------------------------------------
-
-[term_schema.tags]
-technical = "boolean"
-accessibility_implications = "boolean"
-deprecated_in_guidelines = "boolean"
-brand_specific = "boolean"

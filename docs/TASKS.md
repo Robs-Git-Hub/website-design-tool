@@ -1,21 +1,3 @@
-No, absolutely not. In fact, a **React + Supabase** stack is arguably **better** for this vision because the ultimate goal is a visual, interactive "Aesthetic Picker" (the Playground).
-
-Moving to TypeScript/React aligns perfectly with the "Orchestrator" concept:
-
-1.  **React (Next.js/Vite):** Perfect for building the **Visualizer**. You can render the "Knowledge Graph" we just built (Sankey diagrams, moodboards) directly in the browser.
-2.  **TypeScript (Zod):** Stronger type safety for the Schema validation than Python. We can map the TOML schemas directly to Zod schemas.
-3.  **Supabase:**
-    *   **Database:** Store the "Registries" and "Lexicon" in Postgres for fast querying (instead of parsing TOML files every time).
-    *   **Vector Search:** Supabase `pgvector` is perfect for the **Search Agent** (Story #11) to find "websites like this."
-    *   **Edge Functions:** Run the "Bundle Validator" and "Transformer" logic in Deno/Node.
-
-### The Pivot
-I will update `TASKS.md` to replace the Python utility scripts with a **TypeScript/React Tooling** plan.
-
-Here is the updated plan.
-
----
-
 # **TASKS.md — Running Checklist**
 
 ---
@@ -108,52 +90,100 @@ Here is the updated plan.
 
 ---
 
-# **PHASE 02 — TOOLING & MVP WORKFLOWS (CURRENT)**
+# PHASE 02 — THE FIRST LINK (IDEA → VIBE)
 
-*Stack: TypeScript, React, Supabase, Tailwind.*
+**Goal:** Validate that a High-Intelligence Reasoning LLM can consistently translate "Ideas" into valid "WAS Bundles" (Vibe Specs).
 
-## **Task Group 1: The Engine (TypeScript SDK)**
+## Task Group 1: The Orchestrator & Knowledge Base
 
-* [ ] Initialize TS/Next.js project (`/web` or separate repo)
-* [ ] Install TOML parsers (`@ltd/j-toml`) and Validation libs (`zod`)
-* [ ] Create `WasEngine` class:
-    *   [ ] `loadRegistry()`: Ingests the TOML data files.
-    *   [ ] `validateBundle(json)`: Validates a bundle against the loaded registry.
-    *   [ ] `flattenBundle(json)`: Resolves L2 styles into raw L1 values.
+*   [ ] **Construct System Prompt:**
+    *   [ ] Inject condensed L1-L4 Schemas.
+    *   [ ] Inject Registries (Allowed lists).
+    *   [ ] Define "Reasoning Strategy" (e.g., "Analyze context first, then derive physics").
+*   [ ] **Create Example Shots:**
+    *   [ ] Write 3-5 "Gold Standard" input/output pairs (Idea -> TOML) to teach the LLM the "Vibe" logic.
+    *   [ ] Ensure examples cover edge cases (e.g., "Golden Hour" mapping to L3).
 
-## **Task Group 2: The Playground (React UI)**
+## Task Group 2: Tooling & Validation (The Guardrails)
 
-* [ ] Build **Bundle Builder UI**:
-    *   [ ] Dropdowns to select L2 Styles and L4 Trends.
-    *   [ ] Live preview of the resulting JSON output.
-* [ ] Build **Visualizer**:
-    *   [ ] A simple component that changes CSS variables based on the live JSON (e.g. changing background color/radius).
-    *   [ ] Proves the "Taste to Code" loop works in the browser.
+*   [ ] **Set up TypeScript Environment:** (Node.js/TS scripts).
+*   [ ] **Implement Converters:**
+    *   [ ] `toml_to_json`: To feed the LLM.
+    *   [ ] `json_to_toml`: To save the output.
+*   [ ] **Implement Validator (`bundle_validator.ts`):**
+    *   [ ] Define Zod schemas matching `site_bundle_schema.toml`.
+    *   [ ] Implement Registry lookups (Check if `glassmorphism` exists).
+    *   [ ] Implement Logic Checks (e.g., weights sum to 1.0, no missing required axes).
 
-## **Task Group 3: Agent Integration (Supabase)**
+## Task Group 3: The Consistency Test Suite (Scientific Method)
 
-* [ ] Set up Supabase Project.
-* [ ] Create Edge Function `generate-bundle`:
-    *   Input: User prompt string.
-    *   Output: Validated WAS Bundle JSON.
-    *   (Connects to OpenAI/Claude API via Vercel AI SDK).
-* [ ] Create Edge Function `generate-tailwind`:
-    *   Input: WAS Bundle JSON.
-    *   Output: `tailwind.config.js` string.
+*   [ ] **Define the Test Set:**
+    *   [ ] 5 Text Prompts (Vague to Specific).
+    *   [ ] 5 Image Inputs (Screenshots/Moodboards).
+*   [ ] **Build the Harness:**
+    *   [ ] Script to run each input 10x through the Orchestrator (GPT-4o/Claude 3.5).
+    *   [ ] Script to compare semantic similarity of outputs.
+*   [ ] **Analyze & Tune:**
+    *   [ ] Calculate Inter-Annotator Agreement scores.
+    *   [ ] Refine System Prompt until consistency >80%.
 
 ---
 
-# **PHASE 03 — DATASET EXPANSION (POST-MVP)**
+# PHASE 03 — THE SECOND LINK (VIBE → COAL FACE)
 
-*Goal: Return to deep curation once the tooling is proven.*
+**Goal:** Develop the generative prompts and schemas to translate WAS Bundles into Industry Standard Specs.
 
-## **Task Group 1: Deep Curation**
+## Track A: The Skin (Theme Spec)
 
-* [ ] Expand Layer 2 Styles (from ~15 to ~50)
-* [ ] Expand Layer 3 Lexicon (from ~60 to ~200 terms)
-* [ ] Expand Layer 4 Trends (Import full PDF research dataset)
+*   [ ] **Research:** Save target `theme.json` (W3C Design Tokens) schema to repo.
+*   [ ] **Develop:** Write System Prompt to translate WAS Visual Traits (L3) -> Token Values.
+    *   [ ] *Constraint:* Code Agent must not change the Vibe, only interpret it.
+*   [ ] **Test:** Run "Output Determinism" test (Same Bundle -> 5 Code Agents -> Compare JSON).
 
-## **Task Group 2: Advanced Mappings**
+## Track B: The Skeleton (Layout Blueprint)
 
-* [ ] Implement weighted aesthetic inheritance (Trend -> Style -> Axis)
-* [ ] Populate Sources Registry with rigorous citations
+*   [ ] **Research:** Analyze DivKit, Beagle, and Relume structures.
+*   [ ] **Define Schema:** Create `blueprint/page_blueprint_schema.toml` (The Hybrid Model).
+*   [ ] **Define Registry:** Create `blueprint/component_registry.toml` (Hero, Navbar, etc.).
+*   [ ] **Develop:** Write System Prompt to translate User Context + WAS -> Blueprint Layout.
+*   [ ] **Test:** Generate blueprints for different WAS densities (High vs Low).
+
+## Track C & D: Imagery & Copy
+
+*   [ ] **Research (Imagery):** Define `visual_brief.json` structure (Midjourney parameters + Art Direction).
+*   [ ] **Research (Copy):** Define `voice_guidelines.json` structure.
+*   [ ] **Develop:** Write System Prompts for these specific domains.
+
+---
+
+# PHASE 04 — PRODUCTIONISE (THE MVP ENGINE)
+
+**Goal:** Turn the scripts into a usable web interface.
+
+## Task Group 1: The Playground (React/Next.js)
+
+*   [ ] **Bundle Builder UI:** Form/Chat interface to interact with the Orchestrator.
+*   [ ] **Live JSON Preview:** See the `site_bundle.toml` generated in real-time.
+*   [ ] **Coal Face Export:** Buttons to generate/download `theme.json` and `blueprint.json`.
+
+## Task Group 2: The Visualizers
+
+*   [ ] **Theme Visualizer:** Simple CSS variable playground that updates live.
+*   [ ] **Wireframe Renderer:** Simple block renderer for the Blueprint JSON.
+
+---
+
+# PHASE 05 — DEEP CURATION (POST-MVP)
+
+**Goal:** Scale the Knowledge Graph.
+
+## Task Group 1: Data Expansion
+
+*   [ ] Expand Layer 2 Styles (from ~15 to ~50).
+*   [ ] Expand Layer 3 Lexicon (from ~60 to ~200 terms).
+*   [ ] Import full Research PDF dataset into L4 Trends.
+
+## Task Group 2: Advanced Logic
+
+*   [ ] Implement weighted aesthetic inheritance (Trend -> Style -> Axis).
+*   [ ] Populate Sources Registry with rigorous citations.

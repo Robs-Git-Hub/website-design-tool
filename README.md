@@ -2,7 +2,7 @@
 
 **A Unified, Machine-Actionable Aesthetic Language for Human–AI Multi-Agent Design.**
 
-![Status: Phase 01 - Foundations](https://img.shields.io/badge/Status-Phase_01_Foundations-blue)
+![Status: Phase 02 - The First Link](https://img.shields.io/badge/Status-Phase_02_Active-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
 ---
@@ -11,28 +11,41 @@
 
 **WAS (Website Aesthetic Schema)** is a structured taxonomy and protocol designed to bridge the gap between **human intent** ("I want a sleek, dark sci-fi vibe") and **machine implementation** (`border-radius: 4px; background: #0f172a`).
 
-It provides a shared vocabulary (Lexicon) and a rigorous structure (Schema) that allows **Orchestrators, Image Generators, UI Designers, and Coding Agents** to collaborate on a website project without "drifting" or misinterpreting the aesthetic goal.
+It provides a shared vocabulary (Lexicon) and a rigorous structure (Schema) enabling **Orchestrators** to capture design intent in a “Vibe Spec,” which becomes the single source of truth across **Image Generators, UI Designers, and Coding Agents**.
 
 ### The Problem
-*   **Humans** think in vibes and cultural references (*"Make it pop," "Like Apple but darker," "Y2K aesthetic"*).
-*   **AI Agents** need explicit constraints (*"Tailwind slate-900," "Gaussian blur 12px," "Space Grotesk font"*).
-*   **Result:** Without a shared protocol, multi-agent workflows fragment. The coder builds something clean while the image generator draws something gritty.
+
+- **Humans** think in vibes and cultural references (*"Make it pop," "Apple but darker," "Y2K aesthetic"*).
+- **AI Agents** need explicit constraints (*Tailwind slate-900, blur 12px, Space Grotesk*).
+- Without a protocol, multi-agent workflows diverge: the coder builds something clean while the image generator produces something gritty.
 
 ### The Solution
-WAS acts as the **Translation Layer**. It turns taste into data (TOML/JSON), allowing an orchestrator to lock in a specific "Aesthetic Bundle" that serves as the single source of truth for all downstream agents.
+
+WAS acts as the **Translation Layer**. It turns taste into data (TOML/JSON) through a formal **WAS Bundle** that captures the aesthetic blueprint for all downstream agents.
 
 ---
 
-## 🏗 Architecture: The 4-Layer Model
+## 🏗 Architecture: The Vibe & The Coal Face
 
-The schema is organized into four hierarchical layers, moving from abstract physical properties to specific cultural contexts.
+WAS distinguishes between the **Strategic Vibe** (WAS Bundle) and the **Execution Specs** (Coal Face).
+
+| Stage | Concept | Artifact | Function |
+|-------|---------|-----------|----------|
+| **1. Input** | The Idea | `prompt` / image | Raw human intent. |
+| **2. Middle** | The Vibe | `site_bundle.toml` | Strategic aesthetic (Layers 1–4). |
+| **3. Output** | The Coal Face — Skin | `theme.json` | Design Tokens (Color, Typography). |
+| **3. Output** | The Coal Face — Skeleton | `blueprint.toml` | Layout & Interaction rules (SDUI-inspired). |
+
+---
+
+## 🧬 The 4 Layers of the Vibe (WAS)
 
 | Layer | Name | Function | Examples |
-| :--- | :--- | :--- | :--- |
-| **L1** | **Axes** (The Physics) | Universal, measurable dimensions of any interface. | Tone, Density, Lightness, Geometry, Color Strategy. |
-| **L2** | **Styles** (The Canon) | Evidence-backed, named design schools. | Glassmorphism, Swiss Style, Brutalism, Material Design. |
-| **L3** | **Lexicon** (The Atoms) | Granular visual terms and component traits. | Mesh gradients, pill buttons, monospace type, blur effects. |
-| **L4** | **Trends** (The Context) | Societal and cultural moments. | AI Startup 2024, Dark Academia, Y2K Revival, Hygge. |
+|-------|-------|-----------|-----------|
+| **L1** | Axes (Physics) | Universal constraints. | Tone, Density, Lightness, Geometry. |
+| **L2** | Styles (Canon) | Named design schools. | Glassmorphism, Swiss Style, Brutalism. |
+| **L3** | Lexicon (Visuals) | Atomic design traits. | `glass_panel`, `neon_accents`. |
+| **L4** | Trends (Context) | Cultural/social moments. | SaaS 2020, Y2K Revival, Dark Academia. |
 
 ---
 
@@ -40,50 +53,60 @@ The schema is organized into four hierarchical layers, moving from abstract phys
 
 ```text
 .
-├── data/                       # Canonical instance data (The Knowledge Graph)
+├── data/
 │   ├── layer1_dimensions_instances.toml
 │   ├── layer2_website_style_family_instances.toml
 │   ├── layer3_style_lexicon_instances.toml
 │   └── layer4_societal_trends_instances.toml
 │
-├── schema/                     # Structure definitions (The Rules)
+├── schema/
 │   ├── layer1_dimensions_schema.toml
 │   ├── layer2_web_style_family_schema.toml
 │   ├── layer3_style_lexicon_schema.toml
-│   └── layer4_societal_trends_schema.toml
+│   ├── layer4_societal_trends_schema.toml
+│   └── site_bundle_schema.toml
 │
-├── registries/                 # Allowed value lists to prevent drift
+├── blueprint/
+│   ├── page_blueprint_schema.toml
+│   └── component_registry.toml
+│
+├── registries/
 │   └── layer1_dimensions_registry.toml
 │
-├── docs/                       # Documentation & Vision
-│   ├── design_note_vision.md   # Core philosophy
-│   ├── user_stories.md         # Agile stories for agents & humans
-│   ├── masterplan.md           # Long-term roadmap
-│   └── phases/                 # Project phase tracking
+├── docs/
+│   ├── vision/design_note.md
+│   ├── masterplan.md
+│   └── phases/
 │
-└── examples/                   # Sample Bundles (Runtime payloads)
+└── examples/
     └── bundles/
-        └── site_01_nebula_ai.toml
-```
+        └── site_02_corp_finance.toml
+````
 
 ---
 
 ## 🚀 Usage & Workflow
 
-This repository is primarily a **Knowledge Base** and **Schema Definition**. In a production environment, an AI Orchestrator uses this data to generate **Aesthetic Bundles**.
+WAS is a knowledge base and schema system used by an AI Orchestrator to create production-grade aesthetic specs.
 
-### The Workflow
-1.  **Human Input:** "I want a dashboard that feels like a futuristic glass cockpit."
-2.  **Orchestrator:** Consults the `data/` files to map this request to L1 Axes (Dark, Geometric), L2 Styles (Glassmorphism), and L3 Lexicon (Blur, HUD-lines).
-3.  **Bundle Generation:** Creates a JSON/TOML payload (The Bundle).
-4.  **Execution:**
-    *   **Image Agent:** Reads bundle -> Generates Moodboard.
-    *   **Code Agent:** Reads bundle -> Generates `tailwind.config.js`.
+### Workflow
 
-### Example Bundle Snippet (TOML)
-*See `examples/bundles/` for full files.*
+1. **Human Input:** “A futuristic glass cockpit dashboard.”
+2. **Orchestrator:** Maps keywords to a **WAS Bundle** (e.g., L1 Dark, L3 Glass Panel).
+3. **Translator:** Compiles the Bundle into **Coal Face** outputs:
+
+   * Style → Skin tokens
+     `glass_panel` → `backdrop-filter: blur(10px); background: rgba(255,255,255,0.1);`
+   * Axes → Layout
+     Density: `dense` → `gap: 4px;`
+4. **Execution:** Worker agents (Coder, Image Gen, SDUI Renderer) consume those specs.
+
+### Example Bundle Snippet
 
 ```toml
+[meta]
+intent_keywords = ["cockpit", "futuristic", "hud"]
+
 [layer1_axes]
 tone = "techy"
 lightness = "dark"
@@ -94,32 +117,31 @@ glassmorphism = 0.8
 retro_futurism = 0.4
 
 [layer3_lexicon]
-background_texture = "mesh_gradient"
-button_style = "ghost_button"
-typography = "mono_ui_type"
+visual_atmosphere = "cinematic_dark"
+surface_texture = "mesh_gradient"
+component_styling = "ghost_outline"
+typography_mechanics = "mono_ui"
 ```
 
 ---
 
 ## 🔮 Roadmap
 
-We are currently in **Phase 01: Foundations**.
+* [x] **Phase 01 — Foundations:** Core schema & directories.
+* [ ] **Phase 02 — The First Link:** Idea → WAS Bundle consistency tests.
+* [ ] **Phase 03 — The Second Link:** WAS Bundle → Design Tokens & Blueprints.
+* [ ] **Phase 04 — Productionise:** Build the Aesthetic Engine MVP.
+* [ ] **Phase 05 — Deep Curation:** Expand instances (50+ styles, 200+ lexicon terms).
 
-- [x] **Phase 01:** Establish Schema, Directory Structure, and Core Instances.
-- [ ] **Phase 02:** Deep Curation (Expand L3 Lexicon to 200+ terms, Add L4 Trends).
-- [ ] **Phase 03:** Tooling (Validators, Bundle Generators, JSON Transformers).
-- [ ] **Phase 04:** Agent Integration (Prompt templates for OpenAI/Claude/Midjourney).
-
-See `docs/masterplan.md` for the detailed roadmap.
+See `docs/masterplan.md` for more.
 
 ---
 
 ## 🤝 Contributing
 
-This aesthetic ontology is curated.
-1.  **New Terms:** If adding a new style or lexicon term, ensure it is distinct (MECE) and widely evidenced.
-2.  **Format:** All data must be strictly typed TOML following the schemas in `schema/`.
-3.  **Drift:** Do not modify Layer 1 Axes without a major version discussion.
+1. **New Terms:** Must be distinct and externally evidenced.
+2. **Skin vs Skeleton:** Layout rules belong in Blueprint, not Lexicon.
+3. **Stability:** Layer 1 Axes should not change without a major version bump.
 
 ---
 

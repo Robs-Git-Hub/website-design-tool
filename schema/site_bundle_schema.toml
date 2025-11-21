@@ -1,0 +1,73 @@
+# ======================================================================
+# SITE BUNDLE SCHEMA (v0.3.0)
+# ======================================================================
+# Purpose:
+# - Defines the structure of the `site_bundle.toml` payload.
+# - Acts as the "Target Output" for the Orchestrator LLM.
+#
+# CRITICAL RULE ON COMMENTS:
+# - Comments in the bundle must explain RATIONALE ("Why this decision?").
+# - Comments must NOT contain IMPLEMENTATION DETAILS ("How to build it?").
+# - BAD: tone = "serious" # Use #000000 and 12px font.
+# - GOOD: tone = "serious" # To convey authority and trust.
+#
+# *Violating this rule breaks the separation between Vibe and Coal Face.*
+# ======================================================================
+[meta]
+id = "site_bundle_schema"
+version = "0.3.0"
+description = "The Master Schema for the Vibe Spec."
+
+## 1. THE META BLOCK (The Identity & Wildcards)
+[bundle_schema.meta]
+bundle_id = "string" # Unique ID (e.g., "bundle_project_alpha_v1")
+created_at = "datetime" # ISO-8601
+intent_summary = "string" # Natural language summary of the design strategy.
+
+# THE WILDCARD FIELD ("The Teddy Bear Slot")
+# Captures raw user keywords/concepts that do not map to the taxonomy.
+# Vital for Image/Copy agents (e.g., "teddy bears", "rainy day").
+intent_keywords = ["string"]
+
+## 2. THE LAYERS (The Structured Vibe)
+
+### Layer 1: Physics (Constraints)
+# Defines the "Rules of the Universe" for this design.
+# Values must match layer1_dimensions_registry.
+[bundle_schema.layer1_axes]
+tone = "string" # e.g., "serious", "playful"
+lightness = "string" # e.g., "dark", "light"
+color_strategy = "string" # e.g., "monochrome", "high_chroma"
+density = "string" # e.g., "dense", "airy"
+decoration = "string" # e.g., "plain", "decorative"
+
+[bundle_schema.layer1_axes.geometry_depth]
+shape = "string" # e.g., "rounded", "sharp"
+depth = "string" # e.g., "glass", "flat"
+
+### Layer 2: Styles (The Canon)
+# Named design schools that act as macro-directives.
+# Keys must exist in layer2_website_style_family_registry.
+# Values are weights (0.0 - 1.0).
+[bundle_schema.layer2_styles]
+_style_id = "float" # e.g., swiss_style = 0.9
+
+### Layer 3: Visual Traits (The Atoms)
+# Specific aesthetic qualities that influence the Skin (Theme).
+# Keys are generic Kinds, Values are IDs from layer3_style_lexicon.
+# NO LAYOUT/SKELETON TERMS ALLOWED HERE.
+[bundle_schema.layer3_lexicon]
+visual_atmosphere = "string" # e.g., "golden_hour" (Sensory environment)
+palette_trait = "string" # e.g., "pastel_palette" (Color mood)
+surface_texture = "string" # e.g., "glass_panel" (Tactile quality)
+component_styling = "string" # e.g., "pill_shape" (Geometric character)
+typography_mechanics = "string" # e.g., "mono_ui" (Type category)
+depth_technique = "string" # e.g., "soft_diffuse_shadow" (Elevation style)
+motion_mechanics = "string" # e.g., "linear_instant" (Physics personality)
+illustration_style = "string" # e.g., "isometric_3d" (Art direction)
+
+### Layer 4: Context (The Culture)
+# Societal trends or archetypes.
+# Keys must exist in layer4_societal_trends_registry (Future).
+[bundle_schema.layer4_trends]
+_trend_id = "string" # e.g., subculture = "dark_academia"

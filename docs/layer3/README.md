@@ -1,37 +1,54 @@
-# Layer 3: The Lexicon (The Atoms)
+# Layer 3: Visual Traits (The Atoms)
 
-**Granular Visual Terms & Component Traits.**
+**Atomic aesthetic qualities that define the Skin.**
 
 ---
 
 ## 1. Concept
-Layer 3 is the **"Vocabulary"** of the system. It consists of the specific visual atoms that make up a style. While Layer 2 says "Glassmorphism," Layer 3 says "Mesh Gradient" and "Backdrop Blur."
 
-This layer is crucial for **Search Agents** (finding specific examples) and **Coding Agents** (implementing specific tokens).
+Layer 3 is the **"Vocabulary"** of the Vibe. It consists of the specific visual atoms that color the design. While Layer 2 says "Glassmorphism" (The School), Layer 3 says "Frosted Glass Panel" and "Mesh Gradient" (The Ingredients).
 
-## 2. Kinds of Terms
-To keep the lexicon organized, every term belongs to a specific `kind`:
+### The "Skin vs. Skeleton" Rule (v0.2)
 
-| Kind | Description | Examples |
-| :--- | :--- | :--- |
-| `color_strategy` | Specific palette types. | `pastel_palette`, `duotone` |
-| `texture_pattern` | Surface treatments. | `grain_texture`, `mesh_gradient` |
-| `component_chrome` | UI element styling. | `pill_button`, `ghost_button` |
-| `typography_style` | Font treatment. | `mono_ui_type`, `display_serif` |
-| `motion_style` | Animation behavior. | `springy_motion`, `parallax` |
+Layer 3 is strictly scoped to **Visual Aesthetics**.
 
-## 3. Mapping (Affinity & Bias)
-Every Term maps to the layers above it.
-*   **Axes Bias:** `pill_button` implies `geometry_depth.shape = rounded`.
-*   **Style Affinity:** `pill_button` is highly correlated with `mobile_app_design` (hypothetical).
+*   **INCLUDED:** Texture, Shape Character, Color Dynamics, Light Mood. (Things that go into `theme.json` or `tailwind.config.js`).
+*   **EXCLUDED:** Layout Patterns (Sidebars, Grids). These belong to the **Blueprint** (Skeleton).
+
+## 2. The 8 Kinds of Visual Traits
+
+To keep the lexicon organized, every term belongs to a specific `kind` that maps to a domain of the Theme Specification.
+
+| Kind                   | Description                                          | Examples                                     |
+| :--------------------- | :--------------------------------------------------- | :------------------------------------------- |
+| `visual_atmosphere`    | The sensory environment, lighting, and air density.  | `golden_hour`, `clinical_sterile`, `misty`   |
+| `palette_trait`        | The mood or dynamic of the colors (not specific hex codes). | `neon_accents`, `pastel_palette`, `muted_earth` |
+| `surface_texture`      | The tactile quality of backgrounds and containers.   | `glass_panel`, `grain_texture`, `mesh_gradient` |
+| `component_styling`    | The geometric character of interactive elements.     | `pill_shape`, `sharp_corner`, `ghost_outline` |
+| `depth_technique`      | The approach to elevation and shadows.               | `hard_shadow`, `diffuse_glow`, `inner_shadow` |
+| `typography_mechanics` | Stylistic categorization of type.                    | `mono_ui`, `display_serif`, `uppercase_headers` |
+| `motion_mechanics`     | The physics personality of transitions.              | `spring_bouncy`, `linear_instant`            |
+| `illustration_style`   | Art direction for imagery.                           | `isometric_3d`, `flat_spot`, `collage`       |
+
+## 3. Mappings (The Connective Tissue)
+
+Layer 3 Terms are "Smart Atoms." They carry metadata that helps the Orchestrator translate them into Specs.
+
+*   **Axes Bias:** A term like `neon_accents` automatically biases the L1 Physics towards `color_strategy="high_chroma"` and `tone="playful"`.
+*   **Style Affinity:** A term like `glass_panel` has a 1.0 affinity with the `glassmorphism` L2 Style.
 
 ## 4. Usage in Bundles
-Layer 3 terms act as **Micro-Instructions**.
+
+In a `site_bundle.toml`, Layer 3 acts as the **Fine-Tuning** layer. It tells the Coal Face agents exactly how to interpret the high-level Vibe.
 
 ```toml
 [layer3_lexicon]
-button_style = "ghost_button"
-background_texture = "grain_texture"
+visual_atmosphere = "clinical_sterile"
+component_styling = "sharp_corner"
+typography_mechanics = "grotesque_sans"
 ```
 
-This gives the Orchestrator fine-grained control over specific UI elements without rewriting the entire style definition.
+**Translation Logic:**
+
+*   **Code Agent** sees `sharp_corner` -> Sets `--radius-base: 0px`.
+*   **Image Agent** sees `clinical_sterile` -> Prompts "High-key lighting, white laboratory aesthetic."
