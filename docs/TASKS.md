@@ -94,19 +94,28 @@
 
 **Goal:** Validate that a High-Intelligence Reasoning LLM can consistently translate "Ideas" into valid "WAS Bundles" (Vibe Specs).
 
+**🔄 CURRENT WORK (2025-11-21):**
+- [x] TypeScript environment setup (Claude)
+- [x] System prompt construction (Claude)
+- [ ] Example shots creation - **ROB TO PROVIDE INPUT DATA** (See `prompts/example_shots_template.md`)
+- [ ] Validation tooling (Pending)
+
+---
+
 ## Task Group 1: The Orchestrator & Knowledge Base
 
-*   [ ] **Construct System Prompt:**
-    *   [ ] Inject condensed L1-L4 Schemas.
-    *   [ ] Inject Registries (Allowed lists).
-    *   [ ] Define "Reasoning Strategy" (e.g., "Analyze context first, then derive physics").
+*   [x] **Construct System Prompt:**
+    *   [x] Inject condensed L1-L4 Schemas.
+    *   [x] Inject Registries (Allowed lists).
+    *   [x] Define "Reasoning Strategy" (e.g., "Analyze context first, then derive physics").
 *   [ ] **Create Example Shots:**
-    *   [ ] Write 3-5 "Gold Standard" input/output pairs (Idea -> TOML) to teach the LLM the "Vibe" logic.
+    *   [ ] **[ROB]** Provide 3-5 raw design ideas (text prompts or reference images) in `prompts/example_shots_template.md`
+    *   [ ] Write "Gold Standard" TOML outputs for each input to teach the LLM the "Vibe" logic.
     *   [ ] Ensure examples cover edge cases (e.g., "Golden Hour" mapping to L3).
 
 ## Task Group 2: Tooling & Validation (The Guardrails)
 
-*   [ ] **Set up TypeScript Environment:** (Node.js/TS scripts).
+*   [x] **Set up TypeScript Environment:** (Node.js/TS scripts).
 *   [ ] **Implement Converters:**
     *   [ ] `toml_to_json`: To feed the LLM.
     *   [ ] `json_to_toml`: To save the output.
