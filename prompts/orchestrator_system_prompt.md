@@ -133,7 +133,44 @@ Available style IDs (use exact strings):
 
 ### Layer 4: Trend Context
 
-(No trends defined yet)
+Use trend IDs to capture cultural context:
+- `hygge_2016`
+- `lagom_2017`
+- `minimalist_living`
+- `quiet_luxury`
+- `japandi`
+- `wellness_self_care`
+- `dark_academia`
+- `light_academia`
+- `cottagecore`
+- `goblincore`
+- `vaporwave`
+- `cyberpunk`
+- `coquette`
+- `indie_sleaze`
+- `saas_startup_2018`
+- `indie_hacker_dashboard`
+- `ngo_policy_portal`
+- `academic_journal_site`
+- `crypto_nft_dash`
+- `fintech_neobank`
+- `design_agency_portfolio`
+- `y2k_futurism`
+- `web1_0_geocities`
+- `early_web2_glossy`
+- `arcade_outrun_80s`
+- `1920s_art_deco`
+- `1950s_americana`
+- `tiktok_intellectual`
+- `genz_finance_tiktok`
+- `ig_lifestyle_influencer`
+- `linkedin_influencer`
+- `youtube_explainer`
+- `sustainability_first`
+- `privacy_first`
+- `open_source_hacker`
+- `quantified_self`
+- `move_fast_break_things`
 
 ---
 
