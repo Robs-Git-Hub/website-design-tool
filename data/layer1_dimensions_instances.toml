@@ -10,9 +10,9 @@
 #   6. decoration
 #
 # IMPORTANT:
-#   - Do NOT add new dimensions casually. The allowed list is defined in
-#     `layer1_dimension_registry.toml` and should only be changed via a
-#     deliberate versioned update.
+#   - Do NOT add new dimensions casually. This file defines the canonical
+#     set of dimensions and should only be changed via a deliberate
+#     versioned update.
 # ======================================================================
 
 [meta]

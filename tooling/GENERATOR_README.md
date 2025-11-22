@@ -10,7 +10,7 @@ This generator reads your schema and data files and creates a complete, up-to-da
 
 1. **Reading the template** (`prompts/orchestrator_template.md`)
 2. **Extracting the WAS Bundle schema structure** from schema files
-3. **Extracting allowed values** from data files and registries:
+3. **Extracting allowed values** from instance data files:
    - Layer 1: Dimension values (tone, lightness, color_strategy, etc.)
    - Layer 2: Style family IDs (glassmorphism, minimalism, etc.)
    - Layer 3: Lexicon term IDs grouped by kind
@@ -75,12 +75,10 @@ The generator reads from these files:
 
 | Layer | File | Purpose |
 |-------|------|---------|
-| L1 | `data/layer1_dimensions_instances.toml` | Dimension values |
-| L1 | `registries/layer1_dimensions_registry.toml` | Allowed dimensions |
-| L2 | `data/layer2_website_style_family_instances.toml` | Style IDs |
-| L2 | `registries/layer2_website_style_family_registry.toml` | Allowed styles (fallback to instances) |
-| L3 | `data/layer3_lexicon_instances.toml` | Lexicon term IDs |
-| L4 | `data/layer4_societal_trends_instances.toml` | Trend IDs |
+| L1 | `data/layer1_dimensions_instances.toml` | Dimension values (canonical source) |
+| L2 | `data/layer2_website_style_family_instances.toml` | Style IDs (canonical source) |
+| L3 | `data/layer3_lexicon_instances.toml` | Lexicon term IDs (canonical source) |
+| L4 | `data/layer4_societal_trends_instances.toml` | Trend IDs (canonical source) |
 
 ### Output
 
@@ -200,7 +198,7 @@ cd tooling && npm run generate:prompt && git add ../prompts/orchestrator_system_
 
 ### "I updated a file but the output didn't change"
 
-1. Make sure you're editing the source files (in `data/` or `registries/`), not the generated output
+1. Make sure you're editing the source files (in `data/`), not the generated output
 2. Run the generator again
 3. Check for TOML parsing errors
 

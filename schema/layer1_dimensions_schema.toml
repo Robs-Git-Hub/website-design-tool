@@ -13,7 +13,7 @@
 id = "layer1_dimensions_schema"
 version = "0.1.0"
 description = "Schema for Layer-1 aesthetic dimensions (axes) used by higher layers."
-notes = "Schema describes shape only; the canonical list of dimensions lives in the registry + instances."
+notes = "Schema describes shape only; the canonical list of dimensions lives in the instances file."
 
 # ----------------------------------------------------------------------
 # ENUM-LIKE FIELDS (for tooling / validation)

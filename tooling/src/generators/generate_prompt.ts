@@ -22,9 +22,7 @@ const PATHS = {
   template: join(REPO_ROOT, 'prompts/orchestrator_template.md'),
   output: join(REPO_ROOT, 'prompts/orchestrator_system_prompt.md'),
   layer1_instances: join(REPO_ROOT, 'data/layer1_dimensions_instances.toml'),
-  layer1_registry: join(REPO_ROOT, 'registries/layer1_dimensions_registry.toml'),
   layer2_instances: join(REPO_ROOT, 'data/layer2_website_style_family_instances.toml'),
-  layer2_registry: join(REPO_ROOT, 'registries/layer2_website_style_family_registry.toml'),
   layer3_instances: join(REPO_ROOT, 'data/layer3_lexicon_instances.toml'),
   layer4_instances: join(REPO_ROOT, 'data/layer4_societal_trends_instances.toml'),
 };
@@ -168,24 +166,11 @@ function generateLayer1Values(): string {
  * Generate Layer 2 allowed values section
  */
 function generateLayer2Values(): string {
-  // Try registry first, fall back to instances
-  let allowed: string[] = [];
+  const data = readToml(PATHS.layer2_instances);
+  const allowed: string[] = [];
 
-  try {
-    const registryData = readToml(PATHS.layer2_registry);
-    if (registryData.styles && registryData.styles.allowed) {
-      allowed = registryData.styles.allowed as string[];
-    }
-  } catch (error) {
-    // Registry might be empty or malformed
-  }
-
-  // If registry is empty, extract from instances
-  if (allowed.length === 0) {
-    const instancesData = readToml(PATHS.layer2_instances);
-    if (instancesData.styles && Array.isArray(instancesData.styles)) {
-      allowed = instancesData.styles.map((style: any) => style.id);
-    }
+  if (data.styles && Array.isArray(data.styles)) {
+    allowed.push(...data.styles.map((style: any) => style.id));
   }
 
   let output = '### Layer 2: Allowed Style Families\n\n';

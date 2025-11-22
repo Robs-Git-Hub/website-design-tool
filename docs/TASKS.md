@@ -118,6 +118,11 @@
     *   [ ] Keep hardcoded realistic example for illustration.
     *   [ ] Validate example includes all required fields (especially all L3 kinds).
     *   [ ] Separate "Schema Structure" section from "Example Instance" in output.
+*   [ ] **Remove Registry Files (Simplification):**
+    *   [ ] Update generator to extract allowed values from instances only (not registries).
+    *   [ ] Delete `/registries` directory and all registry TOML files.
+    *   [ ] Update documentation to clarify instances are the canonical source.
+    *   [ ] Update schema comments and validation docs to remove registry references.
 *   [ ] **Implement Converters:**
     *   [ ] `toml_to_json`: Parse TOML bundles to JSON.
     *   [ ] `json_to_toml`: Serialize JSON bundles to TOML.
