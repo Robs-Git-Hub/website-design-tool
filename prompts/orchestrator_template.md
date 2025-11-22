@@ -39,101 +39,7 @@ Cultural/societal moments that influence aesthetics (e.g., SaaS 2020, Y2K Reviva
 
 ## Knowledge Base
 
-### Layer 1: Allowed Dimension Values
-
-**tone** (ordinal):
-- `playful` (-2): Light-hearted, fun, often uses bright colors or charming visual details.
-- `friendly` (-1): Approachable and warm without feeling childish.
-- `neutral` (0): Professional and balanced; does not lean strongly playful or formal.
-- `serious` (1): Reserved and focused; trust and clarity prioritized over charm.
-- `premium` (2): High-status, polished, sometimes luxurious; strong sense of authority.
-
-**lightness** (categorical):
-- `light`: Light backgrounds with dark text; traditional, high readability.
-- `dark`: Dark backgrounds with light text; cinematic, modern, often 'techy'.
-- `hybrid`: Mix of light and dark zones (e.g. dark nav + light content).
-- `adaptive`: Explicitly follows system or user theme choice.
-
-**color_strategy** (categorical):
-- `monochrome`: Single hue (plus neutrals) with minor variations in lightness/saturation.
-- `neutral_plus_accent`: Mostly grays / off-whites plus one or two accent colors.
-- `duotone`: Two main hues used intentionally as a core identity.
-- `brand_multicolor`: Three or more brand colors used regularly across the UI.
-- `gradient_heavy`: Gradients used as a primary visual device (backgrounds, fills).
-- `high_chroma`: Bright, intense colors dominate; bold and attention-grabbing.
-- `low_saturation`: Soft, muted colors; gentle and sophisticated.
-
-**geometry_depth** (compound):
-- **shape**: `sharp`, `slightly_rounded`, `rounded`, `organic`
-- **depth**: `flat`, `soft_shadow`, `neumorphic`, `glass`, `bold_3d`
-
-**density** (ordinal):
-- `airy` (-1): Lots of whitespace, large margins, low information per screen.
-- `balanced` (0): Moderate density; enough content but with clear breathing room.
-- `dense` (1): Many elements per screen, but still organized and legible.
-- `maximal` (2): Intentional visual overload; lots of content, decoration, or both.
-
-**decoration** (ordinal):
-- `plain` (-1): Little to no decorative elements; minimal color and ornament.
-- `subtle` (0): Small accents (icons, gentle illustrations, minor texture) that do not dominate.
-- `decorative` (1): Visible illustrative elements, patterns, or motion used as part of the brand expression.
-- `experimental` (2): Strong stylistic choices, unconventional layouts, or heavy visual effects.
-
-### Layer 2: Allowed Style Families
-
-Available style IDs (use exact strings):
-- `glassmorphism`
-- `minimalism`
-- `skeuomorphism`
-- `neumorphism`
-- `flat_design`
-- `material_design`
-- `brutalism`
-- `neobrutalism`
-- `anti_design`
-- `maximalism`
-- `memphis_design`
-- `corporate_memphis`
-- `y2k_aesthetic`
-- `retro_futurism`
-- `swiss_style`
-- `art_deco`
-- `art_nouveau`
-- `grunge`
-- `psychedelic_design`
-- `claymorphism`
-
-### Layer 3: Lexicon Terms
-
-**Component Styling:**
-- `pill_shape`, `sharp_corner`, `ghost_chrome`, `filled_chrome`
-
-**Depth Technique:**
-- `hard_shadow`, `diffuse_shadow`, `inner_shadow`
-
-**Illustration Style:**
-- `isometric_scene`, `flat_spot_illustration`, `3d_blob`
-
-**Motion Mechanics:**
-- `springy_motion`, `linear_instant`
-
-**Palette Trait:**
-- `duotone_palette`, `pastel_palette`, `neon_accents`, `muted_earth_tones`
-
-**Surface Texture:**
-- `mesh_gradient`, `grain_texture`, `glass_panel`
-
-**Typography Mechanics:**
-- `mono_ui`, `display_serif`, `grotesque_sans`, `variable_font_play`
-
-**Visual Atmosphere:**
-- `golden_hour`, `glass_and_glow`, `clinical_sterile`, `warm_minimalism`
-
-(Note: Use only IDs that exist in the schema. If uncertain, omit or mark as exploratory.)
-
-### Layer 4: Trend Context
-
-(No trends defined yet)
+{{WAS_ALLOWED_VALUES}}
 
 ---
 
@@ -179,41 +85,7 @@ Start with the fundamentals:
 
 Generate a JSON object matching this structure:
 
-```json
-{
-  "meta": {
-    "intent_keywords": ["keyword1", "keyword2"],
-    "reasoning_notes": "Brief explanation of your interpretation"
-  },
-  "layer1_axes": {
-    "tone": "neutral",
-    "lightness": "dark",
-    "color_strategy": "neutral_accent",
-    "geometry_depth": {
-      "shape": "rounded",
-      "depth": "layered"
-    },
-    "density": "balanced",
-    "decoration": "subtle"
-  },
-  "layer2_styles": {
-    "glassmorphism": 0.8,
-    "minimalism": 0.4
-  },
-  "layer3_lexicon": {
-    "visual_atmosphere": "glass_and_glow",
-    "palette_trait": "neon_accents",
-    "surface_texture": "glass_panel",
-    "component_styling": "ghost_chrome",
-    "depth_technique": "diffuse_shadow",
-    "typography_mechanics": "grotesque_sans",
-    "motion_mechanics": "springy_motion"
-  },
-  "layer4_trends": {
-    "saas_2020_dark_mode": 0.7
-  }
-}
-```
+{{WAS_BUNDLE_SCHEMA}}
 
 ### Field Requirements
 

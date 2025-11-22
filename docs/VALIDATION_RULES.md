@@ -13,13 +13,13 @@ To maintain integrity across the 4-layer ontology, all data files and runtime bu
 *   **Root Meta:** Every file must have a `[meta]` table with `id` and `version`.
 *   **Required Fields:** Must match the `_schema.toml` definition for that layer.
 
-## 2. Registry Validation (Drift Prevention)
+## 2. Instance Validation (Drift Prevention)
 
 *   **Layer 1 (Dimensions):**
-    *   Keys in `axes_bias` must exist in `layer1_dimensions_registry.toml`.
+    *   Keys in `axes_bias` must exist in `layer1_dimensions_instances.toml`.
     *   Values for categorical axes (e.g., `lightness`) must match allowed IDs (e.g., `dark`, `light`).
 *   **Layer 2 (Styles):**
-    *   IDs used in `style_affinity` or `layer2_styles` (in bundles) must exist in `layer2_website_style_family_registry.toml`.
+    *   IDs used in `style_affinity` or `layer2_styles` (in bundles) must exist in `layer2_website_style_family_instances.toml`.
 *   **Layer 3 (Lexicon):**
     *   IDs used in `lexicon_affinity` must exist in `layer3_style_lexicon_instances.toml`.
 
@@ -49,7 +49,7 @@ To maintain integrity across the 4-layer ontology, all data files and runtime bu
 ## 5. Bundle Validation (Runtime)
 
 When an Orchestrator generates a `site_bundle.toml`:
-1.  **Check:** All L2 keys exist in Registry.
-2.  **Check:** All L3 keys exist in Lexicon.
-3.  **Check:** L1 Axes values are valid enums.
+1.  **Check:** All L2 keys exist in layer2_website_style_family_instances.toml.
+2.  **Check:** All L3 keys exist in layer3_style_lexicon_instances.toml.
+3.  **Check:** L1 Axes values are valid enums from layer1_dimensions_instances.toml.
 4.  **Warning:** If `intent_summary` is missing.

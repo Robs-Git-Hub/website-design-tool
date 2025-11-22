@@ -11,8 +11,7 @@ This means:
 
 - Creating directories and naming conventions
 - Writing all four schemas (L1–L4)
-- Creating initial instance files (Seed Data)
-- Setting up registries to prevent data drift
+- Creating initial instance files (Seed Data - the canonical source)
 - Setting up planning & task documents
 - Ensuring a clean TOML-based architecture
 
@@ -25,8 +24,7 @@ This phase focused on **structure and logic**, paving the way for tooling.
 ### **2.1 Repository Structure**
 Directories created:
 - `/schema` (The Rules)
-- `/data` (The Instances)
-- `/registries` (The Allowed Lists)
+- `/data` (The Instances - Canonical Source)
 - `/docs` (The Manual)
 - `/examples` (Sample Bundles)
 
@@ -43,10 +41,7 @@ Directories created:
 - `data/layer3_style_lexicon_instances.toml`
 - `data/layer4_societal_trends_instances.toml`
 
-### **2.4 Registries**
-- `registries/layer2_website_style_family_registry.toml`
-
-### **2.5 Documentation**
+### **2.4 Documentation**
 - `masterplan.md` (v0.2)
 - `docs/vision/design_note_vision.md`
 - `docs/user_stories.md`

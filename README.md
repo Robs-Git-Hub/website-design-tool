@@ -70,9 +70,6 @@ WAS distinguishes between the **Strategic Vibe** (WAS Bundle) and the **Executio
 │   ├── page_blueprint_schema.toml
 │   └── component_registry.toml
 │
-├── registries/
-│   └── layer1_dimensions_registry.toml
-│
 ├── docs/
 │   ├── vision/design_note.md
 │   ├── masterplan.md

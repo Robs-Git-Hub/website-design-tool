@@ -33,7 +33,7 @@ intent_keywords = ["string"]
 
 ### Layer 1: Physics (Constraints)
 # Defines the "Rules of the Universe" for this design.
-# Values must match layer1_dimensions_registry.
+# Values must match the allowed values in layer1_dimensions_instances.toml.
 [bundle_schema.layer1_axes]
 tone = "string" # e.g., "serious", "playful"
 lightness = "string" # e.g., "dark", "light"
@@ -47,7 +47,7 @@ depth = "string" # e.g., "glass", "flat"
 
 ### Layer 2: Styles (The Canon)
 # Named design schools that act as macro-directives.
-# Keys must exist in layer2_website_style_family_registry.
+# Keys must exist in layer2_website_style_family_instances.toml.
 # Values are weights (0.0 - 1.0).
 [bundle_schema.layer2_styles]
 _style_id = "float" # e.g., swiss_style = 0.9
@@ -68,6 +68,6 @@ illustration_style = "string" # e.g., "isometric_3d" (Art direction)
 
 ### Layer 4: Context (The Culture)
 # Societal trends or archetypes.
-# Keys must exist in layer4_societal_trends_registry (Future).
+# Keys must exist in layer4_societal_trends_instances.toml.
 [bundle_schema.layer4_trends]
 _trend_id = "string" # e.g., subculture = "dark_academia"

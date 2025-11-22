@@ -27,7 +27,7 @@ We view the design process as a pipeline with three distinct states:
 # 3. Phased Roadmap
 
 ### ✅ Phase 01 — Foundations (Complete)
-*   **Goal:** Establish repository structure, schemas, registries, and MVP seed data.
+*   **Goal:** Establish repository structure, schemas, and MVP seed data (instance files).
 *   **Outputs:** L1–L4 Schemas, Instance Data, Documentation.
 
 ### 🚧 Phase 02 — The First Link (Idea → Vibe)
@@ -35,7 +35,7 @@ We view the design process as a pipeline with three distinct states:
 *   **Deliverables:**
     *   **System Prompt & Knowledge Base:** A prompting strategy that injects the Schemas/Examples and guides the LLM to *reason* about the design intent before generating JSON.
     *   **Conversion Tooling:** Utilities to convert LLM JSON output to TOML for storage.
-    *   **Validation Engine:** A strict Code-based tool (Zod/Pydantic) to validate the generated JSON against the Registry.
+    *   **Validation Engine:** A strict Code-based tool (Zod/Pydantic) to validate the generated JSON against the instance files.
     *   **Consistency Test Suite:** A harness to run 10+ iterations of the same input to measure Inter-Annotator Agreement (simulating "scientific fine-tuning").
 *   **Completion Criteria:** We have a way to generate site Vibe Specs from multimodal Idea inputs using an LLM as the engine, and we have tested it with an acceptable pass rate (low bar).
 
@@ -103,7 +103,7 @@ We are testing the **Generative Reasoning** capabilities of the model when const
 
 ### 2.1 The Orchestrator System Prompt
 A comprehensive System Prompt that acts as the "Context Window" for the LLM.
-*   **Knowledge Base Injection:** It must include condensed versions of L1-L4 Schemas and Registry allowed lists.
+*   **Knowledge Base Injection:** It must include condensed versions of L1-L4 Schemas and allowed values from instance files.
 *   **Reasoning Instructions:** It should not be a list of hard rules, but a guide on how to *interpret* vague inputs. (e.g., "Analyze the cultural context of the request before selecting Layer 1 Axes").
 
 ### 2.2 Conversion & Validation Tooling
@@ -125,7 +125,7 @@ A reproducible test harness to measure the stability of the generative process.
 1.  **User** inputs an Idea.
 2.  **System** constructs the Prompt (Idea + WAS Knowledge Base).
 3.  **LLM** performs Generative Reasoning to synthesize a `site_bundle.json`.
-4.  **Validator** checks the output against the Schema/Registry.
+4.  **Validator** checks the output against the Schema/Instance files.
     *   *If Invalid:* The system prompts the LLM to fix the specific error.
     *   *If Valid:* The JSON is accepted and saved as TOML.
 5.  **Human** reviews the result for quality (The "Acceptable Pass" bar).

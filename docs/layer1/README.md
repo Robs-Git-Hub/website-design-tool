@@ -11,7 +11,7 @@ Just as every physical object has mass and volume, every UI has a **Density** an
 
 ## 2. The Six Canonical Axes
 
-The system is defined by exactly six dimensions. This list is fixed (canonical) and defined in the Registry.
+The system is defined by exactly six dimensions. This list is fixed (canonical) and defined in `layer1_dimensions_instances.toml`.
 
 | Axis | Type | Description | Example Values |
 | :--- | :--- | :--- | :--- |

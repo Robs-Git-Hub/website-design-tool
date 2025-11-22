@@ -12,7 +12,7 @@ This prompt guides a high-intelligence reasoning model (GPT-4, Claude 3.5, etc.)
 
 **Includes:**
 - Complete L1-L4 schema summaries
-- Allowed registries (valid IDs only)
+- Allowed values from instance files (valid IDs only)
 - Step-by-step reasoning strategy
 - Output format specification
 - Edge case handling

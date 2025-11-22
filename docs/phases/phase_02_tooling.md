@@ -23,15 +23,18 @@ We will build a strongly-typed library (`@was/engine`) to handle the logic of th
 *   **Flattener:** A logic engine that resolves high-level L2 Styles (e.g., "Glassmorphism") into specific L1 Axes (e.g., `geometry.depth = "glass"`).
 
 ### 2.2 The Aesthetic Playground (React UI)
-A web interface (Next.js/Vite) acting as the "Visual Orchestrator."
-*   **Bundle Builder:** A drag-and-drop or form-based UI to construct `site_bundle.json` files without writing code.
-*   **Live Visualizer:** A component that maps the active Bundle to CSS Variables/Tailwind tokens in real-time, proving the "Taste-to-Code" loop.
-*   **Vector Search Demo:** A UI to query Supabase for "sites that look like this bundle."
+**Initial approach:** Claude Artifact-based prototype, then production Next.js/Vite app.
 
-### 2.3 Agent API (Supabase Edge Functions)
-Exposing the engine to AI agents via standard APIs.
-*   `POST /api/generate-bundle`: Takes a natural language prompt -> Returns a Validated Bundle JSON.
-*   `POST /api/generate-tokens`: Takes a Bundle JSON -> Returns a `tailwind.config.js` or CSS variables object.
+*   **Orchestrator Interface:** Chat/prompt interface to test idea → WAS Bundle translation.
+*   **Dynamic System Prompt:** Auto-generated from TOML schemas (stays in sync with data).
+*   **Live JSON Preview:** See the generated `site_bundle.json` in real-time.
+*   **Bundle Validation:** Ensure output matches schemas and registries.
+
+**Future expansion (Phase 4):**
+*   Full Next.js/Vite deployment
+*   Visual bundle builder (drag-and-drop)
+*   Live CSS/Tailwind visualizer
+*   Vector search integration
 
 ---
 
