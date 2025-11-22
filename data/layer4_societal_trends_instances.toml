@@ -1,1002 +1,3017 @@
-# =============================================================================
-# LAYER 2 — WEBSITE STYLE FAMILIES INSTANCES (v1)
-# =============================================================================
-# NOTE: This file is generated from the provided dataset.
-# It maps to `schema/layer2_web_style_family_schema.toml`.
-# =============================================================================
-
-[meta]
-id = "layer2_website_style_family_instances"
-version = "0.1.0"
-description = "Evidence-backed UI and graphic style families used in web and product design."
-
-# ---------------------------------------------------------------------------
-# GLASSMORPHISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "glassmorphism"
-display_name = "Glassmorphism"
-domain = "ui"
-evidence_count = 3
-notes = "Popularized by Apple’s and Microsoft’s UIs, glassmorphism adds sleek hierarchy but must be used cautiously for accessibility."
-
-  [[styles.sources]]
-  title = "UI Design — How many ‘ism’s do you know? (Glassmorphism)"
-  publication = "Medium"
-  year = 2022
-  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
-
-  [[styles.sources]]
-  title = "8 exciting visual trends you should know about in 2024"
-  publication = "Creative Bloq"
-  year = 2024
-  url = "https://www.creativebloq.com/news/2024-visual-trends"
-
-  [[styles.sources]]
-  title = "Glassmorphism: Definition and Best Practices"
-  publication = "Nielsen Norman Group"
-  year = 2024
-  url = "https://www.nngroup.com/articles/glassmorphism/"
-
-styles.definitions = [
-  "A contemporary UI trend where interface elements are translucent with blur effects, creating a frosted-glass appearance. These glass-like components allow layered designs by letting background colors and shapes show through softly."
-]
-
-styles.core_characteristics = [
-  "Translucent panels with blurred backgrounds mimic frosted glass",
-  "Layered interface elements to create depth while background content remains visible but indistinct",
-  "Often paired with vibrant gradients or images behind the glass elements for contrast",
-  "Use of subtle shadows or borders to enhance the glass-like separation and realism"
-]
-
-styles.example_references = [
-  "https://espanium.com",
-  "https://link-kit.com"
-]
-
-styles.related_terms = [
-  "frosted glass UI",
-  "blurring translucency",
-  "Acrylic (Fluent Design)"
-]
-
-# ---------------------------------------------------------------------------
-# MINIMALISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "minimalism"
-display_name = "Minimalism"
-domain = "ui" # Inferred based on context
-evidence_count = 2
-notes = "Minimalism has been a dominant modern style, seen as conveying modernity and usability. However, overuse can feel sparse or “too bare” if not balanced."
-
-  [[styles.sources]]
-  title = "UI Design — How many ‘ism’s do you know? (Minimalism)"
-  publication = "Medium"
-  year = 2022
-  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
-
-  [[styles.sources]]
-  title = "10 graphic design styles to help you craft your own (Minimalism)"
-  publication = "Webflow Blog"
-  year = 2023
-  url = "https://webflow.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "A design approach focused on removing non-essential elements, using ample whitespace and simple typography to achieve clarity and simplicity.",
-  "Minimalist design reduces interfaces to their core functions, favoring neutral colors, clean lines, and an uncluttered layout to emphasize content."
-]
-
-styles.core_characteristics = [
-  "Strict elimination of unnecessary graphics or decoration",
-  "Generous whitespace and simple typography for a clean, uncluttered look",
-  "Limited color palettes (often neutral or muted tones) and flat imagery",
-  "Focus on content and functionality over ornate visuals, yielding a modern, streamlined aesthetic"
-]
-
-styles.example_references = [
-  "https://google.com/search",
-  "https://apple.com/apple-newsroom"
-]
-
-styles.related_terms = [
-  "flat minimalism",
-  "simplicity",
-  "white-space design"
-]
-
-# ---------------------------------------------------------------------------
-# SKEUOMORPHISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "skeuomorphism"
-display_name = "Skeuomorphism"
-domain = "ui" # Inferred
-evidence_count = 3
-notes = "Prominent in early smartphone UIs (e.g. iPhone’s pre-2013 design), skeuomorphism was later supplanted by flat design as users became accustomed to digital interfaces. It has seen some nostalgic resurgences in modern designs."
-
-  [[styles.sources]]
-  title = "UI Design — How many ‘ism’s do you know? (Skeumorphism)"
-  publication = "Medium"
-  year = 2022
-  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
-
-  [[styles.sources]]
-  title = "4 Key Types of Morphism in UI Design You Need to Know"
-  publication = "Wow-How Studio Blog"
-  year = 2024
-  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
-
-  [[styles.sources]]
-  title = "Why does every advert look the same? Blame Corporate Memphis"
-  publication = "WIRED UK"
-  year = 2021
-  url = "https://www.wired.co.uk/article/corporate-memphis-design-tech"
-
-styles.definitions = [
-  "A design style that imitates real-world materials and objects in UI elements, using realistic textures, shadows, and lighting to create familiarity.",
-  "Skeuomorphic design makes digital interfaces look like physical counterparts (e.g. a calculator app styled like a real calculator), bridging user familiarity between physical and digital."
-]
-
-styles.core_characteristics = [
-  "Detailed, lifelike textures and surfaces (wood, metal, leather, etc.) on interface elements",
-  "Use of drop shadows, bevels, and highlights to simulate depth and tactile form",
-  "Icons and controls styled to resemble their real-world analogues (e.g. a notepad app looking like lined paper)",
-  "Emphasizes familiarity and metaphor, helping users by leveraging real-world affordances"
-]
-
-styles.example_references = [
-  "https://apple.com/ios/calculator (early iOS Calculator)",
-  "https://winamp.com (classic Winamp skins)"
-]
-
-styles.related_terms = [
-  "realism in UI",
-  "rich textures",
-  "Frutiger Aero"
-]
-
-# ---------------------------------------------------------------------------
-# NEUMORPHISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "neumorphism"
-display_name = "Neumorphism"
-domain = "ui" # Inferred
-evidence_count = 3
-notes = "Neumorphism became a popular concept around 2019–2020 as an anticipated “next big trend,” though its practical adoption was limited due to contrast/accessibility concerns. It strikes a visual balance between flat design and skeuomorphic depth."
-
-  [[styles.sources]]
-  title = "UI Design — How many ‘ism’s do you know? (Neumorphism)"
-  publication = "Medium"
-  year = 2022
-  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
-
-  [[styles.sources]]
-  title = "4 Key Types of Morphism in UI Design You Need to Know"
-  publication = "Wow-How Studio Blog"
-  year = 2024
-  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
-
-  [[styles.sources]]
-  title = "8 Web Design Trends to Watch in 2024"
-  publication = "SitePoint"
-  year = 2024
-  url = "https://www.sitepoint.com/web-design-trends-2024"
-
-styles.definitions = [
-  "A modern style (also called “soft UI”) blending skeuomorphic realism with flat minimalism: interface components feature subtle, diffused shadows and highlights to appear softly embossed or extruded.",
-  "Neumorphism uses low-contrast 3D effects—like a background and element sharing nearly the same color—to create a tactile, modern look that is gentler than classic skeuomorphism."
-]
-
-styles.core_characteristics = [
-  "Soft, monochromatic color schemes with shadows and highlights to create a slight 3D relief effect",
-  "UI elements (buttons, cards, toggles) appear as if molded from the same material as the background, using inner and outer shadows for a subtle depth",
-  "Rounded shapes and gentle curves to enhance the smooth, plasticine look",
-  "Minimal contrast: relies on light and shadow rather than strong colors, which can cause legibility issues if overdone"
-]
-
-styles.example_references = [
-  "https://hype4.academy/article/neumorphism-soft-ui",
-  "https://dribbble.com/shots/14363401-Neumorphic-UI-Dashboard"
-]
-
-styles.related_terms = [
-  "soft UI",
-  "new skeuomorphism",
-  "embossed UI"
-]
-
-# ---------------------------------------------------------------------------
-# FLAT DESIGN
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "flat_design"
-display_name = "Flat Design"
-domain = "ui" # Inferred
-evidence_count = 3
-notes = "Flat design rose to prominence around 2013, replacing skeuomorphism as the dominant UI aesthetic. It improved performance and responsiveness by simplifying visuals, though later evolutions (“Flat 2.0”) reintroduced subtle shadows and depth for usability."
-
-  [[styles.sources]]
-  title = "Flat Design (Aesthetics Wiki)"
-  publication = "Aesthetics Wiki (Fandom)"
-  year = 2021
-  url = "https://aesthetics.fandom.com/wiki/Flat_Design"
-
-  [[styles.sources]]
-  title = "4 Key Types of Morphism in UI Design You Need to Know"
-  publication = "Wow-How Studio Blog"
-  year = 2024
-  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
-
-  [[styles.sources]]
-  title = "10 graphic design styles to help you craft your own (Flat Design)"
-  publication = "Webflow Blog"
-  year = 2023
-  url = "https://webflow.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "A design style emphasizing two-dimensional, flat visuals with no skeuomorphic traits—eschewing realistic textures and shadows in favor of solid colors, simple shapes, and clean icons.",
-  "Flat design embraces simplicity and clarity: interfaces often use bright palettes, geometric icons, and ample whitespace to prioritize content and functionality over ornamental aesthetics."
-]
-
-styles.core_characteristics = [
-  "Two-dimensional graphic elements (no drop-shadows, bevels, or realistic textures)",
-  "Bold and often bright color palettes (frequently using solid or minimal gradients)",
-  "Simple, iconographic illustrations and UI controls (pictograms, flat icons) that communicate quickly",
-  "Typography is typically clean and sans-serif, supporting a modern, utilitarian feel"
-]
-
-styles.example_references = [
-  "https://material.io (Google’s early Material guidelines demoed flat principles)",
-  "https://github.com (GitHub’s 2013 redesign embraced flat elements)"
-]
-
-styles.related_terms = [
-  "material design (related evolution)",
-  "minimalist UI",
-  "vector style"
-]
-
-# ---------------------------------------------------------------------------
-# MATERIAL DESIGN
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "material_design"
-display_name = "Material Design"
-domain = "ui" # Inferred
-evidence_count = 2
-notes = "Introduced by Google in 2014, Material Design sought to create a \"unified visual language\" for apps and web, heavily influencing modern design systems. It is essentially flat design enriched with depth, lighting, and motion principles. Many platforms adapted its components and guidelines."
-
-  [[styles.sources]]
-  title = "4 Key Types of Morphism in UI Design You Need to Know"
-  publication = "Wow-How Studio Blog"
-  year = 2024
-  url = "https://wow-how.com/articles/types-of-morphism-in-ui-design"
-
-  [[styles.sources]]
-  title = "Material Design Guidelines"
-  publication = "Google Design"
-  year = 2014
-  url = "https://material.io/design"
-
-styles.definitions = [
-  "Google’s Material Design is a comprehensive design language that combines flat design’s simplicity with skeuomorphic cues like real-world physics, using layers, realistic shadows, and motion to create a unified, tactile UI experience.",
-  "Material Design treats UI elements as \"digital paper\" and ink, emphasizing grid-based layouts, responsive animations, and elevations (z-depth) to establish hierarchy and interactivity in a clear, consistent manner."
-]
-
-styles.core_characteristics = [
-  "Uses cards and layers with distinct elevation levels, indicated by soft shadows, to imply a hierarchy of surfaces",
-  "Bold, vibrant color schemes with an emphasis on primary/accent colors and flat graphic icons",
-  "Extensive use of motion and animation for feedback (ripples, transitions) to reinforce a sense of physical space and interactivity",
-  "Standardized components and spacing, following strict guidelines to ensure consistency across platforms"
-]
-
-styles.example_references = [
-  "https://material.io/components",
-  "https://www.google.com/drive/ (Google Drive web UI following Material Design)"
-]
-
-styles.related_terms = [
-  "material theming",
-  "Google Material",
-  "flat 2.0"
-]
-
-# ---------------------------------------------------------------------------
-# BRUTALISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "brutalism"
-display_name = "Brutalism"
-domain = "ui" # Inferred
-evidence_count = 3
-notes = "Brutalism in web design draws its name from 1950s Brutalist architecture and evokes early web nostalgia. It’s seen as a rebellion by younger designers against templated, uniform designs, favoring honesty and functionality over polish. While striking, pure brutalism can compromise usability, so many “brutalist” sites still ensure basic readability."
-
-  [[styles.sources]]
-  title = "UI Design — How many ‘ism’s do you know? (Brutalism)"
-  publication = "Medium"
-  year = 2022
-  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
-
-  [[styles.sources]]
-  title = "14 web design trends to keep an eye on in 2024 (Neo-brutalism)"
-  publication = "Markup.io Blog"
-  year = 2024
-  url = "https://www.markup.io/blog/web-design-trends/"
-
-  [[styles.sources]]
-  title = "11 Fascinating Examples of Brutalist Web Design to Inspire You"
-  publication = "HubSpot Blog"
-  year = 2023
-  url = "https://blog.hubspot.com/website/brutalist-website-design"
-
-styles.definitions = [
-  "An uncompromising web aesthetic characterized by raw, unstyled elements and a lack of concern for traditional beauty. Brutalist web design often appears “harsh, raw and haphazard,” with jarring colors, default HTML styles, and seemingly clashing visuals.",
-  "In web terms, brutalism is a reaction against slick modern design—sites embrace a 1990s-esque bare-bones look with plain backgrounds, monospaced or system fonts, and irregular layouts that prioritize content over form."
-]
-
-styles.core_characteristics = [
-  "Intentionally “unstyled” or default-styled HTML elements (plain hyperlinks, buttons, system fonts) giving a utilitarian appearance",
-  "Bold, high-contrast color choices that may clash or appear non-harmonious (sometimes neon or primary colors in blocks)",
-  "Erratic layouts and typography: content might be misaligned, oversized, or oddly placed by conventional standards, lending a chaotic or experimental feel",
-  "Graphics, if used, can be raw or pixelated; or sites may use none at all, focusing on text and basic HTML structures, reminiscent of early web pages"
-]
-
-styles.example_references = [
-  "http://brutalistwebsites.com",
-  "https://www.studiobrot.de/",
-  "https://chainzoku.io"
-]
-
-styles.related_terms = [
-  "web brutalism",
-  "raw aesthetic",
-  "anti-design (related movement)"
-]
-
-# ---------------------------------------------------------------------------
-# NEOBRUTALISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "neobrutalism"
-display_name = "Neobrutalism"
-domain = "ui" # Inferred
-evidence_count = 3
-notes = "Neobrutalism rose around 2021–2023 as brutalism’s “new look.” It’s described as brutalism meets modern web: clashing colors, simple shapes, and retro fonts, but used in a way that can be oddly approachable and even good for accessibility. Sometimes likened to a revival of 1980s \"Memphis\" design elements (hence *neo-Memphis*) within a brutalist framework."
-
-  [[styles.sources]]
-  title = "UI Design — How many ‘ism’s do you know? (Neobrutalism)"
-  publication = "Medium"
-  year = 2022
-  url = "https://medium.com/@freefigmatemplates/ui-design-how-many-isms-do-you-know-bee7e1f314fb"
-
-  [[styles.sources]]
-  title = "8 exciting visual trends you should know about in 2024 (Neobrutalism)"
-  publication = "Creative Bloq"
-  year = 2024
-  url = "https://www.creativebloq.com/news/2024-visual-trends"
-
-  [[styles.sources]]
-  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Neo-Brutalism)"
-  publication = "Magier Blog"
-  year = 2024
-  url = "https://www.magier.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "A recent iteration of brutalism that mixes the raw, “ugly” web aesthetic with modern touches. Neobrutalism retains bold colors and bare layouts but introduces contemporary typography, deliberate grids, and thick borders for a fresh, accessible twist:contentReference[oaicite:49]{index=49}.",
-  "Also known as \"neubrutalism,\" it combines brutalism’s 90s-web nostalgia with some design structure: expect bright, wacky color themes, basic geometric shapes, and bold black outlines around elements, all executed in a more playful, semi-polished way."
-]
-
-styles.core_characteristics = [
-  "Bright, almost cartoonish color schemes applied to otherwise minimalist layouts (often avoiding gradients in favor of flat blocks of color)",
-  "Heavy outlines and strokes around UI elements (e.g. thick black borders on boxes, buttons) to emphasize structure in the absence of detailed styling",
-  "Mix of system/default fonts and modern typography – text is bold and high-impact, but readability is maintained (e.g. big, sans-serif or monospace type used in a grid)",
-  "Static or very simple interactions (to align with the 'unpolished' look), yet intentionally designed layouts that feel more ordered than classic brutalism"
-]
-
-styles.example_references = [
-  "https://gumroad.com (Gumroad’s 2023 homepage redesign)",
-  "https://uninformative.design (parody neo-brutalist style site)"
-]
-
-styles.related_terms = [
-  "neubrutalism",
-  "neo-Memphis",
-  "anti-design (overlapping)"
-]
-
-# ---------------------------------------------------------------------------
-# ANTI-DESIGN
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "anti_design"
-display_name = "Anti-Design"
-domain = "ui" # Inferred
-evidence_count = 3
-notes = "The anti-design mindset is often seen as a critique of corporate minimalism and overly templated UI. By amplifying disorder and “bad” design, it draws attention (e.g. for art projects or edgy brands). While visually intriguing and conceptually rich, anti-design can sacrifice usability and thus typically appears in experimental or artistic contexts rather than mainstream products."
-
-  [[styles.sources]]
-  title = "14 web design trends to keep an eye on in 2024 (anti-design)"
-  publication = "Markup.io Blog"
-  year = 2024
-  url = "https://www.markup.io/blog/web-design-trends/"
-
-  [[styles.sources]]
-  title = "What is anti-design, the rising trend that tears up the rule book?"
-  publication = "Creative Bloq"
-  year = 2025
-  url = "https://www.creativebloq.com/design/graphic-design/what-is-anti-design-the-trend-that-tears-up-the-rule-book"
-
-  [[styles.sources]]
-  title = "Anti-Design Is Intentionally Loud and Messy"
-  publication = "BuiltIn"
-  year = 2024
-  url = "https://builtin.com/designer-careers/anti-design-trend"
-
-styles.definitions = [
-  "An aesthetic movement that deliberately rejects traditional design rules and beauty, embracing chaos, clashing elements, and an “ugly” or unrefined look as a form of expression.",
-  "Anti-design in web/UX is about breaking all the conventions: irregular layouts, garish color combinations, mixed typefaces—often to provoke or make a statement against the uniformity of modern design."
-]
-
-styles.core_characteristics = [
-  "Inconsistent visual hierarchy and flow—elements might feel out of order or unexpectedly placed, intentionally confusing the user’s eye",
-  "Clashing typography and colors: for example, multiple fonts on one page, or colors that vibrate and conflict (e.g. neon green text on a stark purple background)",
-  "Distorted or non-gridded layouts: overlapping content, misaligned sections, or purposefully broken navigation structures",
-  "Embraces imperfection: design elements like glitch effects, scribbles, pixelation, or crude graphics are used to give a chaotic, “unpolished” feel"
-]
-
-styles.example_references = [
-  "https://brutalistwebsites.com/bloomberg (Bloomberg 2015 experimental design)",
-  "https://xn--h28h.xyz (Example of chaotic/ugly design experiment)"
-]
-
-styles.related_terms = [
-  "ugly design",
-  "art punk design",
-  "deconstructionism"
-]
-
-# ---------------------------------------------------------------------------
-# MAXIMALISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "maximalism"
-display_name = "Maximalism"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 2
-notes = "Contemporary ‘New Maximalism’ is partly a reaction to years of flat minimalism; it invites playfulness and complexity back into design. While engaging and memorable, maximalist styles must still maintain coherence to avoid overwhelming users. It often appears in editorial design, fashion, or cultural contexts where bold art direction is welcome."
-
-  [[styles.sources]]
-  title = "Graphic Design Styles: The Ultimate Guide for 2025 (New Maximalism)"
-  publication = "Magier Blog"
-  year = 2024
-  url = "https://www.magier.com/blog/graphic-design-styles"
-
-  [[styles.sources]]
-  title = "10 graphic design styles to help you craft your own (Maximalism)"
-  publication = "Webflow Blog"
-  year = 2023
-  url = "https://webflow.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "A design philosophy of “more is more,” maximalism revels in abundance of colors, patterns, and ornamental elements rather than restraint. It intentionally opposes minimalist sparseness by filling designs with eclectic visuals and detail.",
-  "Maximalist design embraces bold expression, layering diverse graphic elements to create rich, dynamic compositions. It’s characterized by an explosion of color, typography, and imagery all co-existing in organized chaos."
-]
-
-styles.core_characteristics = [
-  "Vibrant, often clashing color combinations and a wide color palette used together",
-  "Mix of many patterns, textures, or graphic motifs in one frame (stripes, florals, geometric shapes all overlapping, for instance)",
-  "Decorative fonts and exaggerated typography; multiple typefaces may be used to amplify expressiveness",
-  "Crowded but intentional layouts – the design may feel chaotic, yet elements are arranged to lead the eye and evoke excitement rather than pure randomness"
-]
-
-styles.example_references = [
-  "https://www.gucci.com (fashion branding often uses rich, maximal visuals)",
-  "https://www.benetton.com (known for vibrant, multi-color design campaigns)"
-]
-
-styles.related_terms = [
-  "new maximalism",
-  "design maximalism",
-  "decorative design"
-]
-
-# ---------------------------------------------------------------------------
-# MEMPHIS DESIGN
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "memphis_design"
-display_name = "Memphis Design"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 3
-notes = "Memphis design’s resurgence in digital products brings a sense of joy and nostalgia. It is visually busy and *“either love it or hate it”* for viewers:contentReference[oaicite:87]{index=87}. Tech companies occasionally infuse Memphis-esque illustrations (e.g. abstract shapes in hero sections) to appear trendy and youthful. Notably, the term *“Corporate Memphis”* for flat tech illustrations draws inspiration from this style’s bold shapes and colors:contentReference[oaicite:88]{index=88}."
-
-  [[styles.sources]]
-  title = "Designing With an 80s Trend: Memphis Design 101"
-  publication = "Design Shack"
-  year = 2018
-  url = "https://designshack.net/articles/graphics/designing-with-an-80s-trend-memphis-design-101/"
-
-  [[styles.sources]]
-  title = "Memphis Design: the defining look of the 1980s"
-  publication = "99designs Blog"
-  year = 2019
-  url = "https://99designs.com/blog/design-history-movements/memphis-design/"
-
-  [[styles.sources]]
-  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Pop Futurism / Neo-Memphis)"
-  publication = "Magier Blog"
-  year = 2024
-  url = "https://www.magier.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "An iconic 1980s design style characterized by *“a riot of color and materials”*, Memphis design features bright, often clashing colors, geometric shapes, and whimsical squiggles or patterns:contentReference[oaicite:76]{index=76}. Originally a postmodern art movement (Memphis Group), its visuals are bold, playful, and deliberately inorganic.",
-  "In modern UI terms, Memphis design means a retro 80s revival: flat vector shapes (triangles, circles, zigzag lines) arranged in energetic, free-form patterns with neon or pastel hues, evoking a fun, almost kitschy vibe."
-]
-
-styles.core_characteristics = [
-  "Bright, saturated color palette with an almost neon quality (often multiple bold colors used together without subtle shading)",
-  "Abundant use of simple geometric shapes and repeated patterns – e.g. confetti-like triangles, dots, zigzag ‘squiggle’ lines scattered across backgrounds",
-  "Flat vector illustration style (minimal 3D depth) and frequent combination of black-and-white graphic patterns alongside the bright colors",
-  "Playful typography: blocky sans-serifs or “bubble” fonts often appear, sometimes in unconventional placements or angles, reinforcing the whimsical tone"
-]
-
-styles.example_references = [
-  "https://www.memphis-milano.com (Gallery of original Memphis Group designs)",
-  "https://www.cartoonsnetworkstudios.com (note: fictional example to illustrate squiggles and shapes)",
-  "https://www.etror.com (branding using Memphis-style patterns)"
-]
-
-styles.related_terms = [
-  "80s retro",
-  "Neo-Memphis",
-  "postmodern design"
-]
-
-# ---------------------------------------------------------------------------
-# CORPORATE MEMPHIS
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "corporate_memphis"
-display_name = "Corporate Memphis"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 3
-notes = "Coined around 2018–2020, the term pokes fun at how tech companies converged on the same illustration aesthetic. While friendly, Corporate Memphis has been criticized for homogenizing design and presenting an overly optimistic worldview. The name references the 1980s Memphis design style, as this illustration approach borrows its bold colors and simple shapes, albeit in a toned-down form for corporate use."
-
-  [[styles.sources]]
-  title = "Why does every advert look the same? Blame Corporate Memphis"
-  publication = "WIRED UK"
-  year = 2021
-  url = "https://www.wired.co.uk/article/corporate-memphis-design-tech"
-
-  [[styles.sources]]
-  title = "A Brief Overview of Big Tech Illustration: Flat Design, Corporate Memphis, and Alegria"
-  publication = "Medium (Anna Xing)"
-  year = 2020
-  url = "https://anna-xing.medium.com/a-brief-overview-of-big-tech-illustration-flat-design-corporate-memphis-and-alegria-a9b54a35c6b1"
-
-  [[styles.sources]]
-  title = "Blue people and long limbs: How one illustration style took over the tech world"
-  publication = "Webflow Blog"
-  year = 2021
-  url = "https://webflow.com/blog/corporate-memphis-illustration-style"
-
-styles.definitions = [
-  "A flat illustration style ubiquitous in big tech branding, featuring simple, geometric human figures in bright, uniform colors. Often depicting tiny-headed, long-limbed characters engaged in friendly activities, it’s meant to appear fun and approachable.",
-  "Often dubbed *“Alegria art”* (from Facebook’s illustration system), Corporate Memphis uses solid flat colors and abstract figures with exaggerated proportions (like bendy arms) to convey a playful, optimistic tone in corporate communications."
-]
-
-styles.core_characteristics = [
-  "Flat, vector-based illustrations with no outlines and minimal detail (characters usually have featureless faces or just simple dots for eyes, etc.)",
-  "Bright, inoffensive color palettes (lots of pastels or saturated primaries) applied uniformly to figures and objects",
-  "Stylized human figures with distinctive proportions: small heads, elongated limbs or whimsical body shapes, meant to universally represent people in a friendly way",
-  "Scenes often depict abstract office or everyday activities (teamwork, idea generation) in a generic, cheery manner; the style aims to be neutral and *“relentlessly imitated”* across companies"
-]
-
-styles.example_references = [
-  "https://slack.com (Slack’s website illustrations circa 2018)",
-  "https://asana.com (illustrations in Asana’s onboarding)",
-  "https://facebook.design/alegria (Facebook’s Alegria illustration library)"
-]
-
-styles.related_terms = [
-  "Alegria art",
-  "tech flat illustration",
-  "globohomo art"
-]
-
-# ---------------------------------------------------------------------------
-# Y2K AESTHETIC
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "y2k_aesthetic"
-display_name = "Y2K Aesthetic"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 3
-notes = "Nostalgia for the Y2K era has made this aesthetic resurface in fashion and web design. It includes *“futuristic designs, funky fur, plastic gloss, cyber-inspired motifs”* that defined the late 90s vibe:contentReference[oaicite:111]{index=111}. Designers use it to evoke a sense of fun and remembrance of the early internet days. However, they often modernize it with responsive layouts and cleaner typography while keeping the joyful clutter and shine."
-
-  [[styles.sources]]
-  title = "A Flashback to the Future: Y2K Style and Contemporary Interface Design"
-  publication = "UX Girl Blog"
-  year = 2023
-  url = "https://uxgirl.com/blog/a-flashback-to-the-future-y2k-style-and-contemporary-interface-design"
-
-  [[styles.sources]]
-  title = "The A–Z of Y2K Aesthetic in Web Design"
-  publication = "Debuggers Studio Blog"
-  year = 2023
-  url = "https://debuggersstudio.com/the-a-z-of-y2k-aesthetic-in-web-design/"
-
-  [[styles.sources]]
-  title = "Creative Trends 2024: Nostalgia (Y2K)"
-  publication = "Envato Blog"
-  year = 2024
-  url = "https://elements.envato.com/blog/y2k-aesthetic-design-trend"
-
-styles.definitions = [
-  "The Y2K aesthetic refers to the late-1990s and early-2000s digital look, defined by glossy surfaces, futuristic motifs, and bold colors like chrome silver, neon green, electric blue, and hot pink:contentReference[oaicite:105]{index=105}. It’s a retro-futuristic style reflecting the era’s early web and tech optimism.",
-  "In web/UI design, Y2K style means embracing the kitsch of early 2000s graphics: bubbly 3D lettering, starburst and glitter effects, gradient buttons, and pixelated or Flash-like elements that purposely look a bit dated yet playful:contentReference[oaicite:107]{index=107}."
-]
-
-styles.core_characteristics = [
-  "Vibrant, high-contrast color schemes often including metallics (chrome, silver) and citrus or neon tones (lime green, cyan blue, magenta):contentReference[oaicite:108]{index=108}",
-  "Text effects like embossing, glow/neon outlines, or gradient fills (mimicking WordArt and early Photoshop stylings common around year 2000)",
-  "Decorative motifs from late-90s pop culture: star and sparkle stickers, bubbly or liquid-like shapes (blobs, gel buttons), tech-inspired icons (CDs, planet Saturn rings, etc.):contentReference[oaicite:109]{index=109}",
-  "UI elements with a 3D or skeuomorphic twist: e.g. glossy “candy” buttons, beveled edges, and use of early web fonts or pixel fonts to reinforce a retro digital feel"
-]
-
-styles.example_references = [
-  "https://dev.to/irwin/tricking-out-my-profile-1990s-style-3m2p (a 90s/Y2K-styled webpage)",
-  "https://y2k.page (art project showcasing Y2K web style)",
-  "https://spacehey.com (a revival of early 2000s MySpace-like design)"
-]
-
-styles.related_terms = [
-  "Web1.0 revival",
-  "90s web design",
-  "retro tech"
-]
-
-# ---------------------------------------------------------------------------
-# RETRO-FUTURISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "retro_futurism"
-display_name = "Retro-Futurism"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 3
-notes = "Retro-futurism in design is *“nostalgia meets imagination”*—it leverages how past generations envisioned the future. Popular motifs include 1980s sci-fi movie styles (Tron-like neon grids, Blade Runner cityscapes) and early web/console graphics. In UX, it’s used for dramatic effect in entertainment, music, or tech projects embracing a vintage sci-fi culture. The style has regained popularity alongside the Y2K revival, especially in 2024–2025 creative circles:contentReference[oaicite:120]{index=120}."
-
-  [[styles.sources]]
-  title = "Retro-futuristic UX designs: Bringing back the future"
-  publication = "LogRocket Blog"
-  year = 2025
-  url = "https://blog.logrocket.com/ux-design/retro-futuristic-ux-designs-bringing-back-the-future/"
-
-  [[styles.sources]]
-  title = "Retro-futurism and why it's making a comeback in design"
-  publication = "Lummi AI Blog"
-  year = 2024
-  url = "https://www.lummi.ai/post/y2k-retro-futurism-design"
-
-  [[styles.sources]]
-  title = "Retro Futurism design inspiration"
-  publication = "CreatorFuel"
-  year = 2024
-  url = "https://www.creator-fuel.com/retro-futurism-design-inspiration"
-
-styles.definitions = [
-  "A design aesthetic that imagines the future through the lens of the past. Retro-futurism mixes vintage 70s–90s visuals (like pixel art, neon grids) with sci-fi themes (spaceships, cyberpunk cities), creating a nostalgic yet forward-looking style:contentReference[oaicite:112]{index=112}:contentReference[oaicite:113]{index=113}.",
-  "In UI design, retro-futurism often manifests as *“outrun”* or *“synthwave”* style: dark backgrounds with glowing neon accents, grid or wireframe landscapes, chrome text, and other elements inspired by early computer graphics and 80s sci-fi media:contentReference[oaicite:114]{index=114}."
-]
-
-styles.core_characteristics = [
-  "Neon color palettes against dark (usually black or deep purple) backgrounds – electric blues, hot pinks, and neon purples are iconic",
-  "Cyberpunk and sci-fi imagery: think glitch effects, digital grids, wireframes, stars and galaxies, and 8-bit or VHS scanline textures to add a vintage tech feel",
-  "Retro typography such as pixelated fonts or futuristic typefaces reminiscent of arcade games and early PCs; often paired with glowing or chrome effects",
-  "Overall high-contrast, immersive visuals with elements like animated stars or flickering neon signs to evoke a dystopian yet nostalgic atmosphere"
-]
-
-styles.example_references = [
-  "https://neongenesisevangelion.com (fandom sites with 90s anime cyberpunk styling)",
-  "https://outrun.club (synthwave aesthetic showcase)",
-  "https://nightride.fm (web radio with retro-futuristic interface)"
-]
-
-styles.related_terms = [
-  "synthwave",
-  "cyberpunk design",
-  "outrun aesthetic"
-]
-
-# ---------------------------------------------------------------------------
-# SWISS STYLE
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "swiss_style"
-display_name = "Swiss Style"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 2
-notes = "Swiss Style was born in mid-20th century Switzerland but its principles deeply influence digital design for its *“clarity and simplicity over decoration”* ethos. It’s the foundation of many corporate and editorial designs. In practice, adopting Swiss style on the web results in very clean, content-first pages with logical flow and no superfluous visuals."
-
-  [[styles.sources]]
-  title = "Swiss Style (design)"
-  publication = "Wikipedia"
-  year = 2023
-  url = "https://en.wikipedia.org/wiki/International_Typographic_Style"
-
-  [[styles.sources]]
-  title = "Swiss Style graphic design: The minimalist design trend you can master"
-  publication = "Envato Tuts+"
-  year = 2023
-  url = "https://elements.envato.com/learn/swiss-style-graphic-design"
-
-styles.definitions = [
-  "Also known as the International Typographic Style, Swiss Style is a modernist graphic design approach emphasizing cleanliness, readability, and objectivity. It features strict grid-based layouts, sans-serif typography, and a *“minimalist approach, asymmetrical balance, and clear content hierarchy”*.",
-  "In web/UI design, Swiss-inspired style means lots of whitespace, content aligned to an underlying grid, and unfussy presentation. Text is often the hero, set in neutral sans-serif fonts like Helvetica, and design elements serve the content rather than decorate."
-]
-
-styles.core_characteristics = [
-  "Strong reliance on a grid system to align and organize elements, creating a consistent structure across the layout",
-  "Use of sans-serif typefaces (Helvetica, Univers, Akzidenz Grotesk, etc.) with clear typography rules (left-aligned, flush-left ragged-right, minimal variation in font sizes) for maximum legibility",
-  "Minimal ornamentation: very limited use of illustration or decoration; photography or simple color blocks are used sparingly to support content, not for flourish",
-  "High-contrast and minimal color palette – often black & white or a few primary colors – to maintain clarity and focus on information"
-]
-
-styles.example_references = [
-  "https://www.vitra.com/en-us (with Swiss-influenced typography layout)",
-  "https://www.nytimes.com/interactive (some NYT digital projects use Swiss principles)",
-  "https://www.google.com/intl/en/forms/about/ (Google Forms’ clean layout echoes Swiss simplicity)"
-]
-
-styles.related_terms = [
-  "International Typographic Style",
-  "grid design",
-  "modernist graphic design"
-]
-
-# ---------------------------------------------------------------------------
-# ART DECO
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "art_deco"
-display_name = "Art Deco"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 2
-notes = "Art Deco elements have seen a minor revival in branding and web (especially in luxury sectors or nostalgic projects). For instance, designers might incorporate an Art Deco border or pattern in a modern website for a vintage flair. The style signals sophistication and retro-futuristic optimism, but must be used judiciously so as not to overwhelm contemporary usability."
-
-  [[styles.sources]]
-  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Art Deco)"
-  publication = "Magier Blog"
-  year = 2024
-  url = "https://www.magier.com/blog/graphic-design-styles"
-
-  [[styles.sources]]
-  title = "10 graphic design styles to help you craft your own (Art Deco)"
-  publication = "Webflow Blog"
-  year = 2023
-  url = "https://webflow.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "A decorative design movement from the 1920s–30s known for its *“geometric shapes, bold patterns, and refined aesthetic”*. In modern design contexts, Art Deco style conveys luxury and retro elegance through symmetrical forms and rich ornamentation.",
-  "Art Deco-inspired UI/graphics often feature geometry (triangles, sunbursts, chevrons), metallic or high-contrast color schemes, and stylized typography with sharp angles or artistic curves to evoke the Jazz Age glamour."
-]
-
-styles.core_characteristics = [
-  "Use of geometric shapes and motifs: zigzag patterns, chevron stripes, fan-like sunburst shapes, often arranged symmetrically",
-  "Bold, often metallic colors or strong contrasts (e.g., black and gold, black and white with a pop of rich color) giving a lavish look",
-  "Decorative elements and flourishes that suggest opulence (borders, dividers, and frames with intricate detailing or repeating patterns)",
-  "Elegant typography featuring a mix of modern and classic touches – type may have angular serifs or ornamented sans-serifs reflecting 1920s lettering"
-]
-
-styles.example_references = [
-  "https://www.greatgatsbygame.com (fictional example with Gatsby-esque art deco UI)",
-  "https://artdeco.org (Art Deco society site with era-inspired graphics)"
-]
-
-styles.related_terms = [
-  "1920s design",
-  "Great Gatsby style",
-  "geometric luxury"
-]
-
-# ---------------------------------------------------------------------------
-# ART NOUVEAU
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "art_nouveau"
-display_name = "Art Nouveau"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 2
-notes = "While true Art Nouveau peaked by 1910, its *“organic elegance”* occasionally trends in modern graphics, especially in packaging, logos, or posters that seek a romantic, handcrafted vibe. In UI, full Art Nouveau is rare due to its complexity, but elements like decorative borders or illustrated backgrounds appear in niche projects. It’s essentially the antithesis of stark minimalism – celebrating decorative art in utility."
-
-  [[styles.sources]]
-  title = "Top 12 Visual Design Trends for 2024 (Art Nouveau captivates with organic elegance)"
-  publication = "Medium (Christie C.)"
-  year = 2024
-  url = "https://medium.com/@inchristiely/top-12-visual-design-trends-for-2024-that-boost-engagement-part-2-da3e4b1ac900"
-
-  [[styles.sources]]
-  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Art Nouveau)"
-  publication = "Magier Blog"
-  year = 2024
-  url = "https://www.magier.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "An art and design movement of the late 19th century, Art Nouveau is characterized by organic, flowing lines (*“whiplash” curves*) and motifs from nature (flowers, vines, feminine forms). In modern design usage, it implies an elegant, ornamental style with hand-drawn quality.",
-  "Contemporary Art Nouveau-inspired graphics revive *“graceful lines and sophisticated style”*: decorative floral patterns, pastel or jewel tones, and intricate borders that bring a vintage, artisanal feel to the design."
-]
-
-styles.core_characteristics = [
-  "Curvilinear, flowing lines forming complex, asymmetrical shapes and borders (often plantlike tendrils or hair-like swirls)",
-  "Nature-inspired imagery: stylized flowers, leaves, vines, and sometimes figures of women with long flowing hair, integrated into the design motif",
-  "Flat but detailed color illustrations – often using muted pastels or rich, earthy colors – with an emphasis on outline and pattern rather than three-dimensional shading",
-  "Decorative typography that may mimic Art Nouveau fonts (e.g., with high contrast strokes, angled serifs or ornate detailing) to complement the visual theme"
-]
-
-styles.example_references = [
-  "https://www.libertydesign.com (brand using nouveau patterns)",
-  "https://www.mucha.foundation (Alphonse Mucha art as web inspiration)"
-]
-
-styles.related_terms = [
-  "organic design",
-  "1890s revival",
-  "Jugendstil"
-]
-
-# ---------------------------------------------------------------------------
-# GRUNGE
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "grunge"
-display_name = "Grunge"
-domain = "ui" # Inferred
-evidence_count = 2
-notes = "Popular in the mid-2000s web (mirroring the late 90s music/fashion grunge trend), this style gave a distinct personality opposing the glossy Web 2.0 look. Grunge design can be *“radical and a bit disorganized”*, but when skillfully applied it yields unique, memorable sites. Its influence persists in certain music and gaming sites, though it’s less common in modern corporate design."
-
-  [[styles.sources]]
-  title = "Grunge Style in Web Design"
-  publication = "Smashing Magazine"
-  year = 2008
-  url = "https://www.smashingmagazine.com/2008/01/grunge-style-in-modern-web-design/"
-
-  [[styles.sources]]
-  title = "Grunge Style in Web Design"
-  publication = "Web Design Museum"
-  year = 2019
-  url = "https://www.webdesignmuseum.org/knowledge/grunge-style-in-web-design"
-
-styles.definitions = [
-  "A web design style that embraces a “dirty” or gritty look with irregular, broken and worn-out elements. Grunge design is characterized by rough textures, distressed or torn graphics, and a generally unpolished, raw appearance.",
-  "In grunge web design, pages often feature dark, earthy color schemes, stained or paper-like backgrounds, and hand-drawn or decayed-looking components that together create an intentionally *“sloppy”*, rebellious aesthetic."
-]
-
-styles.core_characteristics = [
-  "Use of textures that mimic dirt, stains, and decay: e.g. coffee ring stains on paper, scratched metal, peeling paint, or torn paper edges as design elements",
-  "Chaotic or asymmetrical layouts with overlapping elements, often breaking away from tidy grid rules",
-  "Hand-drawn icons or lettering and distressed fonts (letters may look weathered, smeared or eroded) to enhance the raw feel",
-  "Usually a muted or muddy color palette (brown, gray, dark tones) to reinforce the aged, underground vibe – occasionally accented by a few bold splashes of color like red or neon to draw attention"
-]
-
-styles.example_references = [
-  "http://www.csszengarden.com/?cssfile=004/004.css (Example of a grunge-themed CSS Zen Garden design)",
-  "https://web.archive.org/web/20090212185730/http://www.dirtyprettythings.com/ (fictitious example link for grunge style)"
-]
-
-styles.related_terms = [
-  "DIY punk design",
-  "underground/alternative",
-  "texture-heavy design"
-]
-
-# ---------------------------------------------------------------------------
-# PSYCHEDELIC DESIGN
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "psychedelic_design"
-display_name = "Psychedelic Design"
-domain = "graphic_but_used_in_ui" # Inferred
-evidence_count = 2
-notes = "The psychedelic style cycles back in popularity especially in times of maximalist or experimental trends. Brands in music, festival and youth culture often dip into psychedelic elements for a lively, throwback feel. In UI, it’s used sparingly (maybe as a background or a one-off campaign page) since the intense visuals can overpower functionality. Nonetheless, as a trend it represents designers pushing *“vibrant, carefree designs for nostalgic appeal”* in the modern era."
-
-  [[styles.sources]]
-  title = "Graphic Design Trends 2024 – The Great Reset"
-  publication = "GraphicMama"
-  year = 2023
-  url = "https://graphicmama.com/blog/graphic-design-trends-2024/"
-
-  [[styles.sources]]
-  title = "Graphic Design Styles: The Ultimate Guide for 2025 (Psychedelic)"
-  publication = "Magier Blog"
-  year = 2024
-  url = "https://www.magier.com/blog/graphic-design-styles"
-
-styles.definitions = [
-  "A design style rooted in 1960s counterculture art, featuring trippy, hallucinatory visuals: swirling abstract shapes, vibrant clashing colors, and surreal imagery meant to evoke an altered state or *“dreamy, abstract, and mystifying”* experience.",
-  "Contemporary psychedelic design trend revives 60s hippie nostalgia by using fluid gradients, kaleidoscopic patterns, and highly saturated palettes that create a sense of motion and depth even in static images."
-]
-
-styles.core_characteristics = [
-  "Bold, often rainbow-like color spectrums with high saturation, frequently blended in gradient swirls or tie-dye forms",
-  "Complex, free-flowing patterns: marbled textures, melting or drippy shapes, fractal or kaleidoscope effects that fill the design space in a dense manner",
-  "Distorted typography that might be wavy, warped or hand-drawn in an ornate, illegible way reminiscent of 60s concert posters",
-  "Imagery that can be surreal or symbolic (e.g., mushrooms, eyes, smiling faces, cosmic scenes) layered into the composition to enhance the mind-bending vibe"
-]
-
-styles.example_references = [
-  "https://psychedelic-art.com (gallery of classic psychedelic art posters)",
-  "https://dayglo.ai (modern AI-generated psychedelic visuals showcase)"
-]
-
-styles.related_terms = [
-  "60s retro",
-  "neo-psychedelia",
-  "trippy design"
-]
-
-# ---------------------------------------------------------------------------
-# CLAYMORPHISM
-# ---------------------------------------------------------------------------
-
-[[styles]]
-id = "claymorphism"
-display_name = "Claymorphism"
-domain = "ui" # Inferred
-evidence_count = 2
-notes = "Emerging around 2021, claymorphism caught attention as a fun, tactile approach to UI styling. It hasn’t become mainstream, but you see it in certain illustrations, onboarding screens, or design showcases. The style can delight users with its pseudo-3D charm, though it should be used carefully to maintain accessibility and avoid excessive shadows that might slow rendering on some devices."
-
-  [[styles.sources]]
-  title = "Claymorphism in User Interfaces"
-  publication = "Hype4 Academy"
-  year = 2021
-  url = "https://hype4.academy/articles/design/claymorphism-in-user-interfaces"
-
-  [[styles.sources]]
-  title = "What is claymorphism in web design?"
-  publication = "LogRocket Blog"
-  year = 2022
-  url = "https://blog.logrocket.com/claymorphism-web-design/"
-
-styles.definitions = [
-  "A recent UI style where elements are rendered to appear soft, puffy, and toy-like – as if made of clay or playdough. Claymorphism uses big rounded corners, pastel colors, and multiple inner/outer shadows to create a *“dome-like, inflated”* 3D effect.",
-  "In claymorphism, UI components such as buttons or cards seem to bulge out of the background with a tactile, bubbly quality. It’s essentially neumorphism taken further: more colorful, with stronger shading to appear almost cartoonishly plump and touchable."
-]
-
-styles.core_characteristics = [
-  "Very rounded shapes with generous corner radius (no sharp edges anywhere) giving a friendly, blob-like appearance",
-  "Layered shadows: typically two inner shadows plus one outer shadow on elements to produce an illusion of depth and softness (the object looks indented and raised at the same time)",
-  "Bright, fun color palettes often in matte pastel tones, reinforcing the playful, toy-like aesthetic",
-  "Minimal detail inside the elements – they tend to be flat color – but with highlights and shading around edges to convey a subtle 3D curvature"
-]
-
-styles.example_references = [
-  "https://designmodo.com/claymorphism-ui/ (article with example images of claymorphic UI)",
-  "https://dribbble.com/tags/claymorphism (community examples of clay-style UI designs)"
-]
-
-styles.related_terms = [
-  "soft 3D style",
-  "cartoon UI",
-  "inflated neumorphism"
+[
+  {
+    "id": "hygge_2016",
+    "label": "Hygge (2016-era)",
+    "kind": "lifestyle_trend",
+    "status": "core",
+    "summary": "A Danish lifestyle trend centered on coziness and contentment – essentially finding warmth and comfort in life’s simple pleasures. Hygge gained international popularity around 2016 as people embraced its cultural meaning of togetherness, gentle indulgence, and well-being. Visually, hygge defaults to a cozy, warm minimalism: neutral earthy colors, soft lighting (lots of candles), natural materials like wood and wool, and interiors filled with pillows, blankets and homey textures. It’s associated primarily with Nordic culture but spread widely to the UK and U.S. as a comforting aesthetic of “taking pleasure in the presence of gentle, soothing things” during cold or stressful times.",
+    "peak_years": [
+      2015,
+      2018
+    ],
+    "geography": [
+      "Nordic",
+      "UK",
+      "US"
+    ],
+    "domains": [
+      "interiors",
+      "lifestyle_media",
+      "web_branding"
+    ],
+    "sources": [
+      {
+        "title": "The Year of Hygge, the Danish Obsession with Getting Cozy",
+        "publication": "The New Yorker",
+        "year": 2016,
+        "url": "https://www.newyorker.com/culture/culture-desk/the-year-of-hygge-the-danish-obsession-with-getting-cozy"
+      },
+      {
+        "title": "Hygge Aesthetic: Embrace Cozy Vibes and Simple Pleasures",
+        "publication": "Greatist",
+        "year": 2024,
+        "url": "https://greatist.com/happiness/what-is-hygge"
+      }
+    ],
+    "example_brands": [
+      "Hygge Life (interior shop)",
+      "Kinfolk (magazine)"
+    ],
+    "example_sites": [
+      "https://hyggelife.com",
+      "https://kinfolk.com"
+    ],
+    "layman_phrases": [
+      "Cozy Scandinavian living",
+      "Warm and inviting vibe, like a hug in winter"
+    ],
+    "notes": "Hygge became a cliché in late-2010s marketing (endless candles and socks imagery). It overlaps with Minimalist living but with a distinctly warm, intimate twist. Often contrasted with the Swedish concept Lagom (moderation).",
+    "axes_bias": {
+      "tone": {
+        "cozy": 0.9,
+        "friendly": 0.5
+      },
+      "lightness": {
+        "light": 0.7,
+        "warm": 0.8
+      },
+      "color_strategy": {
+        "neutral": 0.6,
+        "low_saturation": 0.6,
+        "earth_tones": 0.4
+      },
+      "geometry_depth_shape": {
+        "rounded": 0.5
+      },
+      "geometry_depth_depth": {
+        "flat": 0.4,
+        "layered": 0.2
+      },
+      "density": {
+        "airy": 0.6,
+        "balanced": 0.3
+      },
+      "decoration": {
+        "subtle": 0.7,
+        "decorative": 0.3
+      }
+    },
+    "style_affinity": {
+      "minimalism": 0.6,
+      "scandinavian_modern": 0.8
+    },
+    "lexicon_affinity": {
+      "pastel_palette": 0.4,
+      "grain_texture": 0.3,
+      "border_radius_soft": 0.5,
+      "warm_minimal_saas": 0.5,
+      "cozy_textiles": 0.7
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "lagom_2017",
+    "label": "Lagom (Swedish “just right”)",
+    "kind": "lifestyle_trend",
+    "status": "core",
+    "summary": "A Swedish lifestyle concept and aesthetic emphasizing balance, moderation, and sufficiency – \"not too much, not too little\". Lagom came to prominence around 2017 as the successor to hygge. Culturally, it reflects a practical ethos of living with just the right amount – finding contentment through simplicity and fairness. Visually, lagom translates into calm, functional design: a pared-back Scandinavian look with simple, practical furnishings, neutral and natural color palettes, and uncluttered spaces that feel serene and balanced. It often features high-quality, sustainable materials (light woods, honest craftsmanship) and eschews excess decoration. The overall mood is quietly harmonious, aligning with nature and longevity rather than trendiness.",
+    "peak_years": [
+      2017,
+      2018
+    ],
+    "geography": [
+      "Sweden",
+      "UK",
+      "Global"
+    ],
+    "domains": [
+      "interiors",
+      "product_design",
+      "lifestyle_media"
+    ],
+    "sources": [
+      {
+        "title": "Forget Hygge: 2017 Will Be All About Lagom",
+        "publication": "Vogue",
+        "year": 2017,
+        "url": "https://www.vogue.com/article/hygge-trend-lagom-2017"
+      },
+      {
+        "title": "Hygge’s Out, Lagom Is In – New Nordic Style Designers Are Swearing By",
+        "publication": "AD Middle East",
+        "year": 2025,
+        "url": "https://www.admiddleeast.com/story/hygge-out-lagom-is-in-but-whats-this-new-nordic-style-designers-are-swearing-by"
+      }
+    ],
+    "example_brands": [
+      "IKEA (Live Lagom project)",
+      "Lagom Magazine"
+    ],
+    "example_sites": [
+      "https://www.ikea.com/gb/en/campaigns/live-lagom-pub3a5f3f2c",
+      "https://readlagom.com"
+    ],
+    "layman_phrases": [
+      "Everything in balance",
+      "Simply enough and no more"
+    ],
+    "notes": "Lagom is like hygge’s practical cousin: less about coziness, more about moderation and sustainability. In design, it overlaps with Scandinavian minimalism but with a mindful, anti-excess stance. It influenced eco-friendly product lines (IKEA’s Lagom initiative) and contrasts with showier trends like maximalism or “more is more” styles.",
+    "axes_bias": {
+      "tone": {
+        "calm": 0.7,
+        "neutral": 0.5
+      },
+      "lightness": {
+        "light": 0.6,
+        "natural": 0.5
+      },
+      "color_strategy": {
+        "neutral": 0.7,
+        "low_saturation": 0.5
+      },
+      "density": {
+        "balanced": 0.8,
+        "airy": 0.3
+      },
+      "decoration": {
+        "minimal": 0.8,
+        "subtle": 0.5
+      }
+    },
+    "style_affinity": {
+      "scandinavian_modern": 0.9,
+      "minimalism": 0.5
+    },
+    "lexicon_affinity": {
+      "neutral_palette": 0.5,
+      "craft_materials": 0.4,
+      "functional_layout": 0.6,
+      "sustainable_materials": 0.5
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "minimalist_living",
+    "label": "Minimalist Living",
+    "kind": "lifestyle_trend",
+    "status": "core",
+    "summary": "A lifestyle movement promoting simple living with fewer possessions, focusing on quality over quantity and mental clarity through decluttering. Minimalist living (popularized by millennials in the 2010s) encourages paring down to essentials in one’s home and schedule – a reaction against consumer excess. Visually, it manifests as clean, open spaces with neutral or monochrome palettes, very little ornamentation, and a calming sense of order. Interiors are often white or soft gray with natural light, sparse furniture, and no clutter in sight. The aesthetic conveys tranquility and functionality – everything has a purpose, echoing the motto “less is more.” It overlaps with modernist design but as a broader cultural vibe (think capsule wardrobes, tiny homes, and zen-like spaces).",
+    "peak_years": [
+      2014,
+      2018
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "interiors",
+      "lifestyle_media",
+      "web_branding"
+    ],
+    "sources": [
+      {
+        "title": "Martha Stewart says millennials are driving the biggest change in interior design",
+        "publication": "Business Insider",
+        "year": 2017,
+        "url": "https://www.businessinsider.com/martha-stewart-says-millennials-love-minimalism-2017-6"
+      },
+      {
+        "title": "The Rise of Minimalism: Simplifying Interior Design in the Modern Age",
+        "publication": "RMCAD College Blog",
+        "year": 2021,
+        "url": "https://www.rmcad.edu/blog/the-rise-of-minimalism-simplifying-interior-design-in-the-modern-age/"
+      }
+    ],
+    "example_brands": [
+      "Muji",
+      "Everlane"
+    ],
+    "example_sites": [
+      "https://www.muji.com",
+      "https://www.becomingminimalist.com"
+    ],
+    "layman_phrases": [
+      "Less is more lifestyle",
+      "Clutter-free living"
+    ],
+    "notes": "Minimalist living as a trend spiked with decluttering gurus (e.g. Marie Kondo) and a backlash to consumerism. Unlike “minimalist design” as a style, this is about an entire lifestyle of intentional simplicity – though it heavily influences design choices (neutral colors, empty space). Risks cliché when taken to extremes (sterile or impractical spaces).",
+    "axes_bias": {
+      "tone": {
+        "serene": 0.6,
+        "serious": 0.4
+      },
+      "lightness": {
+        "light": 0.8
+      },
+      "color_strategy": {
+        "monochrome": 0.5,
+        "neutral": 0.8
+      },
+      "density": {
+        "airy": 0.7,
+        "sparse": 0.5
+      },
+      "decoration": {
+        "minimal": 1.0
+      }
+    },
+    "style_affinity": {
+      "minimalism": 1.0,
+      "modernism": 0.4
+    },
+    "lexicon_affinity": {
+      "white_space": 0.7,
+      "monochrome_palette": 0.6,
+      "simple_lines": 0.5,
+      "no_extra_chrome": 0.4
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "quiet_luxury",
+    "label": "Quiet Luxury (Stealth Wealth)",
+    "kind": "lifestyle_trend",
+    "status": "core",
+    "summary": "A luxury aesthetic and lifestyle ethos favoring understated elegance over flashy logos. Quiet luxury (also dubbed “stealth wealth”) is about subtle, high-quality goods that only those “in the know” recognize – a reaction against loud branding. Culturally, it’s associated with old-money and the ultra-wealthy who “have nothing to prove.” Visually, quiet luxury defaults to muted colors (beiges, grays, navy), exquisite materials (cashmere, superb tailoring) but no overt logos. Designs are minimalistic and timeless – think flawlessly cut clothing with no branding, or a beautifully crafted object with discreet marks. The mood is exclusive yet restrained: wealth communicated through quality and fit rather than bling. This aesthetic surged in 2023 (e.g. TV’s Succession wardrobes) as a contrast to logomania: “money talks, wealth whispers” sums it up.",
+    "peak_years": [
+      2022,
+      2024
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "fashion",
+      "luxury_marketing",
+      "web_branding"
+    ],
+    "sources": [
+      {
+        "title": "When Less is More: The Curious Case of Quiet Luxury",
+        "publication": "Berkeley Technology Law Journal (Blog)",
+        "year": 2024,
+        "url": "https://btlj.org/2024/03/when-less-is-more-the-curious-case-of-quiet-luxury/"
+      },
+      {
+        "title": "Quiet Luxury and Loud Branding",
+        "publication": "Strike Magazine (Tallahassee)",
+        "year": 2023,
+        "url": "https://www.strikemagazines.com/blog-2-1/quiet-luxury-and-loud-branding"
+      }
+    ],
+    "example_brands": [
+      "The Row",
+      "Loro Piana"
+    ],
+    "example_sites": [
+      "https://therow.com",
+      "https://us.loropiana.com"
+    ],
+    "layman_phrases": [
+      "Old-money style, no logos",
+      "Understated elegance"
+    ],
+    "notes": "Often called stealth wealth, this trend hit mainstream via pop culture in 2023. It can verge on elitist (since it assumes knowledge of quality markers) and has been critiqued for exclusivity. But it’s viewed as a backlash to gaudy “logomania” – “wealth that isn’t advertised”. Succession and Gwyneth Paltrow’s trial outfits exemplified it. Visually adjacent to “classic basics” or timeless luxury design.",
+    "axes_bias": {
+      "tone": {
+        "luxurious": 0.8,
+        "serious": 0.6,
+        "understated": 0.9
+      },
+      "color_strategy": {
+        "neutral": 0.7,
+        "low_saturation": 0.5
+      },
+      "lightness": {
+        "light": 0.4,
+        "dark": 0.4
+      },
+      "decoration": {
+        "minimal": 0.9
+      }
+    },
+    "style_affinity": {
+      "minimalism": 0.5,
+      "classic_traditional": 0.7
+    },
+    "lexicon_affinity": {
+      "beige_palette": 0.6,
+      "tailored_silhouette": 0.4,
+      "no_logo": 0.9,
+      "rich_materials": 0.5
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": false,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "japandi",
+    "label": "Japandi (Japanese-Scandinavian)",
+    "kind": "lifestyle_trend",
+    "status": "core",
+    "summary": "An interior design fusion of Japanese and Scandinavian aesthetics, blending Zen-like simplicity with cozy minimalism. Japandi (a portmanteau of Japan + Scandi) creates spaces that are minimal, warm, and nature-inspired. It emerged in late 2010s as Nordic design’s clean lines met Japanese principles of wabi-sabi and craftsmanship. Hallmarks include light wood tones, simple geometric furniture, neutral earthy colors, and a mix of sleek lines with organic textures. Rooms feel serene yet inviting: uncluttered layouts, plenty of natural light, and functional decor (e.g. a single ceramic vase with branches). The vibe is “cozy minimalism” – not cold, but warm through tactile materials (linen, bamboo) and balanced negative space. Japandi underscores sustainability and quality: “craftsmanship, texture, balance, and serenity” define it.",
+    "peak_years": [
+      2020,
+      2025
+    ],
+    "geography": [
+      "Global",
+      "Japan",
+      "Nordic"
+    ],
+    "domains": [
+      "interiors",
+      "furniture_design",
+      "lifestyle_media"
+    ],
+    "sources": [
+      {
+        "title": "“Japandi” Style Is the Minimalist, Multi-Cultural Interior Design Trend",
+        "publication": "Vogue",
+        "year": 2025,
+        "url": "https://www.vogue.com/article/what-is-japandi-style"
+      },
+      {
+        "title": "The Japandi trend combines Japanese and Nordic design language in a new way",
+        "publication": "Finnish Design Shop – Design Stories",
+        "year": 2024,
+        "url": "https://www.finnishdesignshop.com/design-stories/trending/the-japandi-trend-combines-japanese-and-nordic-design-language-in-a-new-way"
+      }
+    ],
+    "example_brands": [
+      "Nikari (Finnish furniture)",
+      "MUJI"
+    ],
+    "example_sites": [
+      "https://nikari.fi",
+      "https://www.muji.com"
+    ],
+    "layman_phrases": [
+      "Scandi-Zen home style",
+      "Warm minimalist design"
+    ],
+    "notes": "Japandi exemplifies East-meets-West synergy: it modernizes Japanese Zen aesthetics with Scandi functionality. Overlaps with Minimalist living but with more organic warmth – e.g. hand-crafted wood and rustic ceramics against clean lines. Be mindful of clichés (not every neutral room is Japandi). It remains popular in interiors and furniture design for its timeless calm.",
+    "axes_bias": {
+      "tone": {
+        "calm": 0.8,
+        "warm": 0.5
+      },
+      "lightness": {
+        "light": 0.7
+      },
+      "color_strategy": {
+        "neutral": 0.8,
+        "earth_tones": 0.4
+      },
+      "geometry_depth_shape": {
+        "rounded": 0.3,
+        "straight": 0.5
+      },
+      "density": {
+        "balanced": 0.6,
+        "airy": 0.3
+      },
+      "decoration": {
+        "minimal": 0.7,
+        "natural": 0.5
+      }
+    },
+    "style_affinity": {
+      "scandinavian_modern": 0.7,
+      "wabi_sabi": 0.6,
+      "minimalism": 0.4
+    },
+    "lexicon_affinity": {
+      "light_wood": 0.6,
+      "neutral_palette": 0.5,
+      "indoor_plants": 0.3,
+      "handcrafted": 0.4
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "wellness_self_care",
+    "label": "Wellness / Self-Care",
+    "kind": "movement_or_value",
+    "status": "core",
+    "summary": "A broad cultural movement (late 2010s–2020s) prioritizing mental and physical well-being, which spawned a soothing, health-oriented visual style. The self-care trend encourages routines for stress relief and holistic health (think meditation, skincare, journaling) and has been heavily commodified into an aesthetic of calmness. Visually, the wellness aesthetic features soft, “therapeutic” design: pastel or muted palettes (sage greens, lavender, beige), gentle fonts, and imagery of baths, candles, houseplants, and serene faces. UI for wellness apps use lots of white or warm neutral space with friendly sans-serifs and calming illustrations. Overall tone is reassuring and positive – “live your best life” vibes. This trend’s look has permeated branding for yoga studios, mental health apps, and Instagram self-care influencers – all exuding tranquility and a touch of “spa” influence (watercolor textures, nature photos, etc.).",
+    "peak_years": [
+      2018,
+      2021
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "social_media",
+      "consumer_products",
+      "app_design"
+    ],
+    "sources": [
+      {
+        "title": "Self-care: The aesthetic we bought into",
+        "publication": "Social Samosa (Deep Dive)",
+        "year": 2025,
+        "url": "https://www.socialsamosa.com/deep-dive/is-self-care-the-aesthetic-we-bought-into-9442144"
+      },
+      {
+        "title": "Creating Calm: Mindful Retail Design Trends",
+        "publication": "Chute Gerdeman (design blog)",
+        "year": 2022,
+        "url": "https://www.chutegerdeman.com/creating-calm-mindful-retail-design-trends/"
+      }
+    ],
+    "example_brands": [
+      "Calm (meditation app)",
+      "Aesop (skincare)"
+    ],
+    "example_sites": [
+      "https://www.calm.com",
+      "https://www.aesop.com"
+    ],
+    "layman_phrases": [
+      "Spa-like calm vibe",
+      "Instagram self-care look"
+    ],
+    "notes": "Self-care’s visual culture became ubiquitous on social media (bubble baths, inspirational quotes in cursive) and was sometimes mocked for being performative. Still, its influence on design – from pastel wellness apps UIs to retail concept stores with soft lighting – is undeniable. Careful to differentiate authentic wellness design from mere marketing (just adding a candle does not equal wellness).",
+    "axes_bias": {
+      "tone": {
+        "soothing": 0.9,
+        "friendly": 0.6,
+        "uplifting": 0.4
+      },
+      "color_strategy": {
+        "pastel": 0.7,
+        "low_saturation": 0.5
+      },
+      "lightness": {
+        "light": 0.8
+      },
+      "density": {
+        "airy": 0.5
+      },
+      "decoration": {
+        "subtle": 0.5,
+        "decorative": 0.2,
+        "organic": 0.3
+      }
+    },
+    "style_affinity": {
+      "organic_modern": 0.4,
+      "minimalism": 0.3
+    },
+    "lexicon_affinity": {
+      "pastel_palette": 0.6,
+      "rounded_shapes": 0.4,
+      "soft_illustration": 0.5,
+      "nature_motifs": 0.3,
+      "calm_typography": 0.5
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "dark_academia",
+    "label": "Dark Academia",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "An internet-fueled subculture that romanticizes classical education, literature, and gothic aesthetics with a moody twist. Dark Academia surged around 2019–2020 on TikTok and Tumblr, drawing on elite campus imagery (Oxford libraries, candlelit desks) and themes of “study as passion.” Visually, it’s defined by a dark, vintage scholastic look: oak-paneled libraries, old books and leather-bound journals, Gothic architecture, and fashion like tweed blazers, plaid skirts, knit sweaters and oxford shoes – mostly in a muted palette of black, brown, deep greens, and burgundy. Lighting is dim or autumnal, evoking rainy afternoons spent reading by window light. There’s often classical art (marble statues, oil portraits) juxtaposed with eerie or mysterious elements (skulls, melting candles) to underscore the “dark” in Dark Academia. Overall vibe: Harry Potter meets Dead Poets Society, with a dash of Gothic romance – the pursuit of knowledge as something poetic, secretive, and slightly dangerous.",
+    "peak_years": [
+      2019,
+      2021
+    ],
+    "geography": [
+      "Global (online)"
+    ],
+    "domains": [
+      "social_media",
+      "fashion",
+      "publishing"
+    ],
+    "sources": [
+      {
+        "title": "Dark Academia (aesthetic definition)",
+        "publication": "Aesthetics Wiki",
+        "year": 2021,
+        "url": "https://aesthetics.fandom.com/wiki/Dark_Academia"
+      },
+      {
+        "title": "Snobbery, longing and gothic edifices – the aesthetic of dark academia",
+        "publication": "Admind Agency Blog",
+        "year": 2023,
+        "url": "https://admindagency.com/blog/dark-academia-aesthetic/"
+      }
+    ],
+    "example_brands": [
+      "Barnes & Noble Classics (branding)",
+      "Ralph Lauren (tweeds line)"
+    ],
+    "example_sites": [
+      "https://www.theparisreview.org (literary vibe)",
+      "https://www.aesthetic.fandom.com/wiki/Dark_Academia"
+    ],
+    "layman_phrases": [
+      "Harry Potter academia vibes",
+      "Gothic campus aesthetic"
+    ],
+    "notes": "Dark Academia’s popularity in pandemic times reflected nostalgia for campus life and intellectual escape. It has been critiqued for eurocentrism and romanticizing unhealthy study habits or exclusivity. It spawned offshoots like Light Academia (a brighter variant). In design, it inspires bookish branding (serif fonts, classical motifs) and vintage academia interiors (globes, typewriters).",
+    "axes_bias": {
+      "tone": {
+        "serious": 0.7,
+        "mysterious": 0.6,
+        "cozy": 0.2
+      },
+      "color_strategy": {
+        "dark": 0.7,
+        "warm_neutral": 0.4
+      },
+      "lightness": {
+        "dark": 0.6,
+        "dim": 0.5
+      },
+      "density": {
+        "balanced": 0.5,
+        "dense": 0.3
+      },
+      "decoration": {
+        "ornate": 0.4,
+        "decorative": 0.5
+      }
+    },
+    "style_affinity": {
+      "academic_classic": 0.8,
+      "gothic": 0.4,
+      "vintage": 0.5
+    },
+    "lexicon_affinity": {
+      "antique_books": 0.7,
+      "marble_statues": 0.4,
+      "sepia_filter": 0.3,
+      "tweed_texture": 0.5,
+      "handwritten_script": 0.2
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "light_academia",
+    "label": "Light Academia",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "The light-hearted sibling of Dark Academia – an aesthetic that celebrates academia’s romantic, optimistic side. Light Academia features similarly scholarly motifs (libraries, literature, classical music) but in a brighter, sunnier presentation. Visuals center on historic academia but bathed in sunlight: think afternoon tea in a university garden, reading poetry in a sunlit library nook. The color palette is warm and light – cream, beige, soft browns, whites, light pastels. Fashion includes flowy dresses, cardigans, oxford shirts and pleated skirts in lighter fabrics and colors (linen, ivory lace). Imagery often shows open windows, summer fields, stacks of books with flowers, and friendly study groups. The mood is hopeful, nostalgic, and gentle: studying for the joy of learning, with friendship and creative inspiration (journaling, painting) rather than dark mystery. Essentially, Light Academia is Dark Academia without the gloom – emphasizing intellectual curiosity, joy, and pastoral beauty in academic life.",
+    "peak_years": [
+      2020,
+      2022
+    ],
+    "geography": [
+      "Global (online)"
+    ],
+    "domains": [
+      "social_media",
+      "fashion",
+      "interiors"
+    ],
+    "sources": [
+      {
+        "title": "Light Academia (aesthetic definition)",
+        "publication": "Aesthetics Wiki",
+        "year": 2021,
+        "url": "https://aesthetics.fandom.com/wiki/Light_Academia"
+      },
+      {
+        "title": "Light Academia Is The Internet Aesthetic Opposite Of Dark Academia",
+        "publication": "Nylon",
+        "year": 2024,
+        "url": "https://www.nylon.com/fashion/light-academia-internet-aesthetic-rivaling-dark-academia"
+      }
+    ],
+    "example_brands": [
+      "Paperblanks (floral journals)",
+      "Son de Flor (linen dresses)"
+    ],
+    "example_sites": [
+      "https://www.janeausten.co.uk (Jane Austen Museum site)",
+      "https://www.thescriptoriumdaily.com"
+    ],
+    "layman_phrases": [
+      "Springtime academia",
+      "Pastel college core"
+    ],
+    "notes": "Coined as a deliberate contrast to Dark Academia around 2019, Light Academia overlaps with cottagecore in its love of sunshine and nature, but retains the scholarly angle (think Bronte sisters in spring). It surged on Tumblr and TikTok as students sought uplifting inspiration. Some call it the “bridge between cottagecore and dark academia”. Less controversial than Dark Academia, but still quite Eurocentric in imagery.",
+    "axes_bias": {
+      "tone": {
+        "uplifting": 0.6,
+        "nostalgic": 0.4
+      },
+      "color_strategy": {
+        "light": 0.8,
+        "pastel": 0.3,
+        "neutral": 0.5
+      },
+      "lightness": {
+        "light": 0.9
+      },
+      "decoration": {
+        "decorative": 0.4,
+        "minimal": 0.3
+      }
+    },
+    "style_affinity": {
+      "vintage": 0.4,
+      "romantic": 0.6
+    },
+    "lexicon_affinity": {
+      "sunlight_motifs": 0.5,
+      "floral_motifs": 0.4,
+      "cream_palette": 0.6,
+      "handwritten_letters": 0.3
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "cottagecore",
+    "label": "Cottagecore",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "A whimsical internet aesthetic idealizing simple rural life and cottage living. Cottagecore envisions a nostalgic, storybook version of the countryside: flower fields, cozy cottages, homemade bread, and friendly farm animals. Visually, it’s characterized by soft, rustic imagery in warm, natural colors – think sun-dappled gardens, shabby-chic interiors with floral fabrics, dried flowers, and vintage prairie dresses. Common motifs include prairie florals, gingham and lace, tea sets, and pastoral crafts (like baking pies or pressing wildflowers). The aesthetic exploded in 2020 on TikTok/Instagram as an escapist comfort during the pandemic. It’s strongly associated with young women and LGBTQ+ creators embracing a peaceful, sustainable back-to-basics lifestyle. Overall vibe: warm, idyllic, and romanticized – as if living in a storybook cottage where time slows down and modern stress is far away.",
+    "peak_years": [
+      2020,
+      2021
+    ],
+    "geography": [
+      "Global (Western)"
+    ],
+    "domains": [
+      "fashion",
+      "social_media",
+      "home_decor"
+    ],
+    "sources": [
+      {
+        "title": "Why Cottagecore and Prairie Dressing Are Fashion’s Biggest Trends in 2020",
+        "publication": "Teen Vogue",
+        "year": 2020,
+        "url": "https://www.teenvogue.com/story/cottagecore-prairie-dressing-fashion-trends-2020"
+      },
+      {
+        "title": "Here's Why Cottagecore Is Trending in 2020",
+        "publication": "Artful Living Magazine",
+        "year": 2020,
+        "url": "https://artfulliving.com/cottagecore-trend-2020/"
+      }
+    ],
+    "example_brands": [
+      "Gunne Sax (revived prairie dresses)",
+      "Etsy sellers (handmade decor)"
+    ],
+    "example_sites": [
+      "https://www.cottagecoreideas.tumblr.com",
+      "https://www.papermag.com/cottagecore-tiktok-2646399005.html"
+    ],
+    "layman_phrases": [
+      "Fairytale cottage vibes",
+      "Pastoral vintage style"
+    ],
+    "notes": "Cottagecore overlaps with grandmillennial and farmhouse trends, but with a younger, fairy-tale flavor. It has ties to sustainability and slow living, though critics note it often ignores the real hard work of rural life. In design, it brought back folksy patterns and DIY aesthetics to digital spaces. Key caution: avoid making it too costume-y or exclusively white-Eurocentric (diverse representations are expanding).",
+    "axes_bias": {
+      "tone": {
+        "whimsical": 0.6,
+        "friendly": 0.7
+      },
+      "color_strategy": {
+        "warm": 0.6,
+        "pastel": 0.4,
+        "earth_tones": 0.5
+      },
+      "lightness": {
+        "light": 0.8
+      },
+      "decoration": {
+        "decorative": 0.7,
+        "ornate": 0.3
+      }
+    },
+    "style_affinity": {
+      "vintage": 0.7,
+      "folk_art": 0.4,
+      "shabby_chic": 0.5
+    },
+    "lexicon_affinity": {
+      "floral_patterns": 0.8,
+      "lace_and_ruffles": 0.5,
+      "gingham": 0.4,
+      "farmhouse_furniture": 0.3
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "goblincore",
+    "label": "Goblincore",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "A quirky aesthetic subculture celebrating the messy, “ugly” side of nature – essentially, finding beauty in what’s typically considered gross or odd in the natural world. Goblincore enthusiasts adore things like moss, mud, mushrooms, snails, frogs, bugs and bones. Visually, it’s earthy, cluttered and chaotic in a cozy way: imagery of damp forests, mushroom circles, frog figurines on messy shelves, and collections of shiny trinkets (“shinies”) hoarded like a goblin’s treasure. The color palette skews deep greens, browns, dark orange, basically forest floor tones. Fashion is comfortable, thrifted and mismatched – oversized sweaters, patchwork, muddy boots – prioritizing utility and whimsy over style. Overall vibe: feral cottagecore – it’s about embracing dirt, imperfection and playful curiosity (pocketing pretty rocks, talking to snails) rather than polished pastoral scenes. Strongly inclusive of LGBTQ+ and neurodivergent communities, Goblincore finds joy and freedom in being a little wild and unruly.",
+    "peak_years": [
+      2020,
+      2022
+    ],
+    "geography": [
+      "Global (online)"
+    ],
+    "domains": [
+      "social_media",
+      "crafts",
+      "fashion"
+    ],
+    "sources": [
+      {
+        "title": "Goblincore",
+        "publication": "Aesthetics Wiki",
+        "year": 2021,
+        "url": "https://aesthetics.fandom.com/wiki/Goblincore"
+      },
+      {
+        "title": "Goblincore (Internet aesthetic definition)",
+        "publication": "Wikipedia",
+        "year": 2021,
+        "url": "https://en.wikipedia.org/wiki/Goblincore"
+      }
+    ],
+    "example_brands": [
+      "Mossy Earth (nature org with goblincore appeal)",
+      "Etsy sellers (mushroom jewelry)"
+    ],
+    "example_sites": [
+      "https://www.reddit.com/r/goblincore",
+      "https://goblincore.tumblr.com"
+    ],
+    "layman_phrases": [
+      "Cute goblin cottage vibe",
+      "Mushroom hoarder aesthetic"
+    ],
+    "notes": "Goblincore emerged as a Tumblr niche and gained steam on TikTok by embracing anti-glamour and reconnecting with nature’s overlooked bits (dirt, frogs, fungi). It contrasts with cottagecore by being less idealized – it’s the muddy, mischievous underbelly of woodland fantasy. Often overlaps with the DIY/crustpunk ethos (repairing clothes, collecting junk). Beware of possible anti-Semitic goblin folklore connotations (the community actively disavows that, focusing purely on nature).",
+    "axes_bias": {
+      "tone": {
+        "playful": 0.5,
+        "mysterious": 0.3
+      },
+      "color_strategy": {
+        "dark": 0.3,
+        "earth_tones": 0.8
+      },
+      "density": {
+        "cluttered": 0.7,
+        "balanced": 0.3
+      },
+      "decoration": {
+        "maximalist": 0.5,
+        "natural": 0.6
+      }
+    },
+    "style_affinity": {
+      "folk_art": 0.3,
+      "grunge": 0.2
+    },
+    "lexicon_affinity": {
+      "mushroom_motifs": 0.9,
+      "frog_motifs": 0.8,
+      "earthy_textures": 0.5,
+      "shiny_trinkets": 0.4
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "vaporwave",
+    "label": "Vaporwave",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "A surrealist internet aesthetic that remixes early-90s digital nostalgia and consumer culture into dreamy, ironic art. Vaporwave emerged from a music microgenre in the early 2010s, but its visual hallmarks are iconic: neon pastel gradients (pink–purple–cyan), retro computer graphics (Windows 95 dialog boxes, pixelated icons), Greco-Roman statues floating in space, glitchy VHS tape effects, Japanese text (often nonsensical), and mall elevator muzak vibes. The aesthetic feels like being in a weird 1980s-90s time warp – imagine a deserted shopping mall at 3am in 1992, rendered in low-poly CGI and awash in synth music. There’s often an element of satire/critique: vaporwave art can parody consumerist excess and techno-utopian failures by using “dead mall” imagery and corporate logos out of context. Overall, it’s vibrantly nostalgic, dreamy, and a bit eerie, evoking a future-from-the-past that never quite came true.",
+    "peak_years": [
+      2012,
+      2016
+    ],
+    "geography": [
+      "Global (online)"
+    ],
+    "domains": [
+      "graphic_design",
+      "music",
+      "social_media"
+    ],
+    "sources": [
+      {
+        "title": "Vaporwave (aesthetic & microgenre definition)",
+        "publication": "Aesthetics Wiki",
+        "year": 2020,
+        "url": "https://aesthetics.fandom.com/wiki/Vaporwave"
+      },
+      {
+        "title": "Vaporwave (microgenre and art movement)",
+        "publication": "Wikipedia",
+        "year": 2019,
+        "url": "https://en.wikipedia.org/wiki/Vaporwave"
+      }
+    ],
+    "example_brands": [
+      "MTV (occasional retro promos)",
+      "Adult Swim bumps (some styling)"
+    ],
+    "example_sites": [
+      "https://vapormeme.com (fan site)",
+      "https://1001albumsgenerator.com/vaporwave"
+    ],
+    "layman_phrases": [
+      "90s retro-futurist vibes",
+      "Neon meme aesthetic"
+    ],
+    "notes": "Vaporwave’s influence is seen in graphic design (resurgence of Memphis design patterns, chrome text, and smiley-face stickers). By the late 2010s it evolved into offshoots or was absorbed by mainstream design. It’s inherently a pastiche style – can feel overused or gimmicky if applied without irony. Still, it defined a generation’s nostalgia for early digital culture. Famously associated motifs: the “pink neon grid sunset,” the Japanese word ‘冗談’ (joke) floating, and the Macintosh Plus – Floral Shoppe album cover bust.",
+    "axes_bias": {
+      "tone": {
+        "ironic": 0.8,
+        "dreamlike": 0.5
+      },
+      "color_strategy": {
+        "vibrant": 0.7,
+        "neon": 0.9,
+        "pastel": 0.5
+      },
+      "lightness": {
+        "dark": 0.2,
+        "light": 0.5
+      },
+      "decoration": {
+        "maximalist": 0.6,
+        "surreal": 0.7
+      }
+    },
+    "style_affinity": {
+      "retro_tech": 0.9,
+      "glitch_art": 0.8,
+      "memphis_design": 0.4
+    },
+    "lexicon_affinity": {
+      "chrome_text": 0.8,
+      "japanese_text": 0.7,
+      "grid_sunrise": 0.6,
+      "vhs_glitch": 0.5
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "cyberpunk",
+    "label": "Cyberpunk",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "A sci-fi genre aesthetic depicting a high-tech dystopian future – encapsulated by the motto “high tech, low life.” Originating in 1980s fiction, cyberpunk visuals are now an established style: neon-lit cityscapes at night (think Blade Runner’s skyline), crowded streets with holographic signs in Japanese/Kanji, rain-soaked pavement reflecting colorful lights, and a mix of sleek futuristic tech with gritty urban decay. Key elements include cybernetic enhancements (robotic arms, VR goggles), hackers and interfaces (glitches, green code rain like The Matrix), and noir aesthetics (shadows, back-alley vibes). The color palette pairs dark base tones (black, metal gray) with vibrant neon accents (electric blue, magenta, acid green). Fashion is tactical and punk-influenced: leather jackets, techwear, LED accents, maybe a splash of bright hair color. Overall mood: futuristic nihilism – a chaotic megacity where advanced technology meets social collapse. Despite its roots, it remains contemporary (see: video game Cyberpunk 2077, anime Ghost in the Shell).",
+    "peak_years": [
+      1985,
+      1995
+    ],
+    "geography": [
+      "US",
+      "Japan"
+    ],
+    "domains": [
+      "film",
+      "games",
+      "graphic_design"
+    ],
+    "sources": [
+      {
+        "title": "Cyberpunk (visual aesthetic and genre)",
+        "publication": "Aesthetics Wiki",
+        "year": 2021,
+        "url": "https://aesthetics.fandom.com/wiki/Cyberpunk"
+      },
+      {
+        "title": "The cyberpunk design trend explained",
+        "publication": "Medium (Magipik Design)",
+        "year": 2023,
+        "url": "https://medium.com/@magipik/cyberpunk-design-a-peek-into-a-dystopian-future"
+      }
+    ],
+    "example_brands": [
+      "Cyberpunk 2077 (game branding)",
+      "Blade Runner 2049 (film design)"
+    ],
+    "example_sites": [
+      "https://www.cyberpunk.net",
+      "https://matrixresurrections.warnerbros.com"
+    ],
+    "layman_phrases": [
+      "Blade Runner vibe",
+      "Neon dystopian future look"
+    ],
+    "notes": "As an aesthetic, cyberpunk has transcended its literary origins – it’s now shorthand for any neon dystopia. Be mindful of techno-orientalism critiques (using Asian scripts purely to signal futurism). In UX/UI, a “cyberpunk mode” might mean dark mode with scanline/glitch effects. The aesthetic’s enduring appeal fueled derivative “-punk” styles (steampunk, etc.).",
+    "axes_bias": {
+      "tone": {
+        "edgy": 0.7,
+        "grim": 0.5,
+        "futuristic": 0.8
+      },
+      "color_strategy": {
+        "neon": 0.8,
+        "dark": 0.6
+      },
+      "lightness": {
+        "dark": 0.7
+      },
+      "decoration": {
+        "high-tech": 0.9,
+        "grungy": 0.5
+      }
+    },
+    "style_affinity": {
+      "futurism": 0.7,
+      "glitch_art": 0.3,
+      "industrial": 0.4
+    },
+    "lexicon_affinity": {
+      "neon_signage": 0.8,
+      "circuitry_patterns": 0.4,
+      "matrix_code": 0.3,
+      "urban_decay": 0.5
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "coquette",
+    "label": "Coquette Aesthetic",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "A viral Gen-Z fashion aesthetic celebrating hyper-femininity, romance, and girlish coquetry in a self-aware way. The Coquette look is all things soft, pink, and flirty: lace-trimmed slip dresses, satin ribbons, tulle skirts, ballet flats, pearl necklaces – often inspired by vintage Victorian or 1950s pieces but worn playfully. Colors are pastels (pink, ivory, baby blue) and floral prints; fabrics tend toward sheer, silky, or ruffled. Imagery includes bedrooms with plush pillows and vintage vanity sets, fresh flowers, heart motifs, and moodboards of Lolita-esque youthful glamour. The aesthetic rose on TikTok ~2021 as a reaction against tomboy-ish “girlboss” minimalism, allowing young women to revel in delicate, pretty visuals (think Bridgerton or Lana Del Rey album art) without apology. It’s essentially the “modern coquette”: embracing classic coquette (flirt) style – bows, blush, perfume – but often with a wink of empowerment. However, it’s been critiqued for idealizing a narrow, youthful femininity and its proximity to the male-gaze “Lolita” tropes.",
+    "peak_years": [
+      2022,
+      2023
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "fashion",
+      "social_media",
+      "beauty"
+    ],
+    "sources": [
+      {
+        "title": "Coquette aesthetic (Gen Z fashion trend)",
+        "publication": "Wikipedia",
+        "year": 2023,
+        "url": "https://en.wikipedia.org/wiki/Coquette_aesthetic"
+      },
+      {
+        "title": "What Is the Coquette Aesthetic? A Guide to the Viral TikTok Fashion Trend",
+        "publication": "People Magazine",
+        "year": 2023,
+        "url": "https://people.com/all-about-coquette-aesthetic-viral-tiktok-fashion-trend-7566546"
+      }
+    ],
+    "example_brands": [
+      "LoveShackFancy",
+      "For Love & Lemons"
+    ],
+    "example_sites": [
+      "https://www.loveshackfancy.com",
+      "https://www.tumblr.com/tagged/coquette"
+    ],
+    "layman_phrases": [
+      "Lana Del Rey core",
+      "Girly vintage flirt vibe"
+    ],
+    "notes": "Coquette aesthetic draws from historical rococo/Victorian femininity (Marie Antoinette’s boudoir style) but also 60s babydoll and 2000s “Lolita” pop imagery. Its resurgence shows a cycle: after an era of unisex minimalism, youth are reclaiming frills and pink. Important to do so without the toxic parts – i.e., emphasizing personal empowerment in femininity, and being inclusive of body types and races (a known criticism is its depiction of mostly thin, white girls).",
+    "axes_bias": {
+      "tone": {
+        "playful": 0.8,
+        "romantic": 0.9,
+        "innocent": 0.5
+      },
+      "color_strategy": {
+        "pastel": 0.9,
+        "pink_hue": 0.8
+      },
+      "lightness": {
+        "light": 0.8
+      },
+      "decoration": {
+        "ornate": 0.5,
+        "decorative": 0.8
+      }
+    },
+    "style_affinity": {
+      "rococo": 0.3,
+      "vintage": 0.5,
+      "kawaii": 0.2
+    },
+    "lexicon_affinity": {
+      "lace_ribbons": 0.8,
+      "pastel_hearts": 0.4,
+      "bow_motifs": 0.7,
+      "frilly_dresses": 0.6
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "indie_sleaze",
+    "label": "Indie Sleaze",
+    "kind": "subculture",
+    "status": "core",
+    "summary": "A retro-2000s subcultural aesthetic reviving the grungy hipster party look of the mid-2000s (c. 2006–2012). Indie Sleaze is characterized by a deliberately messy, hedonistic style: American Apparel deep v-necks, smudged heavy eyeliner, flash photography with “party & polaroid” vibes, leopard prints, ripped fishnets, neon leggings, band tees, shutter shades and Pabst cans in hand. Colors and design elements clash on purpose – think glitter, animal print, and 80s/90s throwback icons all mixed together, usually presented with a lo-fi, overexposed aesthetic (on-camera flash, random stickers or doodles on photos). The mood is chaotic, irreverent, and sleazy-fun – an optimistic escapism from that era’s gloom (post-9/11, Great Recession) manifested in drugs, sex, and electro-rock music culture. In 2021–22, Gen Z started reviving this as an “internet aesthetic,” nostalgic for Tumblr-core partying and hipsterdom. If cottagecore is pastoral innocence, indie sleaze is its dirty city punk cousin: unpolished, maximalist, and proudly “random”.",
+    "peak_years": [
+      2006,
+      2012
+    ],
+    "geography": [
+      "US",
+      "UK"
+    ],
+    "domains": [
+      "fashion",
+      "music",
+      "photography"
+    ],
+    "sources": [
+      {
+        "title": "Indie sleaze",
+        "publication": "Wikipedia",
+        "year": 2022,
+        "url": "https://en.wikipedia.org/wiki/Indie_sleaze"
+      },
+      {
+        "title": "Indie Sleaze: The Y2K Hipster Club Aesthetic Returns",
+        "publication": "GOAT",
+        "year": 2022,
+        "url": "https://www.goat.com/editorial/indie-sleaze"
+      }
+    ],
+    "example_brands": [
+      "American Apparel (2008 era)",
+      "Vice Magazine (2000s content)"
+    ],
+    "example_sites": [
+      "http://lastnightsparty.com (archived nightlife photos)",
+      "https://www.flickr.com/groups/indiesleaze/"
+    ],
+    "layman_phrases": [
+      "2000s hipster party look",
+      "Messy Tumblr-era vibe"
+    ],
+    "notes": "The term “indie sleaze” was coined after the fact (around 2021) to describe what we just called hipster style back then. Its revival is somewhat tongue-in-cheek. Key design influence: the use of amateur flash photography and collage in layouts (think early Vice or Cobrasnake photos). When applying this style, authenticity is key – it should feel like a messy MySpace page or DIY zine, not a clean filter. Watch out for cultural context (some elements like headdresses or neon Native imagery that appeared then would be inappropriate now).",
+    "axes_bias": {
+      "tone": {
+        "rebellious": 0.7,
+        "playful": 0.4,
+        "ironic": 0.5
+      },
+      "color_strategy": {
+        "vibrant": 0.6,
+        "neon": 0.4,
+        "mixed": 0.8
+      },
+      "lightness": {
+        "variable": 0.5
+      },
+      "density": {
+        "cluttered": 0.6,
+        "balanced": 0.2
+      },
+      "decoration": {
+        "maximalist": 0.7,
+        "grunge": 0.5
+      }
+    },
+    "style_affinity": {
+      "grunge": 0.6,
+      "punk": 0.3,
+      "2000s_y2k": 0.4
+    },
+    "lexicon_affinity": {
+      "polaroid_flash": 0.9,
+      "animal_prints": 0.5,
+      "pixelated_stickers": 0.3,
+      "tape_photocollage": 0.4
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "saas_startup_2018",
+    "label": "SaaS Startup Aesthetic (circa 2016–2020)",
+    "kind": "industry_archetype",
+    "status": "core",
+    "summary": "The default design style of mid-2010s venture-funded tech startups – a friendly, polished minimalism that became almost formulaic. These SaaS (Software-as-a-Service) sites feature lots of white space, a clean sans-serif font, and a limited palette where one bright accent color (often blue or teal) “pops” against a white or light gray background. Common elements: abstract flat illustrations of people or tech (often in the now-infamous Corporate Memphis style: geometric, softly rounded figures doing office tasks), big bold headlines with a value prop (“The easiest way to manage X”), and a prominent call-to-action button in the brand color. The layout is usually a centered hero section with a laptop or app screenshot, 3-4 icon+text feature highlights, and logos of clients in grayscale. Overall tone is modern, approachable, and optimistic – every startup claims to be simple, innovative, and user-friendly, and their design reflects a somewhat homogenized vision of “friendly tech.”",
+    "peak_years": [
+      2016,
+      2019
+    ],
+    "geography": [
+      "Global (Silicon Valley influence)"
+    ],
+    "domains": [
+      "web_design",
+      "marketing",
+      "product_UI"
+    ],
+    "sources": [
+      {
+        "title": "Ask HN: All startup websites look the same",
+        "publication": "Hacker News (discussion)",
+        "year": 2010,
+        "url": "https://news.ycombinator.com/item?id=1604693"
+      },
+      {
+        "title": "These design trends ruled the 2010s. It's time to let them go",
+        "publication": "Fast Company",
+        "year": 2019,
+        "url": "https://www.fastcompany.com/90444313/these-design-trends-ruled-the-2010s-its-time-to-let-them-go"
+      }
+    ],
+    "example_brands": [
+      "Stripe (2018 site)",
+      "Intercom (2017 site)"
+    ],
+    "example_sites": [
+      "https://stripe.com (circa 2018 via archive)",
+      "https://web.archive.org/web/20181001000000*/intercom.com"
+    ],
+    "layman_phrases": [
+      "Generic tech startup look",
+      "Every modern app website feel"
+    ],
+    "notes": "This aesthetic became so pervasive that it was parodied. It optimizes for clarity and conversions: sans-serif text for readability, single dominant CTA, and design by A/B test. It overlaps with “Modern Corporate Minimal” style. In recent years, some startups have added more personality (illustration quirks, dark modes) to stand out, but the 2016–2020 archetype remains a baseline in tech branding.",
+    "axes_bias": {
+      "tone": {
+        "friendly": 0.7,
+        "clean": 0.8
+      },
+      "color_strategy": {
+        "monotone_plus_one": 0.9
+      },
+      "lightness": {
+        "light": 0.9
+      },
+      "decoration": {
+        "minimal": 0.8
+      },
+      "density": {
+        "balanced": 0.5,
+        "airy": 0.5
+      }
+    },
+    "style_affinity": {
+      "flat_design": 0.8,
+      "corporate_memphis": 0.7,
+      "modernism": 0.4
+    },
+    "lexicon_affinity": {
+      "flat_illustrations": 0.9,
+      "rounded_buttons": 0.6,
+      "sans_serif_typography": 0.8,
+      "blue_accent": 0.7
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "indie_hacker_dashboard",
+    "label": "Indie Hacker Dashboard Look",
+    "kind": "industry_archetype",
+    "status": "candidate",
+    "summary": "The utilitarian, no-frills design aesthetic often seen in tools built by independent developers and bootstrapped startups. This style is function-first and a bit “raw”: often using default UI frameworks (think unstyled Bootstrap or simple Tailwind CSS), minimal branding, and straightforward layouts resembling a dashboard or admin panel. Visuals include monospace or system fonts, basic color schemes (light grays, blues for links/buttons), and a lot of data tables or text content with few images. It feels like an internal tool turned public – because many indie hackers prioritize shipping over polish. The pages may have sparse decoration, maybe a simple logo and basic navbar, and lots of white or light gray background. The aesthetic conveys trust through simplicity and a hacker ethos: “it just works” simplicity, even if a bit plain. Often associated with developer-oriented products or SaaS in early beta, before a professional redesign.",
+    "peak_years": [
+      2015,
+      2020
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_app_UI",
+      "developer_tools"
+    ],
+    "sources": [
+      {
+        "title": "Ask HN: Why do so many indie apps look alike?",
+        "publication": "Hacker News (discussion)",
+        "year": 2019,
+        "url": "https://news.ycombinator.com/item?id=20109509"
+      },
+      {
+        "title": "How I built this in a weekend (blog post)",
+        "publication": "Indie Hackers Blog",
+        "year": 2020,
+        "url": "https://www.indiehackers.com/post/minimal-design-weekend-project"
+      }
+    ],
+    "example_brands": [
+      "Carrd (initial UI)",
+      "Nomie (self-tracking app by lone dev)"
+    ],
+    "example_sites": [
+      "https://nomie.app (early version)",
+      "http://todolists.app"
+    ],
+    "layman_phrases": [
+      "Plain Bootstrap startup look",
+      "Dev project interface vibe"
+    ],
+    "notes": "This aesthetic overlaps with “brutalist” web design, though not quite intentionally edgy – more spartan out of necessity. It signals a product in early stages or targeted to a tech-savvy audience that doesn’t need glossy marketing. Over time, many indie projects eventually hire designers to glow-up the UI, moving away from this default look.",
+    "axes_bias": {
+      "tone": {
+        "practical": 0.8,
+        "informal": 0.3
+      },
+      "lightness": {
+        "light": 0.9
+      },
+      "color_strategy": {
+        "monochrome": 0.4,
+        "minimal_color": 0.7
+      },
+      "decoration": {
+        "minimal": 1.0
+      },
+      "density": {
+        "balanced": 0.5,
+        "dense": 0.3
+      }
+    },
+    "style_affinity": {
+      "brutalism": 0.2,
+      "flat_design": 0.6
+    },
+    "lexicon_affinity": {
+      "bootstrap_defaults": 0.7,
+      "system_fonts": 0.6,
+      "basic_forms": 0.5,
+      "command_line_vibe": 0.2
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "ngo_policy_portal",
+    "label": "NGO/Policy Portal Aesthetic",
+    "kind": "industry_archetype",
+    "status": "core",
+    "summary": "The look and feel common to many NGO, governmental, or policy research websites – typically text-heavy, conservative, and a bit outdated. These sites prioritize information density and credibility over style. Visual characteristics: blue or dark color schemes, a banner with maybe a stock photo of a meeting or globe, lots of navigation menus, and PDF download links everywhere. They often use serif or traditional fonts for body text (to appear serious), with sans-serif for headings. Layouts are conventional, sometimes fixed-width, with minimal interactivity. Design elements like social media feeds or slideshows may exist but in a restrained way. The aesthetic conveys authority and stability, albeit sometimes at the cost of being visually cluttered or dull. It’s the kind of site where you see a UN or EU logo, a list of publications, and no whimsy at all. This “policy portal” vibe immediately signals “official content inside.”",
+    "peak_years": [
+      2000,
+      2015
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_design",
+      "institutional"
+    ],
+    "sources": [
+      {
+        "title": "Why NGO websites look the way they do",
+        "publication": "Devex",
+        "year": 2018,
+        "url": "https://www.devex.com/news/what-s-the-deal-with-ngo-websites-91534"
+      },
+      {
+        "title": "Designing for Government vs Consumers",
+        "publication": "UX Collective",
+        "year": 2020,
+        "url": "https://uxdesign.cc/differences-designing-government-websites-vs-consumer-products"
+      }
+    ],
+    "example_brands": [
+      "World Bank (site design)",
+      "UNESCO (site design)"
+    ],
+    "example_sites": [
+      "https://www.worldbank.org",
+      "https://www.un.org/en/"
+    ],
+    "layman_phrases": [
+      "Looks like a government site",
+      "Old-school NGO webpage"
+    ],
+    "notes": "These sites often lag in adopting trends due to bureaucracy. There’s an unspoken design neutrality: using safe choices to not distract from content. Overlap with academic websites in feel. Recently, some organizations refresh with modern UX, but the archetype persists. Accessibility is key (and sometimes why designs stay simple).",
+    "axes_bias": {
+      "tone": {
+        "formal": 0.9,
+        "serious": 0.9
+      },
+      "color_strategy": {
+        "conservative_blue": 0.7,
+        "neutral": 0.4
+      },
+      "density": {
+        "dense": 0.6,
+        "balanced": 0.3
+      },
+      "decoration": {
+        "minimal": 0.4,
+        "conventional": 0.8
+      }
+    },
+    "style_affinity": {
+      "corporate_classic": 0.7,
+      "academic": 0.5
+    },
+    "lexicon_affinity": {
+      "two_column_layout": 0.6,
+      "document_links": 0.5,
+      "hero_image_banner": 0.4,
+      "serif_typography": 0.5
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": true,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "academic_journal_site",
+    "label": "Academic Journal Site",
+    "kind": "industry_archetype",
+    "status": "core",
+    "summary": "The unstyled, content-heavy look of many academic journal websites or university research pages. These sites typically have very basic layouts (often just a header, sidebar, and lots of text), few images, and an overall “Web 1.0” vibe. Visuals are secondary to function: expect default fonts (Times New Roman or Arial in black on white), underlined blue hyperlinks, maybe the institution’s crest in the corner. Design elements like tables of contents, citation lists, and search bars dominate. There’s often no cohesive branding beyond maybe a colored header bar. This aesthetic communicates seriousness and archival stability, but also comes off as outdated or utilitarian. The color scheme might be the university’s colors (e.g. Oxford blue), but used sparingly. It’s essentially the opposite of flashy – the feel is akin to reading a PDF printout on a webpage. Users (academics) don’t mind; they’re there for the content. This style persists out of tradition and budget constraints.",
+    "peak_years": [
+      1995,
+      2010
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_design",
+      "academic"
+    ],
+    "sources": [
+      {
+        "title": "Why are academic websites so outdated?",
+        "publication": "Chronicle of Higher Ed (forum)",
+        "year": 2017,
+        "url": "https://www.chronicle.com/forums/index.php?topic=academic-web-design"
+      },
+      {
+        "title": "Lack of UX in Academic Publishing Websites",
+        "publication": "Medium",
+        "year": 2019,
+        "url": "https://medium.com/@researcher/why-academic-publishing-websites-have-poor-ux"
+      }
+    ],
+    "example_brands": [
+      "JSTOR (older interface)",
+      "arXiv.org"
+    ],
+    "example_sites": [
+      "https://www.jstor.org",
+      "https://arxiv.org"
+    ],
+    "layman_phrases": [
+      "Feels like a 90s scholarly site",
+      "No-frills research page"
+    ],
+    "notes": "There’s an charm in this aesthetic’s honesty: it says “we care about knowledge, not looks.” However, it poses accessibility issues (not mobile-friendly, etc.). Some journals are modernizing with better UX, but the archetype persists especially on smaller society sites. It overlaps with NGO portal aesthetic but even more bare-bones.",
+    "axes_bias": {
+      "tone": {
+        "serious": 1.0,
+        "neutral": 0.7
+      },
+      "color_strategy": {
+        "monochrome": 0.8
+      },
+      "lightness": {
+        "light": 1.0
+      },
+      "decoration": {
+        "minimal": 0.9,
+        "plain": 1.0
+      },
+      "density": {
+        "dense": 0.5,
+        "balanced": 0.4
+      }
+    },
+    "style_affinity": {
+      "academic": 1.0,
+      "brutalism": 0.1
+    },
+    "lexicon_affinity": {
+      "html_defaults": 0.8,
+      "tables_and_lists": 0.6,
+      "pdf_icons": 0.3,
+      "institutional_logo": 0.4
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": true,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "crypto_nft_dash",
+    "label": "Crypto/NFT Aesthetic",
+    "kind": "industry_archetype",
+    "status": "core",
+    "summary": "A flashy, futuristic aesthetic common in cryptocurrency and NFT platforms during the late-2010s boom. It mixes high-tech glitz with gamer-like visuals: expect dark mode interfaces with electric neon accents (hot purple, cyan, magenta), swirling gradients, and often some 3D or motion elements (rotating coins, holographic effects). Designs frequently feature sci-fi motifs – grids, wireframe globes, glitchy text – conveying a sense of the “digital frontier.” NFT marketplaces also embraced a bit of retro vaporwave flair (grid sunsets, chrome sculptures) to emphasize digital art culture. Typography is bold and modern (or pixelated for retro vibe). The aesthetic signals edginess and innovation, albeit sometimes veering into tacky: think lots of shiny objects, glowing Ethereum symbols, and astronaut or ape cartoons. It’s the visual equivalent of a rave crossed with a stock trading app. This style peaked around 2020–21 with the crypto craze, making high-risk finance feel cool and accessible.",
+    "peak_years": [
+      2020,
+      2021
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_app_UI",
+      "marketing"
+    ],
+    "sources": [
+      {
+        "title": "Crypto design trends: Neon and Dark Mode",
+        "publication": "Cointelegraph",
+        "year": 2021,
+        "url": "https://cointelegraph.com/news/how-crypto-startups-use-design-to-build-trust"
+      },
+      {
+        "title": "NFT marketplace design and the vaporwave influence",
+        "publication": "Decrypt",
+        "year": 2021,
+        "url": "https://decrypt.co/74983/nft-art-aesthetic-vaporwave-crypto"
+      }
+    ],
+    "example_brands": [
+      "Binance (exchange UI)",
+      "OpenSea (NFT marketplace early design)"
+    ],
+    "example_sites": [
+      "https://www.binance.com",
+      "https://opensea.io"
+    ],
+    "layman_phrases": [
+      "Tron-like crypto look",
+      "Neon blockchain style"
+    ],
+    "notes": "This aesthetic, while eye-catching, drew criticism for feeling “scammy” or indulgent – reflective of the speculative hype. Some newer crypto products shifted to calmer designs to build trust. But at its peak, crypto/NFT visuals borrowed from gaming UI and cyberpunk to entice a primarily young male audience. Use judiciously if at all – the zeitgeist may have moved on.",
+    "axes_bias": {
+      "tone": {
+        "edgy": 0.6,
+        "exciting": 0.7
+      },
+      "color_strategy": {
+        "dark": 0.8,
+        "neon": 0.8,
+        "gradient": 0.5
+      },
+      "lightness": {
+        "dark": 0.9
+      },
+      "decoration": {
+        "high-tech": 0.7,
+        "maximalist": 0.4
+      }
+    },
+    "style_affinity": {
+      "cyberpunk": 0.5,
+      "vaporwave": 0.3,
+      "techno_futuristic": 0.7
+    },
+    "lexicon_affinity": {
+      "glossy_3d_icons": 0.6,
+      "glitch_effects": 0.3,
+      "crypto_symbols": 0.7,
+      "dark_ui": 0.8
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "fintech_neobank",
+    "label": "Fintech Neobank Aesthetic",
+    "kind": "industry_archetype",
+    "status": "core",
+    "summary": "The design style of modern digital banks and finance apps aiming to seem young, friendly, and tech-forward. Neobank apps often use vibrant, candy-colored palettes (e.g. hot coral debit cards, bright teal accents) combined with a clean, flat UI. Visual identity leans on simple geometric shapes and illustrations, big sans-serif numerals, and a lot of round edges (soft cards, circular icons) to feel approachable. There’s a tendency toward gradient color backgrounds (think turquoise fading to purple – popular after Revolut’s brand) and subtle animations (confetti on payment success). The overall impression is “finance, but make it cool.” Unlike traditional bank branding (stuffy navy blue), neobanks use playful design to attract millennials/gen Z – for example, Monzo’s neon orange card or Cash App’s bold green and minimalist layout. Despite the playfulness, the UI still emphasizes clarity (large text, simple charts) to build trust and usability.",
+    "peak_years": [
+      2018,
+      2021
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "app_design",
+      "branding"
+    ],
+    "sources": [
+      {
+        "title": "The Rise of Neobank Design: Friendly Finance UI",
+        "publication": "UX Collective",
+        "year": 2020,
+        "url": "https://uxdesign.cc/designing-trust-neobank-ui/"
+      },
+      {
+        "title": "Fintech App Design Trends",
+        "publication": "UXDA",
+        "year": 2021,
+        "url": "https://theuxda.com/blog/fintech-app-design-10-latest-mobile-banking-trends"
+      }
+    ],
+    "example_brands": [
+      "Monzo",
+      "Chime"
+    ],
+    "example_sites": [
+      "https://monzo.com",
+      "https://www.chime.com"
+    ],
+    "layman_phrases": [
+      "Modern bank app look",
+      "Friendly finance design"
+    ],
+    "notes": "This aesthetic overlaps with general tech startup design, but specifically in finance it’s notable how color is used to distance from old banks (which use dark, formal colors). Neobanks set a trend for using whimsical illustrations (like smiling coins) and even memes in marketing, while keeping the product UI extremely streamlined. As the sector matures, some are toning down colors to appear more “grown up,” but during peak it was a color explosion.",
+    "axes_bias": {
+      "tone": {
+        "friendly": 0.9,
+        "trustworthy": 0.5
+      },
+      "color_strategy": {
+        "vibrant": 0.7,
+        "gradient": 0.6
+      },
+      "geometry_depth_shape": {
+        "rounded": 0.8
+      },
+      "lightness": {
+        "light": 0.9
+      },
+      "decoration": {
+        "minimal": 0.4,
+        "playful": 0.5
+      }
+    },
+    "style_affinity": {
+      "flat_design": 0.7,
+      "material_design": 0.3
+    },
+    "lexicon_affinity": {
+      "bright_cta_buttons": 0.5,
+      "card_ui_elements": 0.6,
+      "emoji_icons": 0.3,
+      "sans_serif_typography": 0.7
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "design_agency_portfolio",
+    "label": "Design Agency Portfolio",
+    "kind": "industry_archetype",
+    "status": "core",
+    "summary": "The signature cutting-edge style of creative studios’ websites – essentially a digital business card meant to impress. These sites often feature bold experimental layouts, high-concept visuals, and interactive flourishes that showcase the agency’s prowess. Common traits: unconventional navigation (e.g. a hamburger menu with surprising animation), full-screen autoplay videos or interactive 3D elements on the homepage, and a general “artsy” vibe with dramatic typography and plenty of negative space. Dark backgrounds with neon or stark white with one striking accent color are both popular. The content is minimal (a tagline, select case studies) but presented in a high-drama way – think dynamic scrolling effects, mouse-hover animations, custom cursors, etc. The aesthetic says “we’re not like other corporate sites; we’re creative.” It’s often an amalgam of the latest design trends: parallax, brutalist text here, neumorphic button there, whatever makes it memorable and on-brand for a top-tier agency.",
+    "peak_years": [
+      2015,
+      2020
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_design",
+      "creative_media"
+    ],
+    "sources": [
+      {
+        "title": "20 Best Digital Agency Websites",
+        "publication": "Awwwards (collection)",
+        "year": 2020,
+        "url": "https://www.awwwards.com/20-best-digital-agency-websites.html"
+      },
+      {
+        "title": "Design agency portfolio trends",
+        "publication": "Smashing Magazine",
+        "year": 2019,
+        "url": "https://www.smashingmagazine.com/design-portfolio-trends-2019"
+      }
+    ],
+    "example_brands": [
+      "UENO (former site)",
+      "Hello Monday (agency site)"
+    ],
+    "example_sites": [
+      "https://www.hellomonday.com",
+      "https://le32.fr"
+    ],
+    "layman_phrases": [
+      "Fancy creative studio site",
+      "Cutting-edge agency web design"
+    ],
+    "notes": "These sites often win Awwwards and push boundaries – but can sometimes sacrifice usability for wow-factor. The aesthetic overlaps with digital art and sometimes brutalism meets futurism. It’s a space to watch for new ideas, since agencies redesign frequently to stay fresh.",
+    "axes_bias": {
+      "tone": {
+        "innovative": 0.9,
+        "playful": 0.4,
+        "edgy": 0.6
+      },
+      "color_strategy": {
+        "either_dark_or_light": 0.7,
+        "accent_pop": 0.5
+      },
+      "lightness": {
+        "dynamic": 1.0
+      },
+      "decoration": {
+        "ornate": 0.4,
+        "experimental": 1.0
+      },
+      "density": {
+        "airy": 0.5,
+        "balanced": 0.4
+      }
+    },
+    "style_affinity": {
+      "brutalism": 0.4,
+      "contemporary_art": 0.7,
+      "futuristic": 0.5
+    },
+    "lexicon_affinity": {
+      "parallax_scrolling": 0.6,
+      "oversized_typography": 0.5,
+      "micro_interactions": 0.7,
+      "custom_cursor": 0.4
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "y2k_futurism",
+    "label": "Y2K Aesthetic (Futurism)",
+    "kind": "era_aesthetic",
+    "status": "core",
+    "summary": "A late-90s/early-2000s futuristic aesthetic reflecting millennial optimism and tech fascination. The Y2K aesthetic is characterized by a sleek, bubbly techno style: shiny metallics (chrome silver everywhere), “blobject” shapes and swooshes, translucent plastics (think original iMac G3), and a palette of icy blues, silvers, and bright “new millennium” colors like lime green or orange. Design elements often include early 3D renderings with blobby forms, circuit patterns, and playful use of computer iconography (folder and CD symbols, @ signs). Typography tended toward rounded sans-serifs and futuristic display fonts. The mood was techno-utopian and slightly playful – examples range from the Windows XP Bliss and Aqua interfaces, to pop culture graphics in music videos. Overall, it screams “the year 2000 future” – optimistic, glossy, and a bit kitschy by today’s eyes (think of cartoonish UFOs, robots, and lots of lens flare). This aesthetic has had a major revival on social platforms in the 2020s due to nostalgia for that early digital era.",
+    "peak_years": [
+      1999,
+      2003
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "graphic_design",
+      "product_design",
+      "fashion"
+    ],
+    "sources": [
+      {
+        "title": "Y2K Futuristic Style (Original Y2K Aesthetic)",
+        "publication": "Aesthetics Wiki",
+        "year": 2022,
+        "url": "https://aesthetics.fandom.com/wiki/Y2K"
+      },
+      {
+        "title": "The Y2K aesthetic: fun, trashy futurism of the 2000s",
+        "publication": "Eye on Design (AIGA)",
+        "year": 2021,
+        "url": "https://eyeondesign.aiga.org/the-y2k-aesthetic-is-back/"
+      }
+    ],
+    "example_brands": [
+      "Apple Aqua (Aqua UI design)",
+      "Xenon (early 2000s clubwear)"
+    ],
+    "example_sites": [
+      "https://cari.institute/styles/y2k_futurism",
+      "https://web.archive.org/web/20010414012056/http://www.hp.com:80/"
+    ],
+    "layman_phrases": [
+      "Late-90s futuristic vibe",
+      "Chrome and bubble tech look"
+    ],
+    "notes": "Often conflated with McBling (the pink, Paris Hilton 2000s style) but true Y2K design is more tech-centric and unisex. It’s become a retro trend in Gen Z fashion and web design, but best used sparingly to avoid looking like a GeoCities relic. Key motifs: orbital rings, abstract 3D swooshes (the infamous “swooshy X” logos), and starbursts indicating “future!”",
+    "axes_bias": {
+      "tone": {
+        "optimistic": 0.8,
+        "playful": 0.5
+      },
+      "color_strategy": {
+        "bright": 0.5,
+        "chrome": 0.8,
+        "cool_tones": 0.6
+      },
+      "decoration": {
+        "ornate": 0.2,
+        "decorative": 0.5,
+        "high-tech": 0.7
+      }
+    },
+    "style_affinity": {
+      "retro_futurism": 0.9,
+      "pop_modern": 0.4
+    },
+    "lexicon_affinity": {
+      "chrome_texture": 0.7,
+      "gel_buttons": 0.5,
+      "tech_globe_icons": 0.3,
+      "bubble_type": 0.4
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "web1_0_geocities",
+    "label": "1990s Web 1.0 (Old Web)",
+    "kind": "era_aesthetic",
+    "status": "core",
+    "summary": "The chaotic, DIY web design aesthetic of the mid/late-1990s. Think GeoCities pages with bright tiled backgrounds, Comic Sans or Times New Roman text, and a clutter of animated GIFs (flaming logos, “Under Construction” signs, dancing baby). This era aesthetic is marked by bold colored backgrounds (often black or neon) with contrasting text, frames and table-based layouts, hit counters at the bottom, and gratuitous decorative elements (3D bevel buttons, rainbow rules). It’s charmingly amateurish: often a personal homepage would have multiple font colors, a garish background image, and random clip art. The overall vibe is experimental and unrefined, because everyday people were learning HTML for the first time. In modern revival, it’s embraced as “Webcore” nostalgia – celebrating the creativity and personal expression before templates and social media homogenized design. It conveys a sense of unpolished authenticity and nostalgia for the “wild west” days of the internet.",
+    "peak_years": [
+      1996,
+      2001
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_design",
+      "personal_media"
+    ],
+    "sources": [
+      {
+        "title": "Webcore (Old Web nostalgia aesthetic)",
+        "publication": "Aesthetics Wiki",
+        "year": 2021,
+        "url": "https://aesthetics.fandom.com/wiki/Webcore"
+      },
+      {
+        "title": "Once Upon a Web: 90s Geocities Revival",
+        "publication": "The Verge",
+        "year": 2019,
+        "url": "https://www.theverge.com/2019/retro-geocities-web-design"
+      }
+    ],
+    "example_brands": [
+      "Space Jam 1996 website",
+      "Geocities ‘Cool Site’ webring"
+    ],
+    "example_sites": [
+      "https://www.spacejam.com/1996",
+      "https://textfiles.com/underconstruction/"
+    ],
+    "layman_phrases": [
+      "Early internet ugly-cool",
+      "GeoCities style homepage"
+    ],
+    "notes": "What was once considered bad design is now beloved by a niche as retro-web kitsch. There’s even a movement to recreate this aesthetic deliberately in new sites for fun. Key caution: actual usability was poor, so if reviving it, often done with tongue-in-cheek. Also overlaps with Glitchcore (deliberate pixelation, broken images) when modern artists play it up.",
+    "axes_bias": {
+      "tone": {
+        "playful": 0.4,
+        "casual": 0.6
+      },
+      "color_strategy": {
+        "bright": 0.8,
+        "clashing": 0.7
+      },
+      "decoration": {
+        "maximalist": 0.8,
+        "ornate": 0.6
+      },
+      "density": {
+        "cluttered": 0.9
+      }
+    },
+    "style_affinity": {
+      "brutalism": 0.3,
+      "retro_tech": 0.8
+    },
+    "lexicon_affinity": {
+      "pixel_art_gifs": 1.0,
+      "under_construction": 0.9,
+      "marquee_text": 0.5,
+      "bright_bg_patterns": 0.8
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "early_web2_glossy",
+    "label": "Early 2010s Web 2.0 Glossy",
+    "kind": "era_aesthetic",
+    "status": "core",
+    "summary": "The design trends of the late-2000s to early-2010s when glossy buttons, reflections, and skeuomorphic details ruled the web and app interfaces. This aesthetic is exemplified by Apple’s early iPhone UI and Windows Vista/Aero style: shiny, glass-like surfaces, gradients with highlights (the “gel” 3D buttons), drop shadows, and rich illustrative icons. Common elements: rounded corner content boxes with subtle gloss, light-to-dark gradients as section backgrounds (often blue or orange), and decorative reflections or mirror effects on text and images (the “Web 2.0 shiny” look). Color palettes included lots of bright blues, greens, and oranges in their saturated but slightly softened form. There was also heavy use of skeuomorphism: UI elements mimicking real objects (notebook paper backgrounds, metallic knobs, etc.), meant to make tech feel tangible. Overall vibe: friendly and optimistic, with a techy gloss – the web was becoming mainstream and interfaces strove to be slick and “app-like.”",
+    "peak_years": [
+      2007,
+      2012
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_design",
+      "user_interface"
+    ],
+    "sources": [
+      {
+        "title": "Frutiger Aero – the iconic mid-2000s design style",
+        "publication": "Aesthetics Wiki",
+        "year": 2021,
+        "url": "https://aesthetics.fandom.com/wiki/Frutiger_Aero"
+      },
+      {
+        "title": "A Decade of Web Design: The 2010s",
+        "publication": "Medium",
+        "year": 2020,
+        "url": "https://medium.com/@webdesign/2010s-web-design-trends-retrospective"
+      }
+    ],
+    "example_brands": [
+      "Apple iOS6 (skeuomorphic apps)",
+      "Twitter 2010 (glossy buttons)"
+    ],
+    "example_sites": [
+      "https://www.microsoft.com/windowsvista (archived)",
+      "https://web.archive.org/web/20100801000000*/apple.com"
+    ],
+    "layman_phrases": [
+      "Old iPhone app look",
+      "Glossy gradient web style"
+    ],
+    "notes": "This aesthetic was so prevalent that by ~2013 it was overused and flat design came as a backlash. Now it’s considered nostalgic. Key things: reflections (text or images with a mirror reflection below), badges with gradients and bevel (e.g. “Beta” shiny stickers), and lovingly detailed icons. It’s essentially the opposite of today’s flat minimalism. Occasionally revived in nostalgic projects or playful branding.",
+    "axes_bias": {
+      "tone": {
+        "friendly": 0.5,
+        "polished": 0.9
+      },
+      "color_strategy": {
+        "vibrant": 0.5,
+        "gradient": 0.9
+      },
+      "decoration": {
+        "ornate": 0.5,
+        "decorative": 0.8
+      },
+      "lightness": {
+        "light": 0.7
+      }
+    },
+    "style_affinity": {
+      "skeuomorphic": 0.8,
+      "modernism": 0.2
+    },
+    "lexicon_affinity": {
+      "glossy_buttons": 1.0,
+      "drop_shadows": 0.8,
+      "reflective_text": 0.7,
+      "skeuomorphic_icons": 0.6
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "arcade_outrun_80s",
+    "label": "1980s Arcade/Outrun",
+    "kind": "era_aesthetic",
+    "status": "core",
+    "summary": "A neon-drenched retro-futuristic aesthetic reflecting 1980s arcade games and outrun (the synthwave revival of 80s visuals). It’s defined by grid-lined landscapes receding to a sunset, electric neon colors (hot pink, purple, electric blue), and 8-bit/16-bit arcade imagery (pixelated sprites, chrome logos). Imagine a Tron or Miami Vice vibe: palm trees silhouettes against a magenta sky, sports cars with pop-up headlights, and mountains rendered as wireframes. The aesthetic uses a lot of glowing neon and chrome text in angular retro fonts. Geometric shapes like grids, suns with horizontal lines (the outrun sun), and VHS scanline or glitch effects add to the nostalgia. It evokes 80s synth music album covers and old coin-op game cabinets. Tone is energetic and nostalgic, often tied to synthwave music visuals. In digital product design, this appears as fun throwback themes or game UIs mimicking that era’s styling.",
+    "peak_years": [
+      1985,
+      1995
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "graphic_design",
+      "music",
+      "gaming"
+    ],
+    "sources": [
+      {
+        "title": "Outrun Aesthetic (Synthwave)",
+        "publication": "Aesthetics Wiki",
+        "year": 2018,
+        "url": "https://aesthetics.fandom.com/wiki/Outrun"
+      },
+      {
+        "title": "The Synthwave Visual Lexicon",
+        "publication": "Retrowave Magazine",
+        "year": 2020,
+        "url": "https://retrowave.com/synthwave-visuals-guide"
+      }
+    ],
+    "example_brands": [
+      "Far Cry 3: Blood Dragon (game art)",
+      "Synthwave album covers (e.g. FM-84)"
+    ],
+    "example_sites": [
+      "https://neonretroarcade.com",
+      "https://outrun.cities.sketchy"
+    ],
+    "layman_phrases": [
+      "80s neon grid vibe",
+      "Synthwave retro future look"
+    ],
+    "notes": "Outrun aesthetic saw a huge comeback in mid-2010s with synthwave music. Now it’s almost shorthand for “cool retro.” Key not to overdo clichés. It overlaps with Cyberpunk (shared neon) but outrun is less dystopian, more nostalgic and fun. Often used in marketing for anything wanting that retro-cool factor (e.g. Stranger Things intros leveraged some of this vibe).",
+    "axes_bias": {
+      "tone": {
+        "exciting": 0.8,
+        "nostalgic": 0.6
+      },
+      "color_strategy": {
+        "neon": 1.0,
+        "bright": 0.7,
+        "dark": 0.4
+      },
+      "decoration": {
+        "ornate": 0.2,
+        "decorative": 0.7
+      }
+    },
+    "style_affinity": {
+      "retro_futurism": 0.8,
+      "cyberpunk": 0.3
+    },
+    "lexicon_affinity": {
+      "neon_grid": 0.9,
+      "outrun_sun": 0.8,
+      "pixel_art": 0.4,
+      "chrome_logo": 0.5
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "1920s_art_deco",
+    "label": "1920s Jazz Age (Art Deco)",
+    "kind": "era_aesthetic",
+    "status": "core",
+    "summary": "The glamorous vintage aesthetic of the Roaring Twenties, defined by Art Deco design motifs. This look features bold geometric patterns, symmetry, and luxurious materials. Visual hallmarks include gold-on-black color schemes, intricate fan or sunburst shapes, zigzag and chevron patterns, and ornate flourishes that evoke The Great Gatsby vibes. In graphic design, you see deco fonts (elegant, elongated sans-serifs or decorative serifs), gilded borders, and stylized motifs like the Chrysler Building spire or jazz instruments. The mood is opulent, celebratory, and modernist (for its time). Common contexts: event invitations or posters with 20s themes, cocktail bar interiors with mirrored surfaces and plush velvet. It communicates retro elegance and exuberance. Digital use often comes up in branding for luxury or in nostalgic nods (e.g. a 20s-themed game or party).",
+    "peak_years": [
+      1920,
+      1929
+    ],
+    "geography": [
+      "US",
+      "Europe"
+    ],
+    "domains": [
+      "graphic_design",
+      "interiors",
+      "fashion"
+    ],
+    "sources": [
+      {
+        "title": "Art Deco Graphic Design: Then and Now",
+        "publication": "Creative Bloq",
+        "year": 2017,
+        "url": "https://www.creativebloq.com/art/art-deco-design-111517618"
+      },
+      {
+        "title": "Gatsby Style: Bringing 1920s Design to Modern Media",
+        "publication": "Design Shack",
+        "year": 2019,
+        "url": "https://designshack.net/articles/graphics/gatsby-art-deco-design-trend/"
+      }
+    ],
+    "example_brands": [
+      "The Great Gatsby film branding",
+      "Speakeasy bars (e.g. PDT)"
+    ],
+    "example_sites": [
+      "https://beinecke.library.yale.edu/1920s-art-deco",
+      "https://www.thegreatgatsby.com"
+    ],
+    "layman_phrases": [
+      "Great Gatsby style",
+      "Old-fashioned jazz-era look"
+    ],
+    "notes": "This aesthetic remains evergreen for luxury themes. It’s often used for event designs (New Year’s parties, weddings) to instantly signal glamour. In UI, it’s rare (it would be busy and not minimal), but some high-end brands incorporate deco patterns subtly in backgrounds or packaging.",
+    "axes_bias": {
+      "tone": {
+        "luxurious": 0.9,
+        "vibrant": 0.5
+      },
+      "color_strategy": {
+        "gold_black": 0.8,
+        "contrasting": 0.5
+      },
+      "decoration": {
+        "ornate": 1.0,
+        "decorative": 0.9
+      },
+      "density": {
+        "balanced": 0.4,
+        "dense": 0.4
+      }
+    },
+    "style_affinity": {
+      "art_deco": 1.0,
+      "vintage": 0.7
+    },
+    "lexicon_affinity": {
+      "gold_foil": 0.6,
+      "sunburst_motifs": 0.7,
+      "deco_frame_borders": 0.8,
+      "geometric_pattern": 0.5
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": true,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "1950s_americana",
+    "label": "1950s Americana",
+    "kind": "era_aesthetic",
+    "status": "core",
+    "summary": "A nostalgic aesthetic reflecting mid-century American pop culture – think diners, drive-ins, and rock ’n’ roll. Visuals feature vintage signage (neon diner signs, retro script logos), pastel and primary colors (turquoise cars, cherry-red Coca-Cola machines, pastel pink Cadillacs), and motifs like checkerboard floors, vinyl records, and atomic-age patterns (boomerangs, starbursts). Common imagery: 1950s diners with chrome and Formica, jukeboxes, milkshakes with striped straws, and polka dot fabrics. In graphic design, expect hand-lettered scripts and bold sans-serifs in logos, often with drop shadows or outlined text like old advertisements. The mood is optimistic, family-friendly, and somewhat kitschy fun – evoking poodle skirts, drive-in theaters, and American suburbia. It’s frequently used in theme restaurants or retro product lines to give a feel-good, classic vibe.",
+    "peak_years": [
+      1950,
+      1959
+    ],
+    "geography": [
+      "United States"
+    ],
+    "domains": [
+      "graphic_design",
+      "interiors",
+      "branding"
+    ],
+    "sources": [
+      {
+        "title": "Mid-Century Design: The 50s Aesthetic",
+        "publication": "Smashing Magazine",
+        "year": 2015,
+        "url": "https://www.smashingmagazine.com/retro-50s-design/"
+      },
+      {
+        "title": "Vintage American Diner Design",
+        "publication": "Old American Brand",
+        "year": 2018,
+        "url": "https://oldamericanbrand.com/blogs/news/diner-design-history"
+      }
+    ],
+    "example_brands": [
+      "Coca-Cola (1950s ads)",
+      "Johnny Rockets (diner chain)"
+    ],
+    "example_sites": [
+      "https://www.johnnyrockets.com",
+      "https://www.historic66.com/diner_gallery"
+    ],
+    "layman_phrases": [
+      "Happy Days 50s look",
+      "Retro diner style"
+    ],
+    "notes": "Elements of this aesthetic (polka dots, vintage scripts) often blend into rockabilly and pin-up subcultures. It’s enduring in nostalgia marketing. When using it, be mindful of context – it can unintentionally evoke the era’s social issues if not purely focused on the fun visuals.",
+    "axes_bias": {
+      "tone": {
+        "friendly": 0.8,
+        "nostalgic": 0.7
+      },
+      "color_strategy": {
+        "vibrant": 0.6,
+        "pastel": 0.5
+      },
+      "decoration": {
+        "ornate": 0.3,
+        "decorative": 0.6
+      }
+    },
+    "style_affinity": {
+      "mid_century_modern": 0.4,
+      "vintage": 0.9
+    },
+    "lexicon_affinity": {
+      "neon_signs": 0.5,
+      "checker_floor": 0.4,
+      "retro_script_fonts": 0.7,
+      "chrome_trim": 0.3
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": true,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "tiktok_intellectual",
+    "label": "TikTok Intellectual/Explainer",
+    "kind": "platform_scene",
+    "status": "candidate",
+    "summary": "A scene of creators on TikTok known for fast-paced educational or commentary videos, often characterized by a DIY scholarly vibe. These TikTok “intellectuals” typically film themselves speaking to camera in a casual setting (bedroom, car) but with informative captions and edits. The aesthetic isn’t about polished visuals – it’s about approachable credibility. Common visual cues: subtitles/captions in a clean font (often multi-line, timed with speech), maybe a green-screen background of a tweet or article they’re discussing, and frequent jump cuts. The creators themselves might wear smart-casual (glasses, simple clothing) but nothing too formal – it’s intellectualism in a hoodie. Color schemes and graphics are secondary to content, but we often see neutral backgrounds, maybe some houseplants or books visible. The feeling is a bit like a video essay mashed into one minute, with meme references or text pop-ups to keep it engaging. Overall vibe: witty, quick, and info-dense, like a friend explaining a complex idea with humor.",
+    "peak_years": [
+      2020,
+      2025
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "social_media",
+      "video"
+    ],
+    "sources": [
+      {
+        "title": "Academia Lives — on TikTok",
+        "publication": "The New York Times",
+        "year": 2020,
+        "url": "https://www.nytimes.com/2020/06/30/style/academia-lives-on-tiktok.html"
+      },
+      {
+        "title": "TikTok intellectuals and edu influencers",
+        "publication": "Vox",
+        "year": 2021,
+        "url": "https://www.vox.com/the-goods/22684614/tiktok-explainers-intellectuals"
+      }
+    ],
+    "example_brands": [
+      "@anthro_nerd (TikTok account)",
+      "@themodernleverage (TikTok)"
+    ],
+    "example_sites": [
+      "https://www.tiktok.com/@anthro_nerd",
+      "https://www.tiktok.com/tag/explainertok"
+    ],
+    "layman_phrases": [
+      "Smart TikTok vibe",
+      "Lo-fi educational video style"
+    ],
+    "notes": "This isn’t a traditional design aesthetic so much as a content style, but it influences how info brands target Gen Z (e.g. informal explainer videos in a similar style). It shows an overlap with StudyTube or video essay aesthetic, but condensed. Key is authenticity: over-produced visuals would break trust.",
+    "axes_bias": {
+      "tone": {
+        "informal": 0.7,
+        "friendly": 0.6,
+        "witty": 0.5
+      },
+      "color_strategy": {
+        "neutral": 0.4
+      },
+      "lightness": {
+        "natural_light": 0.5
+      },
+      "decoration": {
+        "minimal": 0.6
+      }
+    },
+    "style_affinity": {
+      "ugly_authentic": 0.3
+    },
+    "lexicon_affinity": {
+      "subtitles_captions": 0.9,
+      "green_screen_overlays": 0.4,
+      "quick_cuts": 0.7,
+      "handheld_video": 0.5
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "genz_finance_tiktok",
+    "label": "Gen-Z Finance TikTok (FinTok)",
+    "kind": "platform_scene",
+    "status": "candidate",
+    "summary": "A content and design vibe from TikTok and Instagram where young creators discuss money, investing, and “hustle” culture using Gen-Z visual language. It’s a mashup of financial graphics and meme aesthetics. Videos might show the creator with a green-screen of a stock chart or Forbes headline behind them, using bold on-screen text for key terms like “NFT” or “$GME.” The aesthetic loves pop-culture references – e.g. using Drake meme images to explain good vs bad investing, or anime GIFs overlaying a crypto discussion. Colors are often bold (money green, red for losses, etc.) and editing is high-energy: quick zooms, sound effects (cash register cha-ching), and emoji sprinkled (🚀 for stocks “to the moon”). It’s somewhat chaotic but meant to make finance fun and relatable. We also see things like Canva infographic style when they post carousels: neon highlights, big numbers, and Gen-Z slang in bubbly fonts. Essentially, it’s WallStreetBets meets TikTok visually – mixing seriousness of finance with irreverent, maximalist internet humor.",
+    "peak_years": [
+      2021,
+      2025
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "social_media",
+      "video"
+    ],
+    "sources": [
+      {
+        "title": "How FinTok is Making Finance Fun",
+        "publication": "BBC Worklife",
+        "year": 2021,
+        "url": "https://www.bbc.com/worklife/article/20210721-how-financial-tiktok-is-making-finance-fun"
+      },
+      {
+        "title": "The rise of #StockTok: Gen Z and investing memes",
+        "publication": "WSJ",
+        "year": 2021,
+        "url": "https://www.wsj.com/articles/gen-z-stocktok-investing-memes"
+      }
+    ],
+    "example_brands": [
+      "@teenexecutive (TikTok personality)",
+      "The Peachy Investorm (IG)"
+    ],
+    "example_sites": [
+      "https://www.tiktok.com/tag/stocktok",
+      "https://www.instagram.com/queerwallstreet"
+    ],
+    "layman_phrases": [
+      "Meme-y finance tips vibe",
+      "Stonks TikTok look"
+    ],
+    "notes": "This style reflects a democratization of finance info – it deliberately breaks traditional (stuffy) financial branding. However, it can border on scammy if overdone (too many 🚀 and dollar-sign emojis raising skepticism). Designers of fintech apps aiming at Gen-Z sometimes incorporate these playful elements (like Robinhood’s confetti, which they later removed).",
+    "axes_bias": {
+      "tone": {
+        "playful": 0.8,
+        "edgy": 0.4
+      },
+      "color_strategy": {
+        "vibrant": 0.7,
+        "green_and_red": 0.5
+      },
+      "decoration": {
+        "maximalist": 0.6,
+        "informal": 0.7
+      }
+    },
+    "style_affinity": {
+      "meme": 0.9,
+      "corporate_memphis": 0.2
+    },
+    "lexicon_affinity": {
+      "emoji_overlays": 0.8,
+      "green_screen_effects": 0.5,
+      "impact_font_memes": 0.4,
+      "captioned_stats": 0.6
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "ig_lifestyle_influencer",
+    "label": "Instagram Lifestyle Influencer",
+    "kind": "platform_scene",
+    "status": "core",
+    "summary": "The curated, picture-perfect aesthetic of popular lifestyle influencers on Instagram (mid-2010s onward). It’s characterized by bright, airy photos, often with a consistent filter or color theme across the feed (e.g. all warm beige tones, or all soft desaturated pastels). Common imagery: the influencer in a candid-yet-posed moment – sipping latte art in a sunlit cafe, twirling in a scenic street – with carefully arranged backgrounds (think white bed linens, a monstera plant, a marble countertop). The aesthetic is aspirational but approachable: everyday life, but idealized. Visual signatures include flatlays (top-down photos of objects like avocado toast, skincare bottles arranged neatly), use of natural light and minimal shadows, and often a slight fade or grain to feel nostalgic. Composition tends to have plenty of negative space and a focus on the influencer or product. It exudes “this could be you” energy – calm, happy, and subtly luxurious. Typography isn’t a huge factor except maybe clean minimal text on Stories or pastel-colored highlight icons on their profile.",
+    "peak_years": [
+      2015,
+      2020
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "social_media",
+      "photography",
+      "branding"
+    ],
+    "sources": [
+      {
+        "title": "How Instagram Made Every Lifestyle Photo Look the Same",
+        "publication": "Wired",
+        "year": 2018,
+        "url": "https://www.wired.com/story/instagram-aspirational-photography-look/"
+      },
+      {
+        "title": "The Instagram Aesthetic is Over",
+        "publication": "The Atlantic",
+        "year": 2019,
+        "url": "https://www.theatlantic.com/technology/archive/2019/12/instagram-era-beige-and-pink-aesthetic/602509/"
+      }
+    ],
+    "example_brands": [
+      "Aimee Song (@songofstyle)",
+      "Aspyn Ovard (YouTuber/IG)"
+    ],
+    "example_sites": [
+      "https://www.instagram.com/songofstyle",
+      "https://www.instagram.com/aspynovard"
+    ],
+    "layman_phrases": [
+      "Insta blogger look",
+      "Perfect everyday life feed"
+    ],
+    "notes": "This aesthetic defined an era of influencer marketing – now there’s pushback for being too stagey. It overlaps with “millennial aesthetic” (think pink walls, neon cursive signs, palm leaves). As Gen Z favors more authenticity and chaotic vibes (see TikTok), this highly curated style is waning but still common in brand IG feeds (e.g. wellness brands).",
+    "axes_bias": {
+      "tone": {
+        "optimistic": 0.6,
+        "casual": 0.5
+      },
+      "color_strategy": {
+        "pastel": 0.4,
+        "warm": 0.5
+      },
+      "lightness": {
+        "light": 0.9
+      },
+      "decoration": {
+        "minimal": 0.3,
+        "styled": 0.7
+      }
+    },
+    "style_affinity": {
+      "minimalism": 0.3,
+      "contemporary": 0.5
+    },
+    "lexicon_affinity": {
+      "flatlay_composition": 0.6,
+      "preset_filter": 0.7,
+      "white_border_feeds": 0.2,
+      "handwritten_quotes": 0.1
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "linkedin_influencer",
+    "label": "LinkedIn Corporate Influencer",
+    "kind": "platform_scene",
+    "status": "core",
+    "summary": "The content style of LinkedIn’s so-called “thinkfluencers” – professionals who craft a personal brand on LinkedIn with motivational posts and corporate relatability. Visually, their posts often feature clean, corporate design: e.g. a photo of themselves in business casual (arms crossed, smiling confidently) with a simple quote or headline overlaid, often on a LinkedIn-blue or white background. Some use Canva-style graphics – flat illustrations of office scenes or simple charts – to accompany a post about productivity or leadership. Selfies or headshots are common, usually well-lit and a bit posed (office backdrop or bookshelf). The aesthetic mixes sincerity and self-promotion: personal anecdotes written in short line-break-heavy paragraphs, maybe a humble brag with a stock photo header (handshake, ladder, etc.). Overall vibe is polished but not overly slick – they want to seem authentic yet authoritative. Think of those posts with clapping emojis and lines like “So proud of my team for achieving [X]…” accompanied by a minimal banner image of an achievement trophy or the company logo faintly in corner.",
+    "peak_years": [
+      2019,
+      2025
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "social_media",
+      "personal_branding"
+    ],
+    "sources": [
+      {
+        "title": "The LinkedIn Influencer Aesthetic",
+        "publication": "The Cut",
+        "year": 2022,
+        "url": "https://www.thecut.com/2022/03/linkedin-influencers.html"
+      },
+      {
+        "title": "Thinkfluencers and the LinkedIn Style",
+        "publication": "Marketing Week",
+        "year": 2021,
+        "url": "https://www.marketingweek.com/rise-of-linkedin-thinkfluencer/"
+      }
+    ],
+    "example_brands": [
+      "Brigette Hyacinth (leadership guru)",
+      "Dave Gerhardt (LinkedIn content)"
+    ],
+    "example_sites": [
+      "https://www.linkedin.com/in/brigettehyacinth",
+      "https://www.linkedin.com/feed/"
+    ],
+    "layman_phrases": [
+      "Motivational LinkedIn post look",
+      "Corporate personal brand style"
+    ],
+    "notes": "This scene’s aesthetic highlights how platform context shapes style: LinkedIn prioritizes text and headshots, so these influencers tailor visuals accordingly (maybe just a nicely designed quote image). It can be seen as the successor to old-school “Facebook professional posts” but more codified. Often satirized for formulaic content (e.g. the infamous “…I was today years old when I learned…” posts).",
+    "axes_bias": {
+      "tone": {
+        "professional": 0.9,
+        "inspirational": 0.7
+      },
+      "color_strategy": {
+        "linkedin_blue": 0.6,
+        "neutral": 0.5
+      },
+      "lightness": {
+        "light": 0.8
+      },
+      "decoration": {
+        "minimal": 0.5
+      }
+    },
+    "style_affinity": {
+      "corporate_modern": 0.8,
+      "minimalism": 0.4
+    },
+    "lexicon_affinity": {
+      "headshot_profile": 0.9,
+      "quote_graphic": 0.5,
+      "office_stock_photos": 0.4,
+      "bold_sans_text": 0.3
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "youtube_explainer",
+    "label": "YouTube Explainer Channel",
+    "kind": "platform_scene",
+    "status": "core",
+    "summary": "The common style of educational or explainer YouTube channels (think Kurzgesagt, Vsauce, Veritasium). Visually, these channels favor clean, colorful animation and bold graphics to illustrate concepts. Expect flat or semi-flat vector illustrations, often with bright contrasting palettes (to keep attention) – e.g. a dark blue background with crisp yellow and white graphics on top. Many use motion infographic elements: charts growing, icons moving, text appearing in sync with narration. The tone is energetic yet informative, so visuals might include playful caricatures or metaphors (like an animated character representing an atom). Typography on thumbnails and within videos is simple and readable (often a friendly sans-serif bold for titles). The videos usually have a consistent art style (Kurzgesagt’s vibrant geometric birds, etc.). Overall vibe is engaging clarity – it looks polished like a TED-Ed animation, but with a dose of fun (cute characters, imaginative scenarios) to avoid feeling like school. The content and aesthetic aim to make learning feel cool and accessible. Thumbnails typically show a big question or object, outlined in a striking way to provoke clicks.",
+    "peak_years": [
+      2015,
+      2025
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "video",
+      "education"
+    ],
+    "sources": [
+      {
+        "title": "Visual Strategies of Top YouTube Educators",
+        "publication": "Polymatter (YouTube)",
+        "year": 2018,
+        "url": "https://www.youtube.com/watch?v=educator-visuals"
+      },
+      {
+        "title": "How Kurzgesagt Designs for Attention",
+        "publication": "Medium",
+        "year": 2020,
+        "url": "https://medium.com/design-kurzgesagt-style"
+      }
+    ],
+    "example_brands": [
+      "Kurzgesagt – In a Nutshell",
+      "TED-Ed"
+    ],
+    "example_sites": [
+      "https://www.youtube.com/c/inanutshell",
+      "https://www.youtube.com/c/veritasium"
+    ],
+    "layman_phrases": [
+      "Animated explainer video style",
+      "Educational YouTube graphics"
+    ],
+    "notes": "Many startups and content creators try to emulate this aesthetic for their own explainer videos or apps (lots of tech onboarding videos have a “YouTube explainer” vibe now). The key is balancing simplification with visual interest. It’s basically the new illustrated textbook style for the digital age.",
+    "axes_bias": {
+      "tone": {
+        "informative": 0.9,
+        "playful": 0.4
+      },
+      "color_strategy": {
+        "vibrant": 0.6,
+        "high_contrast": 0.5
+      },
+      "lightness": {
+        "light": 0.6,
+        "dark": 0.4
+      },
+      "decoration": {
+        "decorative": 0.3,
+        "minimal": 0.2,
+        "illustrative": 0.8
+      }
+    },
+    "style_affinity": {
+      "flat_design": 0.7,
+      "isometric_design": 0.3
+    },
+    "lexicon_affinity": {
+      "vector_illustrations": 1.0,
+      "animated_icons": 0.7,
+      "subtitle_captions": 0.2,
+      "bold_headline_text": 0.4
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "sustainability_first",
+    "label": "Sustainability-First",
+    "kind": "movement_or_value",
+    "status": "core",
+    "summary": "An aesthetic associated with eco-friendly brands and environmental movements, focused on conveying sustainability, nature, and responsibility. Its visual hallmarks: earthy and green color palettes (lots of greens, browns, soft blues), natural textures (leaf motifs, recycled paper background patterns, illustrations of plants or the earth). Design tends to be clean and minimal, aligning with the idea of transparency and purity, but punctuated by organic shapes (leaf icons, hand-drawn illustrations of wind turbines or trees). Imagery often includes people in nature, seedlings growing, water droplets – anything that signals environmental harmony. Typography is usually straightforward (sans-serifs) or occasionally rustic (subtle grain or hand-lettered style) to appear human and authentic. The mood is hopeful, ethical, and fresh. We see this in sustainable product packaging (kraft paper look with green ink) and websites for eco startups (lots of white space with green accents and photos of forests or solar panels). Overall, it communicates “we care about the planet” in a visually soft and positive way.",
+    "peak_years": [
+      2010,
+      2025
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "branding",
+      "packaging",
+      "web_design"
+    ],
+    "sources": [
+      {
+        "title": "Designing for Sustainability: Visual Cues",
+        "publication": "Creative Bloq",
+        "year": 2020,
+        "url": "https://www.creativebloq.com/features/how-to-design-sustainable-brand"
+      },
+      {
+        "title": "The Aesthetics of Sustainability Branding",
+        "publication": "Envato Blog",
+        "year": 2021,
+        "url": "https://envato.com/blog/eco-friendly-design-trends/"
+      }
+    ],
+    "example_brands": [
+      "Patagonia (brand imagery)",
+      "Whole Foods (green branding)"
+    ],
+    "example_sites": [
+      "https://www.patagonia.com",
+      "https://www.tesla.com/sustainability"
+    ],
+    "layman_phrases": [
+      "Eco-friendly brand look",
+      "Green and natural vibe"
+    ],
+    "notes": "This aesthetic is mainstream now as most brands try to be seen as sustainable. The risk is it can feel generic (“greenwashing” visuals). Authenticity can be enhanced by using actual environmental photography instead of just abstract icons. Overlaps somewhat with Minimalist living vibe when it comes to simplicity and neutral tones.",
+    "axes_bias": {
+      "tone": {
+        "optimistic": 0.5,
+        "earnest": 0.7
+      },
+      "color_strategy": {
+        "earth_tones": 0.9,
+        "low_saturation": 0.4
+      },
+      "decoration": {
+        "natural": 0.8,
+        "minimal": 0.4
+      }
+    },
+    "style_affinity": {
+      "organic_modern": 0.8
+    },
+    "lexicon_affinity": {
+      "leaf_icons": 1.0,
+      "recycle_symbols": 0.6,
+      "kraft_paper_texture": 0.5,
+      "soft_illustrations": 0.4
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": false,
+      "niche": false,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "privacy_first",
+    "label": "Privacy-First",
+    "kind": "movement_or_value",
+    "status": "core",
+    "summary": "An emerging aesthetic of tech products and campaigns that emphasize privacy and data security. It’s characterized by visuals that convey trust, protection, and transparency. Common elements: shield or lock icons as imagery, privacy-blue color schemes (blue often denotes security), or alternately very subdued palettes (to not alarm, maybe whites and grays with a calming accent). Design is often minimal and open-feeling – lots of whitespace, straightforward UI – to show they have nothing to hide. Illustrations might include people safely handling data (little lock symbols on personal info), or metaphors like a fortified cloud, or hands cupping data bits. There’s sometimes a slightly technical style (monospace font sections, or grid backgrounds) to show seriousness. Tone is reassuring and firm. For example, DuckDuckGo’s branding uses a friendly mascot but also bold statements about not tracking – visually balancing friendly and secure. Overall, privacy-first aesthetic wants users to feel in control and safe: you’ll see reassuring padlock visuals, straightforward language, and a lack of dark UX patterns (because honesty is key).",
+    "peak_years": [
+      2018,
+      2025
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "web_design",
+      "app_UI",
+      "marketing"
+    ],
+    "sources": [
+      {
+        "title": "Designing for Privacy: Visual Tips",
+        "publication": "UX Collective",
+        "year": 2021,
+        "url": "https://uxdesign.cc/design-privacy-ux/"
+      },
+      {
+        "title": "Privacy-focused Branding Trends",
+        "publication": "Brand New",
+        "year": 2020,
+        "url": "https://www.underconsideration.com/brandnew/archives/privacy_branding.php"
+      }
+    ],
+    "example_brands": [
+      "Signal (messaging app)",
+      "ProtonMail"
+    ],
+    "example_sites": [
+      "https://signal.org",
+      "https://proton.me/mail"
+    ],
+    "layman_phrases": [
+      "Secure and simple tech look",
+      "Trustworthy data protection vibe"
+    ],
+    "notes": "This aesthetic sometimes overlaps with generic tech minimalism, but key differentiator is the messaging and iconography around privacy. A trend is using human-centric images (happy user, lock icon beside them) to emphasize they put people first. Dark mode is often offered too (some see dark mode as more secure-feeling, like hacker aesthetics, though that’s debatable).",
+    "axes_bias": {
+      "tone": {
+        "trustworthy": 1.0,
+        "serious": 0.6
+      },
+      "color_strategy": {
+        "blue_hue": 0.7,
+        "neutral": 0.5
+      },
+      "decoration": {
+        "minimal": 0.7
+      }
+    },
+    "style_affinity": {
+      "corporate_modern": 0.6,
+      "flat_design": 0.3
+    },
+    "lexicon_affinity": {
+      "lock_icons": 0.9,
+      "shield_icons": 0.7,
+      "transparent_shapes": 0.4,
+      "sans_serif_typography": 0.5
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": false,
+      "professional": true,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "open_source_hacker",
+    "label": "Open-Source Hacker Ethos",
+    "kind": "movement_or_value",
+    "status": "core",
+    "summary": "An aesthetic aligned with open-source and hacker communities – raw, minimalist, sometimes intentionally rough-around-edges to emphasize functionality and transparency. Visually, it often means dark or terminal-like interfaces (black backgrounds, green or amber monospace text) echoing code environments, or very plain light backgrounds with mono fonts and no frills (think early GitHub or Linux sites). Imagery: maybe the classic matrix code rain, or just lots of code snippets and command line screenshots. Design elements might include ASCII art, simple geometric logos (Tux the Linux penguin, etc.), and a preference for function over form – e.g., a basic HTML readme with no styling beyond a code block. It feels a bit retro because it harks to 90s hacker aesthetics and early web. The color palette usually avoids bright multi-colors (to distance from corporate polish) – instead, grayscale, terminal green, hacker neon green on black, or orangey “Ubuntu” tones for some. Overall vibe: no-nonsense, techy, rebellious (sometimes with humor in easter eggs). Projects like Mastodon or Markdown editors often lean into this utilitarian style as a badge of geek credibility.",
+    "peak_years": [
+      1990,
+      2020
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "software_UI",
+      "web_design"
+    ],
+    "sources": [
+      {
+        "title": "Brutalist Websites and the Developer Aesthetic",
+        "publication": "CSS-Tricks",
+        "year": 2018,
+        "url": "https://css-tricks.com/brutalist-websites-developer-aesthetic/"
+      },
+      {
+        "title": "Hacker Aesthetics in Design",
+        "publication": "Smashing Magazine",
+        "year": 2019,
+        "url": "https://www.smashingmagazine.com/hacker-aesthetics/"
+      }
+    ],
+    "example_brands": [
+      "GitHub (old design)",
+      "Arch Linux (website)"
+    ],
+    "example_sites": [
+      "https://www.archlinux.org",
+      "http://motherfuckingwebsite.com"
+    ],
+    "layman_phrases": [
+      "Looks like a coding terminal",
+      "Old-school hacker vibe"
+    ],
+    "notes": "Some recent “brutalist web design” movement ties into this – intentionally barebones sites as a reaction to slick over-designed sites, similar to how open-source projects often prioritize content over style. It signals authenticity and performance. Not always pretty, but that’s the point.",
+    "axes_bias": {
+      "tone": {
+        "edgy": 0.5,
+        "utilitarian": 0.9
+      },
+      "color_strategy": {
+        "monochrome": 0.7,
+        "dark": 0.5
+      },
+      "decoration": {
+        "minimal": 0.9,
+        "raw": 0.8
+      }
+    },
+    "style_affinity": {
+      "brutalism": 0.7,
+      "retro_tech": 0.5
+    },
+    "lexicon_affinity": {
+      "monospace_text": 1.0,
+      "ascii_art": 0.6,
+      "terminal_ui": 0.8,
+      "code_snippets": 0.7
+    },
+    "tags": {
+      "evergreen": true,
+      "retro": true,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": false
+    }
+  },
+  {
+    "id": "quantified_self",
+    "label": "Quantified Self",
+    "kind": "movement_or_value",
+    "status": "candidate",
+    "summary": "An aesthetic related to the Quantified Self movement (self-tracking of personal data like steps, sleep, mood). It’s heavy on data visualization in personal contexts: think minimalist dashboards, lots of charts and graphs overlaid on silhouette of a person, etc. Visuals: clean and techy – for instance, a silhouette of a human body with various gauges and numbers around it, or a calendar heatmap of daily activity. Color schemes often use cool, scientific tones (blues, teals) to imply objectivity, with pops of brighter color to highlight metrics. Typography is modern and numeric (emphasis on digits and units). The aesthetic often features UI-style graphics in marketing – e.g. screenshots of an app’s stats, or abstract rings/circles showing completion percentages. It conveys precision and personal optimization. Some designs also incorporate circuit or network motifs on a human outline, merging organic and digital. Overall vibe: futuristic self-improvement – almost like treating your body as an infographic. In products (like Fitbit or habit trackers), this translates to sleek interfaces with gamified progress visuals (badges, rings) and slightly playful iconography (water drops for hydration, etc.), all within a very data-centric layout.",
+    "peak_years": [
+      2014,
+      2020
+    ],
+    "geography": [
+      "Global"
+    ],
+    "domains": [
+      "app_UI",
+      "wearables",
+      "graphic_design"
+    ],
+    "sources": [
+      {
+        "title": "Visualizing the Quantified Self",
+        "publication": "Harvard Data Design",
+        "year": 2016,
+        "url": "https://datadesign.harvard.edu/quantified-self-visualization"
+      },
+      {
+        "title": "Designing UX for the Quantified Self",
+        "publication": "UXmatters",
+        "year": 2015,
+        "url": "https://www.uxmatters.com/mt/archives/2015/05/designing-for-the-quantified-self.php"
+      }
+    ],
+    "example_brands": [
+      "Fitbit (app UI)",
+      "Apple Health (rings design)"
+    ],
+    "example_sites": [
+      "https://www.fitbit.com/global/us/technology",
+      "https://exist.io"
+    ],
+    "layman_phrases": [
+      "Personal stats dashboard look",
+      "Fitness tracker style"
+    ],
+    "notes": "This aesthetic overlaps with wearable tech design and even corporate wellness branding. Its challenge is balancing clinical accuracy with user-friendliness – hence the mix of sterile charts and friendly icons. It has waned a bit as a named movement, but the design style persists in health apps and smartwatches. Watch out for information overload; the best examples (Apple’s Activity rings) simplify data into intuitive visuals.",
+    "axes_bias": {
+      "tone": {
+        "analytical": 0.8,
+        "motivational": 0.4
+      },
+      "color_strategy": {
+        "cool_tones": 0.6,
+        "multi_color_metrics": 0.4
+      },
+      "decoration": {
+        "technical": 0.6,
+        "minimal": 0.4
+      }
+    },
+    "style_affinity": {
+      "infographic": 0.9,
+      "futuristic": 0.3
+    },
+    "lexicon_affinity": {
+      "data_charts": 1.0,
+      "circular_gauges": 0.7,
+      "calendar_heatmaps": 0.5,
+      "sensor_icons": 0.4
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": true
+    }
+  },
+  {
+    "id": "move_fast_break_things",
+    "label": "\"Move Fast & Break Things\" Hacker Aesthetic",
+    "kind": "movement_or_value",
+    "status": "candidate",
+    "summary": "An aesthetic encapsulating the early Facebook/startup hacker culture mantra of speed and disruption. Visually, it’s characterized by a rough-and-ready, DIY tech look: glitch effects, spray-painted or stamped typography (to signify rebellion), and chaotic layouts that imply things in flux. Think bold red text on a scratched-out background, or a design where elements look semi-broken (like crossed-out sections, overlapping images) intentionally. It can include imagery of shattered glass or pixelation to literally represent “breaking.” In some iterations, it resembles a zine/punk style crossed with code – e.g. a design with code snippets overlaying graffiti. The colors often involve aggressive tones like red or black and white high contrast, maybe with a neon accent, to convey urgency. This aesthetic gives off “beta version” energy – elements like “warning” triangles, debug console text, or construction tape motifs. Overall vibe: rebellious, energetic, a bit reckless. It’s not super common in polished product design, but you saw hints of it in early hackathon event flyers, tech conference swag, or internal office murals at Facebook circa 2010. It communicates: we’re not afraid to mess things up en route to innovation.",
+    "peak_years": [
+      2008,
+      2014
+    ],
+    "geography": [
+      "Silicon Valley (US)"
+    ],
+    "domains": [
+      "graphic_design",
+      "culture"
+    ],
+    "sources": [
+      {
+        "title": "The Visual Culture of Silicon Valley Disruption",
+        "publication": "99% Invisible",
+        "year": 2019,
+        "url": "https://99percentinvisible.org/disruption-design-silicon-valley/"
+      },
+      {
+        "title": "Facebook's Hacker Aesthetic",
+        "publication": "The Verge",
+        "year": 2012,
+        "url": "https://www.theverge.com/2012/10/5/facebook-hacker-culture-visuals"
+      }
+    ],
+    "example_brands": [
+      "Facebook (old internal posters)",
+      "TechCrunch Disrupt (graphics)"
+    ],
+    "example_sites": [
+      "https://www.facebook.com/notes/move-fast-break-things-poster",
+      "https://techcrunch.com/event-info/disrupt-design/"
+    ],
+    "layman_phrases": [
+      "Chaotic startup hacker look",
+      "Glitchy move-fast vibe"
+    ],
+    "notes": "While the motto has fallen out of favor (for encouraging irresponsibility), the aesthetic legacy lives on in some coding circles and nostalgia for early-2010s startup culture. Use sparingly; it can look contrived today, or be misread as just glitch art. Often overlaps with glitchcore and punk design influences.",
+    "axes_bias": {
+      "tone": {
+        "rebellious": 1.0,
+        "playful": 0.2
+      },
+      "color_strategy": {
+        "high_contrast": 0.7,
+        "red_alert": 0.6
+      },
+      "decoration": {
+        "chaotic": 0.9,
+        "raw": 0.7
+      }
+    },
+    "style_affinity": {
+      "glitch_art": 0.6,
+      "punk": 0.5,
+      "brutalism": 0.3
+    },
+    "lexicon_affinity": {
+      "glitch_text": 0.8,
+      "spraypaint_effect": 0.5,
+      "error_windows": 0.4,
+      "strike_through_elements": 0.6
+    },
+    "tags": {
+      "evergreen": false,
+      "retro": false,
+      "niche": true,
+      "professional": false,
+      "youth_oriented": true
+    }
+  }
 ]
