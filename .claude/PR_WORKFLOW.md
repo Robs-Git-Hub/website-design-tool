@@ -1,61 +1,70 @@
 # Pull Request Workflow
 
-## When Rob Asks for a PR
+## The Simple Workflow
 
-Follow this workflow:
+When Rob asks for a PR, the process is:
 
-### Step 1: Create PR Description File
-Write a comprehensive PR description to `PR_DESCRIPTION.md` in the repo root with:
-- Summary of changes
-- Motivation/context
-- Detailed changes organized by category
-- Testing notes
-- Benefits
-- Migration notes (if applicable)
-- Related tasks
-- Commit list
+1. **Claude**: Makes commits with clear, descriptive commit messages
+2. **Claude**: Pushes commits to the feature branch
+3. **Rob**: Clicks "View PR" in GitHub UI and reviews/merges
 
-### Step 2: Provide Command to Rob
-Give Rob this command to copy and paste (he will run it locally):
+That's it.
 
-```bash
-gh pr create --web --title "YOUR_PR_TITLE_HERE" --body-file PR_DESCRIPTION.md
+## Important: Write Good Commit Messages
+
+Since the PR is created from commit messages, Claude must write clear, descriptive commits that:
+
+- Explain what changed
+- Explain why it changed (if not obvious)
+- Use conventional commit format when appropriate (feat:, fix:, docs:, refactor:, etc.)
+- Are detailed enough that Rob understands the changes without additional context
+
+## Example Commit Messages
+
+**Good:**
+```
+docs: update PR workflow to reflect simplified process
+
+The PR workflow documentation previously described a complex process involving
+PR_DESCRIPTION.md files and manual gh commands. The actual workflow is much
+simpler - Rob just clicks "View PR" in the GitHub UI after commits are pushed.
+
+Updated .claude/PR_WORKFLOW.md to reflect this simplified approach.
 ```
 
-**Important:** Rob must be on the feature branch before running this command. If he's on `main`, he should:
-```bash
-git checkout claude/setup-working-branch-01SgAVrYSLoN8iGK1zuc8qLj
+**Also Good (shorter):**
+```
+refactor: remove duplicate registry files and simplify to single source of truth
+
+Deleted /registries directory and updated generator to extract from instance
+files only. Updated all documentation to clarify instances are canonical source.
+Reduces maintenance burden and eliminates drift risk.
 ```
 
-### Step 3: Rob Runs Command Locally
-- Rob copies the command
-- Runs it in his terminal (outside Claude Code)
-- His browser opens with PR fields pre-populated
-- He clicks "Create Pull Request"
-
-## Why This Workflow
-
-- Claude Code doesn't have permission to run `gh pr create` commands
-- Running it locally works perfectly
-- The `--web` flag opens browser with pre-populated fields
-- The `--body-file` flag reads from PR_DESCRIPTION.md
-- This gives Rob full control while automating the tedious parts
-
-## Example
-
-```bash
-# Rob is on main branch after pulling changes
-git checkout claude/setup-working-branch-01SgAVrYSLoN8iGK1zuc8qLj
-
-# Rob runs the command Claude provided
-gh pr create --web --title "Remove duplicate registry files - simplify to single source of truth" --body-file PR_DESCRIPTION.md
-
-# Browser opens, fields are filled, Rob clicks "Create Pull Request"
+**Not Good (too vague):**
 ```
+update docs
+```
+
+## What Rob Does NOT Need to Do
+
+- ❌ Switch branches
+- ❌ Run `gh pr create` commands
+- ❌ Pull my feature branch
+- ❌ Create PR_DESCRIPTION.md files
+
+## After PR is Merged
+
+Rob will typically:
+```bash
+git pull origin main
+```
+
+To sync his local main with the merged changes.
 
 ## Notes
 
-- Always commit and push PR_DESCRIPTION.md before Rob runs the command
-- The feature branch must exist on remote
-- Rob must have GitHub CLI (`gh`) installed and authenticated
-- The `--web` flag requires both `--title` and `--body` (or `--body-file`) to work
+- GitHub automatically detects pushed branches and offers PR creation in the UI
+- Rob can review the full diff and commit history before merging
+- This workflow keeps Rob on `main` branch and avoids confusion
+- Focus on commit message quality - they become the PR description
