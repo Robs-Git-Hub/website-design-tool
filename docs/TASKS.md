@@ -90,51 +90,69 @@
 
 ---
 
-# PHASE 02 — THE FIRST LINK (IDEA → VIBE)
+# PHASE 02 — TOOLING & MVP WORKFLOWS
 
-**Goal:** Validate that a High-Intelligence Reasoning LLM can consistently translate "Ideas" into valid "WAS Bundles" (Vibe Specs).
+**Goal:** Build the Engine to make the WAS taxonomy usable by humans and agents.
 
-**🔄 CURRENT WORK (2025-11-21):**
-- [x] TypeScript environment setup (Claude)
-- [x] System prompt construction (Claude)
-- [ ] Example shots creation - **ROB TO PROVIDE INPUT DATA** (See `prompts/example_shots_template.md`)
-- [ ] Validation tooling (Pending)
+**Reference:** See [Phase 02 Plan](phases/phase_02_tooling.md) for high-level milestones.
+
+**🔄 CURRENT WORK (2025-11-22):**
+- [x] TypeScript environment setup
+- [x] Prompt generator (one-click schema sync)
+- [x] Claude Artifact playground prototype
+- [ ] **IN PROGRESS:** Option D schema generation (dynamic schema + validated example)
+- [ ] Example shots creation - **ROB TO PROVIDE INPUT DATA**
 
 ---
 
-## Task Group 1: The Orchestrator & Knowledge Base
+## Task Group 1: The WAS Engine (TypeScript SDK) - Milestone 2.1
 
-*   [x] **Construct System Prompt:**
-    *   [x] Inject condensed L1-L4 Schemas.
-    *   [x] Inject Registries (Allowed lists).
-    *   [x] Define "Reasoning Strategy" (e.g., "Analyze context first, then derive physics").
-*   [ ] **Create Example Shots:**
-    *   [ ] **[ROB]** Provide 3-5 raw design ideas (text prompts or reference images) in `prompts/example_shots_template.md`
-    *   [ ] Write "Gold Standard" TOML outputs for each input to teach the LLM the "Vibe" logic.
-    *   [ ] Ensure examples cover edge cases (e.g., "Golden Hour" mapping to L3).
-
-## Task Group 2: Tooling & Validation (The Guardrails)
-
-*   [x] **Set up TypeScript Environment:** (Node.js/TS scripts).
+*   [x] **Set up TypeScript Environment:** Node.js/TS tooling with Zod and TOML parsers.
+*   [x] **Build Prompt Generator:**
+    *   [x] Create template system with placeholders (`{{WAS_BUNDLE_SCHEMA}}`, `{{WAS_ALLOWED_VALUES}}`).
+    *   [x] Extract L1-L4 data from TOML files.
+    *   [x] Auto-generate orchestrator system prompt.
+    *   [x] One-click workflow: `npm run generate:prompt`.
+*   [ ] **Improve Schema Generation (Option D):**
+    *   [ ] Dynamically generate complete schema reference from TOML schema files.
+    *   [ ] Keep hardcoded realistic example for illustration.
+    *   [ ] Validate example includes all required fields (especially all L3 kinds).
+    *   [ ] Separate "Schema Structure" section from "Example Instance" in output.
 *   [ ] **Implement Converters:**
-    *   [ ] `toml_to_json`: To feed the LLM.
-    *   [ ] `json_to_toml`: To save the output.
+    *   [ ] `toml_to_json`: Parse TOML bundles to JSON.
+    *   [ ] `json_to_toml`: Serialize JSON bundles to TOML.
 *   [ ] **Implement Validator (`bundle_validator.ts`):**
     *   [ ] Define Zod schemas matching `site_bundle_schema.toml`.
-    *   [ ] Implement Registry lookups (Check if `glassmorphism` exists).
-    *   [ ] Implement Logic Checks (e.g., weights sum to 1.0, no missing required axes).
+    *   [ ] Implement Registry lookups (validate style/lexicon IDs exist).
+    *   [ ] Implement Logic Checks (e.g., all L1 axes required, valid enum values).
 
-## Task Group 3: The Consistency Test Suite (Scientific Method)
+## Task Group 2: The Aesthetic Playground (Claude Artifact) - Milestone 2.2
 
-*   [ ] **Define the Test Set:**
-    *   [ ] 5 Text Prompts (Vague to Specific).
-    *   [ ] 5 Image Inputs (Screenshots/Moodboards).
-*   [ ] **Build the Harness:**
-    *   [ ] Script to run each input 10x through the Orchestrator (GPT-4o/Claude 3.5).
-    *   [ ] Script to compare semantic similarity of outputs.
-*   [ ] **Analyze & Tune:**
-    *   [ ] Calculate Inter-Annotator Agreement scores.
-    *   [ ] Refine System Prompt until consistency >80%.
+*   [x] **Build Claude Artifact Prototype:**
+    *   [x] Create React component with orchestrator interface.
+    *   [x] Embed system prompt using `window.claude.complete()`.
+    *   [x] Input field for design ideas.
+    *   [x] JSON output display with copy-to-clipboard.
+*   [ ] **Enhance Artifact:**
+    *   [ ] Update embedded prompt with Option D schema format.
+    *   [ ] Add validation UI (show errors if output doesn't match schema).
+    *   [ ] Improve example prompts based on test website screenshots.
+*   [ ] **Create Example Shots:**
+    *   [ ] **[ROB]** Provide 3-5 raw design ideas in `prompts/example_shots_template.md`.
+    *   [ ] Process examples through artifact, generate "gold standard" bundles.
+    *   [ ] Document as few-shot learning examples.
+
+## Task Group 3: Testing & Validation
+
+*   [ ] **Manual Testing:**
+    *   [ ] Test artifact with BrainScript AI, Greentech, NeurAIGency examples.
+    *   [ ] Verify generated bundles are valid JSON.
+    *   [ ] Check that L1-L4 values match allowed enums.
+*   [ ] **Consistency Testing (Future):**
+    *   [ ] Define test set (5 text prompts, 5 image inputs).
+    *   [ ] Run each input 10x through orchestrator.
+    *   [ ] Calculate inter-annotator agreement scores.
+    *   [ ] Refine system prompt until consistency >80%.
 
 ---
 
@@ -167,7 +185,7 @@
 
 # PHASE 04 — PRODUCTIONISE (THE MVP ENGINE)
 
-**Goal:** Turn the scripts into a usable web interface.
+**Goal:** Turn the scripts into a usable web interface with production deployment.
 
 ## Task Group 1: The Playground (React/Next.js)
 
@@ -179,6 +197,23 @@
 
 *   [ ] **Theme Visualizer:** Simple CSS variable playground that updates live.
 *   [ ] **Wireframe Renderer:** Simple block renderer for the Blueprint JSON.
+
+## Task Group 3: Agent API (Supabase Edge Functions)
+
+**Note:** Moved from Phase 02 (Claude Artifacts can't expose APIs).
+
+*   [ ] **Set up Supabase Project:**
+    *   [ ] Create Supabase project for production deployment.
+    *   [ ] Configure Edge Functions environment.
+    *   [ ] Set up authentication and rate limiting.
+*   [ ] **Implement API Endpoints:**
+    *   [ ] `POST /api/generate-bundle`: Takes a natural language prompt → Returns validated Bundle JSON.
+    *   [ ] `POST /api/generate-tokens`: Takes a Bundle JSON → Returns `tailwind.config.js` or CSS variables object.
+    *   [ ] `POST /api/validate-bundle`: Validates a Bundle JSON against schemas and registries.
+*   [ ] **Deploy & Test:**
+    *   [ ] Deploy Edge Functions to Supabase.
+    *   [ ] Create API documentation.
+    *   [ ] Test with various inputs and edge cases.
 
 ---
 
