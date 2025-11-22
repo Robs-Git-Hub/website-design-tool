@@ -1,5 +1,7 @@
 # Generator Quick Start
 
+**Status:** ✅ Ready to Use (All formatting issues resolved)
+
 ## One-Click Command
 
 ```bash
@@ -13,54 +15,14 @@ This regenerates the orchestrator system prompt from your latest schema/data fil
 ## What Was Implemented
 
 ✅ **Template System** - `prompts/orchestrator_template.md` with two placeholders
-✅ **Generator Script** - Extracts from all L1-L4 TOML files
+✅ **Generator Script** - Extracts from all L1-L4 instance files (registries removed)
 ✅ **npm Script** - Simple one-command workflow
+✅ **TOML Formatting** - All layer files properly formatted and validated
 ✅ **Full Documentation** - See `GENERATOR_README.md`
 
 ---
 
-## ⚠️ Action Required
-
-**The layer3 TOML file has formatting issues that need to be fixed:**
-
-File: `data/layer3_lexicon_instances.toml`
-
-**Problem:** Multiple key-value pairs on single lines (invalid TOML syntax)
-
-**Example from line 8:**
-```toml
-[meta]id = "layer3_style_lexicon_instances"version = "0.2.1"description = "..."
-```
-
-**Should be:**
-```toml
-[meta]
-id = "layer3_style_lexicon_instances"
-version = "0.2.1"
-description = "..."
-```
-
-**Same issue on lines:** 12, 13, 14, 19, 20, etc. (most term definitions)
-
----
-
-## How to Fix
-
-### Option 1: Manual Fix
-Add line breaks between key-value pairs throughout the file.
-
-### Option 2: Ask me to fix it
-I can reformat the file if you'd like.
-
-### Option 3: Use a TOML formatter
-```bash
-# If you have prettier with TOML support
-npx prettier --write data/layer3_lexicon_instances.toml
-```
-
----
-
-## Once Fixed, Test the Generator
+## Test the Generator
 
 ```bash
 cd tooling
