@@ -81,97 +81,121 @@ Cultural/societal moments that influence aesthetics (e.g., SaaS 2020, Y2K Reviva
 
 ### Layer 2: Allowed Style Families
 
-Available style IDs (use exact strings):
-- `glassmorphism`
-- `minimalism`
-- `skeuomorphism`
-- `neumorphism`
-- `flat_design`
-- `material_design`
-- `brutalism`
-- `neobrutalism`
-- `anti_design`
-- `maximalism`
-- `memphis_design`
-- `corporate_memphis`
-- `y2k_aesthetic`
-- `retro_futurism`
-- `swiss_style`
-- `art_deco`
-- `art_nouveau`
-- `grunge`
-- `psychedelic_design`
-- `claymorphism`
+Available styles (sorted alphabetically):
+
+- `anti_design` - The anti-design mindset is often seen as a critique of corporate minimalism and overly templated UI.
+- `art_deco` - Art Deco elements have seen a minor revival in branding and web (especially in luxury sectors or nostalgic projects).
+- `art_nouveau` - While true Art Nouveau peaked by 1910, its organic elegance occasionally trends in modern graphics.
+- `brutalism` - Brutalism in web design draws its name from mid-20th-century Brutalist architecture and evokes early web nostalgia.
+- `claymorphism` - Emerging around 2021, claymorphism caught attention as a fun, tactile approach to UI styling.
+- `corporate_memphis` - Coined around 2018–2020, the term pokes fun at how tech companies converged on the same illustration aesthetic.
+- `flat_design` - Flat design rose to prominence around 2013, replacing skeuomorphism as the dominant UI aesthetic.
+- `glassmorphism` - Popularized by operating systems like macOS and Windows, glassmorphism adds sleek hierarchy but must be used cautious...
+- `grunge` - Popular in the mid-2000s web, this style gave a distinct personality opposing glossy Web 2.0 looks.
+- `material_design` - Introduced by Google in 2014, Material Design sought to create a 'unified visual language' for apps and web, heavily ...
+- `maximalism` - Contemporary 'New Maximalism' is partly a reaction to years of flat minimalism; it invites playfulness and complexity...
+- `memphis_design` - Memphis design’s resurgence in digital products brings a sense of joy and nostalgia.
+- `minimalism` - Minimalism has been a dominant modern style, seen as conveying modernity and usability.
+- `neobrutalism` - Neobrutalism rose around 2021–2023 as brutalism’s 'new look.' It’s described as brutalism meets modern web: clashing ...
+- `neumorphism` - Neumorphism became a popular concept around 2019–2020 as an anticipated 'next big trend,' though its practical adopti...
+- `psychedelic_design` - The psychedelic style cycles back in popularity alongside maximalist and experimental trends.
+- `retro_futurism` - Retro-futurism in design is nostalgia meets imagination—leveraging how past generations envisioned the future.
+- `skeuomorphism` - Prominent in early smartphone UIs (for example early iOS designs), skeuomorphism was later supplanted by flat design ...
+- `swiss_style` - Swiss Style deeply influences digital design for its clarity and simplicity-over-decoration ethos.
+- `y2k_aesthetic` - Nostalgia for the Y2K era has made this aesthetic resurface in fashion and web design.
 
 ### Layer 3: Lexicon Terms
 
-**Component Styling:**
-- `pill_shape`, `sharp_corner`, `ghost_chrome`, `filled_chrome`
+Specific visual traits grouped by category. Each term includes a brief definition.
 
-**Depth Technique:**
-- `hard_shadow`, `diffuse_shadow`, `inner_shadow`
+**Component Styling** (UI component shapes and styling approaches):
+- `filled_chrome` - Solid, high-contrast background fill for interactive elements.
+- `ghost_chrome` - Transparent fill with a visible border stroke.
+- `pill_shape` - Fully rounded corners (r = 999px) typically for buttons.
+- `sharp_corner` - Zero radius corners (r = 0px) for a brutalist or strict look.
 
-**Illustration Style:**
-- `isometric_scene`, `flat_spot_illustration`, `3d_blob`
+**Depth Technique** (Shadow and depth rendering methods):
+- `diffuse_shadow` - Large, low-opacity blur shadows for soft elevation.
+- `hard_shadow` - High opacity, sharp-edged shadows (no blur) for retro/pop feel.
+- `inner_shadow` - Inset shadows creating a pressed or engraved look.
 
-**Motion Mechanics:**
-- `springy_motion`, `linear_instant`
+**Illustration Style** (Illustration and graphic rendering styles):
+- `3d_blob` - Soft, inflated 3D shapes featuring colorful abstract forms.
+- `flat_spot_illustration` - Simple, flat-color illustrations used as small scenes.
+- `isometric_scene` - Illustrations drawn in isometric projection, common in SaaS.
 
-**Palette Trait:**
-- `duotone_palette`, `pastel_palette`, `neon_accents`, `muted_earth_tones`
+**Motion Mechanics** (Animation and motion behavior patterns):
+- `linear_instant` - Zero-duration or very fast linear transitions for high utility.
+- `springy_motion` - Overshoot and spring easing curves for bouncy transitions.
 
-**Surface Texture:**
-- `mesh_gradient`, `grain_texture`, `glass_panel`
+**Palette Trait** (Color approach and palette characteristics):
+- `duotone_palette` - A palette based on two dominant hues, often applied to photography or illustrations to create a s...
+- `muted_earth_tones` - Desaturated browns, greens, and beiges.
+- `neon_accents` - Use of max-saturation colors (cyan, magenta, lime) for highlights against neutral backgrounds.
+- `pastel_palette` - High-lightness, low-saturation colors creating a gentle, approachable tone.
 
-**Typography Mechanics:**
-- `mono_ui`, `display_serif`, `grotesque_sans`, `variable_font_play`
+**Surface Texture** (Material qualities and texture effects):
+- `glass_panel` - Translucent surfaces with background blur (backdrop-filter).
+- `grain_texture` - Subtle noise overlay to create an analog/paper feel.
+- `mesh_gradient` - Fluid, multi-color gradients used as backgrounds.
 
-**Visual Atmosphere:**
-- `golden_hour`, `glass_and_glow`, `clinical_sterile`, `warm_minimalism`
+**Typography Mechanics** (Font selection and text rendering approaches):
+- `display_serif` - High-contrast serif fonts used for headings.
+- `grotesque_sans` - Neo-grotesque sans-serifs (like Helvetica) for neutral clarity.
+- `mono_ui` - Use of fixed-width fonts for interface elements, not just code.
+- `variable_font_play` - Animation or interactive use of variable fonts to morph weight/width.
 
-(Note: Use only IDs that exist in the schema. If uncertain, omit or mark as exploratory.)
+**Visual Atmosphere** (Overall mood, lighting quality, or aesthetic tone):
+- `clinical_sterile` - Extremely bright, shadowless, high-white environment conveying hygiene and precision.
+- `glass_and_glow` - A composite atmosphere combining translucent panels with glowing gradients or neon accents on dar...
+- `golden_hour` - Warm, low-angle lighting with soft shadows and rich amber tones.
+- `warm_minimalism` - A clean environment softened by cream backgrounds and organic spacing, avoiding harsh stark whites.
+
+(Note: Use only IDs that exist above. If uncertain about a term, omit it.)
 
 ### Layer 4: Trend Context
 
-Use trend IDs to capture cultural context:
-- `hygge_2016`
-- `lagom_2017`
-- `minimalist_living`
-- `quiet_luxury`
-- `japandi`
-- `wellness_self_care`
-- `dark_academia`
-- `light_academia`
-- `cottagecore`
-- `goblincore`
-- `vaporwave`
-- `cyberpunk`
-- `coquette`
-- `indie_sleaze`
-- `saas_startup_2018`
-- `saas_2020_dark_mode`
-- `indie_hacker_dashboard`
-- `ngo_policy_portal`
-- `academic_journal_site`
-- `crypto_nft_dash`
-- `fintech_neobank`
-- `design_agency_portfolio`
-- `y2k_futurism`
-- `web1_0_geocities`
-- `early_web2_glossy`
-- `arcade_outrun_80s`
-- `1920s_art_deco`
-- `1950s_americana`
-- `tiktok_intellectual`
-- `genz_finance_tiktok`
-- `ig_lifestyle_influencer`
-- `linkedin_influencer`
-- `youtube_explainer`
-- `sustainability_first`
-- `privacy_first`
-- `open_source_hacker`
-- `quantified_self`
-- `move_fast_break_things`
+Cultural and societal trends that influence aesthetics (sorted alphabetically).
+Each trend includes context about its visual characteristics and cultural moment.
+
+- `1920s_art_deco` (1920s Jazz Age (Art Deco)) - The glamorous vintage aesthetic of the Roaring Twenties, defined by Art Deco design motifs. This look features bold geometric patterns, symmetry, a...
+- `1950s_americana` (1950s Americana) - A nostalgic aesthetic reflecting mid-century American pop culture – think diners, drive-ins, and rock ’n’ roll. Visuals feature vintage signage (ne...
+- `academic_journal_site` (Academic Journal Site) - The unstyled, content-heavy look of many academic journal websites or university research pages. These sites typically have very basic layouts (oft...
+- `arcade_outrun_80s` (1980s Arcade/Outrun) - A neon-drenched retro-futuristic aesthetic reflecting 1980s arcade games and outrun (the synthwave revival of 80s visuals). It’s defined by grid-li...
+- `coquette` (Coquette Aesthetic) - A viral Gen-Z fashion aesthetic celebrating hyper-femininity, romance, and girlish coquetry in a self-aware way. The Coquette look is all things so...
+- `cottagecore` (Cottagecore) - A whimsical internet aesthetic idealizing simple rural life and cottage living. Cottagecore envisions a nostalgic, storybook version of the country...
+- `crypto_nft_dash` (Crypto/NFT Aesthetic) - A flashy, futuristic aesthetic common in cryptocurrency and NFT platforms during the late-2010s boom. It mixes high-tech glitz with gamer-like visu...
+- `cyberpunk` (Cyberpunk) - A sci-fi genre aesthetic depicting a high-tech dystopian future – encapsulated by the motto “high tech, low life.” Originating in 1980s fiction, cy...
+- `dark_academia` (Dark Academia) - An internet-fueled subculture that romanticizes classical education, literature, and gothic aesthetics with a moody twist. Dark Academia surged aro...
+- `design_agency_portfolio` (Design Agency Portfolio) - The signature cutting-edge style of creative studios’ websites – essentially a digital business card meant to impress. These sites often feature bo...
+- `early_web2_glossy` (Early 2010s Web 2.0 Glossy) - The design trends of the late-2000s to early-2010s when glossy buttons, reflections, and skeuomorphic details ruled the web and app interfaces. Thi...
+- `fintech_neobank` (Fintech Neobank Aesthetic) - The design style of modern digital banks and finance apps aiming to seem young, friendly, and tech-forward. Neobank apps often use vibrant, candy-c...
+- `genz_finance_tiktok` (Gen-Z Finance TikTok (FinTok)) - A content and design vibe from TikTok and Instagram where young creators discuss money, investing, and “hustle” culture using Gen-Z visual language...
+- `goblincore` (Goblincore) - A quirky aesthetic subculture celebrating the messy, “ugly” side of nature – essentially, finding beauty in what’s typically considered gross or od...
+- `hygge_2016` (Hygge (2016-era)) - A Danish lifestyle trend centered on coziness and contentment – essentially finding warmth and comfort in life’s simple pleasures. Hygge gained int...
+- `ig_lifestyle_influencer` (Instagram Lifestyle Influencer) - The curated, picture-perfect aesthetic of popular lifestyle influencers on Instagram (mid-2010s onward). It’s characterized by bright, airy photos,...
+- `indie_hacker_dashboard` (Indie Hacker Dashboard Look) - The utilitarian, no-frills design aesthetic often seen in tools built by independent developers and bootstrapped startups. This style is function-f...
+- `indie_sleaze` (Indie Sleaze) - A retro-2000s subcultural aesthetic reviving the grungy hipster party look of the mid-2000s (c. 2006–2012).
+- `japandi` (Japandi (Japanese-Scandinavian)) - An interior design fusion of Japanese and Scandinavian aesthetics, blending Zen-like simplicity with cozy minimalism. Japandi (a portmanteau of Jap...
+- `lagom_2017` (Lagom (Swedish “just right”)) - A Swedish lifestyle concept and aesthetic emphasizing balance, moderation, and sufficiency – "not too much, not too little". Lagom came to prominen...
+- `light_academia` (Light Academia) - The light-hearted sibling of Dark Academia – an aesthetic that celebrates academia’s romantic, optimistic side. Light Academia features similarly s...
+- `linkedin_influencer` (LinkedIn Corporate Influencer) - The content style of LinkedIn’s so-called “thinkfluencers” – professionals who craft a personal brand on LinkedIn with motivational posts and corpo...
+- `minimalist_living` (Minimalist Living) - A lifestyle movement promoting simple living with fewer possessions, focusing on quality over quantity and mental clarity through decluttering. Min...
+- `move_fast_break_things` ("Move Fast & Break Things" Hacker Aesthetic) - An aesthetic encapsulating the early Facebook/startup hacker culture mantra of speed and disruption. Visually, it’s characterized by a rough-and-re...
+- `ngo_policy_portal` (NGO/Policy Portal Aesthetic) - The look and feel common to many NGO, governmental, or policy research websites – typically text-heavy, conservative, and a bit outdated. These sit...
+- `open_source_hacker` (Open-Source Hacker Ethos) - An aesthetic aligned with open-source and hacker communities – raw, minimalist, sometimes intentionally rough-around-edges to emphasize functionali...
+- `privacy_first` (Privacy-First) - An emerging aesthetic of tech products and campaigns that emphasize privacy and data security. It’s characterized by visuals that convey trust, pro...
+- `quantified_self` (Quantified Self) - An aesthetic related to the Quantified Self movement (self-tracking of personal data like steps, sleep, mood). It’s heavy on data visualization in ...
+- `quiet_luxury` (Quiet Luxury (Stealth Wealth)) - A luxury aesthetic and lifestyle ethos favoring understated elegance over flashy logos. Quiet luxury (also dubbed “stealth wealth”) is about subtle...
+- `saas_2020_dark_mode` (Dark Mode SaaS Aesthetic (2019–2023)) - The sleek, dark-first design aesthetic that emerged in modern developer tools and productivity SaaS products starting around 2019. In contrast to t...
+- `saas_startup_2018` (SaaS Startup Aesthetic (circa 2016–2020)) - The default design style of mid-2010s venture-funded tech startups – a friendly, polished minimalism that became almost formulaic. These SaaS (Soft...
+- `sustainability_first` (Sustainability-First) - An aesthetic associated with eco-friendly brands and environmental movements, focused on conveying sustainability, nature, and responsibility. Its ...
+- `tiktok_intellectual` (TikTok Intellectual/Explainer) - A scene of creators on TikTok known for fast-paced educational or commentary videos, often characterized by a DIY scholarly vibe. These TikTok “int...
+- `vaporwave` (Vaporwave) - A surrealist internet aesthetic that remixes early-90s digital nostalgia and consumer culture into dreamy, ironic art. Vaporwave emerged from a mus...
+- `web1_0_geocities` (1990s Web 1.0 (Old Web)) - The chaotic, DIY web design aesthetic of the mid/late-1990s. Think GeoCities pages with bright tiled backgrounds, Comic Sans or Times New Roman tex...
+- `wellness_self_care` (Wellness / Self-Care) - A broad cultural movement (late 2010s–2020s) prioritizing mental and physical well-being, which spawned a soothing, health-oriented visual style. T...
+- `y2k_futurism` (Y2K Aesthetic (Futurism)) - A late-90s/early-2000s futuristic aesthetic reflecting millennial optimism and tech fascination. The Y2K aesthetic is characterized by a sleek, bub...
+- `youtube_explainer` (YouTube Explainer Channel) - The common style of educational or explainer YouTube channels (think Kurzgesagt, Vsauce, Veritasium). Visually, these channels favor clean, colorfu...
 
 ---
 
@@ -327,7 +351,7 @@ If user provides "like [website]":
    - tone: `serious` (analytics require trust)
    - lightness: `dark` (cockpit = dark backgrounds)
    - color_strategy: `neutral_plus_accent` (professional with tech accents)
-   - geometry_depth: `sharp` + `glass` (precision + glassmorphism)
+   - geometry_depth: shape=`sharp`, depth=`glass` (precision + glassmorphism)
    - density: `dense` (dashboards are information-rich)
    - decoration: `subtle` (functional but polished)
 3. **L2 Styles:** `glassmorphism` (0.9), `retro_futurism` (0.4)

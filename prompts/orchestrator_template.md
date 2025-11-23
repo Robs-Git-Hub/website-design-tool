@@ -161,7 +161,7 @@ If user provides "like [website]":
    - tone: `serious` (analytics require trust)
    - lightness: `dark` (cockpit = dark backgrounds)
    - color_strategy: `neutral_plus_accent` (professional with tech accents)
-   - geometry_depth: `sharp` + `glass` (precision + glassmorphism)
+   - geometry_depth: shape=`sharp`, depth=`glass` (precision + glassmorphism)
    - density: `dense` (dashboards are information-rich)
    - decoration: `subtle` (functional but polished)
 3. **L2 Styles:** `glassmorphism` (0.9), `retro_futurism` (0.4)
