@@ -96,10 +96,10 @@ function generateBundleSchema(): string {
   "layer1_axes": {
     "tone": "neutral",
     "lightness": "dark",
-    "color_strategy": "neutral_accent",
+    "color_strategy": "neutral_plus_accent",
     "geometry_depth": {
       "shape": "rounded",
-      "depth": "layered"
+      "depth": "soft_shadow"
     },
     "density": "balanced",
     "decoration": "subtle"
@@ -257,6 +257,109 @@ function generateAllowedValues(): string {
 }
 
 /**
+ * Validate that hardcoded example uses only valid IDs from instance data
+ */
+function validateHardcodedExample(): void {
+  const errors: string[] = [];
+
+  // Load instance data
+  const layer1Data = readToml(PATHS.layer1_instances);
+  const layer2Data = readToml(PATHS.layer2_instances);
+  const layer3Data = readToml(PATHS.layer3_instances);
+  const layer4Data = readToml(PATHS.layer4_instances);
+
+  // Extract valid IDs
+  const validL1Values = new Set<string>();
+  for (const dim of layer1Data.dimensions) {
+    for (const val of dim.values) {
+      validL1Values.add(val.id);
+    }
+  }
+
+  const validL2Styles = new Set<string>();
+  if (layer2Data.styles) {
+    for (const style of layer2Data.styles) {
+      validL2Styles.add(style.id);
+    }
+  }
+
+  const validL3Terms = new Set<string>();
+  if (layer3Data.terms) {
+    for (const term of layer3Data.terms) {
+      validL3Terms.add(term.id);
+    }
+  }
+
+  const validL4Trends = new Set<string>();
+  if (layer4Data.trends) {
+    for (const trend of layer4Data.trends) {
+      validL4Trends.add(trend.id);
+    }
+  }
+
+  // Hardcoded values from generateBundleSchema()
+  const exampleL1 = {
+    tone: 'neutral',
+    lightness: 'dark',
+    color_strategy: 'neutral_plus_accent',
+    geometry_depth_shape: 'rounded',
+    geometry_depth_depth: 'soft_shadow',
+    density: 'balanced',
+    decoration: 'subtle'
+  };
+
+  const exampleL2 = ['glassmorphism', 'minimalism'];
+  const exampleL3 = [
+    'glass_and_glow',
+    'neon_accents',
+    'glass_panel',
+    'ghost_chrome',
+    'diffuse_shadow',
+    'grotesque_sans',
+    'springy_motion'
+  ];
+  const exampleL4 = ['saas_2020_dark_mode'];
+
+  // Validate L1
+  for (const [dim, value] of Object.entries(exampleL1)) {
+    if (!validL1Values.has(value)) {
+      errors.push(`L1 ${dim}: "${value}" is not a valid ID`);
+    }
+  }
+
+  // Validate L2
+  for (const style of exampleL2) {
+    if (!validL2Styles.has(style)) {
+      errors.push(`L2 style: "${style}" is not a valid ID`);
+    }
+  }
+
+  // Validate L3
+  for (const term of exampleL3) {
+    if (!validL3Terms.has(term)) {
+      errors.push(`L3 lexicon term: "${term}" is not a valid ID`);
+    }
+  }
+
+  // Validate L4
+  for (const trend of exampleL4) {
+    if (!validL4Trends.has(trend)) {
+      errors.push(`L4 trend: "${trend}" is not a valid ID`);
+    }
+  }
+
+  // Report errors
+  if (errors.length > 0) {
+    console.error('\n❌ Validation Error: Hardcoded example contains invalid IDs:\n');
+    for (const error of errors) {
+      console.error(`   • ${error}`);
+    }
+    console.error('\n   Please update generateBundleSchema() with valid IDs.\n');
+    process.exit(1);
+  }
+}
+
+/**
  * Main function
  */
 function main() {
@@ -291,6 +394,10 @@ function main() {
   }
 
   console.log('✅ Both placeholders found\n');
+
+  // Validate hardcoded example
+  console.log('✅ Validating hardcoded example...');
+  validateHardcodedExample();
 
   // Generate content
   console.log('🎨 Generating WAS Bundle Schema...');

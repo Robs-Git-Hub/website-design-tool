@@ -915,6 +915,70 @@ youth_oriented = false
 
 
 [[trends]]
+id = "saas_2020_dark_mode"
+label = "Dark Mode SaaS Aesthetic (2019–2023)"
+kind = "industry_archetype"
+status = "core"
+summary = """
+The sleek, dark-first design aesthetic that emerged in modern developer tools and productivity SaaS products starting around 2019. In contrast to the light-mode friendliness of earlier SaaS design (circa 2016–2018), this aesthetic embraces dark backgrounds with refined glassmorphism, subtle glows, and precise typography. Interfaces feature true blacks or dark grays (#0a0a0a to #1a1a1a), crisp white or off-white text, and carefully calibrated accent colors (often purple, blue, or teal) that glow against the darkness. Key visual elements include: frosted glass panels with backdrop blur, floating UI elements with soft shadows or inner glows, command palette UIs (⌘K interfaces), monospace fonts for technical contexts, smooth animations, and a general "pro tool" aesthetic that feels polished yet technical. The design language prioritizes information density without clutter, using subtle depth cues (glass, elevation, glow) to create hierarchy. This aesthetic became synonymous with "modern developer experience" and was widely adopted by tools aiming to feel fast, powerful, and sophisticated. It represents a shift from "friendly and approachable" to "professional and capable" in SaaS design.
+"""
+peak_years = [2019, 2023]
+geography = ["Global"]
+domains = ["product_UI", "developer_tools", "analytics_dashboards"]
+example_brands = ["Linear", "Vercel", "Raycast", "Cal.com", "Arc Browser"]
+example_sites = ["https://linear.app", "https://vercel.com", "https://raycast.com"]
+layman_phrases = ["Sleek dark tech interface", "Modern developer tool look", "Futuristic dashboard vibe"]
+notes = """
+This trend was partly enabled by operating systems adding native dark mode support (macOS Mojave 2018, iOS 13 in 2019). It became a badge of "modern" software, especially for tools targeting developers and power users. The aesthetic overlaps with cyberpunk and sci-fi UI influences but is more restrained and functional. Some critique it as less accessible (harder to read for some users) or as aesthetic trend-chasing, but it remains dominant in technical/professional tools. Compare to saas_startup_2018 (light, friendly, Corporate Memphis) – this is its dark, sophisticated successor.
+"""
+
+[[trends.sources]]
+title = "Why dark mode is so popular with developers"
+publication = "Stack Overflow Blog"
+year = 2020
+url = "https://stackoverflow.blog/2020/03/31/what-is-dark-mode-and-why-do-developers-prefer-it/"
+
+[[trends.sources]]
+title = "The Evolution of SaaS Design"
+publication = "Lenny's Newsletter"
+year = 2022
+url = "https://www.lennysnewsletter.com/p/the-evolution-of-saas-design"
+
+[trends.axes_bias]
+color_strategy.neutral_plus_accent = 0.8
+decoration.subtle = 0.9
+density.balanced = 0.6
+density.dense = 0.3
+geometry_depth_depth.glass = 0.8
+geometry_depth_shape.sharp = 0.4
+geometry_depth_shape.slightly_rounded = 0.6
+lightness.dark = 0.95
+tone.neutral = 0.5
+tone.serious = 0.7
+
+[trends.style_affinity]
+glassmorphism = 0.9
+minimalism = 0.7
+neumorphism = 0.3
+
+[trends.lexicon_affinity]
+diffuse_shadow = 0.6
+ghost_chrome = 0.8
+glass_and_glow = 0.9
+glass_panel = 0.8
+grotesque_sans = 0.7
+mono_ui = 0.6
+neon_accents = 0.5
+
+[trends.tags]
+evergreen = false
+niche = false
+professional = true
+retro = false
+youth_oriented = false
+
+
+[[trends]]
 id = "indie_hacker_dashboard"
 label = "Indie Hacker Dashboard Look"
 kind = "industry_archetype"
