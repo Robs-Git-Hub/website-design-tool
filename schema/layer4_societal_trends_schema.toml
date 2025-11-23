@@ -72,7 +72,13 @@ summary = "string"
 peak_years = [0, 0]
 geography = ["string"]
 domains = ["string"]
-sources = ["string"]
+
+# Array of source objects with citation details
+[[societal_trend_schema.sources]]
+title = "string"
+publication = "string"
+year = 0
+url = "string"
 
 example_brands = ["string"]
 example_sites = ["string"]
@@ -85,19 +91,13 @@ layman_phrases = ["string"]
 notes = "string"
 
 # ----------------------------------------------------------------------
-# KEYWORDS — prompt & search vocab (optional, evolving)
+# KEYWORDS — prompt vocab (optional, evolving)
 # ----------------------------------------------------------------------
 
 # Curated phrases we want to appear *in prompts* when this trend is invoked.
 # Example for `dark_academia`:
 #   ["dark academia aesthetic", "moody candlelit library", "classical gothic study"]
 prompt_keywords = ["string"]
-
-# Extra phrases used for discovery/search: may include platform tags, hashtags,
-# language variants, etc.
-# Example:
-#   ["#darkacademia", "academic goth vibe", "study tumblr aesthetic"]
-search_keywords = ["string"]
 
 # ----------------------------------------------------------------------
 # AXES BIAS — mapping this trend to Layer-1 axes (unchanged)
