@@ -160,7 +160,7 @@ If user provides "like [website]":
 2. **L1 Axes:**
    - tone: `serious` (analytics require trust)
    - lightness: `dark` (cockpit = dark backgrounds)
-   - color_strategy: `neutral_accent` (professional with tech accents)
+   - color_strategy: `neutral_plus_accent` (professional with tech accents)
    - geometry_depth: `sharp` + `glass` (precision + glassmorphism)
    - density: `dense` (dashboards are information-rich)
    - decoration: `subtle` (functional but polished)

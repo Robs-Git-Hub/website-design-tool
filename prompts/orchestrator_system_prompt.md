@@ -149,6 +149,7 @@ Use trend IDs to capture cultural context:
 - `coquette`
 - `indie_sleaze`
 - `saas_startup_2018`
+- `saas_2020_dark_mode`
 - `indie_hacker_dashboard`
 - `ngo_policy_portal`
 - `academic_journal_site`
@@ -225,10 +226,10 @@ Generate a JSON object matching this structure:
   "layer1_axes": {
     "tone": "neutral",
     "lightness": "dark",
-    "color_strategy": "neutral_accent",
+    "color_strategy": "neutral_plus_accent",
     "geometry_depth": {
       "shape": "rounded",
-      "depth": "layered"
+      "depth": "soft_shadow"
     },
     "density": "balanced",
     "decoration": "subtle"
@@ -325,7 +326,7 @@ If user provides "like [website]":
 2. **L1 Axes:**
    - tone: `serious` (analytics require trust)
    - lightness: `dark` (cockpit = dark backgrounds)
-   - color_strategy: `neutral_accent` (professional with tech accents)
+   - color_strategy: `neutral_plus_accent` (professional with tech accents)
    - geometry_depth: `sharp` + `glass` (precision + glassmorphism)
    - density: `dense` (dashboards are information-rich)
    - decoration: `subtle` (functional but polished)
