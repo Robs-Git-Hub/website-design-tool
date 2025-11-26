@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePromptWatcher } from './hooks/usePromptWatcher';
 import { OpenRouterService } from './services/openrouter';
 import type { ImageData } from './services/openrouter';
@@ -31,13 +31,12 @@ function App() {
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showPrompt, setShowPrompt] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
+  // Process an image file (used by file input, drag-drop, and paste)
+  const processImageFile = (file: File) => {
     if (!file.type.startsWith('image/')) {
       setError('Please upload an image file');
       return;
@@ -59,6 +58,51 @@ function App() {
     };
     reader.readAsDataURL(file);
   };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) processImageFile(file);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+
+    const file = e.dataTransfer.files?.[0];
+    if (file) processImageFile(file);
+  };
+
+  const handlePaste = (e: ClipboardEvent) => {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].type.startsWith('image/')) {
+        const file = items[i].getAsFile();
+        if (file) {
+          processImageFile(file);
+          e.preventDefault();
+          break;
+        }
+      }
+    }
+  };
+
+  // Add paste event listener
+  useEffect(() => {
+    window.addEventListener('paste', handlePaste);
+    return () => window.removeEventListener('paste', handlePaste);
+  }, []);
 
   const clearImage = () => {
     setUploadedImage(null);
@@ -183,7 +227,12 @@ function App() {
             Upload Website Screenshot (Optional)
           </label>
           {!uploadedImage ? (
-            <div>
+            <div
+              className={`upload-dropzone ${isDragging ? 'dragging' : ''}`}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
+            >
               <input
                 type="file"
                 accept="image/*"
@@ -193,10 +242,10 @@ function App() {
               />
               <label htmlFor="image-upload" className="upload-button">
                 <span className="upload-icon">🖼️</span>
-                Choose Screenshot
+                {isDragging ? 'Drop image here' : 'Choose Screenshot'}
               </label>
               <p className="upload-hint">
-                Upload a screenshot to analyze its aesthetic
+                Or drag & drop an image, or paste from clipboard (Ctrl/Cmd+V)
               </p>
             </div>
           ) : (
