@@ -9,10 +9,16 @@ import type { WASBundle } from '../types/was';
 
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
+export interface ImageData {
+  base64: string;
+  mediaType: string;
+}
+
 export interface GenerateOptions {
   systemPrompt: string;
   userInput: string;
   model?: string;
+  image?: ImageData;
 }
 
 export class OpenRouterService {
@@ -26,7 +32,30 @@ export class OpenRouterService {
    * Generate a WAS bundle from user input
    */
   async generateWASBundle(options: GenerateOptions): Promise<WASBundle> {
-    const { systemPrompt, userInput, model = 'anthropic/claude-3.5-sonnet' } = options;
+    const { systemPrompt, userInput, model = 'anthropic/claude-3.5-sonnet', image } = options;
+
+    // Build message content
+    const messageContent: any[] = [];
+
+    // Add image if provided
+    if (image) {
+      messageContent.push({
+        type: 'image_url',
+        image_url: {
+          url: `data:${image.mediaType};base64,${image.base64}`
+        }
+      });
+    }
+
+    // Add text prompt
+    const promptText = image
+      ? `Analyze this website screenshot and generate a WAS Bundle that captures its aesthetic.\n\n${userInput || 'Describe the visual style, color scheme, typography, and overall design approach.'}`
+      : userInput;
+
+    messageContent.push({
+      type: 'text',
+      text: promptText
+    });
 
     try {
       const response = await axios.post(
@@ -40,10 +69,9 @@ export class OpenRouterService {
             },
             {
               role: 'user',
-              content: userInput,
+              content: messageContent.length === 1 ? messageContent[0].text : messageContent,
             },
           ],
-          response_format: { type: 'json_object' },
         },
         {
           headers: {
