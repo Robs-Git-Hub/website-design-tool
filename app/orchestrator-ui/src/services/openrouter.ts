@@ -29,6 +29,33 @@ export class OpenRouterService {
   }
 
   /**
+   * Extract JSON from LLM response, handling various formats
+   */
+  private extractJSON(content: string): WASBundle {
+    let jsonStr = content.trim();
+
+    // Remove markdown code blocks if present
+    jsonStr = jsonStr.replace(/```json\s*/g, '').replace(/```\s*/g, '');
+
+    // Try to find JSON object boundaries
+    const startIdx = jsonStr.indexOf('{');
+    const endIdx = jsonStr.lastIndexOf('}');
+
+    if (startIdx === -1 || endIdx === -1) {
+      throw new Error('No JSON object found in response');
+    }
+
+    jsonStr = jsonStr.substring(startIdx, endIdx + 1);
+
+    try {
+      return JSON.parse(jsonStr);
+    } catch (error) {
+      console.error('Failed to parse JSON:', jsonStr);
+      throw new Error(`Invalid JSON in response: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  /**
    * Generate a WAS bundle from user input
    */
   async generateWASBundle(options: GenerateOptions): Promise<WASBundle> {
@@ -84,7 +111,9 @@ export class OpenRouterService {
       );
 
       const content = response.data.choices[0].message.content;
-      const bundle = JSON.parse(content);
+
+      // Extract JSON from the response (handle markdown, extra text, etc.)
+      const bundle = this.extractJSON(content);
 
       return bundle as WASBundle;
     } catch (error) {
