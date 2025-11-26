@@ -43,15 +43,15 @@ const SYSTEM_PROMPT = `You are the WAS Orchestrator. Translate design ideas into
     "reasoning_notes": "Brief explanation"
   },
   "layer1_axes": {
-    "tone": "neutral|playful|friendly|serious|premium",
+    "tone": "playful|friendly|neutral|serious|premium",
     "lightness": "light|dark|hybrid|adaptive",
-    "color_strategy": "monochrome|analogous|complementary|triadic|neutral_accent|pastel_harmony|high_chroma",
+    "color_strategy": "monochrome|neutral_plus_accent|duotone|brand_multicolor|gradient_heavy|high_chroma|low_saturation",
     "geometry_depth": {
-      "shape": "sharp|rounded|organic",
-      "depth": "flat|soft_embossed|layered|glass"
+      "shape": "sharp|slightly_rounded|rounded|organic",
+      "depth": "flat|soft_shadow|neumorphic|glass|bold_3d"
     },
-    "density": "sparse|balanced|compact|dense",
-    "decoration": "plain|subtle|decorative|maximalist"
+    "density": "airy|balanced|dense|maximal",
+    "decoration": "plain|subtle|decorative|experimental"
   },
   "layer2_styles": {
     "style_id": 0.0-1.0
@@ -75,7 +75,7 @@ const SYSTEM_PROMPT = `You are the WAS Orchestrator. Translate design ideas into
 
 **L3 Lexicon Examples:** golden_hour, glass_and_glow, clinical_sterile, warm_minimalism, duotone_palette, pastel_palette, neon_accents, mesh_gradient, grain_texture, glass_panel, pill_shape, sharp_corner, ghost_chrome, hard_shadow, diffuse_shadow, mono_ui, display_serif, grotesque_sans, isometric_scene, flat_spot_illustration, 3d_blob, springy_motion, linear_instant
 
-**L4 Trends:** saas_2020_dark_mode, y2k_revival, dark_academia, cottagecore, cyberpunk_2077_influence
+**L4 Trends:** saas_2020_dark_mode, saas_startup_2018, y2k_futurism, dark_academia, cottagecore, cyberpunk, hygge_2016, minimalist_living, vaporwave, and others (37 total)
 
 ## Reasoning Strategy:
 1. Context Analysis (purpose, audience, emotion)

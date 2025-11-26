@@ -167,17 +167,38 @@ function generateLayer1Values(): string {
  */
 function generateLayer2Values(): string {
   const data = readToml(PATHS.layer2_instances);
-  const allowed: string[] = [];
 
-  if (data.styles && Array.isArray(data.styles)) {
-    allowed.push(...data.styles.map((style: any) => style.id));
+  if (!data.styles || !Array.isArray(data.styles)) {
+    return '### Layer 2: Allowed Style Families\n\n(No styles defined)\n\n';
   }
 
-  let output = '### Layer 2: Allowed Style Families\n\n';
-  output += 'Available style IDs (use exact strings):\n';
-  output += allowed.map(id => `- \`${id}\``).join('\n');
-  output += '\n\n';
+  // Sort styles alphabetically by id
+  const styles = [...data.styles].sort((a: any, b: any) => a.id.localeCompare(b.id));
 
+  let output = '### Layer 2: Allowed Style Families\n\n';
+  output += 'Available styles (sorted alphabetically):\n\n';
+
+  for (const style of styles) {
+    // Use notes field or display_name as brief description
+    let description = '';
+    if (style.notes) {
+      // Take first sentence
+      const firstSentence = style.notes.split(/\.\s+/)[0];
+      description = firstSentence.length > 120
+        ? firstSentence.substring(0, 117) + '...'
+        : firstSentence + '.';
+    } else if (style.display_name && style.display_name !== style.id) {
+      description = style.display_name;
+    }
+
+    if (description) {
+      output += `- \`${style.id}\` - ${description}\n`;
+    } else {
+      output += `- \`${style.id}\`\n`;
+    }
+  }
+
+  output += '\n';
   return output;
 }
 
@@ -188,27 +209,66 @@ function generateLayer3Values(): string {
   const data = readToml(PATHS.layer3_instances);
   const terms = data.terms as LexiconTerm[];
 
-  // Group terms by kind
-  const byKind: Record<string, string[]> = {};
+  // Group terms by kind with full term objects
+  const byKind: Record<string, any[]> = {};
   for (const term of terms) {
     if (!byKind[term.kind]) {
       byKind[term.kind] = [];
     }
-    byKind[term.kind].push(term.id);
+    byKind[term.kind].push(term);
   }
 
   let output = '### Layer 3: Lexicon Terms\n\n';
+  output += 'Specific visual traits grouped by category. Each term includes a brief definition.\n\n';
+
+  // Kind descriptions
+  const kindDescriptions: Record<string, string> = {
+    visual_atmosphere: 'Overall mood, lighting quality, or aesthetic tone',
+    palette_trait: 'Color approach and palette characteristics',
+    surface_texture: 'Material qualities and texture effects',
+    component_styling: 'UI component shapes and styling approaches',
+    depth_technique: 'Shadow and depth rendering methods',
+    typography_mechanics: 'Font selection and text rendering approaches',
+    illustration_style: 'Illustration and graphic rendering styles',
+    motion_mechanics: 'Animation and motion behavior patterns'
+  };
 
   // Sort kinds alphabetically for consistency
   const kinds = Object.keys(byKind).sort();
 
   for (const kind of kinds) {
     const label = kind.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    output += `**${label}:**\n`;
-    output += `- ${byKind[kind].map(id => `\`${id}\``).join(', ')}\n\n`;
+    const description = kindDescriptions[kind] || '';
+
+    output += `**${label}**`;
+    if (description) {
+      output += ` (${description})`;
+    }
+    output += ':\n';
+
+    // Sort terms within kind alphabetically
+    const sortedTerms = byKind[kind].sort((a, b) => a.id.localeCompare(b.id));
+
+    for (const term of sortedTerms) {
+      // Extract brief definition (first sentence, max 100 chars)
+      let briefDef = '';
+      if (term.definition) {
+        const firstSentence = term.definition.split(/\.\s+/)[0];
+        briefDef = firstSentence.length > 100
+          ? firstSentence.substring(0, 97) + '...'
+          : firstSentence;
+      }
+
+      if (briefDef) {
+        output += `- \`${term.id}\` - ${briefDef}\n`;
+      } else {
+        output += `- \`${term.id}\`\n`;
+      }
+    }
+    output += '\n';
   }
 
-  output += '(Note: Use only IDs that exist in the schema. If uncertain, omit or mark as exploratory.)\n\n';
+  output += '(Note: Use only IDs that exist above. If uncertain about a term, omit it.)\n\n';
 
   return output;
 }
@@ -227,13 +287,37 @@ function generateLayer4Values(): string {
       return '### Layer 4: Trend Context\n\n(No trends defined yet)\n\n';
     }
 
-    const trends = data.trends as Trend[];
+    const trends = data.trends as any[];
+
+    // Sort trends alphabetically by id
+    const sortedTrends = [...trends].sort((a, b) => a.id.localeCompare(b.id));
 
     let output = '### Layer 4: Trend Context\n\n';
-    output += 'Use trend IDs to capture cultural context:\n';
-    output += trends.map(t => `- \`${t.id}\``).join('\n');
-    output += '\n\n';
+    output += 'Cultural and societal trends that influence aesthetics (sorted alphabetically).\n';
+    output += 'Each trend includes context about its visual characteristics and cultural moment.\n\n';
 
+    for (const trend of sortedTrends) {
+      // Extract brief summary (first 2 sentences, max 150 chars)
+      let briefSummary = '';
+      if (trend.summary) {
+        const sentences = trend.summary.split(/\.\s+/);
+        const firstTwo = sentences.slice(0, 2).join('. ');
+        briefSummary = firstTwo.length > 150
+          ? firstTwo.substring(0, 147) + '...'
+          : firstTwo + (firstTwo.endsWith('.') ? '' : '.');
+      }
+
+      // Add label if available
+      const label = trend.label ? ` (${trend.label})` : '';
+
+      if (briefSummary) {
+        output += `- \`${trend.id}\`${label} - ${briefSummary}\n`;
+      } else {
+        output += `- \`${trend.id}\`${label}\n`;
+      }
+    }
+
+    output += '\n';
     return output;
   } catch (error) {
     console.warn('⚠️  Warning: Could not read layer4_societal_trends_instances.toml');
