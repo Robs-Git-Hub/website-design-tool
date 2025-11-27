@@ -1,8 +1,9 @@
-# Phase 03 — Drift Measurement & System Validation
+# Phase 05 — Drift Measurement & System Validation
 
 **Status:** Planned
 **Prerequisites:** Phase 02 (Orchestrator UI working)
-**Previous Phase:** [Phase 02 - Tooling](phase_02_tooling.md)
+**Previous Phase:** [Phase 04 - Productionise](phase_04_productionise.md)
+**Note:** Can be pursued in parallel with Phase 03/04
 
 ---
 
