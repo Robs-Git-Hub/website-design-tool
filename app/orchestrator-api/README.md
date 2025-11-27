@@ -2,6 +2,35 @@
 
 Backend API server for the Website Aesthetic Schema (WAS) Orchestrator UI.
 
+---
+
+## ⚠️ MUST READ FIRST
+
+**Before working with this API, you MUST read these documents:**
+
+1. **[API Design Specification](../../docs/playbooks/API_DESIGN_SPECIFICATION.md)** - Complete API reference with schemas, endpoints, and error handling
+2. **[Parallel Execution Playbook](../../docs/playbooks/PARALLEL_EXECUTION_PLAYBOOK.md)** - How to test UI and API in parallel
+3. **[Render Logs Access Guide](../../docs/playbooks/RENDER_LOGS_ACCESS.md)** - How to access deployment logs and monitor the service
+
+**Critical Notes:**
+
+- ⚠️ **Cold Starts:** Production deployment on Render free tier sleeps after 15 minutes of inactivity. First request takes **20-30 seconds** to wake up. **Always wait patiently and retry.**
+- 📋 **Test Payloads:** Sample API requests are in `work/design-tool-refinement/test-*.json` - use these for testing
+- 🔍 **Health Check:** Before making API calls, verify the service is ready:
+  ```bash
+  # From tooling directory
+  cd ../../tooling
+  npm run health-check
+  # Polls with retry logic, handles cold starts automatically
+  ```
+
+**Production URL:**
+```
+https://was-orchestrator-apiapp-orchestrator-api.onrender.com
+```
+
+---
+
 ## 🚀 Quick Start
 
 ```bash
@@ -27,6 +56,24 @@ Server will start at `http://localhost:3001`
 ```bash
 GET /api/v1/health
 ```
+
+### Application Logs **NEW** ✨
+```bash
+GET /api/v1/logs
+GET /api/v1/logs?limit=50
+GET /api/v1/logs?level=ERROR
+GET /api/v1/logs/errors
+```
+
+Returns deployment information, runtime statistics, and recent application logs.
+
+**Response includes:**
+- Deployment version, git commit, branch
+- Uptime and memory usage
+- Recent logs with timestamps
+- Error counts and categories
+
+Perfect for monitoring deployment status and debugging issues.
 
 ### Get System Prompt
 ```bash
@@ -55,6 +102,7 @@ Content-Type: application/json
 
 ## 🧪 Testing with curl
 
+### Local Development (Fast)
 ```bash
 # Test health
 curl http://localhost:3001/api/v1/health
@@ -71,6 +119,34 @@ curl -X POST http://localhost:3001/api/v1/generate \
   -d '{"userInput": "A minimal blog"}' \
   | jq '.'
 ```
+
+### Production (Render.com - **PATIENT RETRY REQUIRED**)
+
+⚠️ **Important:** Production may take 20-30s for cold starts. Always use `--max-time` and be prepared to retry.
+
+```bash
+# Recommended: Use health-check script (handles retries automatically)
+cd ../../tooling
+npm run health-check
+
+# Manual health check (wait patiently for cold start)
+curl --max-time 60 \
+  https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/health
+
+# Text generation with test payload (uses pre-made test file)
+curl --max-time 120 -X POST \
+  https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/generate \
+  -H "Content-Type: application/json" \
+  -d @../../work/design-tool-refinement/test-generate.json
+
+# Image generation with test payload
+curl --max-time 120 -X POST \
+  https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/generate \
+  -H "Content-Type: application/json" \
+  -d @../../work/design-tool-refinement/test-with-image.json
+```
+
+**Pro tip:** If the first request times out or shows TLS errors, **wait and retry**. The service is likely doing a cold start.
 
 ## 📁 Project Structure
 

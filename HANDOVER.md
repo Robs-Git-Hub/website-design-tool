@@ -69,18 +69,21 @@ website-design-tool/
 
 ## 📖 **MUST READ FILES** (Start Here)
 
-**For Orientation:**
-1. **`docs/project-management/phases/phase_02_tooling.md`** - Current phase status, see Section 2.3 for backend API
-2. **`docs/project-management/TASKS.md`** - Task checklist with Task Group 2.5 (Backend API completion status)
-3. **`app/orchestrator-api/README.md`** - Backend API setup, endpoints, deployment instructions
+⚠️ **CRITICAL:** These documents are not optional. Read them BEFORE attempting to use the API or make assumptions about what's possible.
 
-**For Context:**
-4. **`docs/playbooks/PARALLEL_EXECUTION_PLAYBOOK.md`** - How human UI testing and Claude Code API testing work in parallel
-5. **`docs/playbooks/API_DESIGN_SPECIFICATION.md`** - Complete API reference with schemas
+**For Orientation:**
+1. **`app/orchestrator-api/README.md`** - ⚠️ **READ THIS FIRST!** Backend API setup, endpoints, deployment instructions, cold start warnings
+2. **`docs/project-management/phases/phase_02_tooling.md`** - Current phase status, see Section 2.3 for backend API
+3. **`docs/project-management/TASKS.md`** - Task checklist with Task Group 2.5 (Backend API completion status)
+
+**For API Usage (REQUIRED):**
+4. **`docs/playbooks/API_DESIGN_SPECIFICATION.md`** - ⚠️ **MUST READ!** Complete API reference with schemas, request/response formats
+5. **`docs/playbooks/PARALLEL_EXECUTION_PLAYBOOK.md`** - How human UI testing and Claude Code API testing work in parallel
+6. **`work/design-tool-refinement/test-*.json`** - ⚠️ **USE THESE!** Pre-made test payloads for API testing
 
 **For Quick Reference:**
-6. **`docs/reference/QUICK-REFERENCE-ENVIRONMENTS.md`** - Environment setup for local/browser/production
-7. **`docs/reference/ARCHITECTURE-AND-DEPLOYMENT-OPTIONS.md`** - Frontend/backend architecture rationale
+7. **`docs/reference/QUICK-REFERENCE-ENVIRONMENTS.md`** - Environment setup for local/browser/production
+8. **`docs/reference/ARCHITECTURE-AND-DEPLOYMENT-OPTIONS.md`** - Frontend/backend architecture rationale
 
 ---
 
@@ -282,17 +285,25 @@ npm run build && npm start  # Production mode
 
 **Test Backend API:**
 ```bash
+# Health check (production) - RECOMMENDED METHOD (handles cold starts)
+cd tooling
+npm run health-check
+# Waits patiently for cold starts (20-30s), retries automatically
+
+# Manual health check (production) - wait up to 60s for cold start
+curl --max-time 60 https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/health
+
 # Health check (local)
 curl http://localhost:3001/api/v1/health
 
-# Health check (production)
-curl https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/health
-
-# Generate bundle (with test payload)
-curl -X POST http://localhost:3001/api/v1/generate \
+# Generate bundle with test payload
+curl --max-time 120 -X POST \
+  https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/generate \
   -H "Content-Type: application/json" \
   -d @work/design-tool-refinement/test-generate.json
 ```
+
+⚠️ **Cold Start Warning:** Production sleeps after 15 min idle. First request takes 20-30 seconds. **Always wait and retry if needed.**
 
 **Git:**
 ```bash

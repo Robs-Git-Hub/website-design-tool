@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "intent_keywords": ["minimalist","clean","refined","white space","elegant"],
+    "reasoning_notes": "The design employs a distinctly minimalist approach with ample white space, refined typography, and an extremely restrained color palette. The composition prioritizes clarity and elegant simplicity."
+  },
+  "layer1_axes": {
+    "tone": "premium",
+    "lightness": "light",
+    "color_strategy": "monochrome",
+    "geometry_depth": {
+      "shape": "sharp",
+      "depth": "flat"
+    },
+    "density": "airy",
+    "decoration": "plain"
+  },
+  "layer2_styles": {
+    "minimalism": 0.9,
+    "swiss_style": 0.6
+  },
+  "layer3_lexicon": {
+    "visual_atmosphere": "clinical_sterile",
+    "typography_mechanics": "grotesque_sans",
+    "component_styling": "sharp_corner"
+  },
+  "layer4_trends": {
+    "quiet_luxury": 0.7
+  }
+}

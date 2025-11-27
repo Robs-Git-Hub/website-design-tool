@@ -1,13 +1,201 @@
 # Render Logs Access Guide
 
 **Date:** 2025-11-27
-**Status:** Documented with limitations
+**Status:** Fully Implemented
+
+---
+
+## ⭐ **RECOMMENDED: Custom Application Logs Endpoint**
+
+**The best way to monitor your deployed service is through the custom logs API endpoint.**
+
+### Quick Start
+
+```bash
+# Get deployment info, runtime stats, and recent logs
+curl https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/logs
+
+# Get only errors
+curl https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/logs/errors
+
+# Filter and limit
+curl https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/logs?limit=50&level=ERROR
+```
+
+### Why This Is Better
+
+| Custom /api/v1/logs | Render API |
+|---------------------|------------|
+| ✅ Direct HTTPS access | ⚠️ Requires `-k` flag in Claude Code |
+| ✅ Application-specific logs | 📋 Generic service logs |
+| ✅ Deployment version info | ❌ No version tracking |
+| ✅ Structured error tracking | ❌ Plain text logs |
+| ✅ Runtime statistics | ❌ No metrics |
+| ✅ Works everywhere | ⚠️ Environment-specific issues |
+
+### What You Get
+
+The `/api/v1/logs` endpoint returns:
+
+**Deployment Information:**
+- Current version number
+- Git commit and branch
+- Deployment timestamp
+- Environment (production/development)
+
+**Runtime Statistics:**
+- Uptime (seconds and human-readable)
+- Memory usage (heap, RSS)
+- Node.js version
+- Log counts by level (INFO, WARN, ERROR, DEBUG)
+
+**Application Logs:**
+- Startup events
+- All HTTP requests with status codes and timing
+- Bundle generation events (start, success, failure)
+- Error events with full context
+- Custom application events
+
+### Example Response
+
+```json
+{
+  "deployment": {
+    "version": "0.1.0",
+    "environment": "production",
+    "gitCommit": "dd23614...",
+    "gitBranch": "claude/setup-phase-2-environment...",
+    "deployedAt": "2025-11-27T14:00:00Z"
+  },
+  "runtime": {
+    "uptime": {
+      "seconds": 3600,
+      "readable": "1h 0m 0s"
+    },
+    "startTime": "2025-11-27T13:00:00Z",
+    "nodeVersion": "v18.x.x",
+    "platform": "linux"
+  },
+  "stats": {
+    "totalLogs": 245,
+    "byLevel": {
+      "INFO": 200,
+      "WARN": 5,
+      "ERROR": 2,
+      "DEBUG": 38
+    },
+    "memoryUsage": {
+      "heapUsed": "45 MB",
+      "heapTotal": "89 MB",
+      "rss": "120 MB"
+    }
+  },
+  "logs": [
+    {
+      "timestamp": "2025-11-27T14:30:00.123Z",
+      "level": "INFO",
+      "category": "startup",
+      "message": "WAS Orchestrator API v0.1.0 started",
+      "metadata": {
+        "version": "0.1.0",
+        "environment": "production",
+        "port": 3001,
+        "openRouterConfigured": true,
+        "gitCommit": "dd23614",
+        "nodeVersion": "v18.x.x"
+      }
+    },
+    {
+      "timestamp": "2025-11-27T14:31:05.456Z",
+      "level": "INFO",
+      "category": "generate",
+      "message": "Bundle generated successfully",
+      "metadata": {
+        "model": "anthropic/claude-3.5-sonnet",
+        "generationTime": 12034,
+        "hasImage": false
+      }
+    },
+    {
+      "timestamp": "2025-11-27T14:32:15.789Z",
+      "level": "ERROR",
+      "category": "generate",
+      "message": "Bundle generation failed",
+      "metadata": {
+        "error": "API rate limit exceeded",
+        "model": "anthropic/claude-3.5-sonnet",
+        "duration": 1523
+      }
+    }
+  ],
+  "filters": {
+    "applied": {
+      "limit": 100,
+      "level": "all",
+      "category": "all"
+    },
+    "available": {
+      "levels": ["INFO", "WARN", "ERROR", "DEBUG"],
+      "categories": ["startup", "request", "generate", "error-handler"]
+    }
+  }
+}
+```
+
+### Query Parameters
+
+```bash
+# Limit number of logs returned (default: 100)
+?limit=50
+
+# Filter by log level
+?level=ERROR
+?level=WARN
+?level=INFO
+
+# Filter by category
+?category=generate
+?category=request
+?category=startup
+```
+
+### Common Use Cases
+
+**Check deployment status:**
+```bash
+curl https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/logs \
+  | jq '.deployment'
+```
+
+**Monitor for errors:**
+```bash
+curl https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/logs/errors \
+  | jq '.errors'
+```
+
+**Check service health:**
+```bash
+curl https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/logs \
+  | jq '{version: .deployment.version, uptime: .runtime.uptime.readable, errors: .stats.byLevel.ERROR}'
+```
+
+**Recent generation activity:**
+```bash
+curl "https://was-orchestrator-apiapp-orchestrator-api.onrender.com/api/v1/logs?category=generate&limit=20" \
+  | jq '.logs'
+```
+
+---
+
+## 📡 Alternative: Render Management API
+
+*Note: The custom logs endpoint above is the recommended approach. The Render Management API is included here for completeness and advanced use cases.*
 
 ---
 
 ## 📋 Overview
 
-This document describes how to access Render deployment logs via the Render API, including authentication, endpoints, and discovered limitations in the Claude Code browser environment.
+This section describes how to access Render deployment metadata via the Render Management API, including authentication, endpoints, and discovered limitations in the Claude Code browser environment.
 
 ## 🔑 Authentication
 

@@ -8,6 +8,7 @@ import { OpenRouterService } from '../services/openrouter.js';
 import { promptLoader } from '../services/promptLoader.js';
 import { validateGenerateRequest } from '../middleware/validateRequest.js';
 import type { GenerateRequest, GenerateResponse } from '../types/was.js';
+import { logger } from '../services/logger.js';
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
     // Check if API key is configured
     const apiKey = process.env.OPENROUTER_API_KEY;
     if (!apiKey) {
+      logger.error('generate', 'OPENROUTER_API_KEY not configured');
       res.status(500).json({
         error: {
           code: 'CONFIGURATION_ERROR',
@@ -28,6 +30,12 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
       });
       return;
     }
+
+    logger.info('generate', 'Starting bundle generation', {
+      model: model || 'anthropic/claude-3.5-sonnet',
+      hasImage: !!image,
+      inputLength: userInput?.length || 0,
+    });
 
     // Load system prompt
     const systemPrompt = await promptLoader.getPrompt();
@@ -41,19 +49,34 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
       image,
     });
 
+    const generationTime = Date.now() - startTime;
     const response: GenerateResponse = {
       bundle,
-      generationTime: Date.now() - startTime,
+      generationTime,
       model: model || 'anthropic/claude-3.5-sonnet',
     };
 
+    logger.info('generate', 'Bundle generated successfully', {
+      model: model || 'anthropic/claude-3.5-sonnet',
+      generationTime,
+      hasImage: !!image,
+    });
+
     res.json(response);
   } catch (error) {
-    console.error('Generation error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Failed to generate bundle';
+
+    logger.error('generate', 'Bundle generation failed', {
+      error: errorMessage,
+      model: model || 'anthropic/claude-3.5-sonnet',
+      hasImage: !!image,
+      duration: Date.now() - startTime,
+    });
+
     res.status(500).json({
       error: {
         code: 'GENERATION_ERROR',
-        message: error instanceof Error ? error.message : 'Failed to generate bundle',
+        message: errorMessage,
       },
       timestamp: Date.now(),
     });

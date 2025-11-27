@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "intent_keywords": ["premium","dark-mode","glass","neon","saas","analytics","tron"],
+    "reasoning_notes": "Combining premium SaaS aesthetics (Stripe-like) with sci-fi futurism (Tron). Dark mode base with glass surfaces creates depth, while controlled neon accents maintain professionalism. High-end but functional."
+  },
+  "layer1_axes": {
+    "tone": "premium",
+    "lightness": "dark",
+    "color_strategy": "neutral_plus_accent",
+    "geometry_depth": {
+      "shape": "sharp",
+      "depth": "glass"
+    },
+    "density": "balanced",
+    "decoration": "subtle"
+  },
+  "layer2_styles": {
+    "glassmorphism": 0.8,
+    "retro_futurism": 0.4,
+    "minimalism": 0.3
+  },
+  "layer3_lexicon": {
+    "visual_atmosphere": "glass_and_glow",
+    "palette_trait": "neon_accents",
+    "surface_texture": "glass_panel",
+    "component_styling": "ghost_chrome",
+    "depth_technique": "diffuse_shadow",
+    "typography_mechanics": "mono_ui",
+    "motion_mechanics": "linear_instant"
+  },
+  "layer4_trends": {
+    "saas_2020_dark_mode": 0.9,
+    "crypto_nft_dash": 0.2
+  }
+}

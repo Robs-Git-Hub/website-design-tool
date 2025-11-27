@@ -13,6 +13,8 @@ import generateRouter from './routes/generate.js';
 import promptRouter from './routes/prompt.js';
 import modelsRouter from './routes/models.js';
 import healthRouter from './routes/health.js';
+import logsRouter from './routes/logs.js';
+import { logger } from './services/logger.js';
 
 // Load environment variables
 config();
@@ -39,9 +41,35 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '10mb' })); // Increased limit for image uploads
 
-// Request logging
+// Request logging middleware
 app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} ${req.method} ${req.path}`);
+  const start = Date.now();
+
+  // Log request
+  logger.debug('request', `${req.method} ${req.path}`, {
+    method: req.method,
+    path: req.path,
+    query: req.query,
+    ip: req.ip,
+  });
+
+  // Log response on finish
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    const level = res.statusCode >= 400 ? 'ERROR' : res.statusCode >= 300 ? 'WARN' : 'INFO';
+
+    logger[level.toLowerCase() as 'info' | 'warn' | 'error'](
+      'request',
+      `${req.method} ${req.path} ${res.statusCode} ${duration}ms`,
+      {
+        method: req.method,
+        path: req.path,
+        statusCode: res.statusCode,
+        duration,
+      }
+    );
+  });
+
   next();
 });
 
@@ -50,6 +78,7 @@ app.use('/api/v1/generate', generateRouter);
 app.use('/api/v1/prompt', promptRouter);
 app.use('/api/v1/models', modelsRouter);
 app.use('/api/v1/health', healthRouter);
+app.use('/api/v1/logs', logsRouter);
 
 // Root endpoint
 app.get('/', (req, res) => {
@@ -59,6 +88,7 @@ app.get('/', (req, res) => {
     environment: process.env.NODE_ENV || 'development',
     endpoints: {
       health: '/api/v1/health',
+      logs: '/api/v1/logs',
       generate: 'POST /api/v1/generate',
       prompt: 'GET /api/v1/prompt',
       models: 'GET /api/v1/models',
@@ -71,8 +101,24 @@ app.use(errorHandler);
 
 // Start server
 app.listen(PORT, () => {
+  const environment = process.env.NODE_ENV || 'development';
+  const openRouterConfigured = !!process.env.OPENROUTER_API_KEY;
+
+  // Log to stdout (for Render logs)
   console.log(`🚀 WAS Orchestrator API v${VERSION} running on http://localhost:${PORT}`);
-  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`🌍 Environment: ${environment}`);
   console.log(`📝 API Documentation: http://localhost:${PORT}/api/v1/health`);
-  console.log(`🔑 OpenRouter API Key: ${process.env.OPENROUTER_API_KEY ? '✓ Configured' : '✗ Missing'}`);
+  console.log(`📊 Logs Endpoint: http://localhost:${PORT}/api/v1/logs`);
+  console.log(`🔑 OpenRouter API Key: ${openRouterConfigured ? '✓ Configured' : '✗ Missing'}`);
+
+  // Log to application logger
+  logger.info('startup', `WAS Orchestrator API v${VERSION} started`, {
+    version: VERSION,
+    environment,
+    port: PORT,
+    openRouterConfigured,
+    gitCommit: process.env.RENDER_GIT_COMMIT || 'unknown',
+    gitBranch: process.env.RENDER_GIT_BRANCH || 'unknown',
+    nodeVersion: process.version,
+  });
 });
