@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { usePromptWatcher } from './hooks/usePromptWatcher';
-import { OpenRouterService } from './services/openrouter';
+import { apiService } from './services/api';
 import type { ImageData } from './services/openrouter';
 import { downloadBundle, saveBundleToHistory } from './utils/bundleSaver';
 import type { WASBundle } from './types/was';
@@ -33,7 +33,7 @@ function App() {
   const [showPrompt, setShowPrompt] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
-  const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY;
+  // API key is now handled by the backend
 
   // Process an image file (used by file input, drag-drop, and paste)
   const processImageFile = (file: File) => {
@@ -113,18 +113,8 @@ function App() {
   };
 
   const handleGenerate = async () => {
-    if (!apiKey) {
-      setError('Please set VITE_OPENROUTER_API_KEY in your .env file');
-      return;
-    }
-
     if (!userInput.trim() && !uploadedImage) {
       setError('Please enter a design description or upload a screenshot');
-      return;
-    }
-
-    if (!prompt) {
-      setError('System prompt not loaded yet');
       return;
     }
 
@@ -132,16 +122,14 @@ function App() {
     setError(null);
 
     try {
-      const service = new OpenRouterService(apiKey);
-      const bundle = await service.generateWASBundle({
-        systemPrompt: prompt,
+      const response = await apiService.generateBundle({
         userInput: userInput.trim(),
         model: selectedModel,
         image: uploadedImage ? { base64: uploadedImage.base64, mediaType: uploadedImage.mediaType } : undefined,
       });
 
-      setGeneratedBundle(bundle);
-      saveBundleToHistory(bundle);
+      setGeneratedBundle(response.bundle);
+      saveBundleToHistory(response.bundle);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to generate bundle');
     } finally {
@@ -299,12 +287,12 @@ function App() {
                 : "Describe your website aesthetic (e.g., 'A futuristic glass cockpit dashboard for AI analytics')"
             }
             rows={6}
-            disabled={generating || promptLoading}
+            disabled={generating}
           />
           <button
             className="generate-button"
             onClick={handleGenerate}
-            disabled={generating || promptLoading || !prompt || (!userInput.trim() && !uploadedImage)}
+            disabled={generating || (!userInput.trim() && !uploadedImage)}
           >
             {generating ? 'Generating...' : 'Generate WAS Bundle'}
           </button>
