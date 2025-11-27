@@ -67,6 +67,8 @@ export interface ModelInfo {
 
 export interface HealthResponse {
   status: 'healthy' | 'unhealthy';
+  version: string;
+  environment: string;
   uptime: number;
   openRouterConfigured: boolean;
 }
