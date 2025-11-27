@@ -5,15 +5,36 @@
  */
 
 import axios from 'axios';
-import type { WASBundle, ImageData } from '../types/was.js';
+import type { WASBundle, ImageData, ModelCapabilities } from '../types/was.js';
 
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+
+// Models that support structured JSON output
+const STRUCTURED_OUTPUT_MODELS = [
+  'openai/gpt-4',
+  'openai/gpt-4-turbo',
+  'openai/gpt-4o',
+  'openai/gpt-3.5-turbo',
+  'google/gemini-pro',
+  'google/gemini-1.5-pro',
+  'anthropic/claude-3.5-sonnet',
+  'anthropic/claude-3-opus',
+  'anthropic/claude-3-sonnet',
+  'anthropic/claude-3-haiku',
+];
 
 export interface GenerateOptions {
   systemPrompt: string;
   userInput: string;
   model?: string;
   image?: ImageData;
+}
+
+export interface LLMResponse {
+  bundle: WASBundle;
+  reasoning: string | null;
+  feedback: string | null;
+  modelCapabilities: ModelCapabilities;
 }
 
 export class OpenRouterService {
@@ -24,9 +45,18 @@ export class OpenRouterService {
   }
 
   /**
-   * Extract JSON from LLM response, handling various formats
+   * Detect if a model supports structured JSON output
    */
-  private extractJSON(content: string): WASBundle {
+  private getModelCapabilities(model: string): ModelCapabilities {
+    const supportsStructuredOutput = STRUCTURED_OUTPUT_MODELS.some(m => model.includes(m.split('/')[1]));
+    return { supportsStructuredOutput };
+  }
+
+  /**
+   * Extract JSON from LLM response, handling various formats
+   * Expects two-tier structure: {bundle, reasoning, feedback_optional}
+   */
+  private extractJSON(content: string): { bundle: WASBundle; reasoning: string | null; feedback: string | null } {
     let jsonStr = content.trim();
 
     // Remove markdown code blocks if present
@@ -43,7 +73,14 @@ export class OpenRouterService {
     jsonStr = jsonStr.substring(startIdx, endIdx + 1);
 
     try {
-      return JSON.parse(jsonStr);
+      const parsed = JSON.parse(jsonStr);
+
+      // Extract two-tier structure
+      return {
+        bundle: parsed.bundle || parsed, // Fall back to parsed if no bundle field (backwards compat)
+        reasoning: parsed.reasoning || null,
+        feedback: parsed.feedback_optional || null
+      };
     } catch (error) {
       console.error('Failed to parse JSON:', jsonStr);
       throw new Error(`Invalid JSON in response: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -53,8 +90,11 @@ export class OpenRouterService {
   /**
    * Generate a WAS bundle from user input
    */
-  async generateWASBundle(options: GenerateOptions): Promise<WASBundle> {
+  async generateWASBundle(options: GenerateOptions): Promise<LLMResponse> {
     const { systemPrompt, userInput, model = 'anthropic/claude-3.5-sonnet', image } = options;
+
+    // Get model capabilities
+    const modelCapabilities = this.getModelCapabilities(model);
 
     // Build message content
     const messageContent: any[] = [];
@@ -79,22 +119,30 @@ export class OpenRouterService {
       text: promptText
     });
 
+    // Build request body
+    const requestBody: any = {
+      model,
+      messages: [
+        {
+          role: 'system',
+          content: systemPrompt,
+        },
+        {
+          role: 'user',
+          content: messageContent.length === 1 ? messageContent[0].text : messageContent,
+        },
+      ],
+    };
+
+    // Add structured output mode if supported
+    if (modelCapabilities.supportsStructuredOutput) {
+      requestBody.response_format = { type: 'json_object' };
+    }
+
     try {
       const response = await axios.post(
         OPENROUTER_API_URL,
-        {
-          model,
-          messages: [
-            {
-              role: 'system',
-              content: systemPrompt,
-            },
-            {
-              role: 'user',
-              content: messageContent.length === 1 ? messageContent[0].text : messageContent,
-            },
-          ],
-        },
+        requestBody,
         {
           headers: {
             'Authorization': `Bearer ${this.apiKey}`,
@@ -108,9 +156,14 @@ export class OpenRouterService {
       const content = response.data.choices[0].message.content;
 
       // Extract JSON from the response (handle markdown, extra text, etc.)
-      const bundle = this.extractJSON(content);
+      const { bundle, reasoning, feedback } = this.extractJSON(content);
 
-      return bundle as WASBundle;
+      return {
+        bundle,
+        reasoning,
+        feedback,
+        modelCapabilities
+      };
     } catch (error) {
       if (axios.isAxiosError(error)) {
         throw new Error(
