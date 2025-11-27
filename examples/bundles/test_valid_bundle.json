@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "bundle_id": "test_valid_bundle_001",
+    "created_at": "2025-11-27T12:00:00Z",
+    "intent_summary": "A minimal, professional SaaS dashboard with a dark theme and modern aesthetics.",
+    "intent_keywords": ["dashboard", "analytics", "data-driven"]
+  },
+  "layer1_axes": {
+    "tone": "serious",
+    "lightness": "dark",
+    "color_strategy": "neutral_plus_accent",
+    "density": "balanced",
+    "decoration": "subtle",
+    "geometry_depth": {
+      "shape": "slightly_rounded",
+      "depth": "soft_shadow"
+    }
+  },
+  "layer2_styles": {
+    "minimalism": 0.8,
+    "glassmorphism": 0.3
+  },
+  "layer3_lexicon": {
+    "visual_atmosphere": "glass_and_glow",
+    "palette_trait": "pastel_palette",
+    "typography_mechanics": "mono_ui"
+  },
+  "layer4_trends": {
+    "subculture": "dark_academia"
+  }
+}
