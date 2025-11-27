@@ -5,6 +5,9 @@
 import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import { errorHandler } from './middleware/errorHandler.js';
 import generateRouter from './routes/generate.js';
 import promptRouter from './routes/prompt.js';
@@ -13,6 +16,12 @@ import healthRouter from './routes/health.js';
 
 // Load environment variables
 config();
+
+// Get version from package.json
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const packageJson = JSON.parse(readFileSync(join(__dirname, '../package.json'), 'utf-8'));
+const VERSION = packageJson.version;
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -46,7 +55,8 @@ app.use('/api/v1/health', healthRouter);
 app.get('/', (req, res) => {
   res.json({
     name: 'WAS Orchestrator API',
-    version: '1.0.0',
+    version: VERSION,
+    environment: process.env.NODE_ENV || 'development',
     endpoints: {
       health: '/api/v1/health',
       generate: 'POST /api/v1/generate',
@@ -61,7 +71,8 @@ app.use(errorHandler);
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 WAS Orchestrator API running on http://localhost:${PORT}`);
+  console.log(`🚀 WAS Orchestrator API v${VERSION} running on http://localhost:${PORT}`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`📝 API Documentation: http://localhost:${PORT}/api/v1/health`);
   console.log(`🔑 OpenRouter API Key: ${process.env.OPENROUTER_API_KEY ? '✓ Configured' : '✗ Missing'}`);
 });

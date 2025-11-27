@@ -1,6 +1,6 @@
 {
   "name": "orchestrator-api",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Backend API for WAS Orchestrator",
   "main": "dist/index.js",
   "type": "module",

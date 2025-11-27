@@ -96,11 +96,14 @@
 
 **Reference:** See [Phase 02 Plan](phases/phase_02_tooling.md) for high-level milestones.
 
-**🔄 CURRENT STATUS (2025-11-26):**
+**🔄 CURRENT STATUS (2025-11-27):**
 - [x] TypeScript environment setup
 - [x] Prompt generator (one-click schema sync + validation + descriptions)
 - [x] ~~Claude Artifact playground prototype~~ → Built full Orchestrator UI instead
 - [x] **NEW:** WAS Orchestrator UI (Vite + React + OpenRouter integration)
+- [x] **NEW:** WAS Orchestrator API Backend (Express + TypeScript, deployed to Render.com)
+- [x] **NEW:** Version tracking (v0.1.0) and deployment monitoring
+- [x] **NEW:** Backend API testing (text generation, image upload, multimodal analysis)
 - [ ] **BLOCKER:** Bundle validator (Zod schemas) - Required for Phase 03
 - [ ] **WAITING:** Example shots creation - ROB TO PROVIDE INPUT DATA
 - [ ] Option D schema generation (dynamic schema) - Deferred
@@ -148,6 +151,44 @@
     *   [ ] **[ROB]** Provide 3-5 raw design ideas in `prompts/example_shots_template.md`.
     *   [ ] Process examples through artifact, generate "gold standard" bundles.
     *   [ ] Document as few-shot learning examples.
+
+## Task Group 2.5: WAS Orchestrator API Backend - Milestone 2.3 ✅ **COMPLETE**
+
+*   [x] **Architecture Decision:**
+    *   [x] Research Claude Code browser network restrictions (openrouter.ai blocked).
+    *   [x] Design API-first architecture (backend stores API keys, frontend calls backend).
+    *   [x] Document security rationale and parallel testing benefits.
+*   [x] **Backend Implementation:**
+    *   [x] Set up Express + TypeScript backend (`app/orchestrator-api/`).
+    *   [x] Implement REST API endpoints (`/api/v1/generate`, `/api/v1/health`, `/api/v1/prompt`, `/api/v1/models`).
+    *   [x] Integrate OpenRouter API for multi-model support.
+    *   [x] Add image upload support (base64 encoding).
+    *   [x] Implement error handling and request validation middleware.
+    *   [x] Add CORS configuration for frontend integration.
+*   [x] **Version Tracking:**
+    *   [x] Add version field to `package.json` (v0.1.0).
+    *   [x] Load version dynamically from package.json in server startup.
+    *   [x] Include version in health check response and logs.
+*   [x] **Deployment to Render.com:**
+    *   [x] Configure Render deployment settings (build command: `npm install --include=dev && npm run build`).
+    *   [x] Set environment variables (OPENROUTER_API_KEY, ALLOWED_ORIGINS).
+    *   [x] Deploy to Render.com free tier with auto-deploy on branch push.
+    *   [x] Verify deployment URL: https://was-orchestrator-apiapp-orchestrator-api.onrender.com
+*   [x] **Frontend Integration:**
+    *   [x] Update Orchestrator UI to call backend API instead of OpenRouter directly.
+    *   [x] Remove frontend API key requirement (security improvement).
+*   [x] **Testing & Validation:**
+    *   [x] Test health endpoint (version, uptime, OpenRouter config status).
+    *   [x] Test text-based generation (Example 1: SaaS dashboard prompt).
+    *   [x] Test image upload with multimodal analysis (base64 PNG).
+    *   [x] Verify curl-based testing from Claude Code browser environment.
+    *   [x] Confirm parallel testing capability (human tests UI, AI tests backend API).
+*   [x] **Documentation:**
+    *   [x] Write comprehensive README with setup and deployment instructions.
+    *   [x] Document API endpoints and request/response formats.
+    *   [x] Add architecture diagrams showing frontend-backend-OpenRouter flow.
+    *   [x] Update Phase 02 plan to reflect backend API completion.
+    *   [x] Record correct Render build command in documentation.
 
 ## Task Group 3: Testing & Validation
 

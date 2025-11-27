@@ -142,11 +142,83 @@ npm start
 **Issue:** CORS errors in browser
 - **Solution:** Add your frontend URL to `ALLOWED_ORIGINS` in `.env`
 
+## ☁️ Deploying to Render
+
+### Quick Deploy Steps
+
+1. **Create Render Account**
+   - Go to https://render.com
+   - Sign up with GitHub (easiest)
+
+2. **Create New Web Service**
+   - Click **"New +"** → **"Web Service"**
+   - Connect repository: `Robs-Git-Hub/website-design-tool`
+   - Configure:
+     - **Name:** `was-orchestrator-api`
+     - **Branch:** `claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG` ⚠️ **Use working branch, not main**
+     - **Root Directory:** `app/orchestrator-api`
+     - **Runtime:** Node
+     - **Build Command:** `npm install --include=dev && npm run build` ⚠️ **Critical: --include=dev installs TypeScript types**
+     - **Start Command:** `npm start`
+     - **Instance Type:** Free
+
+3. **Add Environment Variables**
+   ```
+   OPENROUTER_API_KEY=sk-or-v1-your-actual-key
+   NODE_ENV=production
+   PORT=3001
+   ```
+
+4. **Deploy**
+   - Click **"Create Web Service"**
+   - Wait 2-5 minutes for build
+   - Look for: "🚀 WAS Orchestrator API v0.1.0 running..."
+
+5. **Verify Deployment**
+   ```bash
+   curl https://your-app.onrender.com/api/v1/health
+   ```
+
+   Should return:
+   ```json
+   {
+     "status": "healthy",
+     "version": "0.1.0",
+     "environment": "production",
+     "uptime": 12345,
+     "openRouterConfigured": true
+   }
+   ```
+
+### Important Notes
+
+- ⚠️ **Auto-Deploy Branch:** Set branch to `claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG` not `main` for Claude Code auto-deploy
+- ⚠️ **Build Command:** Must be `npm install --include=dev && npm run build` (Render skips devDependencies by default; --include=dev installs @types/* packages needed for TypeScript compilation)
+- 💤 **Free Tier Sleep:** Service sleeps after 15 min inactivity (30s cold start)
+- 📊 **Monitor Logs:** Render dashboard shows real-time logs with version info
+- 🔄 **Auto-Deploy:** Pushes to configured branch trigger automatic redeployment
+
+### Checking Deployed Version
+
+The startup logs will show:
+```
+🚀 WAS Orchestrator API v0.1.0 running on http://localhost:3001
+🌍 Environment: production
+📝 API Documentation: http://localhost:3001/api/v1/health
+🔑 OpenRouter API Key: ✓ Configured
+```
+
+Root endpoint also displays version:
+```bash
+curl https://your-app.onrender.com/
+```
+
 ## 🔗 Related Documentation
 
 - [API Design Specification](../../docs/api-design.md)
 - [Parallel Execution Playbook](../../docs/PARALLEL-EXECUTION-PLAYBOOK.md)
 - [Frontend Integration Guide](../orchestrator-ui/README.md)
+- [Architecture & Deployment Options](../../docs/ARCHITECTURE-AND-DEPLOYMENT-OPTIONS.md)
 
 ## 📄 License
 
