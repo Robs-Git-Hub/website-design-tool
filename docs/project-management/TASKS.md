@@ -231,6 +231,52 @@
     *   [x] Update Phase 02 plan to reflect backend API completion.
     *   [x] Record correct Render build command in documentation.
 
+## Task Group 2.7: Bundle Schema Compliance & Validation Refinement - Milestone 2.4 🔄 **IN PROGRESS**
+
+**Goal:** Fix schema violations discovered by validator, implement robust validation with retry logic, and ensure LLM generates compliant bundles.
+
+*   [ ] **Schema Updates:**
+    *   [ ] Update `schema/site_bundle_schema.toml` - Change Layer 4 from string to float (weights 0.0-1.0).
+    *   [ ] Document `bundle_id` and `created_at` as programmatically injected (not LLM-generated).
+    *   [ ] Update validator Zod schemas to match Layer 4 float format.
+    *   [ ] Add error type distinction in validator (JSON structure vs WAS schema violations).
+*   [ ] **System Prompt Updates:**
+    *   [ ] Remove `bundle_id` and `created_at` from LLM output format (reduce cognitive load).
+    *   [ ] Update Layer 4 example to show weights (like Layer 2).
+    *   [ ] Add two-tier response structure: `{bundle, reasoning, feedback_optional}`.
+    *   [ ] Document escape hatch (`feedback_optional`) for LLM to flag ambiguous input.
+    *   [ ] Update field requirements documentation.
+*   [ ] **OpenRouter Service Enhancements:**
+    *   [ ] Add model capability detection (which models support structured output).
+    *   [ ] Enable `response_format: {type: "json_object"}` for all models.
+    *   [ ] Update return type to include `{bundle, reasoning, feedback, modelCapabilities}`.
+    *   [ ] Research OpenRouter model structured output support (GPT-4, Claude, Gemini, etc.).
+*   [ ] **Metadata Injection (Programmatic):**
+    *   [ ] Add `bundle_id` generation in generate route (after LLM call, before validation).
+    *   [ ] Add `created_at` timestamp injection (ISO-8601 format).
+    *   [ ] Ensure metadata is injected BEFORE validation runs.
+*   [ ] **Retry Logic with Error Feedback:**
+    *   [ ] Implement 3-attempt strategy: (1) Initial → (2) Vanilla retry → (3) Retry with error feedback.
+    *   [ ] Create error formatter to distinguish JSON structure errors vs WAS schema violations.
+    *   [ ] Append explicit, unambiguous error messages to prompt for attempt 3.
+    *   [ ] Log feedback when LLM uses `feedback_optional` field.
+    *   [ ] Log validation failures after 3 attempts (likely prompt/schema issue).
+*   [ ] **Type Updates:**
+    *   [ ] Update `GenerateResponse` to include validation, reasoning, feedback, capabilities, attempts.
+    *   [ ] Create `ValidationError` type with error type distinction.
+    *   [ ] Update `WASBundle` type if needed for Layer 4 changes.
+*   [ ] **Testing & Validation:**
+    *   [ ] Test with valid input (should pass on attempt 1).
+    *   [ ] Test with intentionally invalid input (should retry and fix).
+    *   [ ] Verify programmatic metadata injection works.
+    *   [ ] Verify error feedback messages are clear and actionable.
+    *   [ ] Test across multiple models (Claude, GPT-4, etc.).
+    *   [ ] Validate that Layer 4 now accepts floats.
+*   [ ] **Documentation:**
+    *   [ ] Update API documentation with new response structure.
+    *   [ ] Document retry logic and error handling.
+    *   [ ] Update schema documentation for Layer 4 weights.
+
 ## Task Group 3: Testing & Validation
 
 *   [ ] **Manual Testing:**

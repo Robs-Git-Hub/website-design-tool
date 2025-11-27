@@ -89,37 +89,42 @@ function readToml(path: string): any {
 function generateBundleSchema(): string {
   return `\`\`\`json
 {
-  "meta": {
-    "intent_keywords": ["keyword1", "keyword2"],
-    "reasoning_notes": "Brief explanation of your interpretation"
-  },
-  "layer1_axes": {
-    "tone": "neutral",
-    "lightness": "dark",
-    "color_strategy": "neutral_plus_accent",
-    "geometry_depth": {
-      "shape": "rounded",
-      "depth": "soft_shadow"
+  "bundle": {
+    "meta": {
+      "intent_summary": "A premium dark-mode dashboard with glassmorphic elements and subtle neon accents",
+      "intent_keywords": ["premium", "dark", "glass", "tech", "dashboard"]
     },
-    "density": "balanced",
-    "decoration": "subtle"
+    "layer1_axes": {
+      "tone": "serious",
+      "lightness": "dark",
+      "color_strategy": "neutral_plus_accent",
+      "geometry_depth": {
+        "shape": "sharp",
+        "depth": "glass"
+      },
+      "density": "balanced",
+      "decoration": "subtle"
+    },
+    "layer2_styles": {
+      "glassmorphism": 0.8,
+      "minimalism": 0.4
+    },
+    "layer3_lexicon": {
+      "visual_atmosphere": "glass_and_glow",
+      "palette_trait": "neon_accents",
+      "surface_texture": "glass_panel",
+      "component_styling": "ghost_chrome",
+      "depth_technique": "diffuse_shadow",
+      "typography_mechanics": "grotesque_sans",
+      "motion_mechanics": "linear_instant"
+    },
+    "layer4_trends": {
+      "saas_2020_dark_mode": 0.9,
+      "crypto_nft_dash": 0.2
+    }
   },
-  "layer2_styles": {
-    "glassmorphism": 0.8,
-    "minimalism": 0.4
-  },
-  "layer3_lexicon": {
-    "visual_atmosphere": "glass_and_glow",
-    "palette_trait": "neon_accents",
-    "surface_texture": "glass_panel",
-    "component_styling": "ghost_chrome",
-    "depth_technique": "diffuse_shadow",
-    "typography_mechanics": "grotesque_sans",
-    "motion_mechanics": "springy_motion"
-  },
-  "layer4_trends": {
-    "saas_2020_dark_mode": 0.7
-  }
+  "reasoning": "I chose dark mode with glassmorphism because the input requested a 'premium tech dashboard.' The glass effects create depth while maintaining a professional aesthetic. Sharp geometry and subtle neon accents reinforce the futuristic tech vibe without being overwhelming.",
+  "feedback_optional": "Input mentioned both 'minimal' and 'rich' which are somewhat contradictory - I prioritized minimal with selective richness in glass effects."
 }
 \`\`\``;
 }

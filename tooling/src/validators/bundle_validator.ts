@@ -28,10 +28,10 @@ const __dirname = path.dirname(__filename);
 // ============================================================================
 
 const metaSchema = z.object({
-  bundle_id: z.string().min(1, 'bundle_id is required'),
-  created_at: z.string().datetime('Invalid ISO-8601 datetime'),
+  bundle_id: z.string().optional(), // Programmatically injected by API
+  created_at: z.string().optional(), // Programmatically injected by API
   intent_summary: z.string().min(1, 'intent_summary is required'),
-  intent_keywords: z.array(z.string()).optional().default([])
+  intent_keywords: z.array(z.string()).min(1, 'intent_keywords must have at least 1 keyword')
 });
 
 const layer1GeometryDepthSchema = z.object({
@@ -61,7 +61,7 @@ const layer3LexiconSchema = z.object({
   illustration_style: z.string().optional()
 });
 
-const layer4TrendsSchema = z.record(z.string(), z.string());
+const layer4TrendsSchema = z.record(z.string(), z.number().min(0).max(1)); // Weights 0.0-1.0 (like layer2_styles)
 
 const wasBundleSchema = z.object({
   meta: metaSchema,

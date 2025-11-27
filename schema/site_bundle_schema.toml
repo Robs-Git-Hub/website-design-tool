@@ -20,8 +20,10 @@ description = "The Master Schema for the Vibe Spec."
 
 ## 1. THE META BLOCK (The Identity & Wildcards)
 [bundle_schema.meta]
-bundle_id = "string" # Unique ID (e.g., "bundle_project_alpha_v1")
-created_at = "datetime" # ISO-8601
+# NOTE: bundle_id and created_at are PROGRAMMATICALLY INJECTED by the API.
+# The LLM does NOT generate these fields - they are added after generation.
+bundle_id = "string" # Unique ID (e.g., "bundle_project_alpha_v1") [PROGRAMMATIC]
+created_at = "datetime" # ISO-8601 [PROGRAMMATIC]
 intent_summary = "string" # Natural language summary of the design strategy.
 
 # THE WILDCARD FIELD ("The Teddy Bear Slot")
@@ -67,7 +69,8 @@ motion_mechanics = "string" # e.g., "linear_instant" (Physics personality)
 illustration_style = "string" # e.g., "isometric_3d" (Art direction)
 
 ### Layer 4: Context (The Culture)
-# Societal trends or archetypes.
+# Societal trends or archetypes that influence the aesthetic.
 # Keys must exist in layer4_societal_trends_instances.toml.
+# Values are weights (0.0 - 1.0) indicating strength of influence.
 [bundle_schema.layer4_trends]
-_trend_id = "string" # e.g., subculture = "dark_academia"
+_trend_id = "float" # e.g., saas_2020_dark_mode = 0.9, crypto_nft_dash = 0.2
