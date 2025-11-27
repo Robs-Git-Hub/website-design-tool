@@ -1,0 +1,1 @@
+The website has a calm green color scheme, giving it an eco-friendly or professional consulting vibe. The sections cover team introductions, services, testimonials, blog posts, FAQs, and a header, all presented in simple, spacious layouts. Overall it feels trustworthy, corporate, and people-focused, with friendly photos and straightforward content blocks.
