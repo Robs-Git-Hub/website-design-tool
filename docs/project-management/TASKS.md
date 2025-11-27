@@ -96,17 +96,21 @@
 
 **Reference:** See [Phase 02 Plan](phases/phase_02_tooling.md) for high-level milestones.
 
-**🔄 CURRENT STATUS (2025-11-27):**
+**✅ PHASE 02 COMPLETE (2025-11-27):**
 - [x] TypeScript environment setup
 - [x] Prompt generator (one-click schema sync + validation + descriptions)
 - [x] ~~Claude Artifact playground prototype~~ → Built full Orchestrator UI instead
-- [x] **NEW:** WAS Orchestrator UI (Vite + React + OpenRouter integration)
-- [x] **NEW:** WAS Orchestrator API Backend (Express + TypeScript, deployed to Render.com)
-- [x] **NEW:** Version tracking (v0.1.0) and deployment monitoring
-- [x] **NEW:** Backend API testing (text generation, image upload, multimodal analysis)
-- [ ] **BLOCKER:** Bundle validator (Zod schemas) - Required for Phase 03
+- [x] WAS Orchestrator UI (Vite + React + Backend API integration)
+- [x] WAS Orchestrator API Backend (Express + TypeScript, deployed to Render.com)
+- [x] Version tracking (v0.1.0) and deployment monitoring
+- [x] Backend API testing (text generation, image upload, multimodal analysis)
+- [x] **COMPLETE:** Bundle validator (Zod schemas, ID validation, enum checks, range checks)
+- [x] **COMPLETE:** TOML/JSON converters (bidirectional, round-trip tested)
+- [x] **COMPLETE:** Application logging system with HTTP endpoint
+- [x] **COMPLETE:** Health check utility with exponential backoff
+- [x] **COMPLETE:** Render logs access (custom endpoint preferred)
 - [ ] **WAITING:** Example shots creation - ROB TO PROVIDE INPUT DATA
-- [ ] Option D schema generation (dynamic schema) - Deferred
+- [ ] **DEFERRED:** Option D schema generation (dynamic schema)
 
 ---
 
@@ -128,13 +132,16 @@
     *   [x] Delete `/registries` directory and all registry TOML files.
     *   [x] Update documentation to clarify instances are the canonical source.
     *   [x] Update schema comments and validation docs to remove registry references.
-*   [ ] **Implement Converters:**
-    *   [ ] `toml_to_json`: Parse TOML bundles to JSON.
-    *   [ ] `json_to_toml`: Serialize JSON bundles to TOML.
-*   [ ] **Implement Validator (`bundle_validator.ts`):**
-    *   [ ] Define Zod schemas matching `site_bundle_schema.toml`.
-    *   [ ] Implement Registry lookups (validate style/lexicon IDs exist).
-    *   [ ] Implement Logic Checks (e.g., all L1 axes required, valid enum values).
+*   [x] **Implement Converters:** ✅ **COMPLETE**
+    *   [x] `toml_to_json`: Parse TOML bundles to JSON.
+    *   [x] `json_to_toml`: Serialize JSON bundles to TOML.
+    *   [x] Round-trip tested (TOML → JSON → TOML = identical).
+*   [x] **Implement Validator (`bundle_validator.ts`):** ✅ **COMPLETE**
+    *   [x] Define Zod schemas matching `site_bundle_schema.toml`.
+    *   [x] Implement Registry lookups (validate style/lexicon IDs exist).
+    *   [x] Implement Logic Checks (all L1 axes required, valid enum values, weight ranges).
+    *   [x] Tested with valid and invalid bundles.
+    *   [x] Discovered real bugs in production bundles (missing meta fields, Layer 4 format).
 
 ## Task Group 2: The Aesthetic Playground (Claude Artifact) - Milestone 2.2
 
@@ -152,7 +159,41 @@
     *   [ ] Process examples through artifact, generate "gold standard" bundles.
     *   [ ] Document as few-shot learning examples.
 
-## Task Group 2.5: WAS Orchestrator API Backend - Milestone 2.3 ✅ **COMPLETE**
+## Task Group 2.5: Monitoring & Logging Infrastructure - Milestone 2.3.5 ✅ **COMPLETE**
+
+*   [x] **Application Logging System:**
+    *   [x] Create structured logger service with in-memory circular buffer (1000 logs).
+    *   [x] Implement log levels (INFO, WARN, ERROR, DEBUG) and categories.
+    *   [x] Add metadata tracking for all log entries.
+    *   [x] Dual output: stdout (for Render) and in-memory (for API queries).
+*   [x] **Logs API Endpoint:**
+    *   [x] Implement `GET /api/v1/logs` with filtering (limit, level, category).
+    *   [x] Return deployment info (version, git commit, branch, deploy time).
+    *   [x] Return runtime stats (uptime, memory usage, log counts).
+    *   [x] Add convenience endpoint `/api/v1/logs/errors`.
+*   [x] **Application Integration:**
+    *   [x] Add request logging middleware (method, path, status, duration).
+    *   [x] Add startup logging with environment details.
+    *   [x] Add generation event logging (start, success, failure with timing).
+    *   [x] Add error handler logging with full context.
+*   [x] **Health Check Utility:**
+    *   [x] Create health check script with exponential backoff retry logic.
+    *   [x] Handle cold starts patiently (up to 12 retries, 5s-30s delays).
+    *   [x] Add npm script: `npm run health-check`.
+*   [x] **Render Logs Access:**
+    *   [x] Research Render Management API capabilities.
+    *   [x] Create utility script for accessing Render service metadata.
+    *   [x] Document TLS workarounds (development only).
+    *   [x] Document custom `/api/v1/logs` endpoint as recommended approach.
+*   [x] **Testing & Documentation:**
+    *   [x] Test logs endpoint in production deployment.
+    *   [x] Verify deployment tracking (version, git info).
+    *   [x] Verify request logging with accurate timing.
+    *   [x] Verify generation event tracking.
+    *   [x] Create comprehensive documentation in `RENDER_LOGS_ACCESS.md`.
+    *   [x] Update API README with logs endpoint info.
+
+## Task Group 2.6: WAS Orchestrator API Backend - Milestone 2.3 ✅ **COMPLETE**
 
 *   [x] **Architecture Decision:**
     *   [x] Research Claude Code browser network restrictions (openrouter.ai blocked).
