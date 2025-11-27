@@ -1,8 +1,8 @@
 # Session Handover Document
 
 **Date:** 2025-11-27
-**Branch:** `claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG`
-**Status:** Phase 02 near complete (validator + converters remain)
+**Branch:** `claude/setup-phase-2-environment-014bjQf8i53ugjSyxDBzFb7X`
+**Status:** ✅ Phase 02 COMPLETE (all tasks finished, tested in production)
 
 ---
 
@@ -87,7 +87,7 @@ website-design-tool/
 
 ---
 
-## ✅ What's Complete (Phase 02)
+## ✅ What's Complete (Phase 02) - 100% DONE
 
 ### 1. Prompt Generator ✅
 **Location:** `tooling/src/generators/generate_prompt.ts`
@@ -154,97 +154,122 @@ website-design-tool/
 - **Environment:** `OPENROUTER_API_KEY`, `NODE_ENV`, `PORT`
 - **Note:** Free tier sleeps after 15 min inactivity (30s cold start)
 
-### 4. Documentation ✅
-- Phase 02 updated with backend API section (2.3)
-- TASKS.md includes Task Group 2.5 (Backend API complete)
+### 4. Bundle Validator ✅ **NEW**
+**Location:** `tooling/src/validators/bundle_validator.ts`
+
+- Zod schemas matching `site_bundle_schema.toml`
+- Structure validation (required fields, correct types)
+- ID validation (style/lexicon/trend IDs exist in TOML instances)
+- Enum validation for Layer 1 axes (including compound dimensions)
+- Range validation for weights (0.0-1.0)
+- Detailed error reporting with field paths
+
+**Run with:** `npm run validate-bundle <file.json>` (from `tooling/` directory)
+
+**Tested:**
+- ✅ Valid bundle passes all checks
+- ✅ Invalid bundle reports 7+ specific errors
+- ✅ Caught real bugs in production bundles (missing meta fields, Layer 4 schema mismatch)
+
+### 5. TOML/JSON Converters ✅ **NEW**
+**Location:** `tooling/src/converters/`
+
+- `toml_to_json.ts` - Parse TOML bundles → JSON
+- `json_to_toml.ts` - Serialize JSON bundles → TOML
+- Simple wrappers around `@iarna/toml` package
+- Round-trip tested (TOML → JSON → TOML = identical)
+
+**Run with:**
+- `npm run convert:toml-to-json <input> [output]`
+- `npm run convert:json-to-toml <input> [output]`
+
+### 6. Application Logging System ✅ **NEW**
+**Location:** `app/orchestrator-api/src/services/logger.ts`
+
+**Features:**
+- In-memory circular buffer (last 1000 logs)
+- Structured logging with categories (startup, request, generate, error-handler)
+- Log levels (INFO, WARN, ERROR, DEBUG)
+- Metadata tracking with every log entry
+- Dual output: stdout (for Render) + in-memory (for API)
+- Runtime statistics (uptime, memory usage, log counts)
+
+**API Endpoint:** `GET /api/v1/logs`
+- Returns deployment info (version, git commit, branch, deploy time)
+- Returns runtime stats (uptime, memory, log counts)
+- Returns recent logs with filtering (?limit, ?level, ?category)
+- Convenience endpoint: `/api/v1/logs/errors`
+
+**Tested in Production:**
+- ✅ Deployment tracking working (shows v0.1.0, git commit dd23614)
+- ✅ Request logging with timing (all requests tracked)
+- ✅ Generation logging (start, success, duration ~19-20s)
+- ✅ Error tracking (0 errors = healthy system)
+- ✅ Memory monitoring (12 MB heap, 74 MB RSS)
+
+### 7. Health Check Utility ✅ **NEW**
+**Location:** `tooling/src/utils/health-check.ts`
+
+- Exponential backoff retry logic (5s → 30s delays, 12 retries max)
+- Patient waiting for cold starts
+- Uses curl (proven to work in Claude Code environment)
+
+**Run with:** `npm run health-check` (from `tooling/` directory)
+
+**Why it exists:** Prevents premature failure assumptions when testing production API with cold starts.
+
+### 8. Render Logs Access Tool 🔧 **DEV ONLY**
+**Location:** `tooling/src/utils/render-logs.ts`
+
+- Access Render Management API for service metadata
+- Uses `curl -k` (TLS workaround for development)
+- Prominently documented as development-only tool
+- **Recommended approach:** Use custom `/api/v1/logs` endpoint instead
+
+### 9. Documentation ✅
+- Phase 02 updated (100% complete status)
+- TASKS.md updated (all Task Groups marked complete)
+- LESSONS_LEARNED.md created (captures session insights)
 - Deployment guides (Render setup, build commands)
 - Architecture documentation (frontend/backend separation)
 - API specification (endpoints, schemas)
 - Parallel execution playbook
+- Render logs access guide (custom endpoint recommended)
+- Comprehensive logging documentation
 
 ---
 
-## 📋 **TASKS FOR NEXT SESSION**
+## 📋 **TASKS FOR NEXT SESSION - PHASE 3 READY**
 
-### Task 1: Check Render Logs via API ⚙️
-**Goal:** Verify we can programmatically access Render deployment logs
+### ✅ Phase 2 Complete - All Tasks Done
 
-**Why:** Enables automated deployment verification and debugging
+**Completed in this session:**
+1. ✅ Render logs access via custom `/api/v1/logs` endpoint (tested in production)
+2. ✅ Bundle validator with comprehensive Zod schemas (validated production bundles)
+3. ✅ TOML/JSON converters (round-trip tested)
 
-**Steps:**
-1. Research Render API documentation for log access
-2. Test API authentication (Render API key may be needed)
-3. Write simple script to fetch recent logs
-4. Verify we can see version info and startup messages
-5. Document findings in `app/orchestrator-api/README.md`
-
-**Resources:**
-- Render API docs: https://api-docs.render.com/
-- Deployment URL: https://was-orchestrator-apiapp-orchestrator-api.onrender.com
+**Phase 2 is now 100% complete and ready for Phase 3!**
 
 ---
 
-### Task 2: Bundle Validator 🔴 **CRITICAL BLOCKER**
-**Location:** `tooling/src/validators/bundle_validator.ts` (to be created)
+### 🚀 Recommended Next Steps: Phase 3 - The Second Link
 
-**Why it's critical:** Phase 03 translates WAS bundles → industry specs (theme.json, blueprints). We need to ensure bundles are valid before translation.
+Phase 3 translates WAS bundles into industry-standard specifications. See `docs/project-management/phases/phase_03_the_second_link.md` for details.
 
-**What it needs:**
-1. **Zod schemas** matching `site_bundle_schema.toml` structure
-2. **ID validation** - Check style/lexicon/trend IDs exist in TOML instances
-3. **Enum validation** - Check L1 axis values are valid
-4. **Range validation** - Check weights are 0.0-1.0
-5. **Structure validation** - Check required fields present
+**Track A: Theme Translation (theme.json)**
+- Define translation prompt to convert WAS Layer 3 visual traits → W3C Design Tokens
+- Build theme generator that outputs `theme.json` / Tailwind config
+- Test determinism (same bundle → same theme across runs)
 
-**Implementation approach:**
-- Define Zod schemas for WASBundle type
-- Load TOML instances to build lookup maps (valid IDs)
-- Create validation function that returns detailed errors
-- Add CLI command: `npm run validate-bundle <file.json>`
-- Write tests with known good/bad bundles from `data/output/`
+**Track B: Layout Blueprint**
+- Research DivKit, Beagle, Relume structures
+- Define blueprint schema for component layouts
+- Build layout generator from WAS context
 
-**Dependencies:**
-- `zod` (already in package.json)
-- `@iarna/toml` (already in use)
-
-**Test bundles available in:**
-- `data/output/` (if UI has been used)
-- `examples/bundles/` (seed bundles)
-- Can generate new ones via API or UI
-
----
-
-### Task 3: TOML/JSON Converters 🔧
-**Location:** `tooling/src/converters/` (to be created)
-
-**Goal:** Simple bidirectional conversion between TOML and JSON bundle formats
-
-**What to build:**
-1. **`toml_to_json.ts`** - Parse TOML bundles → JSON
-2. **`json_to_toml.ts`** - Serialize JSON bundles → TOML
-
-**Implementation approach:**
-- **Use established packages** (do NOT write custom parsers):
-  - `@iarna/toml` (already in use for reading TOML)
-  - `@iarna/toml` also has `stringify()` for writing TOML
-- Simple wrapper scripts that:
-  - Read file from CLI argument
-  - Convert format
-  - Write to output file or stdout
-- Add CLI commands: `npm run toml2json <file>` and `npm run json2toml <file>`
-
-**Example usage:**
-```bash
-# Convert TOML bundle to JSON
-npm run toml2json examples/bundles/site_01_nebula_ai.toml
-
-# Convert JSON bundle to TOML
-npm run json2toml data/output/bundle_2025-11-27.json
-```
-
-**Test with:**
-- Existing TOML bundles in `examples/bundles/`
-- Generated JSON bundles from UI/API
+**Before starting Phase 3:**
+1. Review validator findings (discovered bugs in current system prompt)
+2. Fix system prompt to generate compliant bundles (missing meta fields, Layer 4 format)
+3. Generate test suite of 10+ valid bundles for translation testing
 
 ---
 
@@ -317,67 +342,72 @@ git push -u origin claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
 
 ## 🐛 Known Issues
 
-### 1. No Bundle Validation
-**Impact:** Generated bundles might have invalid IDs or structures
-**Fix:** **Task 2** above (Priority 1)
+### 1. System Prompt Generates Invalid Bundles
+**Impact:** Validator discovered production bundles are missing required fields
+**Details:**
+- Missing meta fields: `bundle_id`, `created_at`, `intent_summary`
+- Layer 4 using weights (0.0-1.0) instead of string trend IDs
+**Fix:** Update system prompt template to match schema (high priority for Phase 3)
 
-### 2. No TOML Export
-**Impact:** Can't save bundles as TOML (only JSON download)
-**Fix:** **Task 3** above (converters)
-
-### 3. No Visual Preview
+### 2. No Visual Preview
 **Impact:** Can't see what the design will look like
 **Fix:** Deferred to Phase 04 (visual playground)
 
-### 4. Render Free Tier Cold Starts
-**Impact:** First request after 15 min idle takes 30 seconds
-**Fix:** Accept limitation or upgrade to paid tier (future decision)
+### 3. Render Free Tier Cold Starts
+**Impact:** First request after 15 min idle takes 20-30 seconds
+**Fix:** Use `npm run health-check` for patient retries, or upgrade to paid tier
 
 ---
 
 ## 🎯 Success Metrics
 
 **Phase 02 Complete When:**
-- [x] Prompt generator works
-- [x] Orchestrator UI generates bundles
-- [x] Handles text + image input
-- [x] Backend API deployed and tested
-- [ ] **Bundle validator validates output** ← Task 2
-- [ ] **TOML/JSON converters work** ← Task 3
+- [x] ✅ Prompt generator works
+- [x] ✅ Orchestrator UI generates bundles
+- [x] ✅ Handles text + image input
+- [x] ✅ Backend API deployed and tested
+- [x] ✅ Bundle validator validates output
+- [x] ✅ TOML/JSON converters work
+- [x] ✅ Application logging system deployed
+- [x] ✅ Health check utility for patient API testing
+
+**✅ PHASE 02 IS COMPLETE - ALL CRITERIA MET**
 
 **Phase 03 Ready When:**
-- [ ] Bundle validator complete
-- [ ] Converters working
-- [ ] Test suite with 10+ validated bundles
+- [x] ✅ Bundle validator complete (catches schema violations)
+- [x] ✅ Converters working (round-trip tested)
+- [ ] ⚠️ System prompt fixed (generates valid bundles with all required fields)
+- [ ] ⚠️ Test suite with 10+ validated bundles
 
 ---
 
 ## 💡 Tips for Next Session
 
-1. **OpenRouter API Key:** Already in environment variables and Render deployment - no manual setup needed
+1. **Read Lessons Learned First:**
+   - Check `docs/project-management/LESSONS_LEARNED.md` before starting work
+   - Contains critical insights from Phase 2 (patience, documentation, validators, etc.)
 
 2. **Testing the Backend API:**
    - Deployment URL: https://was-orchestrator-apiapp-orchestrator-api.onrender.com
-   - Test payloads in `work/design-tool-refinement/test-*.json`
-   - First request may take 30s (cold start)
-   - Check logs at Render dashboard
+   - **Always use:** `npm run health-check` first (patient retry logic)
+   - First request may take 20-30s (cold start) - this is normal
+   - Check deployment status: `curl https://.../api/v1/logs | jq '.deployment'`
 
-3. **Building the Validator:**
-   - Start with Zod schema matching `schema/site_bundle_schema.toml`
-   - Use bundles in `data/output/` and `examples/bundles/` for testing
-   - Test both valid and invalid bundles
-   - Return structured errors (field path + error message)
+3. **Validating Bundles:**
+   - **Always validate before using:** `npm run validate-bundle <file.json>`
+   - Validator catches schema violations (missing fields, invalid IDs, wrong types)
+   - Production bundles currently have errors - system prompt needs fixing
 
-4. **Building the Converters:**
-   - Keep it simple - wrapper around `@iarna/toml` package
-   - Don't write custom parsers
-   - Test round-trip: TOML → JSON → TOML should be identical
-   - Handle file I/O and CLI arguments
+4. **Converting Formats:**
+   - TOML → JSON: `npm run convert:toml-to-json <input> [output]`
+   - JSON → TOML: `npm run convert:json-to-toml <input> [output]`
+   - Round-trip tested and working
 
-5. **Accessing Render Logs:**
-   - May require Render API key (check environment)
-   - Could use `curl` to test API endpoints
-   - Document any limitations found
+5. **Monitoring Production:**
+   - Use `/api/v1/logs` endpoint for deployment visibility
+   - Filter by category: `?category=generate` for bundle generation logs
+   - Filter by level: `?level=ERROR` for errors only
+   - Check errors: `curl https://.../api/v1/logs/errors`
 
 6. **Parallel Testing Pattern:**
    - Use curl to test API endpoints (fast, scriptable)
@@ -408,20 +438,28 @@ git push -u origin claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
 
 ## 📊 Current State Summary
 
-**✅ Complete:**
-- Prompt generator
-- Orchestrator UI with image support
-- Backend API (v0.1.0) deployed to Render.com
-- Parallel testing infrastructure
-- Comprehensive documentation
+**✅ PHASE 02 - COMPLETE (100%):**
+- ✅ Prompt generator
+- ✅ Orchestrator UI with image support
+- ✅ Backend API (v0.1.0) deployed to Render.com
+- ✅ Bundle validator with comprehensive Zod schemas
+- ✅ TOML/JSON converters (bidirectional, round-trip tested)
+- ✅ Application logging system with HTTP endpoint
+- ✅ Health check utility with patient retry logic
+- ✅ Render logs access (custom endpoint recommended)
+- ✅ Parallel testing infrastructure
+- ✅ Comprehensive documentation
+- ✅ Lessons learned captured
 
-**🔨 In Progress:**
-- Bundle validator (next session - Task 2)
-- TOML/JSON converters (next session - Task 3)
-- Render logs API access (next session - Task 1)
+**⚠️ Discovered Issues (Need Fixing):**
+- System prompt generates invalid bundles (missing meta fields, Layer 4 format wrong)
+- Need to generate test suite of 10+ valid bundles
 
-**🚫 Blocked:**
-- Phase 03 work (blocked by validator completion)
+**🚀 Ready for Phase 03:**
+- All Phase 02 tooling complete
+- Validator can catch schema violations
+- Converters can handle TOML/JSON
+- Logging provides production visibility
 
 **📋 Waiting:**
 - Rob's input for example shots (deferred)
@@ -429,7 +467,8 @@ git push -u origin claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
 ---
 
 **Last Updated:** 2025-11-27
+**Branch:** `claude/setup-phase-2-environment-014bjQf8i53ugjSyxDBzFb7X`
 **Next Session Focus:**
-1. Check Render logs via API
-2. Build bundle validator (critical blocker)
-3. Build TOML/JSON converters (simple wrappers)
+1. Fix system prompt to generate schema-compliant bundles
+2. Generate and validate test suite (10+ bundles)
+3. Begin Phase 03 - WAS bundle → industry specs translation
