@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "bundle_id": "test_invalid_bundle_001",
+    "created_at": "not-a-valid-datetime",
+    "intent_summary": "Test bundle with intentional errors"
+  },
+  "layer1_axes": {
+    "tone": "invalid_tone",
+    "lightness": "dark",
+    "color_strategy": "monochrome",
+    "density": "balanced",
+    "decoration": "plain",
+    "geometry_depth": {
+      "shape": "invalid_shape",
+      "depth": "soft_shadow"
+    }
+  },
+  "layer2_styles": {
+    "invalid_style": 0.8,
+    "minimalism": 1.5
+  },
+  "layer3_lexicon": {
+    "visual_atmosphere": "invalid_atmosphere_id"
+  },
+  "layer4_trends": {
+    "subculture": "invalid_trend_id"
+  }
+}

@@ -217,6 +217,7 @@ curl https://your-app.onrender.com/
 
 - [API Design Specification](../../docs/api-design.md)
 - [Parallel Execution Playbook](../../docs/PARALLEL-EXECUTION-PLAYBOOK.md)
+- [Render Logs Access Guide](../../docs/playbooks/RENDER_LOGS_ACCESS.md)
 - [Frontend Integration Guide](../orchestrator-ui/README.md)
 - [Architecture & Deployment Options](../../docs/ARCHITECTURE-AND-DEPLOYMENT-OPTIONS.md)
 
