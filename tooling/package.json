@@ -11,6 +11,8 @@
     "validate": "tsx src/validators/bundle_validator.ts",
     "convert:toml-to-json": "tsx src/converters/toml_to_json.ts",
     "convert:json-to-toml": "tsx src/converters/json_to_toml.ts",
+    "health-check": "tsx src/utils/health-check.ts",
+    "verify-deployment": "tsx src/utils/health-check.ts",
     "test": "vitest",
     "type-check": "tsc --noEmit"
   },
