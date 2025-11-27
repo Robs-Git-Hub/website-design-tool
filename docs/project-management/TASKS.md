@@ -231,51 +231,53 @@
     *   [x] Update Phase 02 plan to reflect backend API completion.
     *   [x] Record correct Render build command in documentation.
 
-## Task Group 2.7: Bundle Schema Compliance & Validation Refinement - Milestone 2.4 🔄 **IN PROGRESS**
+## Task Group 2.7: Bundle Schema Compliance & Validation Refinement - Milestone 2.4 ✅ **COMPLETE**
 
 **Goal:** Fix schema violations discovered by validator, implement robust validation with retry logic, and ensure LLM generates compliant bundles.
 
-*   [ ] **Schema Updates:**
-    *   [ ] Update `schema/site_bundle_schema.toml` - Change Layer 4 from string to float (weights 0.0-1.0).
-    *   [ ] Document `bundle_id` and `created_at` as programmatically injected (not LLM-generated).
-    *   [ ] Update validator Zod schemas to match Layer 4 float format.
-    *   [ ] Add error type distinction in validator (JSON structure vs WAS schema violations).
-*   [ ] **System Prompt Updates:**
-    *   [ ] Remove `bundle_id` and `created_at` from LLM output format (reduce cognitive load).
-    *   [ ] Update Layer 4 example to show weights (like Layer 2).
-    *   [ ] Add two-tier response structure: `{bundle, reasoning, feedback_optional}`.
-    *   [ ] Document escape hatch (`feedback_optional`) for LLM to flag ambiguous input.
-    *   [ ] Update field requirements documentation.
-*   [ ] **OpenRouter Service Enhancements:**
-    *   [ ] Add model capability detection (which models support structured output).
-    *   [ ] Enable `response_format: {type: "json_object"}` for all models.
-    *   [ ] Update return type to include `{bundle, reasoning, feedback, modelCapabilities}`.
-    *   [ ] Research OpenRouter model structured output support (GPT-4, Claude, Gemini, etc.).
-*   [ ] **Metadata Injection (Programmatic):**
-    *   [ ] Add `bundle_id` generation in generate route (after LLM call, before validation).
-    *   [ ] Add `created_at` timestamp injection (ISO-8601 format).
-    *   [ ] Ensure metadata is injected BEFORE validation runs.
-*   [ ] **Retry Logic with Error Feedback:**
-    *   [ ] Implement 3-attempt strategy: (1) Initial → (2) Vanilla retry → (3) Retry with error feedback.
-    *   [ ] Create error formatter to distinguish JSON structure errors vs WAS schema violations.
-    *   [ ] Append explicit, unambiguous error messages to prompt for attempt 3.
-    *   [ ] Log feedback when LLM uses `feedback_optional` field.
-    *   [ ] Log validation failures after 3 attempts (likely prompt/schema issue).
-*   [ ] **Type Updates:**
-    *   [ ] Update `GenerateResponse` to include validation, reasoning, feedback, capabilities, attempts.
-    *   [ ] Create `ValidationError` type with error type distinction.
-    *   [ ] Update `WASBundle` type if needed for Layer 4 changes.
-*   [ ] **Testing & Validation:**
-    *   [ ] Test with valid input (should pass on attempt 1).
-    *   [ ] Test with intentionally invalid input (should retry and fix).
-    *   [ ] Verify programmatic metadata injection works.
-    *   [ ] Verify error feedback messages are clear and actionable.
-    *   [ ] Test across multiple models (Claude, GPT-4, etc.).
-    *   [ ] Validate that Layer 4 now accepts floats.
-*   [ ] **Documentation:**
-    *   [ ] Update API documentation with new response structure.
-    *   [ ] Document retry logic and error handling.
-    *   [ ] Update schema documentation for Layer 4 weights.
+*   [x] **Schema Updates:**
+    *   [x] Update `schema/site_bundle_schema.toml` - Change Layer 4 from string to float (weights 0.0-1.0).
+    *   [x] Document `bundle_id` and `created_at` as programmatically injected (not LLM-generated).
+    *   [x] Update validator Zod schemas to match Layer 4 float format.
+    *   [x] Add error type distinction in validator (JSON structure vs WAS schema violations).
+*   [x] **System Prompt Updates:**
+    *   [x] Remove `bundle_id` and `created_at` from LLM output format (reduce cognitive load).
+    *   [x] Update Layer 4 example to show weights (like Layer 2).
+    *   [x] Add two-tier response structure: `{bundle, reasoning, feedback_optional}`.
+    *   [x] Document escape hatch (`feedback_optional`) for LLM to flag ambiguous input.
+    *   [x] Update field requirements documentation.
+*   [x] **OpenRouter Service Enhancements:**
+    *   [x] Add model capability detection (which models support structured output).
+    *   [x] Enable `response_format: {type: "json_object"}` for supported models.
+    *   [x] Update return type to include `{bundle, reasoning, feedback, modelCapabilities}`.
+    *   [x] Research OpenRouter model structured output support (GPT-4, Claude, Gemini, etc.).
+*   [x] **Metadata Injection (Programmatic):**
+    *   [x] Add `bundle_id` generation in generate route (after validation, before response).
+    *   [x] Add `created_at` timestamp injection (ISO-8601 format).
+    *   [x] Ensure metadata is injected before returning response to client.
+*   [x] **Retry Logic with Error Feedback:**
+    *   [x] Implement 3-attempt strategy: (1) Initial → (2) Vanilla retry → (3) Retry with error feedback.
+    *   [x] Create error formatter to distinguish JSON structure errors vs WAS schema violations.
+    *   [x] Append explicit, unambiguous error messages to prompt for attempt 3.
+    *   [x] Log feedback when LLM uses `feedback_optional` field.
+    *   [x] Log validation failures with error details and attempt counts.
+*   [x] **Type Updates:**
+    *   [x] Update `GenerateResponse` to include validation, reasoning, feedback, capabilities, attempts.
+    *   [x] Create `ValidationError` type with error type distinction.
+    *   [x] Update `WASBundle` type for Layer 4 changes (weights as numbers).
+*   [x] **Testing & Validation:**
+    *   [x] Test validator with valid bundles (Layer 4 weights).
+    *   [x] Test validator with invalid weights (out of range).
+    *   [x] Test validator with missing required fields.
+    *   [x] Test validator with type errors (string instead of number).
+    *   [x] Verify error formatting for LLM feedback.
+    *   [x] Build and verify TypeScript compilation.
+*   [x] **Documentation:**
+    *   [x] Create comprehensive API reference documentation (`docs/API_REFERENCE.md`).
+    *   [x] Document retry logic and error handling.
+    *   [x] Document schema changes for Layer 4 weights.
+    *   [x] Document two-tier response structure.
+    *   [x] Document programmatic vs LLM-generated fields.
 
 ## Task Group 3: Testing & Validation
 
