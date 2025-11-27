@@ -4,6 +4,7 @@
 
 import type { Request, Response, NextFunction } from 'express';
 import type { ErrorResponse } from '../types/was.js';
+import { logger } from '../services/logger.js';
 
 export function errorHandler(
   err: Error,
@@ -11,9 +12,16 @@ export function errorHandler(
   res: Response,
   next: NextFunction
 ): void {
-  console.error('Error:', err);
-
   const statusCode = res.statusCode !== 200 ? res.statusCode : 500;
+
+  // Log the error with context
+  logger.error('error-handler', err.message, {
+    errorName: err.name,
+    statusCode,
+    path: req.path,
+    method: req.method,
+    stack: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+  });
 
   const errorResponse: ErrorResponse = {
     error: {

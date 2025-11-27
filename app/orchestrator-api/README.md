@@ -57,6 +57,24 @@ Server will start at `http://localhost:3001`
 GET /api/v1/health
 ```
 
+### Application Logs **NEW** ✨
+```bash
+GET /api/v1/logs
+GET /api/v1/logs?limit=50
+GET /api/v1/logs?level=ERROR
+GET /api/v1/logs/errors
+```
+
+Returns deployment information, runtime statistics, and recent application logs.
+
+**Response includes:**
+- Deployment version, git commit, branch
+- Uptime and memory usage
+- Recent logs with timestamps
+- Error counts and categories
+
+Perfect for monitoring deployment status and debugging issues.
+
 ### Get System Prompt
 ```bash
 GET /api/v1/prompt
