@@ -13,10 +13,14 @@ Phase 02 builds the **Engine** (the tooling) to make that data usable by humans 
 
 We are moving from a static knowledge graph to a dynamic **Aesthetic Operating System**.
 
-### 1.1 Scope Adjustment
+### 1.1 Scope Adjustments
 **Original Plan:** Supabase Edge Functions + Full Playground with CSS visualizer
-**Actual Implementation:** Local orchestrator UI + OpenRouter integration
+
+**First Implementation:** Local orchestrator UI + Direct OpenRouter integration
 **Rationale:** Faster iteration, no backend complexity, immediate testability
+
+**Second Adjustment:** Added Express Backend API (Nov 2024)
+**Rationale:** Security (API keys in backend), parallel testing (Claude Code can test via curl), Claude Code browser network restrictions (openrouter.ai blocked, but deployed backends accessible)
 
 ---
 
@@ -54,7 +58,47 @@ We are moving from a static knowledge graph to a dynamic **Aesthetic Operating S
 - ✅ Complete README with setup instructions
 - ✅ .env.example for API key configuration
 
-### 2.3 The WAS Engine (TypeScript SDK) ⚠️ **INCOMPLETE**
+### 2.3 WAS Orchestrator API (Backend) ✅ **COMPLETE**
+**Location:** `app/orchestrator-api/`
+**Stack:** Node.js + Express + TypeScript
+**Deployment:** Render.com (Free Tier)
+**Version:** 0.1.0
+
+**Features:**
+- ✅ REST API endpoints for WAS bundle generation
+- ✅ Secure API key storage (backend .env)
+- ✅ OpenRouter integration (multi-model support)
+- ✅ System prompt loading from file
+- ✅ Image upload support (base64)
+- ✅ CORS configuration for frontend
+- ✅ Error handling middleware
+- ✅ Request validation
+- ✅ Health check endpoint
+- ✅ Version tracking in logs
+- ✅ Deployed to Render with auto-deploy on branch push
+
+**Endpoints:**
+- `GET /` - API info and version
+- `GET /api/v1/health` - Health check + version
+- `POST /api/v1/generate` - Generate WAS bundle
+- `GET /api/v1/prompt` - Get system prompt
+- `GET /api/v1/models` - List available models
+
+**Testing:**
+- ✅ Text input generation (Example 1-5)
+- ✅ Image upload with multimodal analysis
+- ✅ Multiple model selection
+- ✅ Deployed endpoint accessible via curl from Claude Code browser
+
+**Deployment URL:** https://was-orchestrator-apiapp-orchestrator-api.onrender.com
+
+**Documentation:**
+- ✅ Complete README with deployment instructions
+- ✅ .env.example for configuration
+- ✅ API design documentation
+- ✅ Architecture diagrams
+
+### 2.4 The WAS Engine (TypeScript SDK) ⚠️ **INCOMPLETE**
 **Planned but not yet built:**
 
 - [ ] **TOML/JSON Converters**
@@ -94,16 +138,26 @@ We are moving from a static knowledge graph to a dynamic **Aesthetic Operating S
 ### 3.1 Current Architecture (Built)
 ```mermaid
 graph TB
-    Input["User Input<br/>(Text + Image)"] --> UI[Orchestrator UI<br/>Vite + React]
-    Prompt[System Prompt<br/>Auto-generated] --> UI
-    UI --> OpenRouter[OpenRouter API]
-    OpenRouter --> LLM[Claude 3.5 Sonnet<br/>or other models]
-    LLM --> JSON[Raw JSON Response]
-    JSON --> Extract[JSON Extractor]
-    Extract --> Bundle[WAS Bundle]
-    Bundle --> Display[UI Display]
+    Input["User Input<br/>(Text + Image)"] --> UI[Orchestrator UI<br/>Vite + React<br/>localhost:5173]
+    UI --> API[Backend API<br/>Express + TypeScript<br/>Render.com]
+    Prompt[System Prompt<br/>Auto-generated] --> API
+    API --> OpenRouter[OpenRouter API]
+    OpenRouter --> LLM[Claude 3.5 Sonnet<br/>GPT-4, etc.]
+    LLM --> API
+    API --> Bundle[WAS Bundle JSON]
+    Bundle --> UI
+    UI --> Display[UI Display]
     Bundle --> Download[Save to data/output/]
+
+    Claude[Claude Code] -->|curl POST| API
+    API -->|JSON Response| Claude
 ```
+
+**Key Points:**
+- Frontend calls backend API (secure, no exposed API keys)
+- Backend handles OpenRouter integration
+- Claude Code can test backend directly via curl
+- Same API endpoint serves both human UI and AI testing
 
 ### 3.2 Planned Architecture (Phase 3+)
 ```mermaid
@@ -125,7 +179,9 @@ graph LR
 **CORE (Required for Phase 03):**
 - [x] ✅ Prompt generator working
 - [x] ✅ Orchestrator UI generates valid WAS bundles
+- [x] ✅ Backend API deployed and accessible
 - [x] ✅ System can process text and image inputs
+- [x] ✅ Parallel testing capability (Claude Code can test via curl)
 - [ ] ⚠️ Bundle validator implemented
 - [ ] ⚠️ TOML/JSON converters working
 

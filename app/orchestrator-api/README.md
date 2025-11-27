@@ -158,7 +158,7 @@ npm start
      - **Branch:** `claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG` ⚠️ **Use working branch, not main**
      - **Root Directory:** `app/orchestrator-api`
      - **Runtime:** Node
-     - **Build Command:** `npm install && npm run build` ⚠️ **Must include `npm run build`**
+     - **Build Command:** `npm install --include=dev && npm run build` ⚠️ **Critical: --include=dev installs TypeScript types**
      - **Start Command:** `npm start`
      - **Instance Type:** Free
 
@@ -193,7 +193,7 @@ npm start
 ### Important Notes
 
 - ⚠️ **Auto-Deploy Branch:** Set branch to `claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG` not `main` for Claude Code auto-deploy
-- ⚠️ **Build Command:** Must be `npm install && npm run build` (compiles TypeScript)
+- ⚠️ **Build Command:** Must be `npm install --include=dev && npm run build` (Render skips devDependencies by default; --include=dev installs @types/* packages needed for TypeScript compilation)
 - 💤 **Free Tier Sleep:** Service sleeps after 15 min inactivity (30s cold start)
 - 📊 **Monitor Logs:** Render dashboard shows real-time logs with version info
 - 🔄 **Auto-Deploy:** Pushes to configured branch trigger automatic redeployment
