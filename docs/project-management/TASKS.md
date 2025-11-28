@@ -154,10 +154,12 @@
     *   [ ] Update embedded prompt with Option D schema format.
     *   [ ] Add validation UI (show errors if output doesn't match schema).
     *   [ ] Improve example prompts based on test website screenshots.
-*   [ ] **Create Example Shots:**
-    *   [ ] **[ROB]** Provide 3-5 raw design ideas in `prompts/example_shots_template.md`.
-    *   [ ] Process examples through artifact, generate "gold standard" bundles.
-    *   [ ] Document as few-shot learning examples.
+*   [x] **Create Example Shots:**
+    *   [x] **[ROB]** Provided 3 example sites in `examples/test_user_inputs/` (brainscriptai, greentech, neuraiagency).
+    *   [x] Each example includes 4 input types: description, URL, landing page image, multi-page mockup.
+    *   [x] Created INDEX.md documenting all test inputs and their characteristics.
+    *   [ ] Process examples through orchestrator, generate "gold standard" bundles.
+    *   [ ] Use for consistency testing and validation.
 
 ## Task Group 2.5: Monitoring & Logging Infrastructure - Milestone 2.3.5 ✅ **COMPLETE**
 
