@@ -154,9 +154,11 @@ We are moving from a static knowledge graph to a dynamic **Aesthetic Operating S
   - Validator checks bundle validity
   - Verified enum compliance
 
-- [ ] **Example Shots** (Waiting on user input)
-  - Gold standard bundles for calibration
-  - Few-shot learning examples
+- [x] **Example Shots** ✅ **INPUT PROVIDED**
+  - 3 example sites in `examples/test_user_inputs/` (brainscriptai, greentech, neuraiagency)
+  - 4 input types per site (description, URL, landing page, multi-page mockup)
+  - INDEX.md documenting test inputs and characteristics
+  - Ready for automated testing and gold standard bundle generation
 
 - [ ] **Consistency Testing** (Future)
   - Run same input 10x, measure variance
