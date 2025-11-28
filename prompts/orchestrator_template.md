@@ -89,26 +89,37 @@ Generate a JSON object matching this structure:
 
 ### Field Requirements
 
-**meta.intent_keywords**: Extract 3-7 key descriptive words from input
-**meta.reasoning_notes**: 1-3 sentences explaining your aesthetic interpretation
+**bundle**: The complete WAS bundle (required)
+- **bundle.meta.intent_summary**: 1-2 sentence summary of your aesthetic interpretation (REQUIRED)
+- **bundle.meta.intent_keywords**: 3-7 key descriptive words from input (REQUIRED)
+- **bundle.layer1_axes**: ALL 6 axes are REQUIRED
+  - Use exact enum values from Knowledge Base
+  - For `geometry_depth`, provide both `shape` and `depth`
+- **bundle.layer2_styles**: OPTIONAL but recommended
+  - Use weights (0.0-1.0) to indicate influence strength
+  - Weights do NOT need to sum to 1.0
+  - Only include styles that genuinely fit
+- **bundle.layer3_lexicon**: OPTIONAL
+  - Group by kind (visual_atmosphere, palette_trait, etc.)
+  - Include only terms that will visibly manifest
+  - Use exact IDs from knowledge base
+- **bundle.layer4_trends**: OPTIONAL
+  - Use when cultural/temporal context is relevant
+  - Values are weights (0.0-1.0) indicating strength of influence
+  - Like Layer 2, weights represent degree of cultural influence
 
-**layer1_axes**: ALL 6 axes are REQUIRED
-- Use exact enum values from Knowledge Base
-- For `geometry_depth`, provide both `shape` and `depth`
+**reasoning**: 2-4 sentences explaining your aesthetic interpretation and key decisions (REQUIRED)
+- Reference specific elements from the input
+- Explain why you chose particular Layer 1 axes, Layer 2 styles, or Layer 3 terms
+- Describe how different layers work together to achieve the aesthetic
 
-**layer2_styles**: OPTIONAL but recommended
-- Use weights (0.0-1.0) to indicate influence
-- Weights do NOT need to sum to 1.0
-- Only include styles that genuinely fit
+**feedback_optional**: Use this field to flag issues or uncertainties (OPTIONAL)
+- Ambiguous or contradictory input ("user said both X and Y - I chose X because...")
+- Uncertainty about specific choices ("wasn't sure between A and B, chose A")
+- Suggestions for input improvement ("would help to know target audience")
+- Questions you would ask if this were interactive
 
-**layer3_lexicon**: OPTIONAL
-- Group by kind (visual_atmosphere, palette_trait, etc.)
-- Include only terms that will visibly manifest
-- Use exact IDs from knowledge base
-
-**layer4_trends**: OPTIONAL
-- Use when cultural/temporal context is relevant
-- Include weights if multiple trends apply
+This escape hatch helps us improve the system and gives you a way to communicate challenges transparently.
 
 ---
 
@@ -116,9 +127,10 @@ Generate a JSON object matching this structure:
 
 - **NEVER** invent new axis values, styles, or lexicon IDs
 - If uncertain about a term, OMIT it (validator will catch hallucinations)
-- Style weights can exceed 1.0 if multiple strong influences
+- Style and trend weights can exceed 1.0 if multiple strong influences
 - Lexicon terms should be **internally consistent** (don't mix contradictory atmospheres)
-- Reasoning notes should reference specific input cues
+- Reasoning should reference specific input cues
+- Use `feedback_optional` to communicate uncertainties rather than guessing
 
 ---
 
@@ -128,13 +140,13 @@ Generate a JSON object matching this structure:
 If input is minimal (e.g., "make it modern"):
 - Default to neutral/balanced L1 axes
 - Use `minimalism` or `flat_design` at low weights
-- Note the vagueness in `reasoning_notes`
+- Note the vagueness in `feedback_optional`: "Input was quite vague - defaulted to neutral modern aesthetic"
 
 ### Conflicting Signals
 If input contains contradictions (e.g., "luxurious but minimal"):
 - Choose the **dominant** signal
 - Use weights to show tension (e.g., `minimalism: 0.6, art_deco: 0.3`)
-- Explain the resolution in `reasoning_notes`
+- Explain the resolution in `reasoning` and flag in `feedback_optional`
 
 ### Image Inputs
 When analyzing images:
@@ -179,6 +191,7 @@ If user provides "like [website]":
 - **Think step-by-step**: Context → Physics (L1) → Canon (L2) → Atoms (L3) → Culture (L4)
 - **Be conservative**: Use only terms you're confident about
 - **Favor coherence**: All layers should tell the same aesthetic story
-- **Document reasoning**: Your `reasoning_notes` help humans understand your choices
+- **Document reasoning**: Your `reasoning` field helps humans understand your choices
+- **Use the escape hatch**: If something is ambiguous or contradictory, flag it in `feedback_optional`
 
 Generate valid, thoughtful WAS Bundles that capture the essence of the design intent.

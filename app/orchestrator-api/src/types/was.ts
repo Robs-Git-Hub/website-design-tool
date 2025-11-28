@@ -4,8 +4,10 @@
 
 export interface WASBundle {
   meta: {
-    intent_keywords: string[];
-    reasoning_notes: string;
+    bundle_id: string; // Programmatically injected
+    created_at: string; // Programmatically injected (ISO-8601)
+    intent_summary: string; // LLM-generated
+    intent_keywords: string[]; // LLM-generated
   };
   layer1_axes: {
     tone: string;
@@ -18,7 +20,7 @@ export interface WASBundle {
     density: string;
     decoration: string;
   };
-  layer2_styles?: Record<string, number>;
+  layer2_styles?: Record<string, number>; // Weights 0.0-1.0
   layer3_lexicon?: {
     visual_atmosphere?: string;
     palette_trait?: string;
@@ -29,7 +31,30 @@ export interface WASBundle {
     illustration_style?: string;
     motion_mechanics?: string;
   };
-  layer4_trends?: Record<string, number>;
+  layer4_trends?: Record<string, number>; // Weights 0.0-1.0 (like layer2_styles)
+}
+
+/**
+ * Validation Error Types
+ */
+export type ValidationErrorType = 'json_structure' | 'schema_violation';
+
+export interface ValidationError {
+  type: ValidationErrorType;
+  path?: string;
+  message: string;
+}
+
+export interface ValidationResult {
+  valid: boolean;
+  errors?: ValidationError[];
+}
+
+/**
+ * Model Capabilities
+ */
+export interface ModelCapabilities {
+  supportsStructuredOutput: boolean;
 }
 
 export interface ImageData {
@@ -45,8 +70,13 @@ export interface GenerateRequest {
 
 export interface GenerateResponse {
   bundle: WASBundle;
+  reasoning: string | null;
+  feedback: string | null;
+  validation: ValidationResult;
+  modelCapabilities: ModelCapabilities;
   generationTime: number;
   model: string;
+  attempts: number;
 }
 
 export interface ErrorResponse {

@@ -28,10 +28,10 @@ const __dirname = path.dirname(__filename);
 // ============================================================================
 
 const metaSchema = z.object({
-  bundle_id: z.string().min(1, 'bundle_id is required'),
-  created_at: z.string().datetime('Invalid ISO-8601 datetime'),
+  bundle_id: z.string().optional(), // Programmatically injected by API
+  created_at: z.string().optional(), // Programmatically injected by API
   intent_summary: z.string().min(1, 'intent_summary is required'),
-  intent_keywords: z.array(z.string()).optional().default([])
+  intent_keywords: z.array(z.string()).min(1, 'intent_keywords must have at least 1 keyword')
 });
 
 const layer1GeometryDepthSchema = z.object({
@@ -61,7 +61,7 @@ const layer3LexiconSchema = z.object({
   illustration_style: z.string().optional()
 });
 
-const layer4TrendsSchema = z.record(z.string(), z.string());
+const layer4TrendsSchema = z.record(z.string(), z.number().min(0).max(1)); // Weights 0.0-1.0 (like layer2_styles)
 
 const wasBundleSchema = z.object({
   meta: metaSchema,
@@ -192,7 +192,10 @@ function loadValidationData(dataDir: string): ValidationData {
 // VALIDATION ERRORS
 // ============================================================================
 
+export type ValidationErrorType = 'json_structure' | 'schema_violation';
+
 interface ValidationError {
+  type: ValidationErrorType;
   path: string;
   message: string;
   severity: 'error' | 'warning';
@@ -202,12 +205,12 @@ class ValidationResult {
   errors: ValidationError[] = [];
   warnings: ValidationError[] = [];
 
-  addError(path: string, message: string) {
-    this.errors.push({ path, message, severity: 'error' });
+  addError(path: string, message: string, type: ValidationErrorType = 'schema_violation') {
+    this.errors.push({ type, path, message, severity: 'error' });
   }
 
-  addWarning(path: string, message: string) {
-    this.warnings.push({ path, message, severity: 'warning' });
+  addWarning(path: string, message: string, type: ValidationErrorType = 'schema_violation') {
+    this.warnings.push({ type, path, message, severity: 'warning' });
   }
 
   get isValid(): boolean {
@@ -233,13 +236,13 @@ export class WASBundleValidator {
   validate(bundle: any): ValidationResult {
     const result = new ValidationResult();
 
-    // Step 1: Validate structure with Zod
+    // Step 1: Validate structure with Zod (JSON structure errors)
     try {
       wasBundleSchema.parse(bundle);
     } catch (error) {
       if (error instanceof z.ZodError) {
         for (const issue of error.errors) {
-          result.addError(issue.path.join('.'), issue.message);
+          result.addError(issue.path.join('.'), issue.message, 'json_structure');
         }
       }
     }
