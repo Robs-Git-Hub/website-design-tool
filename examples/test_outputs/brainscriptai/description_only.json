@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "intent_summary": "A modern dark-mode tech platform site featuring glass-like surfaces, neon accents, and clean card layouts - following the contemporary AI/developer tools aesthetic",
+    "intent_keywords": [
+      "dark-mode",
+      "tech",
+      "professional",
+      "neon",
+      "cards",
+      "dashboard",
+      "AI"
+    ],
+    "bundle_id": "d04521b7-dc5d-49ce-8d69-0092f917c84d",
+    "created_at": "2025-11-28T16:10:05.987Z"
+  },
+  "layer1_axes": {
+    "tone": "serious",
+    "lightness": "dark",
+    "color_strategy": "neutral_plus_accent",
+    "geometry_depth": {
+      "shape": "slightly_rounded",
+      "depth": "glass"
+    },
+    "density": "balanced",
+    "decoration": "subtle"
+  },
+  "layer2_styles": {
+    "glassmorphism": 0.7,
+    "minimalism": 0.6,
+    "flat_design": 0.3
+  },
+  "layer3_lexicon": {
+    "visual_atmosphere": "glass_and_glow",
+    "palette_trait": "neon_accents",
+    "surface_texture": "glass_panel",
+    "component_styling": "filled_chrome",
+    "depth_technique": "diffuse_shadow",
+    "typography_mechanics": "grotesque_sans",
+    "motion_mechanics": "linear_instant"
+  },
+  "layer4_trends": {
+    "saas_2020_dark_mode": 0.9,
+    "fintech_neobank": 0.2
+  }
+}
