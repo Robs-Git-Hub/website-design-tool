@@ -45,6 +45,8 @@ function copyPromptPlugin() {
 export default defineConfig({
   plugins: [react(), copyPromptPlugin()],
   server: {
+    port: 5173, // Fixed port to match backend CORS configuration
+    strictPort: true, // Fail if port is already in use instead of auto-incrementing
     watch: {
       // Exclude the public/prompts directory to prevent infinite loops
       // (we only want to watch the source prompts directory)

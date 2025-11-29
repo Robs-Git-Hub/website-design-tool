@@ -30,8 +30,9 @@ const PORT = process.env.PORT || 3001;
 
 // Parse allowed origins from env
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [
-  'http://localhost:5173',
-  'http://localhost:3000',
+  'http://localhost:5173',  // Vite default port
+  'http://localhost:5174',  // Vite fallback port (when 5173 is in use)
+  'http://localhost:3000',  // Alternative dev server
 ];
 
 // Middleware
