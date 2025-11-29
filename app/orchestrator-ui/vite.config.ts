@@ -22,9 +22,10 @@ function copyPromptPlugin() {
       }
     },
     handleHotUpdate({ file, server }: any) {
-      // Watch for changes to the prompt file
-      if (file.includes('orchestrator_system_prompt.md')) {
-        const srcPath = join(__dirname, '../../prompts/orchestrator_system_prompt.md')
+      // Watch for changes to the SOURCE prompt file only (not the destination in public/)
+      const srcPath = join(__dirname, '../../prompts/orchestrator_system_prompt.md')
+
+      if (file === srcPath) {
         const destPath = join(__dirname, 'public/prompts/orchestrator_system_prompt.md')
 
         try {
@@ -45,8 +46,9 @@ export default defineConfig({
   plugins: [react(), copyPromptPlugin()],
   server: {
     watch: {
-      // Watch the prompts directory for changes
-      ignored: ['!**/prompts/**']
+      // Exclude the public/prompts directory to prevent infinite loops
+      // (we only want to watch the source prompts directory)
+      ignored: ['**/public/prompts/**']
     }
   }
 })
