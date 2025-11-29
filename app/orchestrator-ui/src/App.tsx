@@ -33,6 +33,16 @@ function App() {
   const [showPrompt, setShowPrompt] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
+  // Startup diagnostics
+  useEffect(() => {
+    console.log('[App] WAS Orchestrator UI started');
+    console.log('[App] Environment:', {
+      apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api/v1',
+      mode: import.meta.env.MODE,
+      dev: import.meta.env.DEV,
+    });
+  }, []);
+
   // API key is now handled by the backend
 
   // Process an image file (used by file input, drag-drop, and paste)
