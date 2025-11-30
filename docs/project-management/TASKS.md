@@ -90,6 +90,20 @@
 
 ---
 
+# PHASE 02 - HARDENING (CURRENT PRIORITY)
+
+**Goal:** Address critical architectural inconsistencies discovered upon completion of Phase 02, ensuring a stable foundation for Phase 03.
+
+## Task Group 2.8: Unify Bundle Validation Logic
+
+*   [ ] **Centralize Validator:** Refactor the system to use `tooling/src/validators/bundle_validator.ts` as the single source of truth for all validation.
+*   [ ] **Deprecate API Validator:** Delete the lightweight validator at `app/orchestrator-api/src/services/validator.ts`.
+*   [ ] **Integrate Validator in API:** Modify the `/api/v1/generate` route to import and use the authoritative validator from the `tooling/` directory.
+*   [ ] **Enhance API Response:** Update the `GenerateResponse` type and logic to include `attempts` and `initialValidationErrors` to provide transparent feedback to the UI and AI agents.
+*   [ ] **Verify and Test:** Confirm that the API, UI, and standalone validation tool all function correctly after the refactor.
+
+---
+
 # PHASE 02 — TOOLING & MVP WORKFLOWS
 
 **Goal:** Build the Engine to make the WAS taxonomy usable by humans and agents.

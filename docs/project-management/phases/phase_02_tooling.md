@@ -246,3 +246,13 @@ graph LR
 - System prompt generates bundles with schema violations (missing meta fields, Layer 4 format)
 - Need to fix system prompt template before Phase 03 translation work
 - Need to generate test suite of 10+ valid bundles
+
+---
+
+### Post-Completion Note: Validation Logic Hardening
+
+Upon completion of the primary deliverables for Phase 02, a comprehensive review identified a critical architectural inconsistency: the existence of two separate, non-equivalent validation logics for WAS bundles. The production API was using a lightweight validator, while the more robust, schema-aware validator was confined to a standalone tool.
+
+To mitigate the risks of divergence and ensure system-wide consistency, a **Phase 02 - Hardening** task group has been initiated to unify the validation logic before proceeding to Phase 03.
+
+**Action Item:** See **Task Group 2.8** in `TASKS.md` for the implementation plan. This work is considered a prerequisite for Phase 03.

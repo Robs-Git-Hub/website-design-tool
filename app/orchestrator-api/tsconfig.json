@@ -9,12 +9,11 @@
     "strict": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../../tooling/src/validators/**/*"],
   "exclude": ["node_modules", "dist"]
 }

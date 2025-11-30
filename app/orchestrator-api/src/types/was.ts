@@ -77,6 +77,7 @@ export interface GenerateResponse {
   generationTime: number;
   model: string;
   attempts: number;
+  initialValidationErrors?: ValidationError[] | null; // Errors from first attempt (if retries were needed)
 }
 
 export interface ErrorResponse {

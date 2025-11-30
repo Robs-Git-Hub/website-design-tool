@@ -1,7 +1,9 @@
 # Phase 03 — The Second Link (WAS → Industry Specs)
 
 **Status:** Planned
-**Prerequisites:** Phase 02 (Bundle validator required)
+**Prerequisites:**
+*   Phase 02 complete.
+*   **CRITICAL: Phase 02 Hardening (Task Group 2.8) complete.** This ensures a single, authoritative validation logic is in place before building translation layers that depend on it.
 **Previous Phase:** [Phase 02 - Tooling](phase_02_tooling.md)
 **Timeline:** TBD
 

@@ -374,6 +374,36 @@ export class WASBundleValidator {
       }
     }
   }
+
+  /**
+   * Format validation errors for LLM feedback
+   * This is used to provide clear error messages to the LLM when retrying generation
+   */
+  static formatErrorsForLLM(errors: ValidationError[]): string {
+    const jsonErrors = errors.filter(e => e.type === 'json_structure');
+    const schemaErrors = errors.filter(e => e.type === 'schema_violation');
+
+    let message = 'The generated bundle has validation errors:\n\n';
+
+    if (jsonErrors.length > 0) {
+      message += 'JSON Structure Errors:\n';
+      for (const error of jsonErrors) {
+        message += `- ${error.message}\n`;
+      }
+      message += '\n';
+    }
+
+    if (schemaErrors.length > 0) {
+      message += 'Schema Violations:\n';
+      for (const error of schemaErrors) {
+        message += `- ${error.path}: ${error.message}\n`;
+      }
+    }
+
+    message += '\nPlease correct these errors and ensure the bundle follows the WAS schema structure.';
+
+    return message;
+  }
 }
 
 // ============================================================================
