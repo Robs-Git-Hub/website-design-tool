@@ -3,7 +3,7 @@
 **Status:** Planned
 **Prerequisites:**
 *   Phase 02 complete.
-*   **CRITICAL: Phase 02 Hardening (Task Group 2.8) complete.** This ensures a single, authoritative validation logic is in place before building translation layers that depend on it.
+*   **CRITICAL: Phase 02 Hardening (Task Groups 2.8, 2.9, 2.10, and 2.11) complete.** This ensures all foundational data models, shared types, and validation logic are stable before building the translation layers that depend on them.
 **Previous Phase:** [Phase 02 - Tooling](phase_02_tooling.md)
 **Timeline:** TBD
 
