@@ -102,6 +102,38 @@
 *   [ ] **Enhance API Response:** Update the `GenerateResponse` type and logic to include `attempts` and `initialValidationErrors` to provide transparent feedback to the UI and AI agents.
 *   [ ] **Verify and Test:** Confirm that the API, UI, and standalone validation tool all function correctly after the refactor.
 
+## Task Group 2.9: Align `layer4_trends` Data Model
+
+*   [ ] **Update Schema:** Modify `schema/site_bundle_schema.toml` to define `layer4_trends` as a map of trend IDs to float values (numeric weights 0.0-1.0).
+*   [ ] **Update Example Bundles:** Correct the structure of `layer4_trends` in all `.toml` and `.json` files within `examples/bundles/` to use the numeric weights format.
+*   [ ] **Review Validator:** Ensure the `validateLayer4` logic in `tooling/src/validators/bundle_validator.ts` correctly validates the new key-value map structure.
+
+## Task Group 2.10: Centralize Shared Code and Remove Duplicates
+
+*   [ ] **Create Common Package:** Create a new directory `app/common/` for shared code.
+*   [ ] **Unify Type Definitions:**
+    *   Create a single source of truth for types at `app/common/src/types/was.ts`.
+    *   Synthesize the correct, complete `WASBundle` type in this new file.
+    *   Delete the divergent type files from `app/orchestrator-api/src/types/` and `app/orchestrator-ui/src/types/`.
+    *   Update all import paths in both the API and UI projects to reference the new central types file.
+    *   Update `tsconfig.json` files as needed to resolve the new paths.
+*   [ ] **Remove Duplicated System Prompt:**
+    *   Delete the committed file at `app/orchestrator-ui/public/prompts/orchestrator_system_prompt.md`.
+    *   Add `app/orchestrator-ui/public/prompts/` to the root `.gitignore` file.
+    *   Verify the `vite.config.ts` build script correctly copies the prompt from the root `prompts/` directory.
+
+## Task Group 2.11: Update Documentation and Tests for Architectural Accuracy
+
+*   [ ] **Update Frontend Docs & Tests:**
+    *   Modify `app/orchestrator-ui/README.md` to remove instructions about OpenRouter keys and correctly describe the UI-to-Backend architecture.
+    *   Delete the outdated test script `app/orchestrator-ui/test-example1.js`.
+    *   Create a new, simple test script that demonstrates calling the backend API, reflecting the actual application workflow.
+*   [ ] **Update API Documentation:**
+    *   Delete the outdated API design document: `docs/api/api-design.md`.
+    *   Review and update `docs/api/api_reference.md` to ensure it is 100% consistent with the unified `WASBundle` type created in Task Group 2.10.
+
+**ORDER OF EXECUTION:** These task groups should be completed in order: **2.9 → 2.10 → 2.11**.
+
 ---
 
 # PHASE 02 — TOOLING & MVP WORKFLOWS

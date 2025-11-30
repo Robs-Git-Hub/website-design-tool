@@ -253,6 +253,6 @@ graph LR
 
 Upon completion of the primary deliverables for Phase 02, a comprehensive review identified a critical architectural inconsistency: the existence of two separate, non-equivalent validation logics for WAS bundles. The production API was using a lightweight validator, while the more robust, schema-aware validator was confined to a standalone tool.
 
-To mitigate the risks of divergence and ensure system-wide consistency, a **Phase 02 - Hardening** task group has been initiated to unify the validation logic before proceeding to Phase 03.
+To mitigate risks and ensure system-wide consistency, a **Phase 02 - Hardening** effort has been initiated to address several architectural inconsistencies discovered during the final review. This includes unifying validation logic, aligning data models, and centralizing shared code.
 
-**Action Item:** See **Task Group 2.8** in `TASKS.md` for the implementation plan. This work is considered a prerequisite for Phase 03.
+**Action Item:** See **Task Groups 2.8 through 2.11** in `TASKS.md` for the full implementation plan. The completion of this entire hardening effort is a prerequisite for Phase 03.

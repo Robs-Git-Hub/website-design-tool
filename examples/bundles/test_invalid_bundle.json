@@ -23,6 +23,6 @@
     "visual_atmosphere": "invalid_atmosphere_id"
   },
   "layer4_trends": {
-    "subculture": "invalid_trend_id"
+    "invalid_trend_id": 0.5
   }
 }
