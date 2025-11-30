@@ -11,7 +11,7 @@ import { OpenRouterService } from '../services/openrouter.js';
 import { promptLoader } from '../services/promptLoader.js';
 import { validateGenerateRequest } from '../middleware/validateRequest.js';
 import { WASBundleValidator } from '../../../../tooling/src/validators/bundle_validator.js';
-import type { GenerateRequest, GenerateResponse, WASBundle, ValidationError } from '../types/was.js';
+import type { GenerateRequest, GenerateResponse, WASBundle, ValidationError } from '../../common/src/types/was.js';
 import { logger } from '../services/logger.js';
 
 // ES module equivalent of __dirname

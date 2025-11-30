@@ -4,7 +4,7 @@
 
 import { Router } from 'express';
 import type { Request, Response } from 'express';
-import type { ModelInfo } from '../types/was.js';
+import type { ModelInfo } from '../../common/src/types/was.js';
 
 const router = Router();
 

@@ -7,14 +7,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "resolveJsonModule": true,
-    "rootDir": "..",
-    "outDir": "./dist",
     "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "forceConsistentCasingInFileNames": true
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
-  "include": ["src/**/*", "../../tooling/src/validators/**/*", "../common/src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

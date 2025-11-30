@@ -3,7 +3,7 @@ import { usePromptWatcher } from './hooks/usePromptWatcher';
 import { apiService } from './services/api';
 import type { ImageData } from './services/openrouter';
 import { downloadBundle, saveBundleToHistory } from './utils/bundleSaver';
-import type { WASBundle, ValidationResult } from './types/was';
+import type { WASBundle, ValidationResult } from '../../common/src/types/was';
 import './App.css';
 
 const EXAMPLE_PROMPTS = [

@@ -1,11 +1,15 @@
 /**
- * Website Aesthetic Schema (WAS) Bundle Types
+ * Website Aesthetic Schema (WAS) - Central Type Definitions
+ *
+ * This file is the single source of truth for all WAS-related types,
+ * shared across the orchestrator-api and orchestrator-ui packages.
  */
 
+// Core WAS Bundle Structure
 export interface WASBundle {
   meta: {
-    bundle_id: string; // Programmatically injected
-    created_at: string; // Programmatically injected (ISO-8601)
+    bundle_id?: string; // Programmatically injected by API
+    created_at?: string; // Programmatically injected by API (ISO-8601)
     intent_summary: string; // LLM-generated
     intent_keywords: string[]; // LLM-generated
   };
@@ -31,12 +35,10 @@ export interface WASBundle {
     illustration_style?: string;
     motion_mechanics?: string;
   };
-  layer4_trends?: Record<string, number>; // Weights 0.0-1.0 (like layer2_styles)
+  layer4_trends?: Record<string, number>; // Weights 0.0-1.0
 }
 
-/**
- * Validation Error Types
- */
+// Validation Types
 export type ValidationErrorType = 'json_structure' | 'schema_violation';
 
 export interface ValidationError {
@@ -50,20 +52,26 @@ export interface ValidationResult {
   errors?: ValidationError[];
 }
 
-/**
- * Model Capabilities
- */
-export interface ModelCapabilities {
-  supportsStructuredOutput: boolean;
-}
-
+// API and Service Types
 export interface ImageData {
   base64: string;
   mediaType: string;
 }
 
+export interface ModelCapabilities {
+  supportsStructuredOutput: boolean;
+}
+
+export interface ModelInfo {
+  id: string;
+  name: string;
+  recommended?: boolean;
+  description?: string;
+}
+
+// API Request/Response Types for /generate endpoint
 export interface GenerateRequest {
-  userInput: string;
+  userInput?: string;
   model?: string;
   image?: ImageData;
 }
@@ -77,9 +85,19 @@ export interface GenerateResponse {
   generationTime: number;
   model: string;
   attempts: number;
-  initialValidationErrors?: ValidationError[] | null; // Errors from first attempt (if retries were needed)
+  initialValidationErrors?: ValidationError[] | null;
 }
 
+// API Response Type for /health endpoint
+export interface HealthResponse {
+  status: 'healthy' | 'unhealthy';
+  version: string;
+  environment: string;
+  uptime: number;
+  openRouterConfigured: boolean;
+}
+
+// Generic API Error Response
 export interface ErrorResponse {
   error: {
     code: string;
@@ -87,19 +105,4 @@ export interface ErrorResponse {
     details?: any;
   };
   timestamp: number;
-}
-
-export interface ModelInfo {
-  id: string;
-  name: string;
-  recommended?: boolean;
-  description?: string;
-}
-
-export interface HealthResponse {
-  status: 'healthy' | 'unhealthy';
-  version: string;
-  environment: string;
-  uptime: number;
-  openRouterConfigured: boolean;
 }

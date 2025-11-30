@@ -1,0 +1,10 @@
+{
+  "name": "@was/common",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./src/types/was.ts",
+  "types": "./src/types/was.ts",
+  "exports": {
+    "./types/was": "./src/types/was.ts"
+  }
+}

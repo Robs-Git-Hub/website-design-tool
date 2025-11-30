@@ -5,7 +5,7 @@
  */
 
 import axios from 'axios';
-import type { WASBundle, ImageData, ModelCapabilities } from '../types/was.js';
+import type { WASBundle, ImageData, ModelCapabilities } from '../../common/src/types/was.js';
 
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
