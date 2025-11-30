@@ -7,7 +7,7 @@ import type { Request, Response } from 'express';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import type { HealthResponse } from '../types/was.js';
+import type { HealthResponse } from '../../common/src/types/was.js';
 
 const router = Router();
 const startTime = Date.now();

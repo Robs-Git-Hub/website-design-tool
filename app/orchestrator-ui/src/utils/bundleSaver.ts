@@ -4,7 +4,7 @@
  * Handles saving/downloading WAS bundles to local storage and file system
  */
 
-import type { WASBundle } from '../types/was';
+import type { WASBundle } from '../../../common/src/types/was';
 
 /**
  * Generate a filename for a WAS bundle based on keywords and timestamp

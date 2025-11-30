@@ -3,7 +3,7 @@
  */
 
 import type { Request, Response, NextFunction } from 'express';
-import type { ErrorResponse } from '../types/was.js';
+import type { ErrorResponse } from '../../common/src/types/was.js';
 import { logger } from '../services/logger.js';
 
 export function errorHandler(

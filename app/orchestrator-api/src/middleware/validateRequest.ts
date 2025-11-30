@@ -3,7 +3,7 @@
  */
 
 import type { Request, Response, NextFunction } from 'express';
-import type { GenerateRequest } from '../types/was.js';
+import type { GenerateRequest } from '../../common/src/types/was.js';
 
 export function validateGenerateRequest(
   req: Request,

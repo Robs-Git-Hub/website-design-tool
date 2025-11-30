@@ -5,7 +5,7 @@
  */
 
 import axios from 'axios';
-import type { WASBundle, ValidationResult } from '../types/was';
+import type { WASBundle, ValidationResult } from '../../../common/src/types/was';
 import type { ImageData } from './openrouter';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api/v1';

@@ -10,6 +10,7 @@ node_modules/
 dist/
 build/
 *.js.map
+app/orchestrator-ui/public/prompts/
 
 # IDE
 .vscode/
