@@ -5,16 +5,26 @@
 import { Router } from 'express';
 import type { Request, Response } from 'express';
 import { randomUUID } from 'crypto';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
 import { OpenRouterService } from '../services/openrouter.js';
 import { promptLoader } from '../services/promptLoader.js';
 import { validateGenerateRequest } from '../middleware/validateRequest.js';
-import { validateBundle, formatErrorsForLLM } from '../services/validator.js';
-import type { GenerateRequest, GenerateResponse, WASBundle } from '../types/was.js';
+import { WASBundleValidator } from '../../../../tooling/src/validators/bundle_validator.js';
+import type { GenerateRequest, GenerateResponse, WASBundle, ValidationError } from '../types/was.js';
 import { logger } from '../services/logger.js';
+
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const router = Router();
 
 const MAX_ATTEMPTS = 3;
+
+// Initialize the authoritative WAS Bundle Validator
+const dataDir = path.resolve(__dirname, '../../../../data');
+const validator = new WASBundleValidator(dataDir);
 
 router.post('/', validateGenerateRequest, async (req: Request, res: Response) => {
   const { userInput, model, image } = req.body as GenerateRequest;
@@ -53,6 +63,7 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
     let lastValidation: any = null;
     let lastModelCapabilities: any = null;
     let attempts = 0;
+    let initialValidationErrors: ValidationError[] | null = null;
 
     for (let i = 0; i < MAX_ATTEMPTS; i++) {
       attempts = i + 1;
@@ -63,9 +74,9 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
         // Attempt 3: Retry with error feedback appended to userInput
         let currentUserInput = userInput || '';
 
-        if (i === 2 && lastValidation && !lastValidation.valid) {
+        if (i === 2 && lastValidation && !lastValidation.isValid) {
           // Third attempt: add error feedback
-          const errorFeedback = formatErrorsForLLM(lastValidation.errors || []);
+          const errorFeedback = WASBundleValidator.formatErrorsForLLM(lastValidation.errors || []);
           currentUserInput = `${userInput || ''}\n\n---\nPREVIOUS ATTEMPT HAD ERRORS:\n${errorFeedback}`;
 
           logger.info('generate', `Attempt ${attempts}: Retrying with error feedback`, {
@@ -91,10 +102,21 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
         lastFeedback = llmResponse.feedback;
         lastModelCapabilities = llmResponse.modelCapabilities;
 
-        // Validate bundle
-        lastValidation = validateBundle(lastBundle);
+        // Validate bundle using authoritative validator
+        const validationResult = validator.validate(lastBundle);
 
-        if (lastValidation.valid) {
+        // Store first attempt's errors for transparency
+        if (i === 0 && !validationResult.isValid) {
+          initialValidationErrors = validationResult.errors;
+        }
+
+        // Convert ValidationResult to API format
+        lastValidation = {
+          valid: validationResult.isValid,
+          errors: validationResult.errors.length > 0 ? validationResult.errors : undefined,
+        };
+
+        if (validationResult.isValid) {
           logger.info('generate', `Attempt ${attempts}: Valid bundle generated`, {
             model: selectedModel,
             attempts,
@@ -104,8 +126,8 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
           logger.warn('generate', `Attempt ${attempts}: Bundle validation failed`, {
             model: selectedModel,
             attempts,
-            errorCount: lastValidation.errors?.length || 0,
-            errors: lastValidation.errors,
+            errorCount: validationResult.errors.length,
+            errors: validationResult.errors,
           });
         }
       } catch (attemptError) {
@@ -139,6 +161,7 @@ router.post('/', validateGenerateRequest, async (req: Request, res: Response) =>
       generationTime,
       model: selectedModel,
       attempts,
+      initialValidationErrors: initialValidationErrors,
     };
 
     logger.info('generate', 'Bundle generation complete', {
