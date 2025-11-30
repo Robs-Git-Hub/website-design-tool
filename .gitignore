@@ -24,3 +24,4 @@ Thumbs.db
 Secrets
 *.env
 repomix-output.xml
+*.diff
