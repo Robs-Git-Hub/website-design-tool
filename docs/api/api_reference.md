@@ -81,8 +81,9 @@ Generates a WAS bundle from user input using an LLM. Includes automatic validati
       "minimalist": 0.7
     },
     "layer3_lexicon": {
-      "primary_bg": "#1a1a2e",
-      "accent": "#00d4ff"
+      "visual_atmosphere": "sleek digital workspace with layered depth",
+      "palette_trait": "cool blues with electric cyan accents",
+      "surface_texture": "translucent frosted glass with subtle glow"
     },
     "layer4_trends": {
       "saas_2020_dark_mode": 0.9,

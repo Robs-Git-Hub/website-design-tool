@@ -16,7 +16,7 @@ A local web application for generating Website Aesthetic Schema (WAS) bundles us
 
 - Node.js (v16 or later)
 - npm
-- OpenRouter API key ([Get one here](https://openrouter.ai/keys))
+- Running backend API server (see `../orchestrator-api/README.md`)
 
 ### Installation
 
@@ -25,15 +25,9 @@ A local web application for generating Website Aesthetic Schema (WAS) bundles us
    npm install
    ```
 
-2. Create a `.env` file in this directory:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Add your OpenRouter API key to `.env`:
-   ```
-   VITE_OPENROUTER_API_KEY=your_api_key_here
-   ```
+2. Ensure the backend API is running:
+   - The backend must be running on `http://localhost:3001` for the UI to function
+   - See `../orchestrator-api/README.md` for backend setup instructions
 
 ## Running the Application
 
@@ -62,7 +56,8 @@ npm run preview
    - Be descriptive about mood, style, colors, and purpose
 
 2. **Generate Bundle**: Click "Generate WAS Bundle"
-   - The app will call OpenRouter API with the system prompt
+   - The UI sends your input to the backend API
+   - The backend calls OpenRouter with the system prompt and handles validation/retries
    - Generated bundle will appear below
 
 3. **Save Bundle**: Click "Save Bundle" to download as JSON
@@ -72,9 +67,11 @@ npm run preview
 ## Architecture
 
 - **Frontend**: React + TypeScript + Vite
-- **API**: OpenRouter (Claude 3.5 Sonnet by default)
-- **System Prompt**: Loaded from `../../prompts/orchestrator_system_prompt.md`
-- **File Watching**: Polling-based detection (every 3 seconds)
+- **Backend API**: Express server (`../orchestrator-api`) on `http://localhost:3001`
+- **LLM Provider**: OpenRouter (Claude 3.5 Sonnet by default)
+- **Request Flow**: UI → Backend API → OpenRouter → Backend (validation/retry) → UI
+- **System Prompt**: Loaded by backend from `../../prompts/orchestrator_system_prompt.md`
+- **File Watching**: Polling-based detection (every 3 seconds) for prompt changes
 
 ## Project Structure
 
@@ -108,6 +105,6 @@ The UI will automatically detect the change and reload the prompt within 3 secon
 
 ## Notes
 
-- API key is stored in browser environment variables (not sent to any server except OpenRouter)
+- OpenRouter API key is securely stored in the backend server (never exposed to browser)
 - Bundle history is stored in browser localStorage (last 20 bundles)
-- The app uses Claude 3.5 Sonnet by default (you can change this in `src/services/openrouter.ts`)
+- The backend uses Claude 3.5 Sonnet by default (configurable in backend settings)
