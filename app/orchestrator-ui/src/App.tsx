@@ -3,7 +3,7 @@ import { usePromptWatcher } from './hooks/usePromptWatcher';
 import { apiService } from './services/api';
 import type { ImageData } from './services/openrouter';
 import { downloadBundle, saveBundleToHistory } from './utils/bundleSaver';
-import type { WASBundle } from './types/was';
+import type { WASBundle, ValidationResult } from './types/was';
 import './App.css';
 
 const EXAMPLE_PROMPTS = [
@@ -28,6 +28,7 @@ function App() {
   const [selectedModel, setSelectedModel] = useState(AVAILABLE_MODELS[0].id);
   const [uploadedImage, setUploadedImage] = useState<(ImageData & { preview: string }) | null>(null);
   const [generatedBundle, setGeneratedBundle] = useState<WASBundle | null>(null);
+  const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showPrompt, setShowPrompt] = useState(false);
@@ -139,6 +140,7 @@ function App() {
       });
 
       setGeneratedBundle(response.bundle);
+      setValidationResult(response.validation);
       saveBundleToHistory(response.bundle);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to generate bundle');
@@ -323,6 +325,35 @@ function App() {
                 </button>
               </div>
             </div>
+
+            {/* Validation Results */}
+            {validationResult && (
+              <div className={`validation-box ${validationResult.valid ? 'validation-success' : 'validation-error'}`}>
+                <h3>
+                  {validationResult.valid ? '✅ Validation Passed' : '⚠️ Validation Issues'}
+                </h3>
+                {validationResult.valid ? (
+                  <p className="validation-message">
+                    All schema compliance checks passed successfully.
+                  </p>
+                ) : (
+                  <div className="validation-errors">
+                    <p className="validation-message">
+                      The bundle has {validationResult.errors?.length || 0} validation error(s):
+                    </p>
+                    <ul className="error-list">
+                      {validationResult.errors?.map((error, idx) => (
+                        <li key={idx} className="error-item">
+                          <span className="error-type">[{error.type}]</span>
+                          {error.path && <span className="error-path">{error.path}: </span>}
+                          <span className="error-message">{error.message}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Quick Summary */}
             <div className="summary-box">

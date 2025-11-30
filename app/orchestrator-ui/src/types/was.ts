@@ -31,3 +31,19 @@ export interface WASBundle {
   };
   layer4_trends?: Record<string, number>;
 }
+
+/**
+ * Validation Error Types
+ */
+export type ValidationErrorType = 'json_structure' | 'schema_violation';
+
+export interface ValidationError {
+  type: ValidationErrorType;
+  path?: string;
+  message: string;
+}
+
+export interface ValidationResult {
+  valid: boolean;
+  errors?: ValidationError[];
+}
