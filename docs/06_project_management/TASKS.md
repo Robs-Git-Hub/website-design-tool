@@ -129,8 +129,8 @@
     *   Delete the outdated test script `app/orchestrator-ui/test-example1.js`.
     *   Create a new, simple test script that demonstrates calling the backend API, reflecting the actual application workflow.
 *   [ ] **Update API Documentation:**
-    *   Delete the outdated API design document: `docs/api/api-design.md`.
-    *   Review and update `docs/api/api_reference.md` to ensure it is 100% consistent with the unified `WASBundle` type created in Task Group 2.10.
+    *   Delete the outdated API design document: `docs/04_api_reference/api-design.md` (if it exists).
+    *   Review and update `docs/04_api_reference/api_reference.md` to ensure it is 100% consistent with the unified `WASBundle` type created in Task Group 2.10.
 
 **ORDER OF EXECUTION:** These task groups should be completed in order: **2.9 → 2.10 → 2.11**.
 

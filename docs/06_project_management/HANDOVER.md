@@ -73,8 +73,8 @@ website-design-tool/
 
 **For Orientation:**
 1. **`app/orchestrator-api/README.md`** - ⚠️ **READ THIS FIRST!** Backend API setup, endpoints, deployment instructions, cold start warnings
-2. **`docs/project-management/phases/phase_02_tooling.md`** - Current phase status, see Section 2.3 for backend API
-3. **`docs/project-management/TASKS.md`** - Task checklist with Task Group 2.5 (Backend API completion status)
+2. **`docs/06_project_management/phases/phase_02_tooling.md`** - Current phase status, see Section 2.3 for backend API
+3. **`docs/06_project_management/TASKS.md`** - Task checklist with Task Group 2.5 (Backend API completion status)
 
 **For API Usage (REQUIRED):**
 4. **`docs/playbooks/API_DESIGN_SPECIFICATION.md`** - ⚠️ **MUST READ!** Complete API reference with schemas, request/response formats
@@ -254,7 +254,7 @@ website-design-tool/
 
 ### 🚀 Recommended Next Steps: Phase 3 - The Second Link
 
-Phase 3 translates WAS bundles into industry-standard specifications. See `docs/project-management/phases/phase_03_the_second_link.md` for details.
+Phase 3 translates WAS bundles into industry-standard specifications. See `docs/06_project_management/phases/phase_03_the_second_link.md` for details.
 
 **Track A: Theme Translation (theme.json)**
 - Define translation prompt to convert WAS Layer 3 visual traits → W3C Design Tokens
@@ -384,7 +384,7 @@ git push -u origin claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
 ## 💡 Tips for Next Session
 
 1. **Read Lessons Learned First:**
-   - Check `docs/project-management/LESSONS_LEARNED.md` before starting work
+   - Check `docs/06_project_management/LESSONS_LEARNED.md` before starting work
    - Contains critical insights from Phase 2 (patience, documentation, validators, etc.)
 
 2. **Testing the Backend API:**

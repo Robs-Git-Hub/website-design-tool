@@ -236,8 +236,8 @@ These 3 examples cover:
 ## Related Documentation
 
 - **Test Plan:** [TEST_PLAN.md](TEST_PLAN.md) - Detailed test scenarios and success criteria
-- **Testing Overview:** [docs/testing/testing_overview.md](../../docs/testing/testing_overview.md) - Complete testing strategy
-- **Validation Rules:** [docs/testing/validation_rules.md](../../docs/testing/validation_rules.md) - Schema compliance requirements
+- **Testing Overview:** [docs/05_guides_and_playbooks/testing/testing_overview.md](../../docs/05_guides_and_playbooks/testing/testing_overview.md) - Complete testing strategy
+- **Validation Rules:** [docs/05_guides_and_playbooks/testing/validation_rules.md](../../docs/05_guides_and_playbooks/testing/validation_rules.md) - Schema compliance requirements
 
 ---
 

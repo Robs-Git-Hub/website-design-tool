@@ -24,10 +24,10 @@ AI coding agents (Claude Code, GitHub Copilot, etc.) and human developers who ne
 
 ## What Does NOT Belong Here
 
-- **Conceptual Documentation**: Vision, architecture decisions → `docs/architecture/`
-- **API References**: Endpoint specs → `docs/api/`
-- **Project Planning**: Phases, tasks → `docs/project-management/`
-- **Testing Strategy**: High-level test plans → `docs/testing/`
+- **Conceptual Documentation**: Vision, architecture decisions → `docs/01_strategy_and_vision/`, `docs/03_architecture_and_decisions/`
+- **API References**: Endpoint specs → `docs/04_api_reference/`
+- **Project Planning**: Phases, tasks → `docs/06_project_management/`
+- **Testing Strategy**: High-level test plans → `docs/05_guides_and_playbooks/testing/`
 
 ## Format
 
