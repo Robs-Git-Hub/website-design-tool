@@ -30,6 +30,6 @@
     "typography_mechanics": "mono_ui"
   },
   "layer4_trends": {
-    "subculture": "dark_academia"
+    "dark_academia": 0.7
   }
 }

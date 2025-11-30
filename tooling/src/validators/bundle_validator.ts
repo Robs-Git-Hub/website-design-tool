@@ -364,12 +364,21 @@ export class WASBundleValidator {
   }
 
   private validateLayer4(layer4: any, result: ValidationResult) {
-    for (const [trendCategory, trendId] of Object.entries(layer4)) {
+    for (const [trendId, weight] of Object.entries(layer4)) {
       // Validate ID exists
-      if (!this.validationData.layer4TrendIds.has(trendId as string)) {
+      if (!this.validationData.layer4TrendIds.has(trendId)) {
         result.addError(
-          `layer4_trends.${trendCategory}`,
+          `layer4_trends.${trendId}`,
           `Trend ID '${trendId}' not found in layer4_societal_trends_instances.toml`
+        );
+      }
+
+      // The Zod schema already validates that the weight is a number between 0.0 and 1.0.
+      // We can add a warning for extreme values if desired.
+      if (typeof weight === 'number' && (weight === 0 || weight === 1)) {
+        result.addWarning(
+          `layer4_trends.${trendId}`,
+          `Weight is ${weight}. Consider if this extreme value is intentional.`
         );
       }
     }
