@@ -22,7 +22,11 @@ app/orchestrator-ui/public/prompts/
 .DS_Store
 Thumbs.db
 
-Secrets
+# Secrets
 *.env
-merged_changes.diff
+
+# Diffs and repomixes
+*.diff
 repomix-output.xml
+repomix-output.xml
+
