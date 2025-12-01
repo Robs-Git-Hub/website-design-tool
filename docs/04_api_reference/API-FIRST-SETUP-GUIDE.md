@@ -344,7 +344,7 @@ You'll know the setup is complete when:
 
 1. **Design API endpoint first**
    - Define request/response schemas
-   - Add to `docs/api-design.md`
+   - Add to `docs/04_api_reference/api_reference.md`
 
 2. **Claude Code implements API**
    - Add route in `app/orchestrator-api/src/routes/`

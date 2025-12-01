@@ -17,7 +17,7 @@ This file contains Claude Code-specific setup and workflows.
 
 ## First Steps in New Session
 
-1. **Read HANDOVER.md**: `docs/project-management/HANDOVER.md`
+1. **Read HANDOVER.md**: `docs/06_project_management/HANDOVER.md`
    - Current project state
    - Active branch
    - Known issues
@@ -32,7 +32,7 @@ This file contains Claude Code-specific setup and workflows.
    cd ../app/orchestrator-ui && npm install
    ```
 
-4. **Review Lessons Learned**: `docs/project-management/LESSONS_LEARNED.md`
+4. **Review Lessons Learned**: `docs/06_project_management/LESSONS_LEARNED.md`
    - Avoid past mistakes (cold starts, documentation, etc.)
 
 ## Key Capabilities & Limitations
@@ -109,7 +109,7 @@ git push -u origin <branch-name>
 
 ## Project-Specific Patterns
 
-See `docs/coding_assistant_guides/` for:
+See `docs/05_guides_and_playbooks/coding_assistant_guides/` for:
 - ES modules patterns (`import.meta.url` not `require.main`)
 - Git path management (use absolute paths from repo root)
 - Structured logging patterns
@@ -117,10 +117,10 @@ See `docs/coding_assistant_guides/` for:
 
 ## Need Help?
 
-1. **Current State**: `docs/project-management/HANDOVER.md`
-2. **Lessons Learned**: `docs/project-management/LESSONS_LEARNED.md`
-3. **Phase Docs**: `docs/project-management/phases/`
-4. **Architecture**: `docs/architecture/`
+1. **Current State**: `docs/06_project_management/HANDOVER.md`
+2. **Lessons Learned**: `docs/06_project_management/LESSONS_LEARNED.md`
+3. **Phase Docs**: `docs/06_project_management/phases/`
+4. **Architecture**: `docs/03_architecture_and_decisions/`
 5. **General Agent Guide**: `AGENTS.md`
 
 ---

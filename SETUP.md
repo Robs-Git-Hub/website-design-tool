@@ -177,5 +177,5 @@ Expected console output:
 ## Next Steps
 
 - Read `CLAUDE.md` for Claude Code-specific instructions
-- Read `docs/project-management/HANDOVER.md` for project context
+- Read `docs/06_project_management/HANDOVER.md` for project context
 - Try the example prompts in the UI

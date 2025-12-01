@@ -90,49 +90,51 @@
 
 ---
 
-# PHASE 02 - HARDENING (CURRENT PRIORITY)
+# PHASE 02 - HARDENING ✅ **COMPLETE**
 
 **Goal:** Address critical architectural inconsistencies discovered upon completion of Phase 02, ensuring a stable foundation for Phase 03.
 
-## Task Group 2.8: Unify Bundle Validation Logic
+**Status:** All hardening tasks verified complete (2025-12-01). System now has unified validation, aligned data models, centralized shared code, and updated documentation.
 
-*   [ ] **Centralize Validator:** Refactor the system to use `tooling/src/validators/bundle_validator.ts` as the single source of truth for all validation.
-*   [ ] **Deprecate API Validator:** Delete the lightweight validator at `app/orchestrator-api/src/services/validator.ts`.
-*   [ ] **Integrate Validator in API:** Modify the `/api/v1/generate` route to import and use the authoritative validator from the `tooling/` directory.
-*   [ ] **Enhance API Response:** Update the `GenerateResponse` type and logic to include `attempts` and `initialValidationErrors` to provide transparent feedback to the UI and AI agents.
-*   [ ] **Verify and Test:** Confirm that the API, UI, and standalone validation tool all function correctly after the refactor.
+## Task Group 2.8: Unify Bundle Validation Logic ✅ **COMPLETE**
 
-## Task Group 2.9: Align `layer4_trends` Data Model
+*   [x] **Centralize Validator:** Refactor the system to use `tooling/src/validators/bundle_validator.ts` as the single source of truth for all validation.
+*   [x] **Deprecate API Validator:** Delete the lightweight validator at `app/orchestrator-api/src/services/validator.ts`.
+*   [x] **Integrate Validator in API:** Modify the `/api/v1/generate` route to import and use the authoritative validator from the `tooling/` directory.
+*   [x] **Enhance API Response:** Update the `GenerateResponse` type and logic to include `attempts` and `initialValidationErrors` to provide transparent feedback to the UI and AI agents.
+*   [x] **Verify and Test:** Confirm that the API, UI, and standalone validation tool all function correctly after the refactor.
 
-*   [ ] **Update Schema:** Modify `schema/site_bundle_schema.toml` to define `layer4_trends` as a map of trend IDs to float values (numeric weights 0.0-1.0).
-*   [ ] **Update Example Bundles:** Correct the structure of `layer4_trends` in all `.toml` and `.json` files within `examples/bundles/` to use the numeric weights format.
-*   [ ] **Review Validator:** Ensure the `validateLayer4` logic in `tooling/src/validators/bundle_validator.ts` correctly validates the new key-value map structure.
+## Task Group 2.9: Align `layer4_trends` Data Model ✅ **COMPLETE**
 
-## Task Group 2.10: Centralize Shared Code and Remove Duplicates
+*   [x] **Update Schema:** Modify `schema/site_bundle_schema.toml` to define `layer4_trends` as a map of trend IDs to float values (numeric weights 0.0-1.0).
+*   [x] **Update Example Bundles:** Correct the structure of `layer4_trends` in all `.toml` and `.json` files within `examples/bundles/` to use the numeric weights format.
+*   [x] **Review Validator:** Ensure the `validateLayer4` logic in `tooling/src/validators/bundle_validator.ts` correctly validates the new key-value map structure.
 
-*   [ ] **Create Common Package:** Create a new directory `app/common/` for shared code.
-*   [ ] **Unify Type Definitions:**
+## Task Group 2.10: Centralize Shared Code and Remove Duplicates ✅ **COMPLETE**
+
+*   [x] **Create Common Package:** Create a new directory `app/common/` for shared code.
+*   [x] **Unify Type Definitions:**
     *   Create a single source of truth for types at `app/common/src/types/was.ts`.
     *   Synthesize the correct, complete `WASBundle` type in this new file.
     *   Delete the divergent type files from `app/orchestrator-api/src/types/` and `app/orchestrator-ui/src/types/`.
     *   Update all import paths in both the API and UI projects to reference the new central types file.
     *   Update `tsconfig.json` files as needed to resolve the new paths.
-*   [ ] **Remove Duplicated System Prompt:**
+*   [x] **Remove Duplicated System Prompt:**
     *   Delete the committed file at `app/orchestrator-ui/public/prompts/orchestrator_system_prompt.md`.
     *   Add `app/orchestrator-ui/public/prompts/` to the root `.gitignore` file.
     *   Verify the `vite.config.ts` build script correctly copies the prompt from the root `prompts/` directory.
 
-## Task Group 2.11: Update Documentation and Tests for Architectural Accuracy
+## Task Group 2.11: Update Documentation and Tests for Architectural Accuracy ✅ **COMPLETE**
 
-*   [ ] **Update Frontend Docs & Tests:**
+*   [x] **Update Frontend Docs & Tests:**
     *   Modify `app/orchestrator-ui/README.md` to remove instructions about OpenRouter keys and correctly describe the UI-to-Backend architecture.
     *   Delete the outdated test script `app/orchestrator-ui/test-example1.js`.
     *   Create a new, simple test script that demonstrates calling the backend API, reflecting the actual application workflow.
-*   [ ] **Update API Documentation:**
-    *   Delete the outdated API design document: `docs/api/api-design.md`.
-    *   Review and update `docs/api/api_reference.md` to ensure it is 100% consistent with the unified `WASBundle` type created in Task Group 2.10.
+*   [x] **Update API Documentation:**
+    *   Delete the outdated API design document: `docs/04_api_reference/api-design.md` (if it exists).
+    *   Review and update `docs/04_api_reference/api_reference.md` to ensure it is 100% consistent with the unified `WASBundle` type created in Task Group 2.10.
 
-**ORDER OF EXECUTION:** These task groups should be completed in order: **2.9 → 2.10 → 2.11**.
+**ORDER OF EXECUTION:** These task groups should be completed in order: **2.9 → 2.10 → 2.11**. ✅ **ALL COMPLETE**
 
 ---
 
@@ -416,3 +418,17 @@
 
 *   [ ] Implement weighted aesthetic inheritance (Trend -> Style -> Axis).
 *   [ ] Populate Sources Registry with rigorous citations.
+
+---
+
+# PHASE 03 — THE SECOND LINK (VIBE → COAL FACE)
+
+**Goal:** Develop the generative prompts and schemas to translate WAS Bundles into Industry Standard Specs and developer-ready artifacts.
+
+## Task Group 3.1: Implement the Theme Generation Pipeline (Track A)
+
+*   [ ] **Research:** Finalize and document the target `theme.json` structure based on the W3C Design Tokens specification.
+*   [ ] **Prompt Engineering:** Create the system prompt (`prompts/theme_generator_prompt.md`) that instructs an LLM to convert a WAS Bundle into the target `theme.json` format.
+*   [ ] **Generator Implementation:** Build the script or API endpoint that orchestrates the call to the LLM with the new prompt.
+*   [ ] **Transformer for Tailwind:** Create a deterministic script at `tooling/src/transformers/tokens-to-tailwind.ts` that converts a `theme.json` file into a `tailwind.theme.js` module.
+*   [ ] **Testing:** Create a test suite to validate that the generated `theme.json` is compliant and that the transformed Tailwind config is correct.

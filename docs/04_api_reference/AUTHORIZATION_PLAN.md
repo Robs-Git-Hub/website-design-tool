@@ -340,7 +340,7 @@ When implementing this feature:
 
 ## References
 
-- Current API Reference: `docs/api/api_reference.md`
+- Current API Reference: `docs/04_api_reference/api_reference.md`
 - Backend API README: `app/orchestrator-api/README.md`
 - Frontend API Service: `app/orchestrator-ui/src/services/api.ts`
 - Express Auth Patterns: https://expressjs.com/en/advanced/best-practice-security.html
