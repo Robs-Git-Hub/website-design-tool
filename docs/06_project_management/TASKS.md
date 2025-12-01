@@ -432,3 +432,28 @@
 *   [ ] **Generator Implementation:** Build the script or API endpoint that orchestrates the call to the LLM with the new prompt.
 *   [ ] **Transformer for Tailwind:** Create a deterministic script at `tooling/src/transformers/tokens-to-tailwind.ts` that converts a `theme.json` file into a `tailwind.theme.js` module.
 *   [ ] **Testing:** Create a test suite to validate that the generated `theme.json` is compliant and that the transformed Tailwind config is correct.
+
+## Task Group 3.2: Enhance UI Examples & Input Modalities
+
+**Goal:** Improve the UI's example functionality to leverage multimodal inputs from `examples/test_user_inputs/`, offering a richer user experience and better testing for the Orchestrator.
+
+*   [ ] **3.2.1. Basic Text Description Swap:**
+    *   [ ] Modify the UI (`app/orchestrator-ui/src/App.tsx`) to replace the current hardcoded `EXAMPLE_PROMPTS` with the text descriptions from the 3 example sites in `examples/test_user_inputs/` (e.g., `brainscriptai_description.md`).
+    *   [ ] Update the UI's example buttons to load these new descriptions.
+    *   **Focus:** Provide immediate, relevant examples using existing text inputs.
+
+*   [ ] **3.2.2. Implement Multimodal Example Input (Image-Only):**
+    *   [ ] **UI Logic:** Enhance the UI to allow selecting an image from the example sites (`*_website.png` or `*_blocks.png`) as an input.
+        *   This requires a mechanism to select which example input (e.g., "BrainScript AI - Website Image") to use.
+    *   [ ] **Model Selection Simplification:** Temporarily modify the UI's model selection dropdown to **only show multimodal-capable models** (e.g., Claude 3.5 Sonnet, GPT-4o) when an image-based example is loaded or selected.
+    *   [ ] **Backend Integration:** Ensure the UI correctly encodes and sends the selected image to the backend's `/api/v1/generate` endpoint.
+    *   **Focus:** Enable direct image-to-bundle generation from examples.
+
+*   [ ] **3.2.3. Implement Combined Multimodal Example Input (Image + Text):**
+    *   [ ] Enhance the UI to allow selecting both an image (`*_website.png`) and its corresponding text description (`*_description.md`) from an example site as a combined input.
+    *   [ ] Send both the image and the text description to the backend's `/api/v1/generate` endpoint.
+    *   **Focus:** Demonstrate the power of multimodal AI by providing richer context.
+
+*   [ ] **3.2.4. (Future Consideration) Automate URL Screenshot:**
+    *   [ ] *Note for later phases:* Research and plan for adding functionality to automatically visit a given URL from an example site (`*_url.md`), take a screenshot, and feed that screenshot as an image input to the Orchestrator.
+    *   **Focus:** Fully automate URL-based visual analysis. (This is for a much later phase and remains a conceptual note for now).
