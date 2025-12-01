@@ -38,11 +38,16 @@ Phase 03 builds the **translation layer** from WAS to these concrete specificati
 **Goal:** WAS Visual Traits (L3) → Design Tokens
 
 **Deliverables:**
-- [ ] Research target `theme.json` schema (W3C Design Tokens format)
-- [ ] Document schema in `schema/theme_spec_schema.toml`
-- [ ] Build system prompt for WAS → Theme translation
-- [ ] Implement validator for theme.json output
-- [ ] Test determinism (same bundle → consistent tokens)
+- [ ] **1. W3C Design Tokens Generator:**
+    - [ ] Research and document the target `theme.json` schema based on the W3C Design Tokens format.
+    - [ ] Build a system prompt for the LLM to translate a WAS Bundle into a valid `theme.json` file.
+    - [ ] Implement a validator for the generated `theme.json` output to ensure compliance.
+- [ ] **2. Tailwind Theme Transformer:**
+    - [ ] Create a script (`tooling/src/transformers/tokens-to-tailwind.ts`) that reads a `theme.json` file.
+    - [ ] This script will deterministically convert the standard token format into a JavaScript object compatible with `tailwind.config.js`.
+- [ ] **Testing and Validation:**
+    - [ ] Test that the same WAS bundle consistently produces the same `theme.json`.
+    - [ ] Verify that the generated Tailwind theme object correctly reflects the values from the `theme.json`.
 
 **Example Mapping:**
 ```
@@ -148,20 +153,21 @@ WAS Bundle:
 ```mermaid
 graph TB
     Bundle[WAS Bundle] --> ValidateBundle[Bundle Validator]
-    ValidateBundle --> ThemeGen[Theme Generator<br/>System Prompt]
-    ValidateBundle --> LayoutGen[Layout Generator<br/>System Prompt]
-    ValidateBundle --> ImageGen[Image Brief Generator<br/>System Prompt]
-    ValidateBundle --> VoiceGen[Voice Generator<br/>System Prompt]
 
-    ThemeGen --> ThemeJSON[theme.json<br/>Design Tokens]
-    LayoutGen --> BlueprintJSON[blueprint.json<br/>Layout Structure]
-    ImageGen --> VisualBrief[visual_brief.json<br/>Image Parameters]
-    VoiceGen --> VoiceGuide[voice_guidelines.json<br/>Copy Rules]
+    subgraph "Track A: The Skin"
+        ValidateBundle --> ThemeGen[Theme Generator LLM]
+        ThemeGen --> ThemeJSON[theme.json<br/>W3C Design Tokens]
+        ThemeJSON --> TailwindTransformer[Tailwind Transformer Script]
+        TailwindTransformer --> TailwindTheme[tailwind.theme.js<br/>Tailwind Config Object]
+    end
 
-    ThemeJSON --> DevTools[Developer Tools]
-    BlueprintJSON --> DevTools
-    VisualBrief --> ImageTools[Image Generators]
-    VoiceGuide --> CopyTools[Copywriting Tools]
+    ValidateBundle --> LayoutGen[Layout Generator LLM]
+    ValidateBundle --> ImageGen[Image Brief Generator LLM]
+    ValidateBundle --> VoiceGen[Voice Generator LLM]
+
+    LayoutGen --> BlueprintJSON[blueprint.json]
+    ImageGen --> VisualBrief[visual_brief.json]
+    VoiceGen --> VoiceGuide[voice_guidelines.json]
 ```
 
 ---

@@ -418,3 +418,17 @@
 
 *   [ ] Implement weighted aesthetic inheritance (Trend -> Style -> Axis).
 *   [ ] Populate Sources Registry with rigorous citations.
+
+---
+
+# PHASE 03 — THE SECOND LINK (VIBE → COAL FACE)
+
+**Goal:** Develop the generative prompts and schemas to translate WAS Bundles into Industry Standard Specs and developer-ready artifacts.
+
+## Task Group 3.1: Implement the Theme Generation Pipeline (Track A)
+
+*   [ ] **Research:** Finalize and document the target `theme.json` structure based on the W3C Design Tokens specification.
+*   [ ] **Prompt Engineering:** Create the system prompt (`prompts/theme_generator_prompt.md`) that instructs an LLM to convert a WAS Bundle into the target `theme.json` format.
+*   [ ] **Generator Implementation:** Build the script or API endpoint that orchestrates the call to the LLM with the new prompt.
+*   [ ] **Transformer for Tailwind:** Create a deterministic script at `tooling/src/transformers/tokens-to-tailwind.ts` that converts a `theme.json` file into a `tailwind.theme.js` module.
+*   [ ] **Testing:** Create a test suite to validate that the generated `theme.json` is compliant and that the transformed Tailwind config is correct.
