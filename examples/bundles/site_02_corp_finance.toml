@@ -56,7 +56,7 @@ typography_mechanics = "grotesque_sans" # Objective, neutral presentation.
 component_styling = "sharp_corner"      # Consistent with the rigid grid structure.
 
 # SURFACE & TEXTURE
-surface_texture = "flat_surface"        # No texture to distract from the numbers.
+surface_texture = "matte_surface"        # No texture to distract from the numbers.
 
 # MOTION PHYSICS
 motion_mechanics = "linear_instant"     # Efficiency over delight; tool-like response.
