@@ -69,6 +69,18 @@ WAS Bundle:
 
 ---
 
+### Track E: UI Enhancements (Examples & Inputs)
+
+**Goal:** Improve the Orchestrator UI's utility as a demonstration and testing tool.
+
+**Deliverables:**
+- [ ] Replace static UI examples with the canonical multimodal examples from the repository.
+- [ ] Implement UI logic to handle image-only and image+text example inputs.
+
+**Reference:** See **Task Group 3.2** in `TASKS.md` for the detailed implementation plan.
+
+---
+
 ### Track B: The Skeleton (Layout Blueprint)
 
 **Goal:** User Context + WAS → Page Layout Structure

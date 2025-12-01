@@ -1,8 +1,8 @@
 # Session Handover Document
 
-**Date:** 2025-11-27
-**Branch:** `claude/setup-phase-2-environment-014bjQf8i53ugjSyxDBzFb7X`
-**Status:** ✅ Phase 02 COMPLETE (all tasks finished, tested in production)
+**Date:** 2025-12-01
+**Branch:** `claude/setup-and-onboard-01JRuY88dxfKSuF1bDxECKZL`
+**Status:** ✅ Phase 02 COMPLETE + Hardening COMPLETE | 📋 Phase 03 Task Group 3.2 Planned
 
 ---
 
@@ -241,22 +241,59 @@ website-design-tool/
 
 ## 📋 **TASKS FOR NEXT SESSION - PHASE 3 READY**
 
-### ✅ Phase 2 Complete - All Tasks Done
+### ✅ Phase 2 Complete - All Tasks Done (Including Hardening)
 
-**Completed in this session:**
-1. ✅ Render logs access via custom `/api/v1/logs` endpoint (tested in production)
-2. ✅ Bundle validator with comprehensive Zod schemas (validated production bundles)
-3. ✅ TOML/JSON converters (round-trip tested)
+**Completed in previous sessions:**
+1. ✅ All Phase 02 tooling (validators, converters, logging, health checks)
+2. ✅ Backend API deployment and testing
+3. ✅ Phase 02 Hardening (Task Groups 2.8-2.11):
+   - ✅ Unified bundle validation logic
+   - ✅ Aligned `layer4_trends` data model (numeric weights)
+   - ✅ Centralized shared code (`app/common/`)
+   - ✅ Updated documentation and tests for architectural accuracy
 
-**Phase 2 is now 100% complete and ready for Phase 3!**
+**Completed in this session (2025-12-01):**
+1. ✅ Planned Task Group 3.2: UI Examples & Input Modalities
+2. ✅ Updated `TASKS.md` with detailed implementation steps
+3. ✅ Updated `phase_03_the_second_link.md` with Track E (UI Enhancements)
+4. ✅ Documentation committed and pushed
+
+**Phase 2 is now 100% complete (including hardening) and ready for Phase 3!**
 
 ---
 
-### 🚀 Recommended Next Steps: Phase 3 - The Second Link
+### 🚀 **IMMEDIATE NEXT STEPS: Implement Task Group 3.2 (UI Enhancements)**
 
-Phase 3 translates WAS bundles into industry-standard specifications. See `docs/06_project_management/phases/phase_03_the_second_link.md` for details.
+**Priority 1: Basic Text Description Swap (Task 3.2.1)**
+- **File to modify:** `app/orchestrator-ui/src/App.tsx`
+- **Goal:** Replace hardcoded `EXAMPLE_PROMPTS` with text descriptions from `examples/test_user_inputs/`:
+  - `brainscriptai_description.md`
+  - `greentech_description.md`
+  - `neuraiagency_description.md`
+- **Action:** Read these 3 markdown files and use their content for the example buttons
+- **Benefit:** Immediate improvement - users see real, canonical examples
 
-**Track A: Theme Translation (theme.json)**
+**Priority 2: Multimodal Example Input - Image Only (Task 3.2.2)**
+- **Goal:** Allow selecting images from example sites as input
+- **UI Changes:**
+  - Add example selector dropdown/buttons for images (`*_website.png`, `*_blocks.png`)
+  - Filter model dropdown to show only multimodal-capable models when image is selected
+- **Backend:** Already supports image upload via `/api/v1/generate` endpoint
+- **Benefit:** Demonstrate image-to-bundle generation capability
+
+**Priority 3: Combined Image + Text Input (Task 3.2.3)**
+- **Goal:** Enable selecting both image AND text description from same example site
+- **UI Changes:** Allow multi-modal input (image + text combined)
+- **Backend:** Already supports this via multimodal API
+- **Benefit:** Show the power of multimodal AI with richer context
+
+**See:** `docs/06_project_management/TASKS.md` - Task Group 3.2 for detailed steps
+
+---
+
+### 🎯 Other Phase 3 Tracks (Future Sessions)
+
+**Track A: Theme Translation (Task Group 3.1)**
 - Define translation prompt to convert WAS Layer 3 visual traits → W3C Design Tokens
 - Build theme generator that outputs `theme.json` / Tailwind config
 - Test determinism (same bundle → same theme across runs)
@@ -266,21 +303,16 @@ Phase 3 translates WAS bundles into industry-standard specifications. See `docs/
 - Define blueprint schema for component layouts
 - Build layout generator from WAS context
 
-**Before starting Phase 3:**
-1. Review validator findings (discovered bugs in current system prompt)
-2. Fix system prompt to generate compliant bundles (missing meta fields, Layer 4 format)
-3. Generate test suite of 10+ valid bundles for translation testing
-
 ---
 
 ## 🔧 Development Environment
 
 ### Working Branch
 ```bash
-git checkout claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
+git checkout claude/setup-and-onboard-01JRuY88dxfKSuF1bDxECKZL
 ```
 
-**Branch is 8 commits ahead of main** (backend API work)
+**Current commit:** `f7ed28d` (Task Group 3.2 planning documentation)
 
 ### Key Commands
 
@@ -335,19 +367,17 @@ curl --max-time 120 -X POST \
 git status
 git add .
 git commit -m "message"
-git push -u origin claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
+git push -u origin claude/setup-and-onboard-01JRuY88dxfKSuF1bDxECKZL
 ```
 
 ---
 
 ## 🐛 Known Issues
 
-### 1. System Prompt Generates Invalid Bundles
-**Impact:** Validator discovered production bundles are missing required fields
-**Details:**
-- Missing meta fields: `bundle_id`, `created_at`, `intent_summary`
-- Layer 4 using weights (0.0-1.0) instead of string trend IDs
-**Fix:** Update system prompt template to match schema (high priority for Phase 3)
+### 1. Static UI Examples (Being Fixed)
+**Impact:** UI uses hardcoded generic examples instead of rich test data
+**Status:** ✅ Planned - Task Group 3.2 addresses this
+**Fix:** Next session will implement multimodal example loading from `examples/test_user_inputs/`
 
 ### 2. No Visual Preview
 **Impact:** Can't see what the design will look like
@@ -373,11 +403,13 @@ git push -u origin claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
 
 **✅ PHASE 02 IS COMPLETE - ALL CRITERIA MET**
 
-**Phase 03 Ready When:**
+**Phase 03 Status:**
 - [x] ✅ Bundle validator complete (catches schema violations)
 - [x] ✅ Converters working (round-trip tested)
-- [ ] ⚠️ System prompt fixed (generates valid bundles with all required fields)
-- [ ] ⚠️ Test suite with 10+ validated bundles
+- [x] ✅ Phase 02 Hardening complete (all architectural issues resolved)
+- [x] ✅ Task Group 3.2 planned (UI enhancements fully scoped)
+- [ ] 🚧 Task Group 3.2 implementation (next session priority)
+- [ ] 📋 Task Group 3.1 (Theme generation pipeline - future session)
 
 ---
 
@@ -450,25 +482,36 @@ git push -u origin claude/design-tool-refinement-017rygcdKmhUKTgjuWsrzPAG
 - ✅ Parallel testing infrastructure
 - ✅ Comprehensive documentation
 - ✅ Lessons learned captured
+- ✅ **Phase 02 Hardening complete (Task Groups 2.8-2.11)**
+  - ✅ Unified validation logic
+  - ✅ Aligned data models (`layer4_trends` format)
+  - ✅ Centralized shared code (`app/common/`)
+  - ✅ Updated documentation
 
-**⚠️ Discovered Issues (Need Fixing):**
-- System prompt generates invalid bundles (missing meta fields, Layer 4 format wrong)
-- Need to generate test suite of 10+ valid bundles
+**✅ PHASE 03 PLANNING - COMPLETE:**
+- ✅ Task Group 3.2 fully scoped (UI Examples & Input Modalities)
+- ✅ Documentation updated (`TASKS.md`, `phase_03_the_second_link.md`)
+- ✅ Implementation roadmap ready
 
-**🚀 Ready for Phase 03:**
-- All Phase 02 tooling complete
-- Validator can catch schema violations
-- Converters can handle TOML/JSON
-- Logging provides production visibility
+**🚧 READY TO START:**
+- Task Group 3.2 implementation (UI enhancements)
+- Track E: Replace static examples with canonical multimodal test data
 
-**📋 Waiting:**
-- Rob's input for example shots (deferred)
+**🚀 Phase 03 Infrastructure Ready:**
+- All Phase 02 tooling complete and stable
+- Test data exists in `examples/test_user_inputs/` (3 example sites, 4 input types each)
+- Backend API supports multimodal inputs
+- Clear implementation plan documented
 
 ---
 
-**Last Updated:** 2025-11-27
-**Branch:** `claude/setup-phase-2-environment-014bjQf8i53ugjSyxDBzFb7X`
-**Next Session Focus:**
-1. Fix system prompt to generate schema-compliant bundles
-2. Generate and validate test suite (10+ bundles)
-3. Begin Phase 03 - WAS bundle → industry specs translation
+**Last Updated:** 2025-12-01
+**Branch:** `claude/setup-and-onboard-01JRuY88dxfKSuF1bDxECKZL`
+**Commit:** `f7ed28d` (Task Group 3.2 planning)
+
+**Next Session Priority:**
+1. **Implement Task 3.2.1:** Replace hardcoded UI examples with markdown descriptions from `examples/test_user_inputs/`
+2. **Implement Task 3.2.2:** Add image-only example input with multimodal model filtering
+3. **Implement Task 3.2.3:** Add combined image+text example inputs
+
+**Reference:** See `docs/06_project_management/TASKS.md` - Task Group 3.2 for detailed steps
