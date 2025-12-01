@@ -22,18 +22,6 @@ Inject this entire prompt into the system message of your LLM API call.
 
 ---
 
-### `example_shots_template.md`
-**Status:** 🚧 ROB TO COMPLETE
-**Purpose:** Template for collecting raw design idea inputs
-
-This file needs to be filled with 3-5 diverse design prompts (text, URLs, or images) that will be processed through the Orchestrator to create "gold standard" WAS Bundle examples.
-
-**Next Steps:**
-1. Rob fills in the template with real design ideas
-2. Claude processes each through the Orchestrator prompt
-3. Results become few-shot examples for consistency testing
-
----
 
 ## Future Files
 

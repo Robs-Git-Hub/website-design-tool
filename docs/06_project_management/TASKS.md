@@ -157,7 +157,7 @@
 - [x] **COMPLETE:** Application logging system with HTTP endpoint
 - [x] **COMPLETE:** Health check utility with exponential backoff
 - [x] **COMPLETE:** Render logs access (custom endpoint preferred)
-- [ ] **WAITING:** Example shots creation - ROB TO PROVIDE INPUT DATA
+- [x] **COMPLETE:** Example shots creation
 - [ ] **DEFERRED:** Option D schema generation (dynamic schema)
 
 ---
