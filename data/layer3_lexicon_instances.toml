@@ -190,6 +190,23 @@ tone = { techy = 0.5, premium = 0.3 }
 glassmorphism = 1.0
 material_design = 0.3
 
+[[terms]]
+id = "matte_surface"
+label = "Matte Surface"
+kind = "surface_texture"
+domain = "ui"
+definition = "An opaque, non-reflective surface with no discernible texture. It serves as a neutral, solid background for content and UI elements."
+
+[terms.axes_bias]
+decoration = { plain = 0.8 }
+geometry_depth_depth = { flat = 0.6 }
+tone = { serious = 0.4, neutral = 0.5 }
+
+[terms.style_affinity]
+flat_design = 0.9
+minimalism = 0.8
+swiss_style = 0.7
+
 # ----------------------------------------------------------------------
 # COMPONENT STYLING
 # ----------------------------------------------------------------------
