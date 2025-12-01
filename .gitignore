@@ -24,3 +24,5 @@ Thumbs.db
 
 Secrets
 *.env
+merged_changes.diff
+repomix-output.xml
